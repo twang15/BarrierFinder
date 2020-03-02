@@ -1,0 +1,5 @@
+digraph "CFG for 'snapshot64' function" {
+	label="CFG for 'snapshot64' function";
+
+	Node0x4a5a720 [shape=record,label="{entry:\l  ret void\l}"];
+}

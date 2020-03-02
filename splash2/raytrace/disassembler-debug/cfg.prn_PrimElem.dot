@@ -1,0 +1,9 @@
+digraph "CFG for 'prn_PrimElem' function" {
+	label="CFG for 'prn_PrimElem' function";
+
+	Node0x5f62380 [shape=record,label="{entry:\l  %p.addr = alloca %struct.element*, align 8\l  %b = alloca %struct.bbox, align 8\l  br i1 undef, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x5f62380:s0 -> Node0x5f623d0;
+	Node0x5f62380:s1 -> Node0x5f62420;
+	Node0x5f623d0 [shape=record,label="{if.then:                                          \l  unreachable\l}"];
+	Node0x5f62420 [shape=record,label="{if.end:                                           \l  ret void\l}"];
+}

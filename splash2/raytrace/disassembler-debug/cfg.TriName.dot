@@ -1,0 +1,5 @@
+digraph "CFG for 'TriName' function" {
+	label="CFG for 'TriName' function";
+
+	Node0x60a5b30 [shape=record,label="{entry:\l  ret i8* getelementptr inbounds ([5 x i8]* @.str.431, i32 0, i32 0)\l}"];
+}

@@ -1,0 +1,124 @@
+/*
+* implementation note for getRoots and getRootNode, and CreateHammockCFG
+*/
+   http://llvm.org/docs/doxygen/html/GenericDomTree_8h_source.html#l00385
+
+  //Refer to ForwardDominanceFrontierBase::analyze().
+  //The PostDominatorTree should have only a single Root for Mark Weiser's slicing
+  //algorithm. This is ensured by transform any non-Hammock CFG to a Hammock CFG,
+  //which has a single entry and single exit.
+  //However, the original implementation in LLVMSlicer3.4 is incorrect, because the
+  //author just adds a new entry "start" and a new exit "end", set the original
+  //entry BB as the true target of "start", and new "end" as the false target, then
+  //he splits any loop header BB into two BBs, "header" and "body". 
+  //Then, set "body as the true target of "header" and "end" as the false target.
+  //This is meaningless. Apparently, because there is always at least 1 exit BB
+  //in the original function, he just adds another one without set the new "end" as 
+  //the target of the original exit BB. Thus, a function with a loop and 1 exit block
+  //will be transformed into a function with 2 exit blocks. The reason he did not find
+  //this bug is that he did not verify #roots of PostDominatorTree. Rather, he just assumes
+  //the hammock CFG transformation is correct and takes the 0th roots of the PostDominatorTree.
+  //But, when I did the implementation, I notice this requirement in llvm documentation as
+  //" DominanceFrontierBase::getRoots() has indicated that postDominatorTree may have
+  //several roots, it is the client's responsibility to transform CFG into hammock if
+  //necessary. In the past, llvm also has a reference implementation to do this transformation
+  //https://llvm.org/svn/llvm-project/llvm/tags/RELEASE_16/lib/Analysis/PostDominators.cpp
+  //To fix it, we need identify the original exit BBs with "ReturnInst" as terminator.
+
+//Question: why the DomTreeNode can be null for a BB ?
+//Answer: in the code of DomTree construction.
+
+00373   /// getNode - return the (Post)DominatorTree node for the specified basic
+00374   /// block.  This is the same as using operator[] on this class.  The result
+00375   /// may (but is not required to) be null for a forward (backwards)
+00376   /// statically unreachable block.
+00377   DomTreeNodeBase<NodeT> *getNode(NodeT *BB) const {
+00378     auto I = DomTreeNodes.find(BB);
+00379     if (I != DomTreeNodes.end())
+00380       return I->second.get();
+00381     return nullptr;
+00382   }
+
+   │385       /// getRootNode - This returns the entry node for the CFG of the function.  If                                                                  │
+   │386       /// this tree represents the post-dominance relations for a function, however,                                                                  │
+   │387       /// this root may be a node with the block == NULL.  This is the case when                                                                      │
+   │388       /// there are multiple exit nodes from a particular function.  Consumers of                                                                     │
+   │389       /// post-dominance information must be capable of dealing with this                                                                             │
+   │390       /// possibility.  
+   
+      │54        /// getRoots - Return the root blocks of the current CFG.  This may include                                                                     │
+   │55        /// multiple blocks if we are computing post dominators.  For forward                                                                           │
+   │56        /// dominators, this will always be a single block (the entry node).                                                                            │
+   │57        ///                                                                                                                                             │
+  >│58        const std::vector<NodeT *> &getRoots() const { return Roots; }  
+
+#include "llvm/ADT/SCCIterator.h"
+#include "llvm/Analysis/CallGraph.h"
+#include "llvm/Analysis/CallGraphSCCPass.h"
+
+for (CallGraphSCC::iterator I = SCC.begin(), E = SCC.end(); I != E; ++I)
+
+      CallGraph &CG = getAnalysis<CallGraphWrapperPass>().getCallGraph();
+      // We do a bottom-up SCC traversal of the call graph.  In other words, we
+      // visit all callees before callers (leaf-first).
+      for (scc_iterator<CallGraph *> I = scc_begin(&CG); !I.isAtEnd(); ++I)
+      {
+        //a Callgraph contains many SCCs, most of them are simply a function.
+        //Postorder traversal is bottom-up traversal of Call graph.
+        const std::vector<CallGraphNode *> &SCC = *I;
+        int i = SCC.size();
+        assert(!SCC.empty() && "SCC with no functions?");
+      }
+
+
+//The difference between use and user. They are almost the same. For a value's user, it may be
+//an instruction or expression. For example, pthread_create entry function may be called by other functions
+//directly or be part of expression, which again be used by pthread_create.
+
+//But with minor difference: 
+//http://stackoverflow.com/questions/35370195/llvm-difference-between-uses-and-user-in-instruction-or-value-classes
+      for (Value::use_iterator i = callee->use_begin(), e = callee->use_end(); i != e; ++i)
+      {
+        if (Instruction *Inst = dyn_cast<Instruction>(*i)) 
+        {
+          Inst->dump();
+          (*i).getUser ();
+        }
+      }
+
+//The example to find all the users of "SlaveStart".
+      StringRef funcName = "SlaveStart";
+      Function *callee = M.getFunction(funcName);
+      for(User *U : callee->users())
+      {
+        Instruction *Inst = dyn_cast<Instruction>(U);
+
+        if (Inst != NULL)
+        {
+          Inst->dump();
+        }
+        else
+        {
+          for(User *op: U->users())
+          {
+            if (Instruction *Inst = dyn_cast<Instruction>(op))
+            {
+              Inst->dump();
+            }
+          }
+        }
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

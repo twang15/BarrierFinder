@@ -1,0 +1,5 @@
+digraph "CFG for 'SphName' function" {
+	label="CFG for 'SphName' function";
+
+	Node0x6068da0 [shape=record,label="{entry:\l  ret i8* getelementptr inbounds ([7 x i8]* @.str.404, i32 0, i32 0)\l}"];
+}

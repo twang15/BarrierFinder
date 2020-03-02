@@ -1,0 +1,16 @@
+digraph "CFG for 'GlobalHeapWalk' function" {
+	label="CFG for 'GlobalHeapWalk' function";
+
+	Node0x5ff2da0 [shape=record,label="{entry:\l  %curr = alloca %struct.node*, align 8\l  br label %while.cond\l}"];
+	Node0x5ff2da0 -> Node0x5ff2df0;
+	Node0x5ff2df0 [shape=record,label="{while.cond:                                       \l  br i1 undef, label %while.body, label %while.end\l|{<s0>T|<s1>F}}"];
+	Node0x5ff2df0:s0 -> Node0x5ff2e40;
+	Node0x5ff2df0:s1 -> Node0x5ff2f30;
+	Node0x5ff2e40 [shape=record,label="{while.body:                                       \l  br i1 undef, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x5ff2e40:s0 -> Node0x5ff2e90;
+	Node0x5ff2e40:s1 -> Node0x5ff2ee0;
+	Node0x5ff2e90 [shape=record,label="{if.then:                                          \l  unreachable\l}"];
+	Node0x5ff2ee0 [shape=record,label="{if.end:                                           \l  br label %while.cond\l}"];
+	Node0x5ff2ee0 -> Node0x5ff2df0;
+	Node0x5ff2f30 [shape=record,label="{while.end:                                        \l  ret void\l}"];
+}

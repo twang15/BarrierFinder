@@ -1,0 +1,5 @@
+digraph "CFG for 'snapshot64' function" {
+	label="CFG for 'snapshot64' function";
+
+	Node0x5de38c0 [shape=record,label="{entry:\l  %gvar.addr = alloca i64, align 8\l  %index.addr = alloca i32, align 4\l  ret void\l}"];
+}

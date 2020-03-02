@@ -1,0 +1,23 @@
+digraph "CFG for 'IncrementCounter' function" {
+	label="CFG for 'IncrementCounter' function";
+
+	Node0x42b5ae0 [shape=record,label="{entry:\l  %idx = alloca i32, align 4\l  %i = alloca i32, align 4\l  br label %if.end.7\l}"];
+	Node0x42b5ae0 -> Node0x42b5db0;
+	Node0x42b5b30 [shape=record,label="{if.then:                                          \l  br label %if.end\l}"];
+	Node0x42b5b30 -> Node0x42b5d10;
+	Node0x42b5b80 [shape=record,label="{if.then.1:                                        \l  br label %for.cond\l}"];
+	Node0x42b5b80 -> Node0x42b5bd0;
+	Node0x42b5bd0 [shape=record,label="{for.cond:                                         \l  br label %for.end\l}"];
+	Node0x42b5bd0 -> Node0x42b5cc0;
+	Node0x42b5c20 [shape=record,label="{for.body:                                         \l  br label %for.inc\l}"];
+	Node0x42b5c20 -> Node0x42b5c70;
+	Node0x42b5c70 [shape=record,label="{for.inc:                                          \l  br label %for.cond\l}"];
+	Node0x42b5c70 -> Node0x42b5bd0;
+	Node0x42b5cc0 [shape=record,label="{for.end:                                          \l  br label %if.end\l}"];
+	Node0x42b5cc0 -> Node0x42b5d10;
+	Node0x42b5d10 [shape=record,label="{if.end:                                           \l  br label %if.end.7\l}"];
+	Node0x42b5d10 -> Node0x42b5db0;
+	Node0x42b5d60 [shape=record,label="{if.else:                                          \l  br label %if.end.7\l}"];
+	Node0x42b5d60 -> Node0x42b5db0;
+	Node0x42b5db0 [shape=record,label="{if.end.7:                                         \l  ret void\l}"];
+}

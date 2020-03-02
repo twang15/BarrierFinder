@@ -1,0 +1,9 @@
+I have not touched this code so long that I foget how it worked.
+Now I have to digged out what I have done before, this is especially painful as it was.
+
+But I got no choice.
+
+This lu.bc is copied from previously generated (I don't remember how it was generated)
+But I want to use it to figure out whether front-end (slicer and ld) or middle-end (cloud9) is wrong.
+
+What I have noted is that fft cannot be properly instrumented.

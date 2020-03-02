@@ -1,0 +1,5 @@
+digraph "CFG for 'PolyName' function" {
+	label="CFG for 'PolyName' function";
+
+	Node0x6018b20 [shape=record,label="{entry:\l  ret i8* getelementptr inbounds ([5 x i8]* @.str.366, i32 0, i32 0)\l}"];
+}

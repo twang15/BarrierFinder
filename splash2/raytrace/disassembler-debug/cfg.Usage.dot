@@ -1,0 +1,5 @@
+digraph "CFG for 'Usage' function" {
+	label="CFG for 'Usage' function";
+
+	Node0x5fbe6e0 [shape=record,label="{entry:\l  ret void\l}"];
+}

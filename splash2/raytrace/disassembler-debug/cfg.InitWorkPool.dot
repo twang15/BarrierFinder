@@ -1,0 +1,42 @@
+digraph "CFG for 'InitWorkPool' function" {
+	label="CFG for 'InitWorkPool' function";
+
+	Node0x60f0e20 [shape=record,label="{entry:\l  %pid.addr = alloca i64, align 8\l  %i = alloca i64, align 8\l  %x = alloca i64, align 8\l  %y = alloca i64, align 8\l  %xe = alloca i64, align 8\l  %ye = alloca i64, align 8\l  %xsize = alloca i64, align 8\l  %ysize = alloca i64, align 8\l  store i64 %pid, i64* %pid.addr, align 8\l  %0 = load i64* %pid.addr, align 8\l  %1 = load %struct.gmem** @gm, align 8\l  %wpstat = getelementptr inbounds %struct.gmem* %1, i32 0, i32 6\l  %arrayidx = getelementptr inbounds [128 x [256 x i64]]* %wpstat, i32 0, i64\l... %0\l  %arrayidx1 = getelementptr inbounds [256 x i64]* %arrayidx, i32 0, i64 0\l  store i64 1, i64* %arrayidx1, align 8\l  %2 = load i64* %pid.addr, align 8\l  %3 = load %struct.gmem** @gm, align 8\l  %workpool = getelementptr inbounds %struct.gmem* %3, i32 0, i32 7\l  %arrayidx2 = getelementptr inbounds [128 x [256 x %struct.wpjob*]]*\l... %workpool, i32 0, i64 %2\l  %arrayidx3 = getelementptr inbounds [256 x %struct.wpjob*]* %arrayidx2, i32\l... 0, i64 0\l  store %struct.wpjob* null, %struct.wpjob** %arrayidx3, align 8\l  store i64 0, i64* %i, align 8\l  %4 = load i64* getelementptr inbounds (%struct.display* @Display, i32 0, i32\l... 5), align 8\l  %5 = load i64* @blockx, align 8\l  %div = sdiv i64 %4, %5\l  store i64 %div, i64* %xsize, align 8\l  %6 = load i64* getelementptr inbounds (%struct.display* @Display, i32 0, i32\l... 6), align 8\l  %7 = load i64* @blocky, align 8\l  %div4 = sdiv i64 %6, %7\l  store i64 %div4, i64* %ysize, align 8\l  store i64 0, i64* %y, align 8\l  br label %for.cond\l}"];
+	Node0x60f0e20 -> Node0x60f0e70;
+	Node0x60f0e70 [shape=record,label="{for.cond:                                         \l  %8 = load i64* %y, align 8\l  %9 = load i64* getelementptr inbounds (%struct.display* @Display, i32 0, i32\l... 6), align 8\l  %cmp = icmp slt i64 %8, %9\l  br i1 %cmp, label %for.body, label %for.end.22\l|{<s0>T|<s1>F}}"];
+	Node0x60f0e70:s0 -> Node0x60f0ec0;
+	Node0x60f0e70:s1 -> Node0x60f1320;
+	Node0x60f0ec0 [shape=record,label="{for.body:                                         \l  %10 = load i64* %y, align 8\l  %11 = load i64* %ysize, align 8\l  %add = add nsw i64 %10, %11\l  %12 = load i64* getelementptr inbounds (%struct.display* @Display, i32 0,\l... i32 6), align 8\l  %cmp5 = icmp sgt i64 %add, %12\l  br i1 %cmp5, label %if.then, label %if.else\l|{<s0>T|<s1>F}}"];
+	Node0x60f0ec0:s0 -> Node0x60f0f10;
+	Node0x60f0ec0:s1 -> Node0x60f0f60;
+	Node0x60f0f10 [shape=record,label="{if.then:                                          \l  %13 = load i64* getelementptr inbounds (%struct.display* @Display, i32 0,\l... i32 6), align 8\l  %14 = load i64* %y, align 8\l  %sub = sub nsw i64 %13, %14\l  store i64 %sub, i64* %ye, align 8\l  br label %if.end\l}"];
+	Node0x60f0f10 -> Node0x60f0fb0;
+	Node0x60f0f60 [shape=record,label="{if.else:                                          \l  %15 = load i64* %ysize, align 8\l  store i64 %15, i64* %ye, align 8\l  br label %if.end\l}"];
+	Node0x60f0f60 -> Node0x60f0fb0;
+	Node0x60f0fb0 [shape=record,label="{if.end:                                           \l  store i64 0, i64* %x, align 8\l  br label %for.cond.6\l}"];
+	Node0x60f0fb0 -> Node0x60f1000;
+	Node0x60f1000 [shape=record,label="{for.cond.6:                                       \l  %16 = load i64* %x, align 8\l  %17 = load i64* getelementptr inbounds (%struct.display* @Display, i32 0,\l... i32 5), align 8\l  %cmp7 = icmp slt i64 %16, %17\l  br i1 %cmp7, label %for.body.8, label %for.end\l|{<s0>T|<s1>F}}"];
+	Node0x60f1000:s0 -> Node0x60f1050;
+	Node0x60f1000:s1 -> Node0x60f1280;
+	Node0x60f1050 [shape=record,label="{for.body.8:                                       \l  %18 = load i64* %x, align 8\l  %19 = load i64* %xsize, align 8\l  %add9 = add nsw i64 %18, %19\l  %20 = load i64* getelementptr inbounds (%struct.display* @Display, i32 0,\l... i32 5), align 8\l  %cmp10 = icmp sgt i64 %add9, %20\l  br i1 %cmp10, label %if.then.11, label %if.else.13\l|{<s0>T|<s1>F}}"];
+	Node0x60f1050:s0 -> Node0x60f10a0;
+	Node0x60f1050:s1 -> Node0x60f10f0;
+	Node0x60f10a0 [shape=record,label="{if.then.11:                                       \l  %21 = load i64* getelementptr inbounds (%struct.display* @Display, i32 0,\l... i32 5), align 8\l  %22 = load i64* %x, align 8\l  %sub12 = sub nsw i64 %21, %22\l  store i64 %sub12, i64* %xe, align 8\l  br label %if.end.14\l}"];
+	Node0x60f10a0 -> Node0x60f1140;
+	Node0x60f10f0 [shape=record,label="{if.else.13:                                       \l  %23 = load i64* %xsize, align 8\l  store i64 %23, i64* %xe, align 8\l  br label %if.end.14\l}"];
+	Node0x60f10f0 -> Node0x60f1140;
+	Node0x60f1140 [shape=record,label="{if.end.14:                                        \l  %24 = load i64* %i, align 8\l  %25 = load i64* %pid.addr, align 8\l  %cmp15 = icmp eq i64 %24, %25\l  br i1 %cmp15, label %if.then.16, label %if.end.17\l|{<s0>T|<s1>F}}"];
+	Node0x60f1140:s0 -> Node0x60f1190;
+	Node0x60f1140:s1 -> Node0x60f11e0;
+	Node0x60f1190 [shape=record,label="{if.then.16:                                       \l  %26 = load i64* %x, align 8\l  %27 = load i64* %y, align 8\l  %28 = load i64* %xe, align 8\l  %29 = load i64* %ye, align 8\l  %30 = load i64* @bundlex, align 8\l  %31 = load i64* @bundley, align 8\l  %32 = load i64* %pid.addr, align 8\l  call void @PutJob(i64 %26, i64 %27, i64 %28, i64 %29, i64 %30, i64 %31, i64\l... %32)\l  br label %if.end.17\l}"];
+	Node0x60f1190 -> Node0x60f11e0;
+	Node0x60f11e0 [shape=record,label="{if.end.17:                                        \l  %33 = load i64* %i, align 8\l  %add18 = add nsw i64 %33, 1\l  %34 = load %struct.gmem** @gm, align 8\l  %nprocs = getelementptr inbounds %struct.gmem* %34, i32 0, i32 0\l  %35 = load i64* %nprocs, align 8\l  %rem = srem i64 %add18, %35\l  store i64 %rem, i64* %i, align 8\l  br label %for.inc\l}"];
+	Node0x60f11e0 -> Node0x60f1230;
+	Node0x60f1230 [shape=record,label="{for.inc:                                          \l  %36 = load i64* %xsize, align 8\l  %37 = load i64* %x, align 8\l  %add19 = add nsw i64 %37, %36\l  store i64 %add19, i64* %x, align 8\l  br label %for.cond.6\l}"];
+	Node0x60f1230 -> Node0x60f1000;
+	Node0x60f1280 [shape=record,label="{for.end:                                          \l  br label %for.inc.20\l}"];
+	Node0x60f1280 -> Node0x60f12d0;
+	Node0x60f12d0 [shape=record,label="{for.inc.20:                                       \l  %38 = load i64* %ysize, align 8\l  %39 = load i64* %y, align 8\l  %add21 = add nsw i64 %39, %38\l  store i64 %add21, i64* %y, align 8\l  br label %for.cond\l}"];
+	Node0x60f12d0 -> Node0x60f0e70;
+	Node0x60f1320 [shape=record,label="{for.end.22:                                       \l  ret void\l}"];
+}

@@ -1,0 +1,23 @@
+digraph "CFG for 'bmod' function" {
+	label="CFG for 'bmod' function";
+
+	Node0x2bcd680 [shape=record,label="{%0:\l  %1 = alloca double*, align 8\l  %2 = alloca double*, align 8\l  %3 = alloca double*, align 8\l  %4 = alloca i32, align 4\l  %5 = alloca i32, align 4\l  %6 = alloca i32, align 4\l  %7 = alloca i32, align 4\l  %8 = alloca i32, align 4\l  %9 = alloca i32, align 4\l  %i = alloca i32, align 4\l  %j = alloca i32, align 4\l  %k = alloca i32, align 4\l  %alpha = alloca double, align 8\l  store i32 %dimj, i32* %5, align 4\l  store i32 %dimk, i32* %6, align 4\l  store i32 0, i32* %k, align 4\l  br label %10\l}"];
+	Node0x2bcd680 -> Node0x2bcd6e0;
+	Node0x2bcd6e0 [shape=record,label="{%10:\l\l  %11 = load i32* %k, align 4\l  %12 = load i32* %6, align 4\l  %13 = icmp slt i32 %11, %12\l  br i1 %13, label %14, label %27\l|{<s0>T|<s1>F}}"];
+	Node0x2bcd6e0:s0 -> Node0x2bcd740;
+	Node0x2bcd6e0:s1 -> Node0x2bcd980;
+	Node0x2bcd740 [shape=record,label="{%14:\l\l  store i32 0, i32* %j, align 4\l  br label %15\l}"];
+	Node0x2bcd740 -> Node0x2bcd7a0;
+	Node0x2bcd7a0 [shape=record,label="{%15:\l\l  %16 = load i32* %j, align 4\l  %17 = load i32* %5, align 4\l  %18 = icmp slt i32 %16, %17\l  br i1 %18, label %19, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x2bcd7a0:s0 -> Node0x2bcd800;
+	Node0x2bcd7a0:s1 -> Node0x2bcd8c0;
+	Node0x2bcd800 [shape=record,label="{%19:\l\l  call void @daxpy(double* undef, double* undef, i32 undef, double undef)\l  br label %20\l}"];
+	Node0x2bcd800 -> Node0x2bcd860;
+	Node0x2bcd860 [shape=record,label="{%20:\l\l  %21 = load i32* %j, align 4\l  %22 = add nsw i32 %21, 1\l  store i32 %22, i32* %j, align 4\l  br label %15\l}"];
+	Node0x2bcd860 -> Node0x2bcd7a0;
+	Node0x2bcd8c0 [shape=record,label="{%23:\l\l  br label %24\l}"];
+	Node0x2bcd8c0 -> Node0x2bcd920;
+	Node0x2bcd920 [shape=record,label="{%24:\l\l  %25 = load i32* %k, align 4\l  %26 = add nsw i32 %25, 1\l  store i32 %26, i32* %k, align 4\l  br label %10\l}"];
+	Node0x2bcd920 -> Node0x2bcd6e0;
+	Node0x2bcd980 [shape=record,label="{%27:\l\l  ret void\l}"];
+}

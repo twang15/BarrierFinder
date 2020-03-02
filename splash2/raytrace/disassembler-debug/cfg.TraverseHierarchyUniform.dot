@@ -1,0 +1,29 @@
+digraph "CFG for 'TraverseHierarchyUniform' function" {
+	label="CFG for 'TraverseHierarchyUniform' function";
+
+	Node0x5f6f870 [shape=record,label="{entry:\l  %retval = alloca i64, align 8\l  %r.addr = alloca %struct.ray*, align 8\l  %hit.addr = alloca %struct.irecord*, align 8\l  %pid.addr = alloca i64, align 8\l  %status = alloca i64, align 8\l  %intersectPrim = alloca i64, align 8\l  %v = alloca %struct.voxel*, align 8\l  store %struct.ray* %r, %struct.ray** %r.addr, align 8\l  store %struct.irecord* %hit, %struct.irecord** %hit.addr, align 8\l  %0 = load %struct.ray** %r.addr, align 8\l  %ri = getelementptr inbounds %struct.ray* %0, i32 0, i32 8\l  store %struct.rayinfo* null, %struct.rayinfo** %ri, align 8\l  %1 = load %struct.ray** %r.addr, align 8\l  %2 = load %struct.gmem** @gm, align 8\l  %world_level_grid = getelementptr inbounds %struct.gmem* %2, i32 0, i32 4\l  %3 = load %struct.grid** %world_level_grid, align 8\l  %call = call %struct.voxel* @init_ray(%struct.ray* %1, %struct.grid* %3)\l  store %struct.voxel* %call, %struct.voxel** %v, align 8\l  %4 = load %struct.voxel** %v, align 8\l  %cmp = icmp eq %struct.voxel* %4, null\l  br i1 %cmp, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x5f6f870:s0 -> Node0x5f6f8c0;
+	Node0x5f6f870:s1 -> Node0x5f6f910;
+	Node0x5f6f8c0 [shape=record,label="{if.then:                                          \l  %5 = load %struct.ray** %r.addr, align 8\l  call void @reset_rayinfo(%struct.ray* %5)\l  store i64 0, i64* %retval\l  br label %return\l}"];
+	Node0x5f6f8c0 -> Node0x5f6fb90;
+	Node0x5f6f910 [shape=record,label="{if.end:                                           \l  store i64 0, i64* %intersectPrim, align 8\l  %6 = load %struct.irecord** %hit.addr, align 8\l  %arrayidx = getelementptr inbounds %struct.irecord* %6, i64 0\l  %t = getelementptr inbounds %struct.irecord* %arrayidx, i32 0, i32 0\l  store double 1.000000e+32, double* %t, align 8\l  store i64 2, i64* %status, align 8\l  br label %while.cond\l}"];
+	Node0x5f6f910 -> Node0x5f6f960;
+	Node0x5f6f960 [shape=record,label="{while.cond:                                       \l  %7 = load i64* %intersectPrim, align 8\l  %tobool = icmp ne i64 %7, 0\l  br i1 %tobool, label %land.end, label %land.rhs\l|{<s0>T|<s1>F}}"];
+	Node0x5f6f960:s0 -> Node0x5f6fa00;
+	Node0x5f6f960:s1 -> Node0x5f6f9b0;
+	Node0x5f6f9b0 [shape=record,label="{land.rhs:                                         \l  %8 = load i64* %status, align 8\l  %cmp1 = icmp ne i64 %8, 0\l  br label %land.end\l}"];
+	Node0x5f6f9b0 -> Node0x5f6fa00;
+	Node0x5f6fa00 [shape=record,label="{land.end:                                         \l  %9 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]\l  br i1 %9, label %while.body, label %while.end\l|{<s0>T|<s1>F}}"];
+	Node0x5f6fa00:s0 -> Node0x5f6fa50;
+	Node0x5f6fa00:s1 -> Node0x5f6fb40;
+	Node0x5f6fa50 [shape=record,label="{while.body:                                       \l  %10 = load %struct.irecord** %hit.addr, align 8\l  %11 = load %struct.voxel** %v, align 8\l  %12 = load %struct.ray** %r.addr, align 8\l  call void @IntersectHuniformPrimlist(i64* %intersectPrim, %struct.irecord*\l... %10, %struct.voxel* %11, %struct.ray* %12, i64 undef)\l  %13 = load i64* %intersectPrim, align 8\l  %tobool2 = icmp ne i64 %13, 0\l  br i1 %tobool2, label %if.end.5, label %if.then.3\l|{<s0>T|<s1>F}}"];
+	Node0x5f6fa50:s0 -> Node0x5f6faf0;
+	Node0x5f6fa50:s1 -> Node0x5f6faa0;
+	Node0x5f6faa0 [shape=record,label="{if.then.3:                                        \l  %14 = load %struct.ray** %r.addr, align 8\l  %call4 = call %struct.voxel* @next_nonempty_leaf(%struct.ray* %14, i64 1,\l... i64* %status)\l  store %struct.voxel* %call4, %struct.voxel** %v, align 8\l  br label %if.end.5\l}"];
+	Node0x5f6faa0 -> Node0x5f6faf0;
+	Node0x5f6faf0 [shape=record,label="{if.end.5:                                         \l  br label %while.cond\l}"];
+	Node0x5f6faf0 -> Node0x5f6f960;
+	Node0x5f6fb40 [shape=record,label="{while.end:                                        \l  %15 = load %struct.ray** %r.addr, align 8\l  call void @reset_rayinfo(%struct.ray* %15)\l  %16 = load i64* %intersectPrim, align 8\l  store i64 %16, i64* %retval\l  br label %return\l}"];
+	Node0x5f6fb40 -> Node0x5f6fb90;
+	Node0x5f6fb90 [shape=record,label="{return:                                           \l  %17 = load i64* %retval\l  ret i64 %17\l}"];
+}

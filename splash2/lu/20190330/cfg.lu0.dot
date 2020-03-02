@@ -1,0 +1,23 @@
+digraph "CFG for 'lu0' function" {
+	label="CFG for 'lu0' function";
+
+	Node0x2bc77e0 [shape=record,label="{%0:\l  %1 = alloca double*, align 8\l  %2 = alloca i32, align 4\l  %3 = alloca i32, align 4\l  %j = alloca i32, align 4\l  %k = alloca i32, align 4\l  %length = alloca i32, align 4\l  %alpha = alloca double, align 8\l  store i32 %n, i32* %2, align 4\l  store i32 0, i32* %k, align 4\l  br label %4\l}"];
+	Node0x2bc77e0 -> Node0x2bc7840;
+	Node0x2bc7840 [shape=record,label="{%4:\l\l  %5 = load i32* %k, align 4\l  %6 = load i32* %2, align 4\l  %7 = icmp slt i32 %5, %6\l  br i1 %7, label %8, label %23\l|{<s0>T|<s1>F}}"];
+	Node0x2bc7840:s0 -> Node0x2bb70d0;
+	Node0x2bc7840:s1 -> Node0x2bb7310;
+	Node0x2bb70d0 [shape=record,label="{%8:\l\l  %9 = load i32* %k, align 4\l  %10 = add nsw i32 %9, 1\l  store i32 %10, i32* %j, align 4\l  br label %11\l}"];
+	Node0x2bb70d0 -> Node0x2bb7130;
+	Node0x2bb7130 [shape=record,label="{%11:\l\l  %12 = load i32* %j, align 4\l  %13 = load i32* %2, align 4\l  %14 = icmp slt i32 %12, %13\l  br i1 %14, label %15, label %19\l|{<s0>T|<s1>F}}"];
+	Node0x2bb7130:s0 -> Node0x2bb7190;
+	Node0x2bb7130:s1 -> Node0x2bb7250;
+	Node0x2bb7190 [shape=record,label="{%15:\l\l  call void @daxpy(double* undef, double* undef, i32 undef, double undef)\l  br label %16\l}"];
+	Node0x2bb7190 -> Node0x2bb71f0;
+	Node0x2bb71f0 [shape=record,label="{%16:\l\l  %17 = load i32* %j, align 4\l  %18 = add nsw i32 %17, 1\l  store i32 %18, i32* %j, align 4\l  br label %11\l}"];
+	Node0x2bb71f0 -> Node0x2bb7130;
+	Node0x2bb7250 [shape=record,label="{%19:\l\l  br label %20\l}"];
+	Node0x2bb7250 -> Node0x2bb72b0;
+	Node0x2bb72b0 [shape=record,label="{%20:\l\l  %21 = load i32* %k, align 4\l  %22 = add nsw i32 %21, 1\l  store i32 %22, i32* %k, align 4\l  br label %4\l}"];
+	Node0x2bb72b0 -> Node0x2bc7840;
+	Node0x2bb7310 [shape=record,label="{%23:\l\l  ret void\l}"];
+}

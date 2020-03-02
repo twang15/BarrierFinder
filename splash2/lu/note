@@ -1,0 +1,11 @@
+loop trip count is control by DEFAULT_N/DEFAULT_B
+
+#define DEFAULT_N                        512
+#define DEFAULT_B                         16
+
+Originally, DEFAULT_N is 512.
+In my experiments, I varied DEFAULT_N while keeping DEFAULT_B
+as a constant 16.
+
+Values:
+16, 32, 64, 128, 256, 512

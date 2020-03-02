@@ -1,0 +1,32 @@
+digraph "CFG for 'VecMatMult' function" {
+	label="CFG for 'VecMatMult' function";
+
+	Node0x5fcf6c0 [shape=record,label="{entry:\l  %Vt.addr = alloca double*, align 8\l  %M.addr = alloca [4 x double]*, align 8\l  %V.addr = alloca double*, align 8\l  %i = alloca i64, align 8\l  %j = alloca i64, align 8\l  %tvec = alloca [4 x double], align 16\l  store double* %Vt, double** %Vt.addr, align 8\l  store [4 x double]* %M, [4 x double]** %M.addr, align 8\l  store double* %V, double** %V.addr, align 8\l  store i64 0, i64* %i, align 8\l  br label %for.cond\l}"];
+	Node0x5fcf6c0 -> Node0x5fcfb30;
+	Node0x5fcfb30 [shape=record,label="{for.cond:                                         \l  %0 = load i64* %i, align 8\l  %cmp = icmp slt i64 %0, 4\l  br i1 %cmp, label %for.body, label %for.end.10\l|{<s0>T|<s1>F}}"];
+	Node0x5fcfb30:s0 -> Node0x5fcfb80;
+	Node0x5fcfb30:s1 -> Node0x5fcfd60;
+	Node0x5fcfb80 [shape=record,label="{for.body:                                         \l  %1 = load i64* %i, align 8\l  %arrayidx = getelementptr inbounds [4 x double]* %tvec, i32 0, i64 %1\l  store double 0.000000e+00, double* %arrayidx, align 8\l  store i64 0, i64* %j, align 8\l  br label %for.cond.1\l}"];
+	Node0x5fcfb80 -> Node0x5fcfbd0;
+	Node0x5fcfbd0 [shape=record,label="{for.cond.1:                                       \l  %2 = load i64* %j, align 8\l  %cmp2 = icmp slt i64 %2, 4\l  br i1 %cmp2, label %for.body.3, label %for.end\l|{<s0>T|<s1>F}}"];
+	Node0x5fcfbd0:s0 -> Node0x5fcfc20;
+	Node0x5fcfbd0:s1 -> Node0x5fcfcc0;
+	Node0x5fcfc20 [shape=record,label="{for.body.3:                                       \l  %3 = load i64* %j, align 8\l  %4 = load double** %V.addr, align 8\l  %arrayidx4 = getelementptr inbounds double* %4, i64 %3\l  %5 = load double* %arrayidx4, align 8\l  %6 = load i64* %i, align 8\l  %7 = load i64* %j, align 8\l  %8 = load [4 x double]** %M.addr, align 8\l  %arrayidx5 = getelementptr inbounds [4 x double]* %8, i64 %7\l  %arrayidx6 = getelementptr inbounds [4 x double]* %arrayidx5, i32 0, i64 %6\l  %9 = load double* %arrayidx6, align 8\l  %mul = fmul double %5, %9\l  %10 = load i64* %i, align 8\l  %arrayidx7 = getelementptr inbounds [4 x double]* %tvec, i32 0, i64 %10\l  %11 = load double* %arrayidx7, align 8\l  %add = fadd double %11, %mul\l  store double %add, double* %arrayidx7, align 8\l  br label %for.inc\l}"];
+	Node0x5fcfc20 -> Node0x5fcfc70;
+	Node0x5fcfc70 [shape=record,label="{for.inc:                                          \l  %12 = load i64* %j, align 8\l  %inc = add nsw i64 %12, 1\l  store i64 %inc, i64* %j, align 8\l  br label %for.cond.1\l}"];
+	Node0x5fcfc70 -> Node0x5fcfbd0;
+	Node0x5fcfcc0 [shape=record,label="{for.end:                                          \l  br label %for.inc.8\l}"];
+	Node0x5fcfcc0 -> Node0x5fcfd10;
+	Node0x5fcfd10 [shape=record,label="{for.inc.8:                                        \l  %13 = load i64* %i, align 8\l  %inc9 = add nsw i64 %13, 1\l  store i64 %inc9, i64* %i, align 8\l  br label %for.cond\l}"];
+	Node0x5fcfd10 -> Node0x5fcfb30;
+	Node0x5fcfd60 [shape=record,label="{for.end.10:                                       \l  store i64 0, i64* %i, align 8\l  br label %for.cond.11\l}"];
+	Node0x5fcfd60 -> Node0x5fcfdb0;
+	Node0x5fcfdb0 [shape=record,label="{for.cond.11:                                      \l  %14 = load i64* %i, align 8\l  %cmp12 = icmp slt i64 %14, 4\l  br i1 %cmp12, label %for.body.13, label %for.end.18\l|{<s0>T|<s1>F}}"];
+	Node0x5fcfdb0:s0 -> Node0x5fcfe00;
+	Node0x5fcfdb0:s1 -> Node0x5fcfea0;
+	Node0x5fcfe00 [shape=record,label="{for.body.13:                                      \l  %15 = load i64* %i, align 8\l  %arrayidx14 = getelementptr inbounds [4 x double]* %tvec, i32 0, i64 %15\l  %16 = load double* %arrayidx14, align 8\l  %17 = load i64* %i, align 8\l  %18 = load double** %Vt.addr, align 8\l  %arrayidx15 = getelementptr inbounds double* %18, i64 %17\l  store double %16, double* %arrayidx15, align 8\l  br label %for.inc.16\l}"];
+	Node0x5fcfe00 -> Node0x5fcfe50;
+	Node0x5fcfe50 [shape=record,label="{for.inc.16:                                       \l  %19 = load i64* %i, align 8\l  %inc17 = add nsw i64 %19, 1\l  store i64 %inc17, i64* %i, align 8\l  br label %for.cond.11\l}"];
+	Node0x5fcfe50 -> Node0x5fcfdb0;
+	Node0x5fcfea0 [shape=record,label="{for.end.18:                                       \l  ret void\l}"];
+}

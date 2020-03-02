@@ -1,0 +1,6 @@
+the support for 3 threads are stash on branch '3threads'
+To see them:
+ git stash list 
+
+To bring local changes to branch 3threads
+  git stash apply

@@ -1,0 +1,5 @@
+digraph "CFG for 'InitX' function" {
+	label="CFG for 'InitX' function";
+
+	Node0x4a4a180 [shape=record,label="{entry:\l  ret i32 undef\l}"];
+}

@@ -1,0 +1,17 @@
+cp /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/worker/CoreStrategies.h ./include/cloud9/worker/CoreStrategies.h
+cp /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/worker/JobManager.h ./include/cloud9/worker/JobManager.h
+cp /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/worker/SymbolicEngine.h ./include/cloud9/worker/SymbolicEngine.h
+cp /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/worker/TreeObjects.h ./include/cloud9/worker/TreeObjects.h
+cp /home/tao/Cloud9.dev2/src/cloud9/include/klee/Config/config.h ./include/klee/Config/config.h
+cp /home/tao/Cloud9.dev2/src/cloud9/include/klee/ExecutionState.h ./include/klee/ExecutionState.h
+cp /home/tao/Cloud9.dev2/src/cloud9/include/klee/Executor.h ./include/klee/Executor.h
+cp /home/tao/Cloud9.dev2/src/cloud9/include/klee/StackTrace.h ./include/klee/StackTrace.h
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Cloud9/Worker/CoreStrategies.cpp ./lib/Cloud9/Worker/CoreStrategies.cpp
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Cloud9/Worker/JobManager.cpp ./lib/Cloud9/Worker/JobManager.cpp
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Cloud9/Worker/SymbolicEngine.cpp ./lib/Cloud9/Worker/SymbolicEngine.cpp
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Core/ExecutionState.cpp ./lib/Core/ExecutionState.cpp
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Core/Executor.cpp ./lib/Core/Executor.cpp
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Core/Executor_Memory.cpp ./lib/Core/Executor_Memory.cpp
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Core/SpecialFunctionHandler.cpp ./lib/Core/SpecialFunctionHandler.cpp
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Core/SpecialFunctionHandler.h ./lib/Core/SpecialFunctionHandler.h
+cp /home/tao/Cloud9.dev2/src/cloud9/lib/Core/StackTrace.cpp ./lib/Core/StackTrace.cpp

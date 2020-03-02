@@ -1,0 +1,87 @@
+Design Analysis A: 
+0. There are two interprocedural analysis happen. 
+   a. interprocedural vrp in segment 1. (currently, it's intraprocedural).
+   b. interprocedural modification analysis in segment 2. (currently, we choose "do-nothing".
+      A little more, we have collected the nodes in segment 2.)
+
+1. The goal of b is to determine whether segment 2 modifies and thus invalidates the value 
+   ranges(initial values or predicates) propagated by a.
+   
+   The goal of a is to determine the initial values of exposed variables in segment 1, because
+   segment 1 is a sequential region(there is only main thread, pthread_create has not been called
+   yet).
+
+2. To extend them into interprocedural ones:
+   a. Whole program DEF/MOD analysis. This part can reuse llvm or LLVMSlicer's code, or write
+      our own. The goal is to determine the net side-effect of each function, so to facilitate
+      b and c. As people did in interprocedural slicing, this analysis cannot be precise. So,
+      neither 2.b nor 2.c can be precise.
+   b. for 0.a, relying on 2.a's result. We also need to know the path constraint of main thread
+      and pthread_create, to determine whether they can happen concurrently. This information is
+      vital in the final code wrapping. How to code the path constraints ?
+   c. for 0.b, relying on 2.a's result. Even we assume there is no function/data pointer alias,
+      the analysis is still no precise. Conservatively assume a function has side-effect on the
+      sync variables are over-killer.
+
+3. Alternative: discard interprocedural analysis completely, just based on wild trial-and-error.
+   a. Analyze the whole program to obtain the set of operations performed on the sync variables.
+      The operations may be decrement, increment, assignment, inversion, etc. Then, guess the possible
+      values that may occur. Use them as the initial values taken by the final slice.
+   b. The advantage is apparent, no interprocedural analysis. But, the challenge is how to narrow
+      down the errorneous guess.
+   c. No matter what heuristic or analysis is applied, there are still errorneous case in the final
+      values. The ultimate effect is the code generated may run infinitely long or generate meaningless
+      traces.
+   d. For some simple case, we can apply this approach.
+
+4. The two approaches are not mutual-exclusive. For example,
+   a. It is possible for the first analytical approach to figure out the initial conditions precisely,
+      for FFT's first barrier.
+   b. It is impossible for analytical approach to know the initial conditions for FFT's second barrier.
+      Because, the first barrier has very complicated operations on the sync variables. I do not expect
+      any analysis figure it out.
+   c. To make sense out of FFT's second barrier and other barriers, we can take one of the following ways
+     c.1 Code clone detection. This is more difficult than thought. First, too much engineering work.
+         Second, too much learning work. Third, unknow how final effects would be, etc.
+     c.2 Interleaving based on schedulings enumerations. It has similar problem, the most prominent one is
+         too much engineering work. However, it may be another interesting idea to work on. But, not in
+         this project.
+     c.3 Slice all the others away and pay attention to a single one at one time. This is more desirable
+         than c.1 and c.2 because of little engineering effort. The challenge is to know the inital
+         conditions. Here, we can reuse the initial values of the first barrier. Specifically, we really
+         don't know the relationship between this barrier and the first barrier. What we know is it exposes
+         the same set of sync variables. Then, we GUESS the previous initial variables is also relevant to
+         this one.
+
+Design analysis B: segment 1.
+
+1. we need to know the relation between the starting points(there are two for FFT barrier 1).
+   a. Can they execute concurrently ? This can be answer to encode their path constraints. If the constraints
+      are the same, then they can execute concurrently. But, how to encode it or do we really need to encode
+      it ? At least for FFT barrier, we don't need to encode it. If we treat the whole loop where the 
+      pthread_create resides as one unit, then, there are no extra conditions added to reach the main thread's
+      function. Therefore, we can use certain heuristics to simplify this test. If they happens in the same
+      function, then we test whether one can reach another without adding extra predicates(conditional branch
+      instructions in effect). To facilitate this test, we need b.
+   b. Which one comes first ? Even if the two does not happen in one function, such as allAB case, finally they
+      still can be projected into two points in main function. Then, the question is transformed into "given two
+      instruction in main, how to test which happens before another or exclusively ?"
+   c. The solution to b. If the two points(instructions) are in the same BB, then the order is defined by the
+      control flow order; Otherwise, if inst1's BB(BB1) is dominator of inst2's BB(BB2), then inst1 happens before
+      inst2; or if the inst1(pthread_create) loop's exit BB is the dominator of inst2'BB, then inst2 happens before
+      inst2; otherwise, they are exclusive. The dominator relationship test can be more precise as to: test whether
+      BB1 or BB1's exit BB is in the dominator set of BB2, vice visa.
+   d. To encode the path constraints in general involves collect all the branch predicates on the path leading to
+      the instruction of interest. After encoding, constraints are to be solved before answering whether the two
+      instructions can happen concurrently. If the constraints have at least one same solution, then inst1 and inst2
+      can happen concurrently or one after another in one run; Otherwise, they cannot be executed in the same run.
+   e. How to project the two starting points into main ? The purpose of projection is to determine the answer to b.
+      The projection point is simply the instruction in main that leads to the sliced function, which indicates when
+      the caller is "main", the callInst in CallerInfo is the projection point.
+
+2. The projection point and vrp scope.
+   a. From main to p1.
+   b. From p1 to pthread_create loop(inst1).
+   c. From p1 to p2.
+   d. From p2 to inst2 (in work-crew threading model, e.g. FFT, it is main's invokation to thread entry function;
+      in allAB, it is the read-side loop).

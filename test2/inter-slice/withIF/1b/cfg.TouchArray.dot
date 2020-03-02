@@ -1,0 +1,29 @@
+digraph "CFG for 'TouchArray' function" {
+	label="CFG for 'TouchArray' function";
+
+	Node0x43c33e0 [shape=record,label="{entry:\l  %x.addr = alloca double*, align 8\l  %scratch.addr = alloca double*, align 8\l  %u.addr = alloca double*, align 8\l  %upriv.addr = alloca double*, align 8\l  %N.addr = alloca i32, align 4\l  %MyNum.addr = alloca i32, align 4\l  %MyFirst.addr = alloca i32, align 4\l  %MyLast.addr = alloca i32, align 4\l  %i = alloca i32, align 4\l  %j = alloca i32, align 4\l  %k = alloca i32, align 4\l  %tot = alloca double, align 8\l  br label %for.cond\l}"];
+	Node0x43c33e0 -> Node0x43c3430;
+	Node0x43c3430 [shape=record,label="{for.cond:                                         \l  br label %for.end\l}"];
+	Node0x43c3430 -> Node0x43c3d30;
+	Node0x43c3c90 [shape=record,label="{for.body:                                         \l  br label %for.inc\l}"];
+	Node0x43c3c90 -> Node0x43c3ce0;
+	Node0x43c3ce0 [shape=record,label="{for.inc:                                          \l  br label %for.cond\l}"];
+	Node0x43c3ce0 -> Node0x43c3430;
+	Node0x43c3d30 [shape=record,label="{for.end:                                          \l  br label %for.cond.1\l}"];
+	Node0x43c3d30 -> Node0x43c3d80;
+	Node0x43c3d80 [shape=record,label="{for.cond.1:                                       \l  br label %for.end.47\l}"];
+	Node0x43c3d80 -> Node0x43c3fb0;
+	Node0x43c3dd0 [shape=record,label="{for.body.3:                                       \l  br label %for.cond.6\l}"];
+	Node0x43c3dd0 -> Node0x43c3e20;
+	Node0x43c3e20 [shape=record,label="{for.cond.6:                                       \l  br label %for.end.44\l}"];
+	Node0x43c3e20 -> Node0x43c3f10;
+	Node0x43c3e70 [shape=record,label="{for.body.8:                                       \l  br label %for.inc.42\l}"];
+	Node0x43c3e70 -> Node0x43c3ec0;
+	Node0x43c3ec0 [shape=record,label="{for.inc.42:                                       \l  br label %for.cond.6\l}"];
+	Node0x43c3ec0 -> Node0x43c3e20;
+	Node0x43c3f10 [shape=record,label="{for.end.44:                                       \l  br label %for.inc.45\l}"];
+	Node0x43c3f10 -> Node0x43c3f60;
+	Node0x43c3f60 [shape=record,label="{for.inc.45:                                       \l  br label %for.cond.1\l}"];
+	Node0x43c3f60 -> Node0x43c3d80;
+	Node0x43c3fb0 [shape=record,label="{for.end.47:                                       \l  ret double undef\l}"];
+}

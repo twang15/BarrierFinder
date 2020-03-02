@@ -1,0 +1,5 @@
+digraph "CFG for 'Huniform_defaults' function" {
+	label="CFG for 'Huniform_defaults' function";
+
+	Node0x5f62890 [shape=record,label="{entry:\l  store i64 2, i64* @hu_max_prims_cell, align 8\l  store i64 5, i64* @hu_gridsize, align 8\l  store i64 23, i64* @hu_numbuckets, align 8\l  store i64 1, i64* @hu_max_subdiv_level, align 8\l  ret void\l}"];
+}

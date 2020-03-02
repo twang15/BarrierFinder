@@ -1,0 +1,5 @@
+digraph "CFG for 'flushAll' function" {
+	label="CFG for 'flushAll' function";
+
+	Node0x56bddd0 [shape=record,label="{entry:\l  %0 = load i32* @index_out, align 4\l  %idxprom = sext i32 %0 to i64\l  %arrayidx = getelementptr inbounds [200 x i8]* @mystring, i32 0, i64 %idxprom\l  store i8 0, i8* %arrayidx, align 1\l  ret void\l}"];
+}

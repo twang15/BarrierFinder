@@ -1,0 +1,35 @@
+digraph "CFG for 'DecrementCounter' function" {
+	label="CFG for 'DecrementCounter' function";
+
+	Node0x5e9e970 [shape=record,label="{entry:\l  %idx = alloca i32, align 4\l  %i = alloca i32, align 4\l  %i13 = alloca i32, align 4\l  br label %if.end.25\l}"];
+	Node0x5e9e970 -> Node0x5e9ee20;
+	Node0x5e9e9c0 [shape=record,label="{if.then:                                          \l  br label %if.end\l}"];
+	Node0x5e9e9c0 -> Node0x5e9eba0;
+	Node0x5e9ea10 [shape=record,label="{if.then.4:                                        \l  br label %for.cond\l}"];
+	Node0x5e9ea10 -> Node0x5e9ea60;
+	Node0x5e9ea60 [shape=record,label="{for.cond:                                         \l  br label %for.end\l}"];
+	Node0x5e9ea60 -> Node0x5e9eb50;
+	Node0x5e9eab0 [shape=record,label="{for.body:                                         \l  br label %for.inc\l}"];
+	Node0x5e9eab0 -> Node0x5e9eb00;
+	Node0x5e9eb00 [shape=record,label="{for.inc:                                          \l  br label %for.cond\l}"];
+	Node0x5e9eb00 -> Node0x5e9ea60;
+	Node0x5e9eb50 [shape=record,label="{for.end:                                          \l  br label %if.end\l}"];
+	Node0x5e9eb50 -> Node0x5e9eba0;
+	Node0x5e9eba0 [shape=record,label="{if.end:                                           \l  br label %if.end.25\l}"];
+	Node0x5e9eba0 -> Node0x5e9ee20;
+	Node0x5e9ebf0 [shape=record,label="{if.else:                                          \l  br label %if.end.22\l}"];
+	Node0x5e9ebf0 -> Node0x5e9edd0;
+	Node0x5e9ec40 [shape=record,label="{if.then.12:                                       \l  br label %for.cond.14\l}"];
+	Node0x5e9ec40 -> Node0x5e9ec90;
+	Node0x5e9ec90 [shape=record,label="{for.cond.14:                                      \l  br label %for.end.21\l}"];
+	Node0x5e9ec90 -> Node0x5e9ed80;
+	Node0x5e9ece0 [shape=record,label="{for.body.16:                                      \l  br label %for.inc.19\l}"];
+	Node0x5e9ece0 -> Node0x5e9ed30;
+	Node0x5e9ed30 [shape=record,label="{for.inc.19:                                       \l  br label %for.cond.14\l}"];
+	Node0x5e9ed30 -> Node0x5e9ec90;
+	Node0x5e9ed80 [shape=record,label="{for.end.21:                                       \l  br label %if.end.22\l}"];
+	Node0x5e9ed80 -> Node0x5e9edd0;
+	Node0x5e9edd0 [shape=record,label="{if.end.22:                                        \l  br label %if.end.25\l}"];
+	Node0x5e9edd0 -> Node0x5e9ee20;
+	Node0x5e9ee20 [shape=record,label="{if.end.25:                                        \l  ret void\l}"];
+}

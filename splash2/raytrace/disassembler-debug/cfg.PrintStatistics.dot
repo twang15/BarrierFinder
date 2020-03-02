@@ -1,0 +1,9 @@
+digraph "CFG for 'PrintStatistics' function" {
+	label="CFG for 'PrintStatistics' function";
+
+	Node0x5fbe880 [shape=record,label="{entry:\l  br label %if.end\l}"];
+	Node0x5fbe880 -> Node0x5fbe920;
+	Node0x5fbe8d0 [shape=record,label="{if.then:                                          \l  br label %if.end\l}"];
+	Node0x5fbe8d0 -> Node0x5fbe920;
+	Node0x5fbe920 [shape=record,label="{if.end:                                           \l  ret void\l}"];
+}

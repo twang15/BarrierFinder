@@ -1,0 +1,5 @@
+digraph "CFG for 'Scale' function" {
+	label="CFG for 'Scale' function";
+
+	Node0x5426140 [shape=record,label="{entry:\l  ret i32 undef\l}"];
+}

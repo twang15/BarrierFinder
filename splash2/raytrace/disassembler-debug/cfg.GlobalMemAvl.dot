@@ -1,0 +1,11 @@
+digraph "CFG for 'GlobalMemAvl' function" {
+	label="CFG for 'GlobalMemAvl' function";
+
+	Node0x6001c80 [shape=record,label="{entry:\l  %total = alloca i64, align 8\l  %curr = alloca %struct.node*, align 8\l  br label %while.cond\l}"];
+	Node0x6001c80 -> Node0x6001cd0;
+	Node0x6001cd0 [shape=record,label="{while.cond:                                       \l  br label %while.end\l}"];
+	Node0x6001cd0 -> Node0x6001d70;
+	Node0x6001d20 [shape=record,label="{while.body:                                       \l  br label %while.cond\l}"];
+	Node0x6001d20 -> Node0x6001cd0;
+	Node0x6001d70 [shape=record,label="{while.end:                                        \l  ret i64 undef\l}"];
+}

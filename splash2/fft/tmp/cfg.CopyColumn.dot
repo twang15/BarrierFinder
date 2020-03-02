@@ -1,0 +1,5 @@
+digraph "CFG for 'CopyColumn' function" {
+	label="CFG for 'CopyColumn' function";
+
+	Node0x5426870 [shape=record,label="{entry:\l  ret i32 undef\l}"];
+}

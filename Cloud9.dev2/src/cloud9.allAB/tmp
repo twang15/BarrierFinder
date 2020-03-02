@@ -1,0 +1,681 @@
+140737049705504-140737083259936 [33554432] allocated at MO13282[33554432] allocated at GlobalHeapInit():  %call = call i8* @malloc(i64 %shr)
+140737040718880-140737049110560 [8391680] allocated at MO167[8391680] allocated at global:raystruct
+140737049174784-140737049705408 [530624] allocated at MO13267[530624] allocated at __user_main():  %call50 = call i8* @malloc(i64 530624)
+140737083264800-140737083268896 [4096] allocated at MO15689[4096] allocated at _stdio_fopen():  %call92 = call noalias i8* @malloc(i64 4096) nounwind, !dbg !4753
+140737083868448-140737083872544 [4096] allocated at MO116706[4096] allocated at _stdio_fopen():  %call92 = call noalias i8* @malloc(i64 4096) nounwind, !dbg !4753
+140737321746368-140737321747904 [1536] allocated at MO43[1536] (no allocation info), ReadOnly(no allocation info)
+140737321744832-140737321746368 [1536] allocated at MO41[1536] (no allocation info), ReadOnly(no allocation info)
+140737049125184-140737049126720 [1536] allocated at MO331[1536] allocated at global:__fdt
+140737040704832-140737040706265 [1433] allocated at MO13[1433] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737049123680-140737049124704 [1024] allocated at MO324[1024] allocated at global:__mmaps
+140737049132864-140737049133824 [960] allocated at MO400[960] allocated at global:__sems
+140737049137120-140737049137896 [776] allocated at MO441[776] allocated at global:__net
+140737049117120-140737049117888 [768] allocated at MO243[768] allocated at global:__C_ctype_tolower_data
+140737049141184-140737049141952 [768] allocated at MO473[768] allocated at global:__netlink_net
+140737049140384-140737049141152 [768] allocated at MO472[768] allocated at global:__unix_net
+140737049114592-140737049115360 [768] allocated at MO218[768] allocated at global:__C_ctype_b_data
+140737321748928-140737321749696 [768] allocated at MO39[768] (no allocation info), ReadOnly(no allocation info)
+140737040711712-140737040712384 [672] allocated at MO70[672] allocated at global:cmdtab
+140737040709088-140737040709616 [528] allocated at MO54[528] allocated at global:View
+140737040711104-140737040711616 [512] allocated at MO68[512] allocated at global:nonempty_masks
+140737040710560-140737040711072 [512] allocated at MO67[512] allocated at global:empty_masks
+140737049113088-140737049113488 [400] allocated at MO204[400] allocated at global:static_utmp
+140737049132448-140737049132832 [384] allocated at MO399[384] allocated at global:__tsync
+140737040703488-140737040703808 [320] allocated at MO0[320] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737049120672-140737049120952 [280] allocated at MO287[280] allocated at global:llvm.used
+140737049132160-140737049132416 [256] allocated at MO398[256] allocated at global:__pdata
+140737309133120-140737309133376 [256] allocated at MO36545976[256] allocated at vfscanf():  %scanset = alloca [256 x i8], align 16
+140737049113536-140737049113776 [240] allocated at MO205[240] allocated at global:_stdio_streams
+140737049159872-140737049160112 [240] allocated at MO10986[240] allocated at __uClibc_main():  %auxvt = alloca [15 x %struct.Elf64_auxv_t.566], align 16
+140737049116160-140737049116368 [208] allocated at MO231[208] allocated at global:exp10_table
+140737040706432-140737040706635 [203] allocated at MO16[203] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737049111936-140737049112136 [200] allocated at MO189[200] allocated at global:mystring
+140737040707200-140737040707344 [144] allocated at MO24[144] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737049155040-140737049155184 [144] allocated at MO3343[144] allocated at _init_stats():  %call = call noalias i8* @malloc(i64 144) nounwind, !dbg !4705
+140737040709664-140737040709800 [136] allocated at MO55[136] allocated at global:Display
+140737049174560-140737049174688 [128] allocated at MO13253[128] allocated at __user_main():  %Vinv = alloca [4 x [4 x double]], align 16
+140737083863680-140737083863808 [128] allocated at MO114331[128] allocated at ReadGeoFile():  %model = alloca [4 x [4 x double]], align 16
+140737083863840-140737083863968 [128] allocated at MO114332[128] allocated at ReadGeoFile():  %modelInv = alloca [4 x [4 x double]], align 16
+140737083864000-140737083864128 [128] allocated at MO114333[128] allocated at ReadGeoFile():  %modelInvT = alloca [4 x [4 x double]], align 16
+140737049174400-140737049174528 [128] allocated at MO13252[128] allocated at __user_main():  %vtrans = alloca [4 x [4 x double]], align 16
+140737309132768-140737309132888 [120] allocated at MO36545973[120] allocated at vfscanf():  %psfs = alloca %struct.psfs_t.620, align 8
+140737049144640-140737049144754 [114] allocated at MO504[114] allocated at global:__PRETTY_FUNCTION__.__write_datagram_to_stream
+140737049144352-140737049144456 [104] allocated at MO501[104] allocated at global:__PRETTY_FUNCTION__.__write_datagram_socket
+140737049144864-140737049144967 [103] allocated at MO506[103] allocated at global:__PRETTY_FUNCTION__.__create_shared_datagram
+140737049145600-140737049145702 [102] allocated at MO514[102] allocated at global:__PRETTY_FUNCTION__.__read_datagram_socket
+140737040704448-140737040704542 [94] allocated at MO9[94] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737049123328-140737049123417 [89] allocated at MO320[89] allocated at global:__PRETTY_FUNCTION__.pthread_cond_timedwait
+140737049128448-140737049128535 [87] allocated at MO355[87] allocated at global:.str16273
+140737049129824-140737049129911 [87] allocated at MO372[87] allocated at global:.str9314
+140737049134432-140737049134516 [84] allocated at MO408[84] allocated at global:__ifaces
+
+All memory blocks:
+140737040703488-140737040703808 [320] allocated at MO0[320] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040703840-140737040703876 [36] allocated at MO1[36] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040703936-140737040703974 [38] allocated at MO2[38] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704032-140737040704060 [28] allocated at MO3[28] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704096-140737040704114 [18] allocated at MO4[18] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704160-140737040704176 [16] allocated at MO5[16] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704224-140737040704244 [20] allocated at MO6[20] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704288-140737040704322 [34] allocated at MO7[34] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704384-140737040704415 [31] allocated at MO8[31] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704448-140737040704542 [94] allocated at MO9[94] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704576-140737040704596 [20] allocated at MO10[20] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704640-140737040704649 [9] allocated at MO11[9] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704704-140737040704776 [72] allocated at MO12[72] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040704832-140737040706265 [1433] allocated at MO13[1433] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040706304-140737040706316 [12] allocated at MO14[12] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040706368-140737040706387 [19] allocated at MO15[19] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040706432-140737040706635 [203] allocated at MO16[203] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040706688-140737040706707 [19] allocated at MO17[19] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040706752-140737040706774 [22] allocated at MO18[22] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040706816-140737040706831 [15] allocated at MO19[15] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040706880-140737040706913 [33] allocated at MO20[33] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040706976-140737040707013 [37] allocated at MO21[37] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707072-140737040707104 [32] allocated at MO22[32] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707136-140737040707153 [17] allocated at MO23[17] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707200-140737040707344 [144] allocated at MO24[144] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707392-140737040707407 [15] allocated at MO25[15] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707456-140737040707465 [9] allocated at MO26[9] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707520-140737040707535 [15] allocated at MO27[15] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707584-140737040707592 [8] allocated at MO28[8] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707648-140737040707660 [12] allocated at MO29[12] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707712-140737040707764 [52] allocated at MO30[52] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707808-140737040707839 [31] allocated at MO31[31] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707872-140737040707904 [32] allocated at MO32[32] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040707936-140737040707959 [23] allocated at MO33[23] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040708000-140737040708031 [31] allocated at MO34[31] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040708064-140737040708098 [34] allocated at MO35[34] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040708160-140737040708208 [48] allocated at MO36[48] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040708256-140737040708327 [71] allocated at MO37[71] allocated at main():  call void @__uClibc_main(i32 (i32, i8**, i8**)* bitcast (i32 (i32, i8**)* @__user_main to i32 (i32, i8**, i8**)*), i32 %0, i8** %1, void ()* null, void ()* null, void ()* null, i8* null)
+140737040708384-140737040708392 [8] allocated at MO45[8] allocated at global:TraversalType
+140737040708448-140737040708456 [8] allocated at MO46[8] allocated at global:bundlex
+140737040708512-140737040708520 [8] allocated at MO47[8] allocated at global:bundley
+140737040708576-140737040708584 [8] allocated at MO48[8] allocated at global:blockx
+140737040708640-140737040708648 [8] allocated at MO49[8] allocated at global:blocky
+140737040708704-140737040708712 [8] allocated at MO50[8] allocated at global:ModelNorm
+140737040708768-140737040708776 [8] allocated at MO51[8] allocated at global:AntiAlias
+140737040708832-140737040708912 [80] allocated at MO52[80] allocated at global:GeoFileName
+140737040708960-140737040709040 [80] allocated at MO53[80] allocated at global:PicFileName
+140737040709088-140737040709616 [528] allocated at MO54[528] allocated at global:View
+140737040709664-140737040709800 [136] allocated at MO55[136] allocated at global:Display
+140737040709856-140737040709864 [8] allocated at MO56[8] allocated at global:lights
+140737040709920-140737040709928 [8] allocated at MO57[8] allocated at global:nlights
+140737040709984-140737040709992 [8] allocated at MO58[8] allocated at global:gm
+140737040710048-140737040710056 [8] allocated at MO59[8] allocated at global:hu_max_prims_cell
+140737040710112-140737040710120 [8] allocated at MO60[8] allocated at global:hu_gridsize
+140737040710176-140737040710184 [8] allocated at MO61[8] allocated at global:hu_numbuckets
+140737040710240-140737040710248 [8] allocated at MO62[8] allocated at global:hu_max_subdiv_level
+140737040710304-140737040710312 [8] allocated at MO63[8] allocated at global:hu_lazy
+140737040710368-140737040710376 [8] allocated at MO64[8] allocated at global:prim_obj_cnt
+140737040710432-140737040710440 [8] allocated at MO65[8] allocated at global:prim_elem_cnt
+140737040710496-140737040710504 [8] allocated at MO66[8] allocated at global:grids
+140737040710560-140737040711072 [512] allocated at MO67[512] allocated at global:empty_masks
+140737040711104-140737040711616 [512] allocated at MO68[512] allocated at global:nonempty_masks
+140737040711648-140737040711656 [8] allocated at MO69[8] allocated at global:gridlist
+140737040711712-140737040712384 [672] allocated at MO70[672] allocated at global:cmdtab
+140737040712416-140737040712422 [6] allocated at MO71[6] allocated at global:.str.80
+140737040712480-140737040712482 [2] allocated at MO72[2] allocated at global:.str.83
+140737040712544-140737040712547 [3] allocated at MO73[3] allocated at global:.str.85
+140737040712608-140737040712620 [12] allocated at MO74[12] allocated at global:.str.86
+140737040712672-140737040712676 [4] allocated at MO75[4] allocated at global:.str.90
+140737040712736-140737040712740 [4] allocated at MO76[4] allocated at global:.str.94
+140737040712800-140737040712808 [8] allocated at MO77[8] allocated at global:.str.104
+140737040712864-140737040712888 [24] allocated at MO78[24] allocated at global:.str.106
+140737040712928-140737040712931 [3] allocated at MO79[3] allocated at global:.str.111
+140737040712992-140737040713004 [12] allocated at MO80[12] allocated at global:.str.114
+140737040713056-140737040713061 [5] allocated at MO81[5] allocated at global:.str.118
+140737040713120-140737040713124 [4] allocated at MO82[4] allocated at global:.str.121
+140737040713184-140737040713187 [3] allocated at MO83[3] allocated at global:.str.128
+140737040713248-140737040713252 [4] allocated at MO84[4] allocated at global:.str.16
+140737040713312-140737040713319 [7] allocated at MO85[7] allocated at global:.str.1.17
+140737040713376-140737040713382 [6] allocated at MO86[6] allocated at global:.str.2.18
+140737040713440-140737040713451 [11] allocated at MO87[11] allocated at global:.str.3.19
+140737040713504-140737040713512 [8] allocated at MO88[8] allocated at global:.str.4.20
+140737040713568-140737040713579 [11] allocated at MO89[11] allocated at global:.str.5.21
+140737040713632-140737040713642 [10] allocated at MO90[10] allocated at global:.str.6.22
+140737040713696-140737040713706 [10] allocated at MO91[10] allocated at global:.str.7.23
+140737040713760-140737040713770 [10] allocated at MO92[10] allocated at global:.str.8.24
+140737040713824-140737040713832 [8] allocated at MO93[8] allocated at global:.str.9.25
+140737040713888-140737040713902 [14] allocated at MO94[14] allocated at global:.str.10.26
+140737040713952-140737040713961 [9] allocated at MO95[9] allocated at global:.str.11.27
+140737040714016-140737040714027 [11] allocated at MO96[11] allocated at global:.str.12.28
+140737040714080-140737040714088 [8] allocated at MO97[8] allocated at global:.str.13.29
+140737040714144-140737040714154 [10] allocated at MO98[10] allocated at global:.str.14.30
+140737040714208-140737040714219 [11] allocated at MO99[11] allocated at global:.str.15.31
+140737040714272-140737040714281 [9] allocated at MO100[9] allocated at global:.str.16.32
+140737040714336-140737040714348 [12] allocated at MO101[12] allocated at global:.str.17
+140737040714400-140737040714412 [12] allocated at MO102[12] allocated at global:.str.18
+140737040714464-140737040714470 [6] allocated at MO103[6] allocated at global:.str.19
+140737040714528-140737040714538 [10] allocated at MO104[10] allocated at global:.str.20
+140737040714592-140737040714602 [10] allocated at MO105[10] allocated at global:.str.21
+140737040714656-140737040714663 [7] allocated at MO106[7] allocated at global:.str.22
+140737040714720-140737040714728 [8] allocated at MO107[8] allocated at global:.str.23
+140737040714784-140737040714795 [11] allocated at MO108[11] allocated at global:.str.24
+140737040714848-140737040714858 [10] allocated at MO109[10] allocated at global:.str.25
+140737040714912-140737040714925 [13] allocated at MO110[13] allocated at global:.str.26
+140737040714976-140737040714986 [10] allocated at MO111[10] allocated at global:.str.27
+140737040715040-140737040715046 [6] allocated at MO112[6] allocated at global:.str.28
+140737040715104-140737040715111 [7] allocated at MO113[7] allocated at global:.str.29
+140737040715168-140737040715173 [5] allocated at MO114[5] allocated at global:.str.30
+140737040715232-140737040715243 [11] allocated at MO115[11] allocated at global:.str.31
+140737040715296-140737040715305 [9] allocated at MO116[9] allocated at global:.str.32
+140737040715360-140737040715369 [9] allocated at MO117[9] allocated at global:.str.33
+140737040715424-140737040715436 [12] allocated at MO118[12] allocated at global:.str.34
+140737040715488-140737040715500 [12] allocated at MO119[12] allocated at global:.str.35
+140737040715552-140737040715566 [14] allocated at MO120[14] allocated at global:.str.36
+140737040715616-140737040715629 [13] allocated at MO121[13] allocated at global:.str.37
+140737040715680-140737040715688 [8] allocated at MO122[8] allocated at global:.str.38
+140737040715744-140737040715751 [7] allocated at MO123[7] allocated at global:.str.39
+140737040715808-140737040715814 [6] allocated at MO124[6] allocated at global:.str.40
+140737040715872-140737040715874 [2] allocated at MO125[2] allocated at global:.str.41
+140737040715936-140737040715943 [7] allocated at MO126[7] allocated at global:.str.1.141
+140737040716000-140737040716003 [3] allocated at MO127[3] allocated at global:.str.2.142
+140737040716064-140737040716066 [2] allocated at MO128[2] allocated at global:.str.3.148
+140737040716128-140737040716159 [31] allocated at MO129[31] allocated at global:.str.4.149
+140737040716192-140737040716229 [37] allocated at MO130[37] allocated at global:.str.5.150
+140737040716288-140737040716294 [6] allocated at MO131[6] allocated at global:.str.6.151
+140737040716352-140737040716359 [7] allocated at MO132[7] allocated at global:.str.7.152
+140737040716416-140737040716447 [31] allocated at MO133[31] allocated at global:.str.8.153
+140737040716480-140737040716486 [6] allocated at MO134[6] allocated at global:.str.9.154
+140737040716544-140737040716568 [24] allocated at MO135[24] allocated at global:.str.10.155
+140737040716608-140737040716633 [25] allocated at MO136[25] allocated at global:.str.11.156
+140737040716672-140737040716692 [20] allocated at MO137[20] allocated at global:.str.12.157
+140737040716736-140737040716776 [40] allocated at MO138[40] allocated at global:.str.13.158
+140737040716832-140737040716849 [17] allocated at MO139[17] allocated at global:.str.14.159
+140737040716896-140737040716946 [50] allocated at MO140[50] allocated at global:.str.15.160
+140737040716992-140737040716999 [7] allocated at MO141[7] allocated at global:.str.16.161
+140737040717056-140737040717082 [26] allocated at MO142[26] allocated at global:.str.17.162
+140737040717120-140737040717200 [80] allocated at MO143[80] allocated at global:SphProcs
+140737040717248-140737040717328 [80] allocated at MO144[80] allocated at global:PolyProcs
+140737040717376-140737040717456 [80] allocated at MO145[80] allocated at global:TriProcs
+140737040717504-140737040717558 [54] allocated at MO146[54] allocated at global:.str.18.163
+140737040717600-140737040717630 [30] allocated at MO147[30] allocated at global:.str.19.164
+140737040717664-140737040717672 [8] allocated at MO148[8] allocated at global:eps_t
+140737040717728-140737040717736 [8] allocated at MO149[8] allocated at global:nprocs
+140737040717792-140737040717800 [8] allocated at MO150[8] allocated at global:MaxGlobMem
+140737040717856-140737040717864 [8] allocated at MO151[8] allocated at global:NumSubRays
+140737040717920-140737040717928 [8] allocated at MO152[8] allocated at global:begmem
+140737040717984-140737040717992 [8] allocated at MO153[8] allocated at global:endmem
+140737040718048-140737040718056 [8] allocated at MO154[8] allocated at global:nodesize
+140737040718112-140737040718117 [5] allocated at MO155[5] allocated at global:.str.22.329
+140737040718176-140737040718182 [6] allocated at MO156[6] allocated at global:.str.23.330
+140737040718240-140737040718250 [10] allocated at MO157[10] allocated at global:.str.24.331
+140737040718304-140737040718315 [11] allocated at MO158[11] allocated at global:.str.25.332
+140737040718368-140737040718376 [8] allocated at MO159[8] allocated at global:.str.26.333
+140737040718432-140737040718441 [9] allocated at MO160[9] allocated at global:.str.27.334
+140737040718496-140737040718501 [5] allocated at MO161[5] allocated at global:.str.366
+140737040718560-140737040718564 [4] allocated at MO162[4] allocated at global:.str.4.370
+140737040718624-140737040718631 [7] allocated at MO163[7] allocated at global:.str.6.372
+140737040718688-140737040718692 [4] allocated at MO164[4] allocated at global:.str.7.373
+140737040718752-140737040718764 [12] allocated at MO165[12] allocated at global:.str.9.375
+140737040718816-140737040718829 [13] allocated at MO166[13] allocated at global:.str.13.379
+140737040718880-140737049110560 [8391680] allocated at MO167[8391680] allocated at global:raystruct
+140737049110592-140737049110603 [11] allocated at MO168[11] allocated at global:.str.384
+140737049110656-140737049110663 [7] allocated at MO169[7] allocated at global:.str.404
+140737049110720-140737049110726 [6] allocated at MO170[6] allocated at global:.str.4.408
+140737049110784-140737049110800 [16] allocated at MO171[16] allocated at global:.str.5.409
+140737049110848-140737049110856 [8] allocated at MO172[8] allocated at global:frand.lLastRand
+140737049110912-140737049110917 [5] allocated at MO173[5] allocated at global:.str.431
+140737049110976-140737049110980 [4] allocated at MO174[4] allocated at global:.str.4.435
+140737049111040-140737049111046 [6] allocated at MO175[6] allocated at global:.str.6.437
+140737049111104-140737049111108 [4] allocated at MO176[4] allocated at global:.str.7.438
+140737049111168-140737049111180 [12] allocated at MO177[12] allocated at global:.str.10.441
+140737049111232-140737049111245 [13] allocated at MO178[13] allocated at global:.str.13.444
+140737049111296-140737049111308 [12] allocated at MO179[12] allocated at global:.str.15.446
+140737049111360-140737049111371 [11] allocated at MO180[11] allocated at global:.str.452
+140737049111424-140737049111428 [4] allocated at MO181[4] allocated at global:index_out
+140737049111488-140737049111492 [4] allocated at MO182[4] allocated at global:gSyncVar_0
+140737049111552-140737049111556 [4] allocated at MO183[4] allocated at global:gSyncVar_1
+140737049111616-140737049111620 [4] allocated at MO184[4] allocated at global:gSyncVar_2
+140737049111680-140737049111684 [4] allocated at MO185[4] allocated at global:gSyncVarsTotalNum
+140737049111744-140737049111748 [4] allocated at MO186[4] allocated at global:counter0
+140737049111808-140737049111812 [4] allocated at MO187[4] allocated at global:counter1
+140737049111872-140737049111873 [1] allocated at MO188[1] allocated at global:firstSync
+140737049111936-140737049112136 [200] allocated at MO189[200] allocated at global:mystring
+140737049112192-140737049112195 [3] allocated at MO190[3] allocated at global:switches
+140737049112256-140737049112268 [12] allocated at MO191[12] allocated at global:syncID
+140737049112320-140737049112328 [8] allocated at MO192[8] allocated at global:__libc_stack_end
+140737049112384-140737049112392 [8] allocated at MO193[8] allocated at global:__uclibc_progname
+140737049112448-140737049112456 [8] allocated at MO194[8] allocated at global:__environ
+140737049112512-140737049112520 [8] allocated at MO195[8] allocated at global:__pagesize
+140737049112576-140737049112580 [4] allocated at MO196[4] allocated at global:__uClibc_init.been_there_done_that
+140737049112640-140737049112648 [8] allocated at MO197[8] allocated at global:__app_fini
+140737049112704-140737049112712 [8] allocated at MO198[8] allocated at global:__rtld_fini
+140737049112768-140737049112778 [10] allocated at MO199[10] allocated at global:.str5
+140737049112832-140737049112840 [8] allocated at MO200[8] allocated at global:__exit_cleanup
+140737049112896-140737049112900 [4] allocated at MO201[4] allocated at global:static_fd
+140737049112960-140737049112968 [8] allocated at MO202[8] allocated at global:static_ut_name
+140737049113024-140737049113038 [14] allocated at MO203[14] allocated at global:default_file_name
+140737049113088-140737049113488 [400] allocated at MO204[400] allocated at global:static_utmp
+140737049113536-140737049113776 [240] allocated at MO205[240] allocated at global:_stdio_streams
+140737049113824-140737049113832 [8] allocated at MO206[8] allocated at global:stdin
+140737049113888-140737049113896 [8] allocated at MO207[8] allocated at global:stdout
+140737049113952-140737049113960 [8] allocated at MO208[8] allocated at global:stderr
+140737049114016-140737049114024 [8] allocated at MO209[8] allocated at global:__stdin
+140737049114080-140737049114088 [8] allocated at MO210[8] allocated at global:__stdout
+140737049114144-140737049114152 [8] allocated at MO211[8] allocated at global:_stdio_openlist
+140737049114208-140737049114212 [4] allocated at MO212[4] allocated at global:errno
+140737049114272-140737049114276 [4] allocated at MO213[4] allocated at global:h_errno
+140737049114336-140737049114343 [7] allocated at MO214[7] allocated at global:_do_one_spec.spec_base
+140737049114400-140737049114412 [12] allocated at MO215[12] allocated at global:_do_one_spec.prefix
+140737049114464-140737049114470 [6] allocated at MO216[6] allocated at global:.str102
+140737049114528-140737049114535 [7] allocated at MO217[7] allocated at global:.str1
+140737049114592-140737049115360 [768] allocated at MO218[768] allocated at global:__C_ctype_b_data
+140737049115392-140737049115400 [8] allocated at MO219[8] allocated at global:__C_ctype_b
+140737049115456-140737049115464 [8] allocated at MO220[8] allocated at global:__ctype_b
+140737049115520-140737049115522 [2] allocated at MO221[2] allocated at global:decpt_str
+140737049115584-140737049115599 [15] allocated at MO222[15] allocated at global:spec_base
+140737049115648-140737049115654 [6] allocated at MO223[6] allocated at global:nil_string
+140737049115712-140737049115723 [11] allocated at MO224[11] allocated at global:__psfs_do_numeric.nan_inf_str
+140737049115776-140737049115780 [4] allocated at MO225[4] allocated at global:spec_flags
+140737049115840-140737049115858 [18] allocated at MO226[18] allocated at global:qual_chars
+140737049115904-140737049115927 [23] allocated at MO227[23] allocated at global:spec_chars
+140737049115968-140737049115976 [8] allocated at MO228[8] allocated at global:spec_ranges
+140737049116032-140737049116048 [16] allocated at MO229[16] allocated at global:spec_allowed
+140737049116096-140737049116116 [20] allocated at MO230[20] allocated at global:fmt
+140737049116160-140737049116368 [208] allocated at MO231[208] allocated at global:exp10_table
+140737049116416-140737049116424 [8] allocated at MO232[8] allocated at global:_ppfs_parsespec.spec_flags
+140737049116480-140737049116501 [21] allocated at MO233[21] allocated at global:_ppfs_parsespec.spec_chars
+140737049116544-140737049116553 [9] allocated at MO234[9] allocated at global:_ppfs_parsespec.spec_ranges
+140737049116608-140737049116624 [16] allocated at MO235[16] allocated at global:_ppfs_parsespec.spec_or_mask
+140737049116672-140737049116688 [16] allocated at MO236[16] allocated at global:_ppfs_parsespec.spec_and_mask
+140737049116736-140737049116756 [20] allocated at MO237[20] allocated at global:_ppfs_parsespec.qual_chars
+140737049116800-140737049116824 [24] allocated at MO238[24] allocated at global:type_codes
+140737049116864-140737049116876 [12] allocated at MO239[12] allocated at global:type_sizes
+140737049116928-140737049116936 [8] allocated at MO240[8] allocated at global:mbrtowc.mbstate
+140737049116992-140737049117013 [21] allocated at MO241[21] allocated at global:__strtofpmax.nan_inf_str
+140737049117056-140737049117064 [8] allocated at MO242[8] allocated at global:mbsnrtowcs.mbstate
+140737049117120-140737049117888 [768] allocated at MO243[768] allocated at global:__C_ctype_tolower_data
+140737049117920-140737049117928 [8] allocated at MO244[8] allocated at global:__C_ctype_tolower
+140737049117984-140737049117992 [8] allocated at MO245[8] allocated at global:__ctype_tolower
+140737049118048-140737049118066 [18] allocated at MO246[18] allocated at global:.str183
+140737049118112-140737049118127 [15] allocated at MO247[15] allocated at global:.str1184
+140737049118176-140737049118193 [17] allocated at MO248[17] allocated at global:.str2
+140737049118240-140737049118257 [17] allocated at MO249[17] allocated at global:.str3
+140737049118304-140737049118325 [21] allocated at MO250[21] allocated at global:.str4
+140737049118368-140737049118400 [32] allocated at MO251[32] allocated at global:.str5185
+140737049118432-140737049118441 [9] allocated at MO252[9] allocated at global:.str6
+140737049118496-140737049118504 [8] allocated at MO253[8] allocated at global:__usage_model_stat
+140737049118560-140737049118568 [8] allocated at MO254[8] allocated at global:__usage_model_fstat
+140737049118624-140737049118632 [8] allocated at MO255[8] allocated at global:__usage_model_lstat
+140737049118688-140737049118696 [8] allocated at MO256[8] allocated at global:__usage_model_close
+140737049118752-140737049118760 [8] allocated at MO257[8] allocated at global:__usage_model_fcntl
+140737049118816-140737049118824 [8] allocated at MO258[8] allocated at global:__usage_model_ioctl
+140737049118880-140737049118888 [8] allocated at MO259[8] allocated at global:__usage_model_open
+140737049118944-140737049118952 [8] allocated at MO260[8] allocated at global:__usage_model_creat
+140737049119008-140737049119016 [8] allocated at MO261[8] allocated at global:__usage_model_getcwd
+140737049119072-140737049119080 [8] allocated at MO262[8] allocated at global:__usage_model_lseek
+140737049119136-140737049119144 [8] allocated at MO263[8] allocated at global:__usage_model_chmod
+140737049119200-140737049119208 [8] allocated at MO264[8] allocated at global:__usage_model_fchmod
+140737049119264-140737049119272 [8] allocated at MO265[8] allocated at global:__usage_model_readlink
+140737049119328-140737049119336 [8] allocated at MO266[8] allocated at global:__usage_model_chown
+140737049119392-140737049119400 [8] allocated at MO267[8] allocated at global:__usage_model_fchown
+140737049119456-140737049119464 [8] allocated at MO268[8] allocated at global:__usage_model_lchown
+140737049119520-140737049119528 [8] allocated at MO269[8] allocated at global:__usage_model_chdir
+140737049119584-140737049119592 [8] allocated at MO270[8] allocated at global:__usage_model_fchdir
+140737049119648-140737049119656 [8] allocated at MO271[8] allocated at global:__usage_model_fsync
+140737049119712-140737049119720 [8] allocated at MO272[8] allocated at global:__usage_model_fdatasync
+140737049119776-140737049119784 [8] allocated at MO273[8] allocated at global:__usage_model_statfs
+140737049119840-140737049119848 [8] allocated at MO274[8] allocated at global:__usage_model_fstatfs
+140737049119904-140737049119912 [8] allocated at MO275[8] allocated at global:__usage_model_truncate
+140737049119968-140737049119976 [8] allocated at MO276[8] allocated at global:__usage_model_ftruncate
+140737049120032-140737049120040 [8] allocated at MO277[8] allocated at global:__usage_model_access
+140737049120096-140737049120104 [8] allocated at MO278[8] allocated at global:__usage_model_read
+140737049120160-140737049120168 [8] allocated at MO279[8] allocated at global:__usage_model_write
+140737049120224-140737049120232 [8] allocated at MO280[8] allocated at global:__usage_model_readv
+140737049120288-140737049120296 [8] allocated at MO281[8] allocated at global:__usage_model_writev
+140737049120352-140737049120360 [8] allocated at MO282[8] allocated at global:__usage_model_pread
+140737049120416-140737049120424 [8] allocated at MO283[8] allocated at global:__usage_model_pwrite
+140737049120480-140737049120488 [8] allocated at MO284[8] allocated at global:__usage_model_select
+140737049120544-140737049120552 [8] allocated at MO285[8] allocated at global:__usage__exit
+140737049120608-140737049120616 [8] allocated at MO286[8] allocated at global:__usage_pthread_exit
+140737049120672-140737049120952 [280] allocated at MO287[280] allocated at global:llvm.used
+140737049120992-140737049121030 [38] allocated at MO288[38] allocated at global:.str198
+140737049121088-140737049121118 [30] allocated at MO289[30] allocated at global:.str1199
+140737049121152-140737049121175 [23] allocated at MO290[23] allocated at global:.str2200
+140737049121216-140737049121228 [12] allocated at MO291[12] allocated at global:.str3201
+140737049121280-140737049121325 [45] allocated at MO292[45] allocated at global:__PRETTY_FUNCTION__.waitid
+140737049121376-140737049121412 [36] allocated at MO293[36] allocated at global:.str206
+140737049121472-140737049121484 [12] allocated at MO294[12] allocated at global:.str1207
+140737049121536-140737049121547 [11] allocated at MO295[11] allocated at global:.str2208
+140737049121600-140737049121650 [50] allocated at MO296[50] allocated at global:.str3209
+140737049121696-140737049121707 [11] allocated at MO297[11] allocated at global:.str4210
+140737049121760-140737049121770 [10] allocated at MO298[10] allocated at global:.str5211
+140737049121824-140737049121835 [11] allocated at MO299[11] allocated at global:.str6212
+140737049121888-140737049121898 [10] allocated at MO300[10] allocated at global:.str7
+140737049121952-140737049121961 [9] allocated at MO301[9] allocated at global:.str8
+140737049122016-140737049122024 [8] allocated at MO302[8] allocated at global:.str9
+140737049122080-140737049122096 [16] allocated at MO303[16] allocated at global:.str10
+140737049122144-140737049122159 [15] allocated at MO304[15] allocated at global:.str11
+140737049122208-140737049122213 [5] allocated at MO305[5] allocated at global:klee_process_args.sym_arg_name
+140737049122272-140737049122282 [10] allocated at MO306[10] allocated at global:.str12
+140737049122336-140737049122345 [9] allocated at MO307[9] allocated at global:.str13
+140737049122400-140737049122448 [48] allocated at MO308[48] allocated at global:.str14
+140737049122496-140737049122507 [11] allocated at MO309[11] allocated at global:.str15
+140737049122560-140737049122570 [10] allocated at MO310[10] allocated at global:.str16
+140737049122624-140737049122701 [77] allocated at MO311[77] allocated at global:.str17
+140737049122752-140737049122759 [7] allocated at MO312[7] allocated at global:.str18
+140737049122816-140737049122853 [37] allocated at MO313[37] allocated at global:.str19
+140737049122912-140737049122928 [16] allocated at MO314[16] allocated at global:.str20
+140737049122976-140737049122985 [9] allocated at MO315[9] allocated at global:.str21
+140737049123040-140737049123071 [31] allocated at MO316[31] allocated at global:.str215
+140737049123104-140737049123138 [34] allocated at MO317[34] allocated at global:.str1216
+140737049123200-140737049123223 [23] allocated at MO318[23] allocated at global:.str227
+140737049123264-140737049123277 [13] allocated at MO319[13] allocated at global:.str1228
+140737049123328-140737049123417 [89] allocated at MO320[89] allocated at global:__PRETTY_FUNCTION__.pthread_cond_timedwait
+140737049123456-140737049123489 [33] allocated at MO321[33] allocated at global:.str238
+140737049123552-140737049123584 [32] allocated at MO322[32] allocated at global:.str1239
+140737049123616-140737049123646 [30] allocated at MO323[30] allocated at global:.str2240
+140737049123680-140737049124704 [1024] allocated at MO324[1024] allocated at global:__mmaps
+140737049124736-140737049124793 [57] allocated at MO325[57] allocated at global:.str3241
+140737049124832-140737049124885 [53] allocated at MO326[53] allocated at global:.str4242
+140737049124928-140737049124946 [18] allocated at MO327[18] allocated at global:.str5243
+140737049124992-140737049124999 [7] allocated at MO328[7] allocated at global:.str6244
+140737049125056-140737049125083 [27] allocated at MO329[27] allocated at global:__PRETTY_FUNCTION__.munmap
+140737049125120-140737049125151 [31] allocated at MO330[31] allocated at global:.str7245
+140737049125184-140737049126720 [1536] allocated at MO331[1536] allocated at global:__fdt
+140737049126752-140737049126763 [11] allocated at MO332[11] allocated at global:.str257
+140737049126816-140737049126821 [5] allocated at MO333[5] allocated at global:.str1258
+140737049126880-140737049126934 [54] allocated at MO334[54] allocated at global:__PRETTY_FUNCTION__._scatter_read
+140737049126976-140737049127030 [54] allocated at MO335[54] allocated at global:__PRETTY_FUNCTION__._gather_write
+140737049127072-140737049127102 [30] allocated at MO336[30] allocated at global:.str2259
+140737049127136-140737049127148 [12] allocated at MO337[12] allocated at global:.str3260
+140737049127200-140737049127244 [44] allocated at MO338[44] allocated at global:__PRETTY_FUNCTION__.sendfile
+140737049127296-140737049127313 [17] allocated at MO339[17] allocated at global:.str4261
+140737049127360-140737049127389 [29] allocated at MO340[29] allocated at global:.str5262
+140737049127424-140737049127452 [28] allocated at MO341[28] allocated at global:__PRETTY_FUNCTION__.__klee_model_close
+140737049127488-140737049127519 [31] allocated at MO342[31] allocated at global:.str6263
+140737049127552-140737049127595 [43] allocated at MO343[43] allocated at global:__PRETTY_FUNCTION__.__klee_model_fstat
+140737049127648-140737049127673 [25] allocated at MO344[25] allocated at global:.str7264
+140737049127712-140737049127731 [19] allocated at MO345[19] allocated at global:.str8265
+140737049127776-140737049127800 [24] allocated at MO346[24] allocated at global:.str9266
+140737049127840-140737049127877 [37] allocated at MO347[37] allocated at global:.str10267
+140737049127936-140737049127985 [49] allocated at MO348[49] allocated at global:.str11268
+140737049128032-140737049128040 [8] allocated at MO349[8] allocated at global:.str12269
+140737049128096-140737049128117 [21] allocated at MO350[21] allocated at global:__PRETTY_FUNCTION__.klee_init_fdt
+140737049128160-140737049128168 [8] allocated at MO351[8] allocated at global:.str13270
+140737049128224-140737049128232 [8] allocated at MO352[8] allocated at global:.str14271
+140737049128288-140737049128306 [18] allocated at MO353[18] allocated at global:.str15272
+140737049128352-140737049128398 [46] allocated at MO354[46] allocated at global:__PRETTY_FUNCTION__._deregister_events
+140737049128448-140737049128535 [87] allocated at MO355[87] allocated at global:.str16273
+140737049128576-140737049128619 [43] allocated at MO356[43] allocated at global:__PRETTY_FUNCTION__._register_events
+140737049128672-140737049128687 [15] allocated at MO357[15] allocated at global:.str17274
+140737049128736-140737049128791 [55] allocated at MO358[55] allocated at global:__PRETTY_FUNCTION__._clean_write
+140737049128832-140737049128880 [48] allocated at MO359[48] allocated at global:__PRETTY_FUNCTION__._clean_read
+140737049128928-140737049128949 [21] allocated at MO360[21] allocated at global:.str18275
+140737049128992-140737049129019 [27] allocated at MO361[27] allocated at global:__PRETTY_FUNCTION__._is_blocking
+140737049129056-140737049129098 [42] allocated at MO362[42] allocated at global:.str305
+140737049129152-140737049129176 [24] allocated at MO363[24] allocated at global:.str1306
+140737049129216-140737049129256 [40] allocated at MO364[40] allocated at global:.str2307
+140737049129312-140737049129321 [9] allocated at MO365[9] allocated at global:.str3308
+140737049129376-140737049129384 [8] allocated at MO366[8] allocated at global:.str4309
+140737049129440-140737049129469 [29] allocated at MO367[29] allocated at global:__PRETTY_FUNCTION__._open_concrete
+140737049129504-140737049129522 [18] allocated at MO368[18] allocated at global:.str5310
+140737049129568-140737049129614 [46] allocated at MO369[46] allocated at global:.str6311
+140737049129664-140737049129711 [47] allocated at MO370[47] allocated at global:.str7312
+140737049129760-140737049129791 [31] allocated at MO371[31] allocated at global:.str8313
+140737049129824-140737049129911 [87] allocated at MO372[87] allocated at global:.str9314
+140737049129952-140737049129985 [33] allocated at MO373[33] allocated at global:.str10315
+140737049130048-140737049130066 [18] allocated at MO374[18] allocated at global:.str11316
+140737049130112-140737049130172 [60] allocated at MO375[60] allocated at global:__PRETTY_FUNCTION__.getdents
+140737049130208-140737049130217 [9] allocated at MO376[9] allocated at global:.str12317
+140737049130272-140737049130318 [46] allocated at MO377[46] allocated at global:__PRETTY_FUNCTION__.__xstat
+140737049130368-140737049130415 [47] allocated at MO378[47] allocated at global:__PRETTY_FUNCTION__.__lxstat
+140737049130464-140737049130502 [38] allocated at MO379[38] allocated at global:__PRETTY_FUNCTION__.__fxstat
+140737049130560-140737049130582 [22] allocated at MO380[22] allocated at global:.str13318
+140737049130624-140737049130669 [45] allocated at MO381[45] allocated at global:.str14319
+140737049130720-140737049130743 [23] allocated at MO382[23] allocated at global:.str15320
+140737049130784-140737049130807 [23] allocated at MO383[23] allocated at global:.str16321
+140737049130848-140737049130890 [42] allocated at MO384[42] allocated at global:.str17322
+140737049130944-140737049130987 [43] allocated at MO385[43] allocated at global:.str18323
+140737049131040-140737049131082 [42] allocated at MO386[42] allocated at global:.str19324
+140737049131136-140737049131170 [34] allocated at MO387[34] allocated at global:.str20325
+140737049131232-140737049131270 [38] allocated at MO388[38] allocated at global:.str21326
+140737049131328-140737049131370 [42] allocated at MO389[42] allocated at global:.str22
+140737049131424-140737049131466 [42] allocated at MO390[42] allocated at global:.str23
+140737049131520-140737049131563 [43] allocated at MO391[43] allocated at global:.str24
+140737049131616-140737049131659 [43] allocated at MO392[43] allocated at global:.str25
+140737049131712-140737049131757 [45] allocated at MO393[45] allocated at global:.str26
+140737049131808-140737049131853 [45] allocated at MO394[45] allocated at global:.str27
+140737049131904-140737049131939 [35] allocated at MO395[35] allocated at global:.str28
+140737049132000-140737049132021 [21] allocated at MO396[21] allocated at global:.str29
+140737049132064-140737049132101 [37] allocated at MO397[37] allocated at global:__PRETTY_FUNCTION__.__is_concrete_blocking
+140737049132160-140737049132416 [256] allocated at MO398[256] allocated at global:__pdata
+140737049132448-140737049132832 [384] allocated at MO399[384] allocated at global:__tsync
+140737049132864-140737049133824 [960] allocated at MO400[960] allocated at global:__sems
+140737049133856-140737049133898 [42] allocated at MO401[42] allocated at global:.str393
+140737049133952-140737049133990 [38] allocated at MO402[38] allocated at global:.str1394
+140737049134048-140737049134077 [29] allocated at MO403[29] allocated at global:.str2395
+140737049134112-140737049134141 [29] allocated at MO404[29] allocated at global:.str3396
+140737049134176-140737049134208 [32] allocated at MO405[32] allocated at global:.str4397
+140737049134240-140737049134250 [10] allocated at MO406[10] allocated at global:.str5398
+140737049134304-140737049134373 [69] allocated at MO407[69] allocated at global:__PRETTY_FUNCTION__._netlink_handler
+140737049134432-140737049134516 [84] allocated at MO408[84] allocated at global:__ifaces
+140737049134560-140737049134565 [5] allocated at MO409[5] allocated at global:.str6399
+140737049134624-140737049134628 [4] allocated at MO410[4] allocated at global:__base_hw_name
+140737049134688-140737049134694 [6] allocated at MO411[6] allocated at global:__base_hw_address
+140737049134752-140737049134782 [30] allocated at MO412[30] allocated at global:.str7400
+140737049134816-140737049134846 [30] allocated at MO413[30] allocated at global:.str8401
+140737049134880-140737049134905 [25] allocated at MO414[25] allocated at global:.str404
+140737049134944-140737049134954 [10] allocated at MO415[10] allocated at global:.str1405
+140737049135008-140737049135038 [30] allocated at MO416[30] allocated at global:__PRETTY_FUNCTION__._close_socket
+140737049135072-140737049135095 [23] allocated at MO417[23] allocated at global:.str2406
+140737049135136-140737049135157 [21] allocated at MO418[21] allocated at global:.str3407
+140737049135200-140737049135227 [27] allocated at MO419[27] allocated at global:.str4408
+140737049135264-140737049135313 [49] allocated at MO420[49] allocated at global:__PRETTY_FUNCTION__._read_socket
+140737049135360-140737049135416 [56] allocated at MO421[56] allocated at global:__PRETTY_FUNCTION__._write_socket
+140737049135456-140737049135479 [23] allocated at MO422[23] allocated at global:.str5409
+140737049135520-140737049135564 [44] allocated at MO423[44] allocated at global:__PRETTY_FUNCTION__._stat_socket
+140737049135616-140737049135667 [51] allocated at MO424[51] allocated at global:.str6410
+140737049135712-140737049135765 [53] allocated at MO425[53] allocated at global:__PRETTY_FUNCTION__._ioctl_socket
+140737049135808-140737049135851 [43] allocated at MO426[43] allocated at global:.str7411
+140737049135904-140737049135945 [41] allocated at MO427[41] allocated at global:__PRETTY_FUNCTION__._is_blocking_socket
+140737049136000-140737049136055 [55] allocated at MO428[55] allocated at global:.str9413
+140737049136096-140737049136155 [59] allocated at MO429[59] allocated at global:.str11415
+140737049136192-140737049136220 [28] allocated at MO430[28] allocated at global:.str12416
+140737049136256-140737049136313 [57] allocated at MO431[57] allocated at global:__PRETTY_FUNCTION__._register_events_socket
+140737049136352-140737049136405 [53] allocated at MO432[53] allocated at global:.str13417
+140737049136448-140737049136508 [60] allocated at MO433[60] allocated at global:__PRETTY_FUNCTION__._deregister_events_socket
+140737049136544-140737049136614 [70] allocated at MO434[70] allocated at global:.str14418
+140737049136672-140737049136698 [26] allocated at MO435[26] allocated at global:.str15419
+140737049136736-140737049136761 [25] allocated at MO436[25] allocated at global:.str16420
+140737049136800-140737049136822 [22] allocated at MO437[22] allocated at global:.str17421
+140737049136864-140737049136917 [53] allocated at MO438[53] allocated at global:__PRETTY_FUNCTION__.connect
+140737049136960-140737049137008 [48] allocated at MO439[48] allocated at global:__PRETTY_FUNCTION__.accept
+140737049137056-140737049137083 [27] allocated at MO440[27] allocated at global:.str18422
+140737049137120-140737049137896 [776] allocated at MO441[776] allocated at global:__net
+140737049137952-140737049137982 [30] allocated at MO442[30] allocated at global:.str19423
+140737049138016-140737049138051 [35] allocated at MO443[35] allocated at global:.str20424
+140737049138112-140737049138145 [33] allocated at MO444[33] allocated at global:.str21425
+140737049138208-140737049138245 [37] allocated at MO445[37] allocated at global:.str22426
+140737049138304-140737049138323 [19] allocated at MO446[19] allocated at global:.str23427
+140737049138368-140737049138443 [75] allocated at MO447[75] allocated at global:__PRETTY_FUNCTION__.recvfrom
+140737049138496-140737049138516 [20] allocated at MO448[20] allocated at global:.str24428
+140737049138560-140737049138596 [36] allocated at MO449[36] allocated at global:.str25429
+140737049138656-140737049138681 [25] allocated at MO450[25] allocated at global:.str26430
+140737049138720-140737049138769 [49] allocated at MO451[49] allocated at global:__PRETTY_FUNCTION__.sendmsg
+140737049138816-140737049138834 [18] allocated at MO452[18] allocated at global:.str27431
+140737049138880-140737049138906 [26] allocated at MO453[26] allocated at global:.str28432
+140737049138944-140737049138987 [43] allocated at MO454[43] allocated at global:__PRETTY_FUNCTION__.recvmsg
+140737049139040-140737049139060 [20] allocated at MO455[20] allocated at global:.str29433
+140737049139104-140737049139122 [18] allocated at MO456[18] allocated at global:.str30
+140737049139168-140737049139213 [45] allocated at MO457[45] allocated at global:.str31
+140737049139264-140737049139294 [30] allocated at MO458[30] allocated at global:.str32
+140737049139328-140737049139362 [34] allocated at MO459[34] allocated at global:.str33
+140737049139424-140737049139454 [30] allocated at MO460[30] allocated at global:.str34
+140737049139488-140737049139524 [36] allocated at MO461[36] allocated at global:.str35
+140737049139584-140737049139623 [39] allocated at MO462[39] allocated at global:.str36
+140737049139680-140737049139715 [35] allocated at MO463[35] allocated at global:.str37
+140737049139776-140737049139818 [42] allocated at MO464[42] allocated at global:.str38
+140737049139872-140737049139874 [2] allocated at MO465[2] allocated at global:.str39
+140737049139936-140737049139983 [47] allocated at MO466[47] allocated at global:.str40
+140737049140032-140737049140042 [10] allocated at MO467[10] allocated at global:.str41
+140737049140096-140737049140108 [12] allocated at MO468[12] allocated at global:.str42
+140737049140160-140737049140189 [29] allocated at MO469[29] allocated at global:.str43
+140737049140224-140737049140267 [43] allocated at MO470[43] allocated at global:.str44
+140737049140320-140737049140323 [3] allocated at MO471[3] allocated at global:.str45
+140737049140384-140737049141152 [768] allocated at MO472[768] allocated at global:__unix_net
+140737049141184-140737049141952 [768] allocated at MO473[768] allocated at global:__netlink_net
+140737049141984-140737049142011 [27] allocated at MO474[27] allocated at global:.str46
+140737049142048-140737049142093 [45] allocated at MO475[45] allocated at global:__PRETTY_FUNCTION__.__free_all_datagrams
+140737049142144-140737049142163 [19] allocated at MO476[19] allocated at global:.str47
+140737049142208-140737049142265 [57] allocated at MO477[57] allocated at global:__PRETTY_FUNCTION__.__find_inet_end
+140737049142304-140737049142324 [20] allocated at MO478[20] allocated at global:.str48
+140737049142368-140737049142417 [49] allocated at MO479[49] allocated at global:.str50
+140737049142464-140737049142539 [75] allocated at MO480[75] allocated at global:__PRETTY_FUNCTION__._datagram_connect
+140737049142592-140737049142660 [68] allocated at MO481[68] allocated at global:__PRETTY_FUNCTION__._stream_connect
+140737049142720-140737049142751 [31] allocated at MO482[31] allocated at global:.str51
+140737049142784-140737049142855 [71] allocated at MO483[71] allocated at global:__PRETTY_FUNCTION__._unix_stream_reach
+140737049142912-140737049142983 [71] allocated at MO484[71] allocated at global:__PRETTY_FUNCTION__._inet_stream_reach
+140737049143040-140737049143123 [83] allocated at MO485[83] allocated at global:__PRETTY_FUNCTION__._get_endpoint_name
+140737049143168-140737049143226 [58] allocated at MO486[58] allocated at global:__PRETTY_FUNCTION__._bind
+140737049143264-140737049143324 [60] allocated at MO487[60] allocated at global:__PRETTY_FUNCTION__.__find_netlink_end
+140737049143360-140737049143378 [18] allocated at MO488[18] allocated at global:.str52
+140737049143424-140737049143437 [13] allocated at MO489[13] allocated at global:.str53
+140737049143488-140737049143532 [44] allocated at MO490[44] allocated at global:__PRETTY_FUNCTION__._validate_netlink_socket
+140737049143584-140737049143616 [32] allocated at MO491[32] allocated at global:.str54
+140737049143648-140737049143675 [27] allocated at MO492[27] allocated at global:.str55
+140737049143712-140737049143739 [27] allocated at MO493[27] allocated at global:.str56
+140737049143776-140737049143816 [40] allocated at MO494[40] allocated at global:__PRETTY_FUNCTION__._validate_net_socket
+140737049143872-140737049143893 [21] allocated at MO495[21] allocated at global:.str57
+140737049143936-140737049143979 [43] allocated at MO496[43] allocated at global:.str58
+140737049144032-140737049144056 [24] allocated at MO497[24] allocated at global:.str59
+140737049144096-140737049144147 [51] allocated at MO498[51] allocated at global:.str60
+140737049144192-140737049144219 [27] allocated at MO499[27] allocated at global:__PRETTY_FUNCTION__.__is_bound
+140737049144256-140737049144297 [41] allocated at MO500[41] allocated at global:.str62
+140737049144352-140737049144456 [104] allocated at MO501[104] allocated at global:__PRETTY_FUNCTION__.__write_datagram_socket
+140737049144512-140737049144543 [31] allocated at MO502[31] allocated at global:.str63
+140737049144576-140737049144606 [30] allocated at MO503[30] allocated at global:.str64
+140737049144640-140737049144754 [114] allocated at MO504[114] allocated at global:__PRETTY_FUNCTION__.__write_datagram_to_stream
+140737049144800-140737049144821 [21] allocated at MO505[21] allocated at global:.str65
+140737049144864-140737049144967 [103] allocated at MO506[103] allocated at global:__PRETTY_FUNCTION__.__create_shared_datagram
+140737049145024-140737049145076 [52] allocated at MO507[52] allocated at global:__PRETTY_FUNCTION__.__is_netlink_kernel
+140737049145120-140737049145173 [53] allocated at MO508[53] allocated at global:.str66
+140737049145216-140737049145243 [27] allocated at MO509[27] allocated at global:__PRETTY_FUNCTION__.__autobind
+140737049145280-140737049145310 [30] allocated at MO510[30] allocated at global:.str67
+140737049145344-140737049145356 [12] allocated at MO511[12] allocated at global:__autobind.addr
+140737049145408-140737049145437 [29] allocated at MO512[29] allocated at global:.str68
+140737049145472-140737049145539 [67] allocated at MO513[67] allocated at global:.str70
+140737049145600-140737049145702 [102] allocated at MO514[102] allocated at global:__PRETTY_FUNCTION__.__read_datagram_socket
+140737049145760-140737049145793 [33] allocated at MO515[33] allocated at global:.str71
+140737049145856-140737049145877 [21] allocated at MO516[21] allocated at global:.str72
+140737049145920-140737049145960 [40] allocated at MO517[40] allocated at global:__PRETTY_FUNCTION__.__release_end_point
+140737049146016-140737049146040 [24] allocated at MO518[24] allocated at global:.str73
+140737049146080-140737049146112 [32] allocated at MO519[32] allocated at global:_fs
+140737049146144-140737049146151 [7] allocated at MO520[7] allocated at global:klee_init_symfs.fname
+140737049146208-140737049146210 [2] allocated at MO521[2] allocated at global:.str457
+140737049146272-140737049146320 [48] allocated at MO522[48] allocated at global:.str2459
+140737049146368-140737049146376 [8] allocated at MO523[8] allocated at global:.str3460
+140737049146432-140737049146477 [45] allocated at MO524[45] allocated at global:__PRETTY_FUNCTION__.klee_init_symfs
+140737049146528-140737049146534 [6] allocated at MO525[6] allocated at global:.str4461
+140737049146592-140737049146651 [59] allocated at MO526[59] allocated at global:.str6463
+140737049146688-140737049146752 [64] allocated at MO527[64] allocated at global:__PRETTY_FUNCTION__._create_dual_file
+140737049146784-140737049146848 [64] allocated at MO528[64] allocated at global:_init_dual_buffer.namebuf
+140737049146880-140737049146886 [6] allocated at MO529[6] allocated at global:.str7464
+140737049146944-140737049146992 [48] allocated at MO530[48] allocated at global:.str9466
+140737049147040-140737049147097 [57] allocated at MO531[57] allocated at global:__PRETTY_FUNCTION__._read_file_contents
+140737049147136-140737049147171 [35] allocated at MO532[35] allocated at global:.str10467
+140737049147232-140737049147296 [64] allocated at MO533[64] allocated at global:_init_file_name.namebuf
+140737049147328-140737049147334 [6] allocated at MO534[6] allocated at global:.str11468
+140737049147392-140737049147456 [64] allocated at MO535[64] allocated at global:_init_stats.namebuf
+140737049147488-140737049147494 [6] allocated at MO536[6] allocated at global:.str12469
+140737049147552-140737049147616 [64] allocated at MO537[64] allocated at global:_init_pure_symbolic_buffer.namebuf
+140737049147648-140737049147659 [11] allocated at MO538[11] allocated at global:.str474
+140737049147712-140737049147721 [9] allocated at MO539[9] allocated at global:.str1475
+140737049147776-140737049147836 [60] allocated at MO540[60] allocated at global:__PRETTY_FUNCTION__.__fork_values
+140737049147872-140737049147895 [23] allocated at MO541[23] allocated at global:.str523
+140737049147936-140737049147944 [8] allocated at MO542[8] allocated at global:.str1524
+140737049148000-140737049148044 [44] allocated at MO543[44] allocated at global:__PRETTY_FUNCTION__._stat_pipe
+140737049148096-140737049148117 [21] allocated at MO544[21] allocated at global:.str2525
+140737049148160-140737049148201 [41] allocated at MO545[41] allocated at global:__PRETTY_FUNCTION__._is_blocking_pipe
+140737049148256-140737049148285 [29] allocated at MO546[29] allocated at global:.str3526
+140737049148320-140737049148343 [23] allocated at MO547[23] allocated at global:.str4527
+140737049148384-140737049148406 [22] allocated at MO548[22] allocated at global:.str
+140737049148448-140737049148463 [15] allocated at MO549[15] allocated at global:.str1547
+140737049148512-140737049148520 [8] allocated at MO550[8] allocated at global:.str2548
+140737049148576-140737049148589 [13] allocated at MO551[13] allocated at global:.str551
+140737049148640-140737049148654 [14] allocated at MO552[14] allocated at global:.str1552
+140737049148704-140737049148709 [5] allocated at MO553[5] allocated at global:.str2553
+140737049152864-140737049152864 [0] allocated at MO2496[0] allocated at klee_init_symfs():  %call5 = call noalias i8* @malloc(i64 %mul) nounwind, !dbg !4713
+140737049153216-140737049153280 [64] allocated at MO2513[64] allocated at _create_pure_symbolic_file():  %call = call noalias i8* @malloc(i64 64) nounwind, !dbg !4705
+140737049153504-140737049153579 [75] allocated at MO2523[75] allocated at _init_file_name():  %call = call noalias i8* @malloc(i64 75) nounwind, !dbg !4705
+140737049154336-140737049154352 [16] allocated at MO3204[16] allocated at _block_init():  %call = call noalias i8* @malloc(i64 %8) nounwind, !dbg !4707
+140737049155040-140737049155184 [144] allocated at MO3343[144] allocated at _init_stats():  %call = call noalias i8* @malloc(i64 144) nounwind, !dbg !4705
+140737049156576-140737049156616 [40] allocated at MO5149[40] allocated at _open_symbolic():  %call38 = call noalias i8* @malloc(i64 40) nounwind, !dbg !4738
+140737049157248-140737049157288 [40] allocated at MO5240[40] allocated at _open_concrete():  %call11 = call noalias i8* @malloc(i64 40) nounwind, !dbg !4720
+140737049158624-140737049158664 [40] allocated at MO6426[40] allocated at _open_concrete():  %call11 = call noalias i8* @malloc(i64 40) nounwind, !dbg !4720
+140737049159488-140737049159496 [8] allocated at MO10980[8] allocated at __uClibc_main():  %main.addr = alloca i32 (i32, i8**, i8**)*, align 8
+140737049159552-140737049159556 [4] allocated at MO10981[4] allocated at __uClibc_main():  %argc.addr = alloca i32, align 4
+140737049159616-140737049159624 [8] allocated at MO10982[8] allocated at __uClibc_main():  %argv.addr = alloca i8**, align 8
+140737049159680-140737049159688 [8] allocated at MO10983[8] allocated at __uClibc_main():  %app_init.addr = alloca void ()*, align 8
+140737049159744-140737049159752 [8] allocated at MO10984[8] allocated at __uClibc_main():  %app_fini.addr = alloca void ()*, align 8
+140737049159808-140737049159816 [8] allocated at MO10985[8] allocated at __uClibc_main():  %aux_dat = alloca i64*, align 8
+140737049159872-140737049160112 [240] allocated at MO10986[240] allocated at __uClibc_main():  %auxvt = alloca [15 x %struct.Elf64_auxv_t.566], align 16
+140737049160160-140737049160168 [8] allocated at MO10987[8] allocated at __uClibc_main():  %auxv_entry = alloca %struct.Elf64_auxv_t.566*, align 8
+140737049160736-140737049160740 [4] allocated at MO12834[4] allocated at __user_main():  %argcPtr = alloca i32
+140737049160800-140737049160808 [8] allocated at MO12835[8] allocated at __user_main():  %argvPtr = alloca i8**
+140737049174080-140737049174104 [24] allocated at MO13200[24] allocated at klee_process_args():  %call135 = call noalias i8* @malloc(i64 %mul) nounwind, !dbg !4770
+140737049174144-140737049174148 [4] allocated at MO13248[4] allocated at __user_main():  %argc.addr = alloca i32, align 4
+140737049174208-140737049174216 [8] allocated at MO13249[8] allocated at __user_main():  %argv.addr = alloca i8**, align 8
+140737049174272-140737049174280 [8] allocated at MO13250[8] allocated at __user_main():  %i = alloca i64, align 8
+140737049174336-140737049174344 [8] allocated at MO13251[8] allocated at __user_main():  %pch = alloca i8*, align 8
+140737049174400-140737049174528 [128] allocated at MO13252[128] allocated at __user_main():  %vtrans = alloca [4 x [4 x double]], align 16
+140737049174560-140737049174688 [128] allocated at MO13253[128] allocated at __user_main():  %Vinv = alloca [4 x [4 x double]], align 16
+140737049174720-140737049174728 [8] allocated at MO13254[8] allocated at __user_main():  %t = alloca i64, align 8
+140737049174784-140737049705408 [530624] allocated at MO13267[530624] allocated at __user_main():  %call50 = call i8* @malloc(i64 530624)
+140737049705504-140737083259936 [33554432] allocated at MO13282[33554432] allocated at GlobalHeapInit():  %call = call i8* @malloc(i64 %shr)
+140737083261152-140737083261232 [80] allocated at MO13342[80] allocated at _stdio_fopen():  %call = call noalias i8* @malloc(i64 80) nounwind, !dbg !4732
+140737083263904-140737083263944 [40] allocated at MO14501[40] allocated at _open_concrete():  %call11 = call noalias i8* @malloc(i64 40) nounwind, !dbg !4720
+140737083264800-140737083268896 [4096] allocated at MO15689[4096] allocated at _stdio_fopen():  %call92 = call noalias i8* @malloc(i64 4096) nounwind, !dbg !4753
+140737083863040-140737083863048 [8] allocated at MO114321[8] allocated at ReadGeoFile():  %GeoFileName.addr = alloca i8*, align 8
+140737083863104-140737083863112 [8] allocated at MO114322[8] allocated at ReadGeoFile():  %i = alloca i64, align 8
+140737083863168-140737083863176 [8] allocated at MO114323[8] allocated at ReadGeoFile():  %dummy = alloca i64, align 8
+140737083863232-140737083863240 [8] allocated at MO114324[8] allocated at ReadGeoFile():  %stat = alloca i64, align 8
+140737083863296-140737083863297 [1] allocated at MO114325[1] allocated at ReadGeoFile():  %comchar = alloca i8, align 1
+140737083863360-140737083863361 [1] allocated at MO114326[1] allocated at ReadGeoFile():  %primop = alloca i8, align 1
+140737083863424-140737083863454 [30] allocated at MO114327[30] allocated at ReadGeoFile():  %objstr = alloca [30 x i8], align 16
+140737083863488-140737083863518 [30] allocated at MO114328[30] allocated at ReadGeoFile():  %objname = alloca [30 x i8], align 16
+140737083863552-140737083863560 [8] allocated at MO114329[8] allocated at ReadGeoFile():  %pf = alloca %struct._IO_FILE*, align 8
+140737083863616-140737083863624 [8] allocated at MO114330[8] allocated at ReadGeoFile():  %ps = alloca %struct.surf*, align 8
+140737083863680-140737083863808 [128] allocated at MO114331[128] allocated at ReadGeoFile():  %model = alloca [4 x [4 x double]], align 16
+140737083863840-140737083863968 [128] allocated at MO114332[128] allocated at ReadGeoFile():  %modelInv = alloca [4 x [4 x double]], align 16
+140737083864000-140737083864128 [128] allocated at MO114333[128] allocated at ReadGeoFile():  %modelInvT = alloca [4 x [4 x double]], align 16
+140737083864160-140737083864168 [8] allocated at MO114334[8] allocated at ReadGeoFile():  %prev = alloca %struct.object*, align 8
+140737083864224-140737083864232 [8] allocated at MO114335[8] allocated at ReadGeoFile():  %curr = alloca %struct.object*, align 8
+140737083864288-140737083864296 [8] allocated at MO114336[8] allocated at ReadGeoFile():  %pe = alloca %struct.element*, align 8
+140737083864800-140737083864880 [80] allocated at MO114356[80] allocated at _stdio_fopen():  %call = call noalias i8* @malloc(i64 80) nounwind, !dbg !4732
+140737083867552-140737083867592 [40] allocated at MO115518[40] allocated at _open_concrete():  %call11 = call noalias i8* @malloc(i64 40) nounwind, !dbg !4720
+140737083868448-140737083872544 [4096] allocated at MO116706[4096] allocated at _stdio_fopen():  %call92 = call noalias i8* @malloc(i64 4096) nounwind, !dbg !4753
+140737309132000-140737309132016 [16] allocated at MO36545954[16] allocated at ReadGeoFile():  %call27 = call i32 (%struct.__STDIO_FILE_STRUCT.577*, i8*, ...)* @fscanf(%struct.__STDIO_FILE_STRUCT.577* %12, i8* getelementptr inbounds ([6 x i8]* @.str.6.151, i32 0, i32 0), i8* %arraydecay25, i8* %arraydecay26)
+140737309132064-140737309132072 [8] allocated at MO36545955[8] allocated at fscanf():  %stream.addr = alloca %struct.__STDIO_FILE_STRUCT.577*, align 8
+140737309132128-140737309132136 [8] allocated at MO36545956[8] allocated at fscanf():  %format.addr = alloca i8*, align 8
+140737309132192-140737309132216 [24] allocated at MO36545957[24] allocated at fscanf():  %arg = alloca [1 x %struct.__va_list_tag.578], align 16
+140737309132256-140737309132260 [4] allocated at MO36545958[4] allocated at fscanf():  %rv = alloca i32, align 4
+140737309132320-140737309132328 [8] allocated at MO36545967[8] allocated at vfscanf():  %fp.addr = alloca %struct.__STDIO_FILE_STRUCT.577*, align 8
+140737309132384-140737309132392 [8] allocated at MO36545968[8] allocated at vfscanf():  %format.addr = alloca i8*, align 8
+140737309132448-140737309132456 [8] allocated at MO36545969[8] allocated at vfscanf():  %arg.addr = alloca %struct.__va_list_tag.578*, align 8
+140737309132512-140737309132520 [8] allocated at MO36545970[8] allocated at vfscanf():  %fmt = alloca i8*, align 8
+140737309132576-140737309132584 [8] allocated at MO36545971[8] allocated at vfscanf():  %b = alloca i8*, align 8
+140737309132640-140737309132720 [80] allocated at MO36545972[80] allocated at vfscanf():  %sc = alloca %struct.scan_cookie.619, align 8
+140737309132768-140737309132888 [120] allocated at MO36545973[120] allocated at vfscanf():  %psfs = alloca %struct.psfs_t.620, align 8
+140737309132928-140737309132932 [4] allocated at MO36545974[4] allocated at vfscanf():  %i = alloca i32, align 4
+140737309132992-140737309133059 [67] allocated at MO36545975[67] allocated at vfscanf():  %buf = alloca [67 x i8], align 16
+140737309133120-140737309133376 [256] allocated at MO36545976[256] allocated at vfscanf():  %scanset = alloca [256 x i8], align 16
+140737309133408-140737309133409 [1] allocated at MO36545977[1] allocated at vfscanf():  %invert = alloca i8, align 1
+140737309133472-140737309133473 [1] allocated at MO36545978[1] allocated at vfscanf():  %fail = alloca i8, align 1
+140737309133536-140737309133537 [1] allocated at MO36545979[1] allocated at vfscanf():  %zero_conversions = alloca i8, align 1
+140737309133600-140737309133604 [4] allocated at MO36545980[4] allocated at vfscanf():  %r = alloca i32, align 4
+140737309133664-140737309133668 [4] allocated at MO36545981[4] allocated at vfscanf():  %wbuf = alloca [1 x i32], align 4
+140737309133728-140737309133736 [8] allocated at MO36545982[8] allocated at vfscanf():  %wb = alloca i32*, align 8
+140737309138784-140737309138788 [4] allocated at MO36547397[4] allocated at __scan_getc():  %retval = alloca i32, align 4
+140737309138848-140737309138856 [8] allocated at MO36547398[8] allocated at __scan_getc():  %sc.addr = alloca %struct.scan_cookie.619*, align 8
+140737309138912-140737309138916 [4] allocated at MO36547399[4] allocated at __scan_getc():  %c = alloca i32, align 4
+140737321744832-140737321746368 [1536] allocated at MO41[1536] (no allocation info), ReadOnly(no allocation info)
+140737321746368-140737321747904 [1536] allocated at MO43[1536] (no allocation info), ReadOnly(no allocation info)
+140737321748928-140737321749696 [768] allocated at MO39[768] (no allocation info), ReadOnly(no allocation info)
+140737352296104-140737352296108 [4] allocated at MO38[4] (no allocation info)(no allocation info)
+140737352296112-140737352296120 [8] allocated at MO44[8] (no allocation info), ReadOnly(no allocation info)
+140737352296120-140737352296128 [8] allocated at MO42[8] (no allocation info), ReadOnly(no allocation info)
+140737352296128-140737352296136 [8] allocated at MO40[8] (no allocation info), ReadOnly(no allocation info)
+

@@ -1,0 +1,12 @@
+clang -O0 -save-temps -flto -v -Xlinker -plugin-opt=save-temps test.c foo.c
+clang -emit-llvm -c printf.c -o printf.bc
+llc -O0 -march=cpp printf.bc -o printf.cpp
+clang++ -c printf.cpp `llvm-config --cxxflags  --libs --ldflags --system-libs `
+clang -O0 -save-temps -flto -v -Xlinker -plugin-opt=save-temps barrier.c -lpthread
+clang -O0 -save-temps -flto -v -Xlinker -plugin-opt=save-temps fft.c -lpthread 
+clang -O0 -save-temps -flto -v -Xlinker -plugin-opt=save-temps fft2.c -lpthread -lm
+clang -O0 -emit-llvm -c print.c -o print.bc
+llc -O0 -march=cpp print.bc -o print.cpp
+clang -O0 -emit-llvm -c schedule.c -o schedule.bc
+llc -O0 -march=cpp schedule.bc -o schedule.cpp
+clang++ printChar.cpp `llvm-config --cxxflags  --libs --ldflags --system-libs `

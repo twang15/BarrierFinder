@@ -1,0 +1,5 @@
+digraph "CFG for 'send_ray' function" {
+	label="CFG for 'send_ray' function";
+
+	Node0x5f721a0 [shape=record,label="{entry:\l  %retval = alloca i64, align 8\l  %r.addr = alloca %struct.ray*, align 8\l  %v.addr = alloca %struct.voxel*, align 8\l  ret i64 undef\l}"];
+}

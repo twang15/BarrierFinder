@@ -1,0 +1,13 @@
+digraph "CFG for 'Scale' function" {
+	label="CFG for 'Scale' function";
+
+	Node0x43bd160 [shape=record,label="{entry:\l  %retval = alloca i32, align 4\l  %n1.addr = alloca i32, align 4\l  %N.addr = alloca i32, align 4\l  %x.addr = alloca double*, align 8\l  %i = alloca i32, align 4\l  br label %for.cond\l}"];
+	Node0x43bd160 -> Node0x43bd5a0;
+	Node0x43bd5a0 [shape=record,label="{for.cond:                                         \l  br label %for.end\l}"];
+	Node0x43bd5a0 -> Node0x43bd690;
+	Node0x43bd5f0 [shape=record,label="{for.body:                                         \l  br label %for.inc\l}"];
+	Node0x43bd5f0 -> Node0x43bd640;
+	Node0x43bd640 [shape=record,label="{for.inc:                                          \l  br label %for.cond\l}"];
+	Node0x43bd640 -> Node0x43bd5a0;
+	Node0x43bd690 [shape=record,label="{for.end:                                          \l  ret i32 undef\l}"];
+}

@@ -1,0 +1,21 @@
+---- pthread_create Matches (1 in 1 files) ----
+Main.c:pthread_create(&t, NULL, (StartRayTrace), NULL);
+---- pthread_mutex_lock Matches (12 in 5 files) ----
+Main.c:	{pthread_mutex_lock(&(gm->pidlock));}
+Memory.c:	{pthread_mutex_lock(&(gm->memlock));}
+Memory.c:	{pthread_mutex_lock(&(gm->memlock));}
+Memory.c:	{pthread_mutex_lock(&(gm->memlock));}
+Memory.c:	{pthread_mutex_lock(&(gm->memlock));}
+Memory.c:	{pthread_mutex_lock(&(gm->memlock));}
+Memory.c:	{pthread_mutex_lock(&(gm->memlock));}
+Shade.c:		{pthread_mutex_lock(&(gm->ridlock));};
+Shade.c:			{pthread_mutex_lock(&(gm->ridlock));};
+Shade.c:				{pthread_mutex_lock(&(gm->ridlock));};
+Trace.c:	{pthread_mutex_lock(&(gm->ridlock));};
+Workpool.c:	{pthread_mutex_lock(&(gm->wplock)[(pid)]);}
+---- pthread_cond Matches (0 in 0 files) ----
+---- pthread_barrier Matches (0 in 0 files) ----
+---- while (1) Matches (3 in 2 files) ----
+Main.c:    while (1) {
+Main.c:    while (1) {
+Workpool.c:    while (1) {

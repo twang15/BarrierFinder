@@ -1,0 +1,5 @@
+digraph "CFG for 'Scale' function" {
+	label="CFG for 'Scale' function";
+
+	Node0x5fee2f0 [shape=record,label="{entry:\l  %M.addr = alloca [4 x double]*, align 8\l  %sx.addr = alloca double, align 8\l  %sy.addr = alloca double, align 8\l  %sz.addr = alloca double, align 8\l  store [4 x double]* %M, [4 x double]** %M.addr, align 8\l  store double %sx, double* %sx.addr, align 8\l  %0 = load [4 x double]** %M.addr, align 8\l  call void @MatrixIdentity([4 x double]* %0)\l  %1 = load double* %sx.addr, align 8\l  %2 = load [4 x double]** %M.addr, align 8\l  %arrayidx = getelementptr inbounds [4 x double]* %2, i64 0\l  %arrayidx1 = getelementptr inbounds [4 x double]* %arrayidx, i32 0, i64 0\l  store double %1, double* %arrayidx1, align 8\l  ret void\l}"];
+}

@@ -1,0 +1,34 @@
+   //The problem: P is input-dependent, no explicit initialization. VRP cannot decide its value range.
+   //Prediction with predicates.
+   //Design analysis:
+   //1. scope: where to perform the predicate analysis ? We want to constrain the scope to a BasicBlock.
+   //   Typically, a predicate is formed by load from a global value into a virtual register, then compare
+   //   it with another constant or variable. After the load, the value may also be processed before used
+   //   in the comparison. Precise analysis is impossible, so we want to figure out meaningful heuristic
+   //   which also has certain generality.
+   //   By observing FFT, we may have the following heuristics:
+   //   a. if it is an integer, and is used as upper bound of a loop, then it must be positive.
+   //   b. if it is used as a parameter to a function which only takes positive input, then it must be
+   //      positive
+   //   c. if it is used as a comparator to another constant, and the branch instruction depending on it
+   //      can lead to an unreachable BB, then it must make the branch take another reachable BB.
+   //
+   //2. How to extract them ?
+   //   2.a since the scope is one BB, finding the candidate BBs is the first step.
+   //   2.b since it is a global var or heap variable, we assume it is a global var and has drc-1. This is
+   //       simpler for implementation purpose. It can be heap variable and drc-N(N>=1), too.
+   //   2.c under assumption of 2.b, it must be loaded from memory before any usage happens. So, the candidate
+   //       BBs are identified by find loading reference to it. Then, the load instruction will be the analysis
+   //       starting point in the BBs.
+   //   2.4 The ending point is the terminator of the BB or malloc and any other function call using the value as
+   //       a parameter or part of parameter.
+   //   2.5 If it is loop upper bound, it must be greater than the lower bound, which often has an explicit value
+   //       assignement. For it to be loop bound, it must appear in a loop's header and used in the branch
+   //       instruction leading to body or exit. The loop induction variable's initial value can be found by
+   //       use-def chain.
+   //   2.6 It seems difficult to implement the function-parameter heuristic.
+   //
+   //3. What if it fails ?
+   //   If all the above heuristic fails, we just assign a small set of values [-1, 0, 1, 2] to an integer.
+   //   or we assign [true or false] to a boolean variable.
+

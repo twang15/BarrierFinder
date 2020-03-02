@@ -1,0 +1,29 @@
+digraph "CFG for 'Intersect' function" {
+	label="CFG for 'Intersect' function";
+
+	Node0x5f9b400 [shape=record,label="{entry:\l  %retval = alloca i64, align 8\l  %pr.addr = alloca %struct.ray*, align 8\l  %hit.addr = alloca %struct.irecord*, align 8\l  %po = alloca %struct.object*, align 8\l  %newhit = alloca %struct.irecord, align 8\l  store %struct.irecord* %hit, %struct.irecord** %hit.addr, align 8\l  %0 = load %struct.gmem** @gm, align 8\l  %modelroot = getelementptr inbounds %struct.gmem* %0, i32 0, i32 3\l  %1 = load %struct.object** %modelroot, align 8\l  store %struct.object* %1, %struct.object** %po, align 8\l  %2 = load %struct.irecord** %hit.addr, align 8\l  %t = getelementptr inbounds %struct.irecord* %2, i32 0, i32 0\l  store double 1.000000e+32, double* %t, align 8\l  %3 = load %struct.irecord** %hit.addr, align 8\l  %pelem = getelementptr inbounds %struct.irecord* %3, i32 0, i32 1\l  store %struct.element* null, %struct.element** %pelem, align 8\l  br label %while.cond\l}"];
+	Node0x5f9b400 -> Node0x5f9b450;
+	Node0x5f9b450 [shape=record,label="{while.cond:                                       \l  %4 = load %struct.object** %po, align 8\l  %tobool = icmp ne %struct.object* %4, null\l  br i1 %tobool, label %while.body, label %while.end\l|{<s0>T|<s1>F}}"];
+	Node0x5f9b450:s0 -> Node0x5f9b4a0;
+	Node0x5f9b450:s1 -> Node0x5fb54e0;
+	Node0x5f9b4a0 [shape=record,label="{while.body:                                       \l  %5 = load %struct.object** %po, align 8\l  %procs = getelementptr inbounds %struct.object* %5, i32 0, i32 5\l  %6 = load %struct.pprocs** %procs, align 8\l  %intersect = getelementptr inbounds %struct.pprocs* %6, i32 0, i32 5\l  %7 = load i64 (...)** %intersect, align 8\l  %callee.knr.cast = bitcast i64 (...)* %7 to i64 (%struct.ray*,\l... %struct.object*, %struct.irecord*, ...)*\l  %call = call i64 (%struct.ray*, %struct.object*, %struct.irecord*, ...)\l... *%callee.knr.cast(%struct.ray* undef, %struct.object* undef, %struct.irecord*\l... %newhit)\l  %tobool1 = icmp ne i64 %call, 0\l  br i1 %tobool1, label %if.then, label %if.end.5\l|{<s0>T|<s1>F}}"];
+	Node0x5f9b4a0:s0 -> Node0x5f9b4f0;
+	Node0x5f9b4a0:s1 -> Node0x5fb5490;
+	Node0x5f9b4f0 [shape=record,label="{if.then:                                          \l  %t2 = getelementptr inbounds %struct.irecord* %newhit, i32 0, i32 0\l  %8 = load double* %t2, align 8\l  %9 = load %struct.irecord** %hit.addr, align 8\l  %arrayidx = getelementptr inbounds %struct.irecord* %9, i64 0\l  %t3 = getelementptr inbounds %struct.irecord* %arrayidx, i32 0, i32 0\l  %10 = load double* %t3, align 8\l  %cmp = fcmp olt double %8, %10\l  br i1 %cmp, label %if.then.4, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x5f9b4f0:s0 -> Node0x5f9b540;
+	Node0x5f9b4f0:s1 -> Node0x5f9b590;
+	Node0x5f9b540 [shape=record,label="{if.then.4:                                        \l  %11 = load %struct.irecord** %hit.addr, align 8\l  %12 = bitcast %struct.irecord* %11 to i8*\l  %13 = bitcast %struct.irecord* %newhit to i8*\l  call void @llvm.memcpy.p0i8.p0i8.i64(i8* %12, i8* %13, i64 40, i32 8, i1\l... false)\l  br label %if.end\l}"];
+	Node0x5f9b540 -> Node0x5f9b590;
+	Node0x5f9b590 [shape=record,label="{if.end:                                           \l  br label %if.end.5\l}"];
+	Node0x5f9b590 -> Node0x5fb5490;
+	Node0x5fb5490 [shape=record,label="{if.end.5:                                         \l  %14 = load %struct.object** %po, align 8\l  %next = getelementptr inbounds %struct.object* %14, i32 0, i32 7\l  %15 = load %struct.object** %next, align 8\l  store %struct.object* %15, %struct.object** %po, align 8\l  br label %while.cond\l}"];
+	Node0x5fb5490 -> Node0x5f9b450;
+	Node0x5fb54e0 [shape=record,label="{while.end:                                        \l  %16 = load %struct.irecord** %hit.addr, align 8\l  %t6 = getelementptr inbounds %struct.irecord* %16, i32 0, i32 0\l  %17 = load double* %t6, align 8\l  %cmp7 = fcmp olt double %17, 1.000000e+32\l  br i1 %cmp7, label %if.then.8, label %if.else\l|{<s0>T|<s1>F}}"];
+	Node0x5fb54e0:s0 -> Node0x5fb5530;
+	Node0x5fb54e0:s1 -> Node0x5fb5580;
+	Node0x5fb5530 [shape=record,label="{if.then.8:                                        \l  store i64 1, i64* %retval\l  br label %return\l}"];
+	Node0x5fb5530 -> Node0x5fb55d0;
+	Node0x5fb5580 [shape=record,label="{if.else:                                          \l  store i64 0, i64* %retval\l  br label %return\l}"];
+	Node0x5fb5580 -> Node0x5fb55d0;
+	Node0x5fb55d0 [shape=record,label="{return:                                           \l  %18 = load i64* %retval\l  ret i64 %18\l}"];
+}

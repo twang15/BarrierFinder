@@ -1,0 +1,21 @@
+digraph "CFG for 'InitX' function" {
+	label="CFG for 'InitX' function";
+
+	Node0x4e7e920 [shape=record,label="{entry:\l  %retval = alloca i32, align 4\l  %N.addr = alloca i32, align 4\l  %x.addr = alloca double*, align 8\l  %i = alloca i32, align 4\l  %j = alloca i32, align 4\l  %k = alloca i32, align 4\l  br label %for.cond\l}"];
+	Node0x4e7e920 -> Node0x4e7e970;
+	Node0x4e7e970 [shape=record,label="{for.cond:                                         \l  br label %for.end.15\l}"];
+	Node0x4e7e970 -> Node0x4e7eba0;
+	Node0x4e7e9c0 [shape=record,label="{for.body:                                         \l  br label %for.cond.1\l}"];
+	Node0x4e7e9c0 -> Node0x4e7ea10;
+	Node0x4e7ea10 [shape=record,label="{for.cond.1:                                       \l  br label %for.end\l}"];
+	Node0x4e7ea10 -> Node0x4e7eb00;
+	Node0x4e7ea60 [shape=record,label="{for.body.3:                                       \l  br label %for.inc\l}"];
+	Node0x4e7ea60 -> Node0x4e7eab0;
+	Node0x4e7eab0 [shape=record,label="{for.inc:                                          \l  br label %for.cond.1\l}"];
+	Node0x4e7eab0 -> Node0x4e7ea10;
+	Node0x4e7eb00 [shape=record,label="{for.end:                                          \l  br label %for.inc.13\l}"];
+	Node0x4e7eb00 -> Node0x4e7eb50;
+	Node0x4e7eb50 [shape=record,label="{for.inc.13:                                       \l  br label %for.cond\l}"];
+	Node0x4e7eb50 -> Node0x4e7e970;
+	Node0x4e7eba0 [shape=record,label="{for.end.15:                                       \l  ret i32 undef\l}"];
+}

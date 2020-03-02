@@ -1,0 +1,5 @@
+digraph "CFG for 'IncrementCounter' function" {
+	label="CFG for 'IncrementCounter' function";
+
+	Node0x4a5aaa0 [shape=record,label="{entry:\l  ret void\l}"];
+}

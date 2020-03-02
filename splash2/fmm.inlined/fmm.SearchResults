@@ -1,0 +1,59 @@
+---- cmpxchg Matches (13 in 3 files) ----
+Construct_grid.c:	asm("lock cmpxchg %1,%2" : 
+Construct_grid.c:	asm("lock cmpxchg %1,%2" : 
+Construct_grid.c:	asm("lock cmpxchg %1,%2" : 
+Construct_grid.c:	asm("lock cmpxchg %1,%2" : 
+Construct_grid.c:	asm("lock cmpxchg %1,%2" : 
+Construct_grid.c:	asm("lock cmpxchg %1,%2" : 
+Cost_zones.c:	asm("lock cmpxchg %1,%2" : 
+Cost_zones.c:	asm("lock cmpxchg %1,%2" : 
+Fmm.c:	asm("lock cmpxchg %1,%2" : 
+Fmm.c:	asm("lock cmpxchg %1,%2" : 
+Fmm.c:	asm("lock cmpxchg %1,%2" : 
+Fmm.c:	asm("lock cmpxchg %1,%2" : 
+Fmm.c:	asm("lock cmpxchg %1,%2" : 
+---- StepSimulation Matches (3 in 1 files) ----
+Fmm.c:void StepSimulation(int my_id, time_info *local_time, int time_all);
+Fmm.c:      StepSimulation(my_id,local_time,time_all);
+Fmm.c:StepSimulation (int my_id, time_info *local_time, int time_all)
+---- ParallelExecute Matches (4 in 1 files) ----
+Fmm.c:void ParallelExecute();
+Fmm.c:pthread_create(&t, NULL, (ParallelExecute), NULL);
+Fmm.c:   ParallelExecute();
+Fmm.c:ParallelExecute ()
+---- ConstructGrid Matches (3 in 3 files) ----
+Construct_grid.c:void ConstructGrid (int my_id, time_info *local_time, int time_all)
+Construct_grid.h:extern void ConstructGrid(int my_id, time_info *local_time, int time_all);
+Fmm.c:      ConstructGrid(my_id,local_time,time_all);
+---- ConstructLists Matches (3 in 3 files) ----
+Construct_grid.c:ConstructLists (int my_id, time_info *local_time, int time_all)
+Construct_grid.h:extern void ConstructLists(int my_id, time_info *local_time, int time_all);
+Fmm.c:      ConstructLists(my_id,local_time,time_all);
+---- PrintGrid Matches (3 in 2 files) ----
+Construct_grid.c: *  PrintGrid (int my_id)
+Construct_grid.c:PrintGrid (int my_id)
+Construct_grid.h:extern void PrintGrid(int my_id);
+---- do_output Matches (3 in 1 files) ----
+Fmm.c:int do_output = 0;
+Fmm.c:       case 'o': do_output = 1; break;
+Fmm.c:   if (do_output) {
+---- MergeLocalGridSize Matches (3 in 1 files) ----
+Construct_grid.c:void MergeLocalGridSize(int my_id);
+Construct_grid.c:   MergeLocalGridSize(my_id);	/* Processors shares info with others and each
+Construct_grid.c:MergeLocalGridSize (int my_id)
+---- DetermineGridSize Matches (3 in 1 files) ----
+Construct_grid.c:void DetermineGridSize(int my_id);
+Construct_grid.c:   DetermineGridSize(my_id);   /* Finds the four corners of the grid. */
+Construct_grid.c:DetermineGridSize (int my_id)
+---- CostZones Matches (3 in 3 files) ----
+Cost_zones.c:CostZones (int my_id)
+Cost_zones.h:extern void CostZones(int my_id);
+Fmm.c:      CostZones(my_id);
+---- PartitionGrid Matches (3 in 1 files) ----
+Fmm.c:void PartitionGrid(int my_id, time_info *local_time, int time_all);
+Fmm.c:      PartitionGrid(my_id,local_time,time_all);
+Fmm.c:PartitionGrid (int my_id, time_info *local_time, int time_all)
+---- PartitionGrid Matches (3 in 1 files) ----
+Fmm.c:void PartitionGrid(int my_id, time_info *local_time, int time_all);
+Fmm.c:      PartitionGrid(my_id,local_time,time_all);
+Fmm.c:PartitionGrid (int my_id, time_info *local_time, int time_all)

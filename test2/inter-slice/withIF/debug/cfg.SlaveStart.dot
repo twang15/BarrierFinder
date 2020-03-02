@@ -1,0 +1,35 @@
+digraph "CFG for 'SlaveStart' function" {
+	label="CFG for 'SlaveStart' function";
+
+	Node0x550f9a0 [shape=record,label="{entry:\l  %i = alloca i32, align 4\l  %j = alloca i32, align 4\l  %MyNum = alloca i32, align 4\l  %error = alloca double, align 8\l  %upriv = alloca double*, align 8\l  %initdone = alloca i32, align 4\l  %finish = alloca i32, align 4\l  %l_transtime = alloca i32, align 4\l  %MyFirst = alloca i32, align 4\l  %MyLast = alloca i32, align 4\l  %lsense = alloca i32, align 4\l  %oldcount = alloca i32, align 4\l  %newcount = alloca i32, align 4\l  %updatedcount = alloca i32, align 4\l  %retVal = alloca i32, align 4\l  call void @printChar(i8 signext 49)\l  call void @printChar(i8 signext 90)\l  call void @InitializeSwitchesAndCounter()\l  call void @IncrementCounter()\l  %0 = load %struct.GlobalMemory** @Global, align 8\l  %start = getelementptr inbounds %struct.GlobalMemory* %0, i32 0, i32 2\l  %gsense = getelementptr inbounds %struct.barrier_t* %start, i32 0, i32 0\l  %1 = load volatile i32* %gsense, align 4\l  %call = call i32 @sleep(i32 1)\l  store i32 %1, i32* %lsense, align 4\l  br label %while.body\l}"];
+	Node0x550f9a0 -> Node0x550f9f0;
+	Node0x550f9f0 [shape=record,label="{while.body:                                       \l  %2 = load %struct.GlobalMemory** @Global, align 8\l  %start7 = getelementptr inbounds %struct.GlobalMemory* %2, i32 0, i32 2\l  %count = getelementptr inbounds %struct.barrier_t* %start7, i32 0, i32 1\l  %3 = load volatile i64* %count, align 8\l  %call1 = call i32 @sleep(i32 1)\l  %conv = trunc i64 %3 to i32\l  store i32 %conv, i32* %oldcount, align 4\l  %4 = load i32* %oldcount, align 4\l  %5 = load i32* %lsense, align 4\l  %add = add nsw i32 %4, %5\l  store i32 %add, i32* %newcount, align 4\l  %6 = load i32* %oldcount, align 4\l  %7 = load i32* %newcount, align 4\l  %call8 = call i32 @atomic_cmpxchg(i32 %6, i32 %7)\l  %call6 = call i32 @sleep(i32 1)\l  store i32 %call8, i32* %updatedcount, align 4\l  %8 = load i32* %updatedcount, align 4\l  %9 = load i32* %oldcount, align 4\l  %cmp = icmp eq i32 %8, %9\l  br i1 %cmp, label %if.then, label %if.end.22\l|{<s0>T|<s1>F}}"];
+	Node0x550f9f0:s0 -> Node0x550fa40;
+	Node0x550f9f0:s1 -> Node0x550fc20;
+	Node0x550fa40 [shape=record,label="{if.then:                                          \l  %10 = load i32* %newcount, align 4\l  %11 = load i32* @P, align 4\l  %call2 = call i32 @sleep(i32 1)\l  %cmp10 = icmp eq i32 %10, %11\l  br i1 %cmp10, label %land.lhs.true, label %lor.lhs.false\l|{<s0>T|<s1>F}}"];
+	Node0x550fa40:s0 -> Node0x550fa90;
+	Node0x550fa40:s1 -> Node0x550fae0;
+	Node0x550fa90 [shape=record,label="{land.lhs.true:                                    \l  %12 = load i32* %lsense, align 4\l  %cmp12 = icmp eq i32 %12, 1\l  br i1 %cmp12, label %if.then.19, label %lor.lhs.false\l|{<s0>T|<s1>F}}"];
+	Node0x550fa90:s0 -> Node0x550fb80;
+	Node0x550fa90:s1 -> Node0x550fae0;
+	Node0x550fae0 [shape=record,label="{lor.lhs.false:                                    \l  %13 = load i32* %newcount, align 4\l  %cmp14 = icmp eq i32 %13, 0\l  br i1 %cmp14, label %land.lhs.true.16, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x550fae0:s0 -> Node0x550fb30;
+	Node0x550fae0:s1 -> Node0x550fbd0;
+	Node0x550fb30 [shape=record,label="{land.lhs.true.16:                                 \l  %14 = load i32* %lsense, align 4\l  %cmp17 = icmp eq i32 %14, -1\l  br i1 %cmp17, label %if.then.19, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x550fb30:s0 -> Node0x550fb80;
+	Node0x550fb30:s1 -> Node0x550fbd0;
+	Node0x550fb80 [shape=record,label="{if.then.19:                                       \l  %15 = load i32* %lsense, align 4\l  %sub = sub nsw i32 0, %15\l  %16 = load %struct.GlobalMemory** @Global, align 8\l  %start20 = getelementptr inbounds %struct.GlobalMemory* %16, i32 0, i32 2\l  %gsense21 = getelementptr inbounds %struct.barrier_t* %start20, i32 0, i32 0\l  call void @printX()\l  store volatile i32 %sub, i32* %gsense21, align 4\l  call void @snapshot(i32 %sub, i32 1)\l  %call3 = call i32 @sleep(i32 3)\l  br label %if.end\l}"];
+	Node0x550fb80 -> Node0x550fbd0;
+	Node0x550fbd0 [shape=record,label="{if.end:                                           \l  br label %while.end\l}"];
+	Node0x550fbd0 -> Node0x550fc70;
+	Node0x550fc20 [shape=record,label="{if.end.22:                                        \l  br label %while.body\l}"];
+	Node0x550fc20 -> Node0x550f9f0;
+	Node0x550fc70 [shape=record,label="{while.end:                                        \l  br label %while.cond\l}"];
+	Node0x550fc70 -> Node0x550fcc0;
+	Node0x550fcc0 [shape=record,label="{while.cond:                                       \l  %17 = load %struct.GlobalMemory** @Global, align 8\l  %start23 = getelementptr inbounds %struct.GlobalMemory* %17, i32 0, i32 2\l  %gsense24 = getelementptr inbounds %struct.barrier_t* %start23, i32 0, i32 0\l  %18 = load volatile i32* %gsense24, align 4\l  %19 = load i32* %lsense, align 4\l  %cmp25 = icmp eq i32 %18, %19\l  br i1 %cmp25, label %while.body.27, label %while.end.28\l|{<s0>T|<s1>F}}"];
+	Node0x550fcc0:s0 -> Node0x550fd10;
+	Node0x550fcc0:s1 -> Node0x550fd60;
+	Node0x550fd10 [shape=record,label="{while.body.27:                                    \l  %call4 = call i32 @sleep(i32 2)\l  br label %while.cond\l}"];
+	Node0x550fd10 -> Node0x550fcc0;
+	Node0x550fd60 [shape=record,label="{while.end.28:                                     \l  call void @printY()\l  %call5 = call i32 @sleep(i32 1)\l  ret void\l}"];
+}

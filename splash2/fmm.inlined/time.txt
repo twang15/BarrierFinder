@@ -1,0 +1,10 @@
+Elapse time: 1.822330e+01
+Elapse time: 1.808706e+01
+Elapse time: 1.815149e+01
+Elapse time: 1.829886e+01
+Elapse time: 1.832055e+01
+Elapse time: 1.827511e+01
+Elapse time: 1.816633e+01
+Elapse time: 1.839119e+01
+Elapse time: 1.821384e+01
+Elapse time: 1.808678e+01

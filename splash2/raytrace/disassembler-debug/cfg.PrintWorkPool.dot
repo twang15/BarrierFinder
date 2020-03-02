@@ -1,0 +1,11 @@
+digraph "CFG for 'PrintWorkPool' function" {
+	label="CFG for 'PrintWorkPool' function";
+
+	Node0x60f0800 [shape=record,label="{entry:\l  %pid.addr = alloca i64, align 8\l  %j = alloca %struct.wpjob*, align 8\l  br label %while.cond\l}"];
+	Node0x60f0800 -> Node0x60f0850;
+	Node0x60f0850 [shape=record,label="{while.cond:                                       \l  br label %while.end\l}"];
+	Node0x60f0850 -> Node0x60f08f0;
+	Node0x60f08a0 [shape=record,label="{while.body:                                       \l  br label %while.cond\l}"];
+	Node0x60f08a0 -> Node0x60f0850;
+	Node0x60f08f0 [shape=record,label="{while.end:                                        \l  ret void\l}"];
+}

@@ -1,0 +1,2561 @@
+  %retval = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %retval = alloca i32, align 4
+main, Instruction * 0xd3e478
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %argc.addr = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %argc.addr = alloca i32, align 4
+main, Instruction * 0xd3e4e8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %argv.addr = alloca i8**, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %argv.addr = alloca i8**, align 8
+main, Instruction * 0xd3e558
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %i = alloca i32, align 4
+    -------------------
+UNSliced, Cannot be sliced
+    DEF:
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+    DEF-RC chain:
+      Def:   %i = alloca i32, align 4
+	RC   %i = alloca i32, align 4
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %p = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %p = alloca i32, align 4
+main, Instruction * 0xd3e638
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %quotient = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %quotient = alloca i32, align 4
+main, Instruction * 0xd3e6a8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %remainder = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %remainder = alloca i32, align 4
+main, Instruction * 0xd3e718
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %sum_i = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %sum_i = alloca i32, align 4
+main, Instruction * 0xd3e788
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %sum_f = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %sum_f = alloca i32, align 4
+main, Instruction * 0xd3e7f8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %mistake = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %mistake = alloca i32, align 4
+main, Instruction * 0xd3e868
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %size = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %size = alloca i32, align 4
+main, Instruction * 0xd3e8d8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %temp = alloca i32**, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %temp = alloca i32**, align 8
+main, Instruction * 0xd3e948
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %temp2 = alloca i32**, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %temp2 = alloca i32**, align 8
+main, Instruction * 0xd3e9b8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %a = alloca i32*, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %a = alloca i32*, align 8
+main, Instruction * 0xd3ea28
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %c = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %c = alloca i32, align 4
+main, Instruction * 0xd3ea98
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %n1 = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %n1 = alloca i32, align 4
+main, Instruction * 0xd3eb08
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %mint = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %mint = alloca double, align 8
+main, Instruction * 0xd3eb78
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %maxt = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %maxt = alloca double, align 8
+main, Instruction * 0xd3ebe8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %avgt = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %avgt = alloca double, align 8
+main, Instruction * 0xd3ec58
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %minrank = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %minrank = alloca double, align 8
+main, Instruction * 0xd3a3f8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %maxrank = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %maxrank = alloca double, align 8
+main, Instruction * 0xd3a468
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %avgrank = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %avgrank = alloca double, align 8
+main, Instruction * 0xd3a4d8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %minsort = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %minsort = alloca double, align 8
+main, Instruction * 0xd3a548
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %maxsort = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %maxsort = alloca double, align 8
+main, Instruction * 0xd3a5b8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %avgsort = alloca double, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %avgsort = alloca double, align 8
+main, Instruction * 0xd3a628
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %start = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %start = alloca i32, align 4
+main, Instruction * 0xd3a698
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %done = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %done = alloca i32, align 4
+main, Instruction * 0xd3a708
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %start_p = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %start_p = alloca i32, align 4
+main, Instruction * 0xd3a778
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %end_p = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %end_p = alloca i32, align 4
+main, Instruction * 0xd3a7e8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %level = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %level = alloca i32, align 4
+main, Instruction * 0xd3a858
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %index = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %index = alloca i32, align 4
+main, Instruction * 0xd3a8c8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %base = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %base = alloca i32, align 4
+main, Instruction * 0xd3a938
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %offset = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %offset = alloca i32, align 4
+main, Instruction * 0xd3a9a8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %toffset = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %toffset = alloca i32, align 4
+main, Instruction * 0xd3aa18
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %key0 = alloca i32*, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %key0 = alloca i32*, align 8
+main, Instruction * 0xd3aa88
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %key1 = alloca i32*, align 8
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %key1 = alloca i32*, align 8
+main, Instruction * 0xd3aaf8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %t = alloca i64, align 8
+    -------------------
+UNSliced, Cannot be sliced
+    DEF:
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+-------------------
+    DEF-RC chain:
+      Def:   %t = alloca i64, align 8
+	RC   %t = alloca i64, align 8
+      Def:   %t = alloca i64, align 8
+	RC   %t = alloca i64, align 8
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  store i32 0, i32* %retval
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %retval = alloca i32, align 4
+main, Instruction * 0xd3e478
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %retval = alloca i32, align 4
+main, Instruction * 0xd3e478
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  store i32 %argc, i32* %argc.addr, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %argc.addr = alloca i32, align 4
+main, Instruction * 0xd3e4e8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %argc.addr = alloca i32, align 4
+main, Instruction * 0xd3e4e8
+      OFF=-1 i32 %argc
+main, 	Argument * 0xd3b800
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  store i8** %argv, i8*** %argv.addr, align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %argv.addr = alloca i8**, align 8
+main, Instruction * 0xd3e558
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %argv.addr = alloca i8**, align 8
+main, Instruction * 0xd3e558
+      OFF=-1 i8** %argv
+main, 	Argument * 0xd3b840
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  store i32 0, i32* %mistake, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %mistake = alloca i32, align 4
+main, Instruction * 0xd3e868
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %mistake = alloca i32, align 4
+main, Instruction * 0xd3e868
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  store i32 0, i32* %done, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %done = alloca i32, align 4
+main, Instruction * 0xd3a708
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %done = alloca i32, align 4
+main, Instruction * 0xd3a708
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %0 = load i32* @num_keys, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %0 = load i32* @num_keys, align 4
+main, Instruction * 0xd3ff58
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %conv = sext i32 %0 to i64
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %conv = sext i32 %0 to i64
+main, Instruction * 0xd3ffb8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %0 = load i32* @num_keys, align 4
+main, Instruction * 0xd3ff58
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %mul = mul i64 %conv, 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %mul = mul i64 %conv, 4
+main, Instruction * 0xd40030
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %conv = sext i32 %0 to i64
+main, Instruction * 0xd3ffb8
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %call = call i8* @malloc(i64 %mul)
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %call = call i8* @malloc(i64 %mul)
+main, Instruction * 0xd400b0
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %mul = mul i64 %conv, 4
+main, Instruction * 0xd40030
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %1 = bitcast i8* %call to i32*
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %1 = bitcast i8* %call to i32*
+main, Instruction * 0xd40128
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %call = call i8* @malloc(i64 %mul)
+main, Instruction * 0xd400b0
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  store i32* %1, i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 0), align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1   %1 = bitcast i8* %call to i32*
+main, Instruction * 0xd40128
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %2 = load i32* @num_keys, align 4
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %2 = load i32* @num_keys, align 4
+main, Instruction * 0xd40208
+-------------------
+    DEF-RC chain:
+      Def:   %2 = load i32* @num_keys, align 4
+	RC   %2 = load i32* @num_keys, align 4
+-------------------
+    REF:
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+      OFF=0 @num_keys = internal global i32 4, align 4
+GlobalVariable *0xd39d08
+-------------------
+  %conv1 = sext i32 %2 to i64
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %conv1 = sext i32 %2 to i64
+main, Instruction * 0xd40268
+-------------------
+    DEF-RC chain:
+      Def:   %conv1 = sext i32 %2 to i64
+	RC   %conv1 = sext i32 %2 to i64
+-------------------
+    REF:
+      OFF=-1   %2 = load i32* @num_keys, align 4
+main, Instruction * 0xd40208
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1   %2 = load i32* @num_keys, align 4
+main, Instruction * 0xd40208
+-------------------
+  %mul2 = mul i64 %conv1, 4
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %mul2 = mul i64 %conv1, 4
+main, Instruction * 0xd402e0
+-------------------
+    DEF-RC chain:
+      Def:   %mul2 = mul i64 %conv1, 4
+	RC   %mul2 = mul i64 %conv1, 4
+-------------------
+    REF:
+      OFF=-1   %conv1 = sext i32 %2 to i64
+main, Instruction * 0xd40268
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1   %conv1 = sext i32 %2 to i64
+main, Instruction * 0xd40268
+-------------------
+  %call3 = call i8* @malloc(i64 %mul2)
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %call3 = call i8* @malloc(i64 %mul2)
+main, Instruction * 0xd40360
+-------------------
+    DEF-RC chain:
+      Def:   %call3 = call i8* @malloc(i64 %mul2)
+	RC   %call3 = call i8* @malloc(i64 %mul2)
+-------------------
+    REF:
+      OFF=-1   %mul2 = mul i64 %conv1, 4
+main, Instruction * 0xd402e0
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1   %mul2 = mul i64 %conv1, 4
+main, Instruction * 0xd402e0
+-------------------
+  %3 = bitcast i8* %call3 to i32*
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %3 = bitcast i8* %call3 to i32*
+main, Instruction * 0xd403d8
+-------------------
+    DEF-RC chain:
+      Def:   %3 = bitcast i8* %call3 to i32*
+	RC   %3 = bitcast i8* %call3 to i32*
+-------------------
+    REF:
+      OFF=-1   %call3 = call i8* @malloc(i64 %mul2)
+main, Instruction * 0xd40360
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1   %call3 = call i8* @malloc(i64 %mul2)
+main, Instruction * 0xd40360
+-------------------
+  store i32* %3, i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 1), align 8
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=0 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+-------------------
+    DEF-RC chain:
+      Def: @key = internal global [2 x i32*] zeroinitializer, align 16
+	RC @key = internal global [2 x i32*] zeroinitializer, align 16
+-------------------
+    REF:
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1   %3 = bitcast i8* %call3 to i32*
+main, Instruction * 0xd403d8
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=-1   %3 = bitcast i8* %call3 to i32*
+main, Instruction * 0xd403d8
+-------------------
+  %4 = load i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 0), align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %4 = load i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 0), align 8
+main, Instruction * 0xd404b8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=0 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=0 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+-------------------
+  %cmp = icmp eq i32* %4, null
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp = icmp eq i32* %4, null
+main, Instruction * 0xd40530
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %4 = load i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 0), align 8
+main, Instruction * 0xd404b8
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=0 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+-------------------
+  br i1 %cmp, label %if.then, label %lor.lhs.false
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %cmp = icmp eq i32* %4, null
+main, Instruction * 0xd40530
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=0 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+-------------------
+  %5 = load i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 1), align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %5 = load i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 1), align 8
+main, Instruction * 0xd40628
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=0 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+      OFF=0 @key = internal global [2 x i32*] zeroinitializer, align 16
+GlobalVariable *0xd3a218
+-------------------
+  %cmp5 = icmp eq i32* %5, null
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp5 = icmp eq i32* %5, null
+main, Instruction * 0xd406a0
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %5 = load i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 1), align 8
+main, Instruction * 0xd40628
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1   %5 = load i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 1), align 8
+main, Instruction * 0xd40628
+-------------------
+  br i1 %cmp5, label %if.then, label %if.end
+    -------------------
+UNSliced, Cannot be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %cmp5 = icmp eq i32* %5, null
+main, Instruction * 0xd406a0
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %cmp5 = icmp eq i32* %5, null
+main, Instruction * 0xd406a0
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %6 = load %struct._IO_FILE** @stderr, align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %6 = load %struct._IO_FILE** @stderr, align 8
+main, Instruction * 0xd40798
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1 @stderr = external global %struct._IO_FILE*, align 8
+GlobalVariable *0xd3a2b8
+      OFF=0 @stderr = external global %struct._IO_FILE*, align 8
+GlobalVariable *0xd3a2b8
+-------------------
+    RC:
+-------------------
+  %call7 = call i32 (%struct._IO_FILE*, i8*, ...) *@fprintf(%struct._IO_FILE* %6, i8* getelementptr inbounds ([36 x i8]* @.str, i32 0, i32 0))
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %call7 = call i32 (%struct._IO_FILE*, i8*, ...) *@fprintf(%struct._IO_FILE* %6, i8* getelementptr inbounds ([36 x i8]* @.str, i32 0, i32 0))
+main, Instruction * 0xd40828
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  call void @exit(i32 -1)
+    -------------------
+Sliced, Can be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  unreachable
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %call8 = call i8* @malloc(i64 4721824)
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+-------------------
+    DEF-RC chain:
+      Def:   %call8 = call i8* @malloc(i64 4721824)
+	RC   %call8 = call i8* @malloc(i64 4721824)
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %7 = bitcast i8* %call8 to %struct.global_memory*
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %7 = bitcast i8* %call8 to %struct.global_memory*
+main, Instruction * 0xd40e18
+-------------------
+    DEF-RC chain:
+      Def:   %7 = bitcast i8* %call8 to %struct.global_memory*
+	RC   %7 = bitcast i8* %call8 to %struct.global_memory*
+-------------------
+    REF:
+      OFF=-1   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  store %struct.global_memory* %7, %struct.global_memory** @global, align 8
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+-------------------
+    DEF-RC chain:
+      Def: @global = internal global %struct.global_memory* null, align 8
+	RC @global = internal global %struct.global_memory* null, align 8
+-------------------
+    REF:
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %7 = bitcast i8* %call8 to %struct.global_memory*
+main, Instruction * 0xd40e18
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %7 = bitcast i8* %call8 to %struct.global_memory*
+main, Instruction * 0xd40e18
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %8 = load %struct.global_memory** @global, align 8
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %8 = load %struct.global_memory** @global, align 8
+main, Instruction * 0xd40ef8
+-------------------
+    DEF-RC chain:
+      Def:   %8 = load %struct.global_memory** @global, align 8
+	RC   %8 = load %struct.global_memory** @global, align 8
+-------------------
+    REF:
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %barrier_key = getelementptr inbounds %struct.global_memory* %8, i32 0, i32 5
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %barrier_key = getelementptr inbounds %struct.global_memory* %8, i32 0, i32 5
+main, Instruction * 0xd40f88
+-------------------
+    DEF-RC chain:
+      Def:   %barrier_key = getelementptr inbounds %struct.global_memory* %8, i32 0, i32 5
+	RC   %barrier_key = getelementptr inbounds %struct.global_memory* %8, i32 0, i32 5
+-------------------
+    REF:
+      OFF=-1   %8 = load %struct.global_memory** @global, align 8
+main, Instruction * 0xd40ef8
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %8 = load %struct.global_memory** @global, align 8
+main, Instruction * 0xd40ef8
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %gsense = getelementptr inbounds %struct.barrier_t* %barrier_key, i32 0, i32 0
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %gsense = getelementptr inbounds %struct.barrier_t* %barrier_key, i32 0, i32 0
+main, Instruction * 0xd41028
+-------------------
+    DEF-RC chain:
+      Def:   %gsense = getelementptr inbounds %struct.barrier_t* %barrier_key, i32 0, i32 0
+	RC   %gsense = getelementptr inbounds %struct.barrier_t* %barrier_key, i32 0, i32 0
+-------------------
+    REF:
+      OFF=-1   %barrier_key = getelementptr inbounds %struct.global_memory* %8, i32 0, i32 5
+main, Instruction * 0xd40f88
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %barrier_key = getelementptr inbounds %struct.global_memory* %8, i32 0, i32 5
+main, Instruction * 0xd40f88
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  store volatile i32 1, i32* %gsense, align 4
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+-------------------
+    DEF-RC chain:
+      Def:   %call8 = call i8* @malloc(i64 4721824)
+	RC   %call8 = call i8* @malloc(i64 4721824)
+-------------------
+    REF:
+      OFF=-1   %gsense = getelementptr inbounds %struct.barrier_t* %barrier_key, i32 0, i32 0
+main, Instruction * 0xd41028
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %gsense = getelementptr inbounds %struct.barrier_t* %barrier_key, i32 0, i32 0
+main, Instruction * 0xd41028
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %9 = load %struct.global_memory** @global, align 8
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %9 = load %struct.global_memory** @global, align 8
+main, Instruction * 0xd41118
+-------------------
+    DEF-RC chain:
+      Def:   %9 = load %struct.global_memory** @global, align 8
+	RC   %9 = load %struct.global_memory** @global, align 8
+-------------------
+    REF:
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %barrier_key9 = getelementptr inbounds %struct.global_memory* %9, i32 0, i32 5
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %barrier_key9 = getelementptr inbounds %struct.global_memory* %9, i32 0, i32 5
+main, Instruction * 0xd411a8
+-------------------
+    DEF-RC chain:
+      Def:   %barrier_key9 = getelementptr inbounds %struct.global_memory* %9, i32 0, i32 5
+	RC   %barrier_key9 = getelementptr inbounds %struct.global_memory* %9, i32 0, i32 5
+-------------------
+    REF:
+      OFF=-1   %9 = load %struct.global_memory** @global, align 8
+main, Instruction * 0xd41118
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %9 = load %struct.global_memory** @global, align 8
+main, Instruction * 0xd41118
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %count = getelementptr inbounds %struct.barrier_t* %barrier_key9, i32 0, i32 1
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=-1   %count = getelementptr inbounds %struct.barrier_t* %barrier_key9, i32 0, i32 1
+main, Instruction * 0xd41248
+-------------------
+    DEF-RC chain:
+      Def:   %count = getelementptr inbounds %struct.barrier_t* %barrier_key9, i32 0, i32 1
+	RC   %count = getelementptr inbounds %struct.barrier_t* %barrier_key9, i32 0, i32 1
+-------------------
+    REF:
+      OFF=-1   %barrier_key9 = getelementptr inbounds %struct.global_memory* %9, i32 0, i32 5
+main, Instruction * 0xd411a8
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %barrier_key9 = getelementptr inbounds %struct.global_memory* %9, i32 0, i32 5
+main, Instruction * 0xd411a8
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  store volatile i64 0, i64* %count, align 8
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+-------------------
+    DEF-RC chain:
+      Def:   %call8 = call i8* @malloc(i64 4721824)
+	RC   %call8 = call i8* @malloc(i64 4721824)
+-------------------
+    REF:
+      OFF=-1   %count = getelementptr inbounds %struct.barrier_t* %barrier_key9, i32 0, i32 1
+main, Instruction * 0xd41248
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %count = getelementptr inbounds %struct.barrier_t* %barrier_key9, i32 0, i32 1
+main, Instruction * 0xd41248
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  store i32 1, i32* %i, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  br label %for.cond
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %10 = load i32* %i, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %10 = load i32* %i, align 4
+main, Instruction * 0xd41418
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %11 = load i32* @number_of_processors, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %11 = load i32* @number_of_processors, align 4
+main, Instruction * 0xd41478
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %10 = load i32* %i, align 4
+main, Instruction * 0xd41418
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %cmp10 = icmp slt i32 %10, %11
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp10 = icmp slt i32 %10, %11
+main, Instruction * 0xd414f0
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %10 = load i32* %i, align 4
+main, Instruction * 0xd41418
+      OFF=-1   %11 = load i32* @number_of_processors, align 4
+main, Instruction * 0xd41478
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %10 = load i32* %i, align 4
+main, Instruction * 0xd41418
+      OFF=-1   %11 = load i32* @number_of_processors, align 4
+main, Instruction * 0xd41478
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  br i1 %cmp10, label %for.body, label %for.end
+    -------------------
+UNSliced, Cannot be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %cmp10 = icmp slt i32 %10, %11
+main, Instruction * 0xd414f0
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %cmp10 = icmp slt i32 %10, %11
+main, Instruction * 0xd414f0
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %call12 = call i32 @pthread_create(i64* %t, %union.pthread_attr_t* null, i8* (i8*)* bitcast (void ()* @slave_sort to i8* (i8*)*), i8* null)
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %call12 = call i32 @pthread_create(i64* %t, %union.pthread_attr_t* null, i8* (i8*)* bitcast (void ()* @slave_sort to i8* (i8*)*), i8* null)
+main, Instruction * 0xd41648
+-------------------
+    DEF-RC chain:
+      Def:   %call8 = call i8* @malloc(i64 4721824)
+	RC   %call8 = call i8* @malloc(i64 4721824)
+-------------------
+    REF:
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  br label %for.inc
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %12 = load i32* %i, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %12 = load i32* %i, align 4
+main, Instruction * 0xd41718
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  %inc = add nsw i32 %12, 1
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %inc = add nsw i32 %12, 1
+main, Instruction * 0xd41790
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %12 = load i32* %i, align 4
+main, Instruction * 0xd41718
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1   %12 = load i32* %i, align 4
+main, Instruction * 0xd41718
+-------------------
+  store i32 %inc, i32* %i, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1   %inc = add nsw i32 %12, 1
+main, Instruction * 0xd41790
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=-1   %inc = add nsw i32 %12, 1
+main, Instruction * 0xd41790
+-------------------
+  br label %for.cond
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=-1   %t = alloca i64, align 8
+main, Instruction * 0xd3ab68
+      OFF=-1   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+      OFF=0   %i = alloca i32, align 4
+main, Instruction * 0xd3e5c8
+-------------------
+  call void @slave_sort()
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+      OFF=-1 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=0 @number_of_processors = internal global i32 2, align 4
+GlobalVariable *0xd38118
+      OFF=-1 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=0 @global = internal global %struct.global_memory* null, align 8
+GlobalVariable *0xd39f88
+      OFF=2664   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+      OFF=2672   %call8 = call i8* @malloc(i64 4721824)
+main, Instruction * 0xd40990
+-------------------
+  %13 = load i32* %retval
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %13 = load i32* %retval
+main, Instruction * 0xd41948
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+      OFF=-1   %retval = alloca i32, align 4
+main, Instruction * 0xd3e478
+      OFF=0   %retval = alloca i32, align 4
+main, Instruction * 0xd3e478
+-------------------
+    RC:
+-------------------
+  ret i32 %13
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    DEF-RC chain:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %4 = load i32** getelementptr inbounds ([2 x i32*]* @key, i32 0, i64 0), align 8

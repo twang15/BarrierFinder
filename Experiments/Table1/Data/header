@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{ctable}
+\usepackage{amsmath}
+\usepackage{xspace}
+
+\newcommand{\SynCat}{\textsc{BarrierFinder}\xspace}
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{table}[htb]
+%\normalsize
+%\footnotesize
+%\tiny
+%\centering
+%\nocaptionrule
+\caption{
+  Overall results of \SynCat on SPLASH2 with slicing, intrusive tracing, and interleaving reduction
+}
+%\vspace*{-\baselineskip}
+%  \vspace{-1mm}
+\label{allresult}
+\resizebox{\textwidth}{!}{
+%\begin{tabular}{@{}ccccc|ccccccc@{}}
+\begin{tabular}{@{}lllll|lllllll@{}}
+\specialrule{.2em}{.1em}{.1em}
+Benchmark&LOC.&LOB.&Slicing time&Patterns (\#)&$T$ &$T_s$ &$T_r$ &$T_{st}$ &$T_{sr}$ &$T_{str}$&$\frac{T_{sr}}{T_{str}}$\\
+\hline

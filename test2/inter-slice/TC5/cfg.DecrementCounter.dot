@@ -1,0 +1,5 @@
+digraph "CFG for 'DecrementCounter' function" {
+	label="CFG for 'DecrementCounter' function";
+
+	Node0x4a59d60 [shape=record,label="{entry:\l  ret void\l}"];
+}

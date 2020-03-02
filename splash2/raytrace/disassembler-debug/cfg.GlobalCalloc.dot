@@ -1,0 +1,11 @@
+digraph "CFG for 'GlobalCalloc' function" {
+	label="CFG for 'GlobalCalloc' function";
+
+	Node0x5ff9cd0 [shape=record,label="{entry:\l  %n.addr = alloca i64, align 8\l  %size.addr = alloca i64, align 8\l  %nbytes = alloca i64, align 8\l  %p = alloca i64*, align 8\l  %q = alloca i8*, align 8\l  store i64 %n, i64* %n.addr, align 8\l  store i64 %size, i64* %size.addr, align 8\l  %0 = load i64* %n.addr, align 8\l  %1 = load i64* %size.addr, align 8\l  %mul = mul i64 %0, %1\l  %add = add i64 %mul, 7\l  %shr = lshr i64 %add, 3\l  %shl = shl i64 %shr, 3\l  store i64 %shl, i64* %nbytes, align 8\l  %2 = load i64* %nbytes, align 8\l  %call = call i8* @GlobalMalloc(i64 %2, i8* getelementptr inbounds ([13 x\l... i8]* @.str.11.318, i32 0, i32 0))\l  br label %while.cond\l}"];
+	Node0x5ff9cd0 -> Node0x5ff9d20;
+	Node0x5ff9d20 [shape=record,label="{while.cond:                                       \l  br label %while.end\l}"];
+	Node0x5ff9d20 -> Node0x5ff9dc0;
+	Node0x5ff9d70 [shape=record,label="{while.body:                                       \l  br label %while.cond\l}"];
+	Node0x5ff9d70 -> Node0x5ff9d20;
+	Node0x5ff9dc0 [shape=record,label="{while.end:                                        \l  ret i8* undef\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'loopExit' function" {
+	label="CFG for 'loopExit' function";
+
+	Node0x2bd07e0 [shape=record,label="{%0:\l  %1 = alloca i32, align 4\l  store i32 %loopID, i32* %1, align 4\l  ret void\l}"];
+}

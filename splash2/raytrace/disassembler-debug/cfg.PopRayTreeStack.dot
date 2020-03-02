@@ -1,0 +1,12 @@
+digraph "CFG for 'PopRayTreeStack' function" {
+	label="CFG for 'PopRayTreeStack' function";
+
+	Node0x605bf50 [shape=record,label="{entry:\l  %retval = alloca i64, align 8\l  %rmsg.addr = alloca %struct.ray*, align 8\l  %pid.addr = alloca i64, align 8\l  store %struct.ray* %rmsg, %struct.ray** %rmsg.addr, align 8\l  store i64 %pid, i64* %pid.addr, align 8\l  %0 = load i64* %pid.addr, align 8\l  %arrayidx = getelementptr inbounds [128 x %struct.r_struct]* @raystruct, i32\l... 0, i64 %0\l  %StackTop = getelementptr inbounds %struct.r_struct* %arrayidx, i32 0, i32 2\l  %1 = load i64* %StackTop, align 8\l  %cmp = icmp slt i64 %1, 0\l  br i1 %cmp, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x605bf50:s0 -> Node0x605bfa0;
+	Node0x605bf50:s1 -> Node0x605bff0;
+	Node0x605bfa0 [shape=record,label="{if.then:                                          \l  store i64 0, i64* %retval\l  br label %return\l}"];
+	Node0x605bfa0 -> Node0x605c040;
+	Node0x605bff0 [shape=record,label="{if.end:                                           \l  %2 = load %struct.ray** %rmsg.addr, align 8\l  %3 = load i64* %pid.addr, align 8\l  %arrayidx1 = getelementptr inbounds [128 x %struct.r_struct]* @raystruct,\l... i32 0, i64 %3\l  %StackTop2 = getelementptr inbounds %struct.r_struct* %arrayidx1, i32 0, i32\l... 2\l  %4 = load i64* %StackTop2, align 8\l  %5 = load i64* %pid.addr, align 8\l  %arrayidx3 = getelementptr inbounds [128 x %struct.r_struct]* @raystruct,\l... i32 0, i64 %5\l  %Stack = getelementptr inbounds %struct.r_struct* %arrayidx3, i32 0, i32 1\l  %6 = load %struct.ray** %Stack, align 8\l  %arrayidx4 = getelementptr inbounds %struct.ray* %6, i64 %4\l  call void @CopyRayMsg(%struct.ray* %2, %struct.ray* %arrayidx4)\l  %7 = load i64* %pid.addr, align 8\l  %arrayidx5 = getelementptr inbounds [128 x %struct.r_struct]* @raystruct,\l... i32 0, i64 %7\l  %StackTop6 = getelementptr inbounds %struct.r_struct* %arrayidx5, i32 0, i32\l... 2\l  %8 = load i64* %StackTop6, align 8\l  %dec = add nsw i64 %8, -1\l  store i64 %dec, i64* %StackTop6, align 8\l  store i64 1, i64* %retval\l  br label %return\l}"];
+	Node0x605bff0 -> Node0x605c040;
+	Node0x605c040 [shape=record,label="{return:                                           \l  %9 = load i64* %retval\l  ret i64 %9\l}"];
+}

@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{ctable}
+\newcommand{\SynCat}{\textsc{BarrierFinder}\xspace}
+
+\begin{document}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{table}[htb]
+%\normalsize
+%\footnotesize
+%\tiny
+%\centering
+%\nocaptionrule
+\caption{
+  Overall results of \SynCat on SPLASH2 with slicing, intrusive tracing, and interleaving reduction
+}
+%\vspace*{-\baselineskip}
+%  \vspace{-1mm}
+\label{allresult}
+\resizebox{\textwidth}{!}{
+%\begin{tabular}{@{}ccccc|ccccccc@{}}
+\begin{tabular}{@{}lllll|lllllll@{}}
+\specialrule{.2em}{.1em}{.1em}
+Benchmark&LOC.&LOB.&Slicing time&Patterns (\#)&$T$ &$T_s$ &$T_r$ &$T_{st}$ &$T_{sr}$ &$T_{str}$&$\frac{T_{sr}}{T_{str}}$\\
+\hline
+FFT&1.2k&4679&0.2 (0.001)&barriers (7)& OOR & OOR &57.6 (0.44)&OOR &17.4 (0.1)&1.3 (0.06)&13.4 \\
+Cholesky&6.1k&26479&94.8 (0.17)&barriers (4)& N/A & N/A &N/A &OOR &24 (0.3) &2.5 (0.06)&9.6\\
+Raytrace&11k&24173&15.8 (0.04)&barriers (1)& N/A& N/A &N/A &$8.6^*$ (0.06) &$17.4^* (0.06)$ &$8.3^*$(0.08)&2.1\\
+Radix&1.2k&3856&0.1 (0.02)&barriers (7)& OOR& OOR &OOR &OOR &108.8 (1.0) &4.5 (0.17)&24.2\\
+LU&1.1k&4555&0.53 (0.001)&barriers (5)& N/A & N/A &N/A &OOR &31.3 (0.2) &1.7 (0.01)&18.4\\
+FMM&5k&16583&18.2 (0.1)&barriers (10)& OOR & OOR &355.4 (7.8)&OOR &333.5 (1.6)&12.3 (0.08)&27.1\\
+\specialrule{.2em}{.1em}{.1em}
+\end{tabular}
+}
+%\vspace*{-\baselineskip}
+\end{table}
+
+\end{document}

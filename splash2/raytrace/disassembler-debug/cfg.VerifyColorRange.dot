@@ -1,0 +1,27 @@
+digraph "CFG for 'VerifyColorRange' function" {
+	label="CFG for 'VerifyColorRange' function";
+
+	Node0x5ec81b0 [shape=record,label="{entry:\l  %retval = alloca i64, align 8\l  %c.addr = alloca double*, align 8\l  store double* %c, double** %c.addr, align 8\l  %0 = load double** %c.addr, align 8\l  %arrayidx = getelementptr inbounds double* %0, i64 0\l  %1 = load double* %arrayidx, align 8\l  %cmp = fcmp olt double %1, 0.000000e+00\l  br i1 %cmp, label %if.then, label %lor.lhs.false\l|{<s0>T|<s1>F}}"];
+	Node0x5ec81b0:s0 -> Node0x5ec8390;
+	Node0x5ec81b0:s1 -> Node0x5ec8200;
+	Node0x5ec8200 [shape=record,label="{lor.lhs.false:                                    \l  %2 = load double** %c.addr, align 8\l  %arrayidx1 = getelementptr inbounds double* %2, i64 0\l  %3 = load double* %arrayidx1, align 8\l  %cmp2 = fcmp ogt double %3, 1.000000e+00\l  br i1 %cmp2, label %if.then, label %lor.lhs.false.3\l|{<s0>T|<s1>F}}"];
+	Node0x5ec8200:s0 -> Node0x5ec8390;
+	Node0x5ec8200:s1 -> Node0x5ec8250;
+	Node0x5ec8250 [shape=record,label="{lor.lhs.false.3:                                  \l  %4 = load double** %c.addr, align 8\l  %arrayidx4 = getelementptr inbounds double* %4, i64 1\l  %5 = load double* %arrayidx4, align 8\l  %cmp5 = fcmp olt double %5, 0.000000e+00\l  br i1 %cmp5, label %if.then, label %lor.lhs.false.6\l|{<s0>T|<s1>F}}"];
+	Node0x5ec8250:s0 -> Node0x5ec8390;
+	Node0x5ec8250:s1 -> Node0x5ec82a0;
+	Node0x5ec82a0 [shape=record,label="{lor.lhs.false.6:                                  \l  %6 = load double** %c.addr, align 8\l  %arrayidx7 = getelementptr inbounds double* %6, i64 1\l  %7 = load double* %arrayidx7, align 8\l  %cmp8 = fcmp ogt double %7, 1.000000e+00\l  br i1 %cmp8, label %if.then, label %lor.lhs.false.9\l|{<s0>T|<s1>F}}"];
+	Node0x5ec82a0:s0 -> Node0x5ec8390;
+	Node0x5ec82a0:s1 -> Node0x5ec82f0;
+	Node0x5ec82f0 [shape=record,label="{lor.lhs.false.9:                                  \l  %8 = load double** %c.addr, align 8\l  %arrayidx10 = getelementptr inbounds double* %8, i64 2\l  %9 = load double* %arrayidx10, align 8\l  %cmp11 = fcmp olt double %9, 0.000000e+00\l  br i1 %cmp11, label %if.then, label %lor.lhs.false.12\l|{<s0>T|<s1>F}}"];
+	Node0x5ec82f0:s0 -> Node0x5ec8390;
+	Node0x5ec82f0:s1 -> Node0x5ec8340;
+	Node0x5ec8340 [shape=record,label="{lor.lhs.false.12:                                 \l  %10 = load double** %c.addr, align 8\l  %arrayidx13 = getelementptr inbounds double* %10, i64 2\l  %11 = load double* %arrayidx13, align 8\l  %cmp14 = fcmp ogt double %11, 1.000000e+00\l  br i1 %cmp14, label %if.then, label %if.else\l|{<s0>T|<s1>F}}"];
+	Node0x5ec8340:s0 -> Node0x5ec8390;
+	Node0x5ec8340:s1 -> Node0x5ec83e0;
+	Node0x5ec8390 [shape=record,label="{if.then:                                          \l  store i64 0, i64* %retval\l  br label %return\l}"];
+	Node0x5ec8390 -> Node0x5ec8430;
+	Node0x5ec83e0 [shape=record,label="{if.else:                                          \l  store i64 1, i64* %retval\l  br label %return\l}"];
+	Node0x5ec83e0 -> Node0x5ec8430;
+	Node0x5ec8430 [shape=record,label="{return:                                           \l  %12 = load i64* %retval\l  ret i64 %12\l}"];
+}

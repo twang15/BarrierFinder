@@ -1,0 +1,161 @@
+#cloud9 options
+  -c9-dump-instr                          - Dump instruction traces for each finished state. Designed to be used for concrete executions.
+  -c9-dump-traces                         - Dump state traces when a breakpoint or any other relevant event happens during execution
+
+#Job related options
+  -c9-job-cov-opt                         - Use coverage optimized job selection
+  -c9-job-entropy                         - Use entropy search
+  -c9-job-fault-inj                       - Use fault injection
+  -c9-job-lim-flow                        - Use limited states flow
+  -c9-job-oracle                          - Use the almighty oracle
+  -c9-job-quanta=<number>                 - The maximum quantum of time for a job
+  -c9-job-random                          - Use random job selection
+  -c9-job-random-path                     - Use random path job selection
+  -c9-job-sticky                          - Stick to a single random execution state
+  -c9-job-uniform-loc                     - Use uniform location search
+
+#interleaving
+  -use-interleaved-MD2U-NURS              - 
+  -use-interleaved-NURS                   - 
+  -use-interleaved-RS                     - 
+  -use-interleaved-covnew-NURS            - 
+  -use-interleaved-cpicnt-NURS            - 
+  -use-interleaved-icnt-NURS              - 
+  -use-interleaved-query-cost-NURS        - 
+  -use-iterative-deepening-time-search    - (experimental)
+
+#optimization
+  -disable-opt                            - Do not run any optimization passes
+
+Executor_Instructions.cpp:51
+Executor_Threading.cpp:44
+
+PTree.cpp:98
+Executor_States.cpp:366
+b SymbolicEngine.h:92
+(klee::PTreeNode *)
+((ExecutionState *)
+p ((klee::PTreeNode *)0x3cafa00)->data->getStackTrace().dump()
+p ((klee::PTreeNode *)0x3cafa00)->data->ptreeNode
+JobManager.cpp:1134
+Executor::processTree
+b JobManager.cpp:622
+b JobManager.cpp:648
+b cloud9::worker::ExecutionJob::ExecutionJob(cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*, bool)
+b KleeHandler.cpp:222
+b JobManager.cpp:1523
+b CoreStrategies.cpp:78
+b TreeObjects.h:144
+b TreeObjects.h:150
+b Executor_Timers.cpp:53
+ExecutionTree.h:746
+b Executor_States.cpp:449
+
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x000000000098b6fe in klee::Executor::schedule(klee::ExecutionState&, bool) at Executor_Threading.cpp:44
+2       breakpoint     keep y   0x00000000008c097f in klee::ExecutionState::ExecutionState(klee::Executor*, std::vector<klee::ref<klee::Expr>, std::allocator<klee::ref<klee::Expr> > > const&) at ExecutionState.cpp:106
+3       breakpoint     keep n   0x00000000008bfcb2 in klee::ExecutionState::ExecutionState(klee::Executor*, klee::KFunction*) at ExecutionState.cpp:80
+4       breakpoint     keep y   0x00000000008fe0bf in klee::Executor::fork(klee::ExecutionState&, int) at Executor_States.cpp:361
+5       breakpoint     keep n   <MULTIPLE>         
+5.1                         y     0x0000000000882810 in cloud9::worker::SymbolicEngine::fireHandler<boost::_bi::bind_t<void, boost::_mfi::mf4<void, cloud9::worker::StateEventHandler, klee::ExecutionState*, klee::ExecutionState*, int, klee::ForkTag>, boost::_bi::list5<boost::arg<1>, boost::_bi::value<klee::ExecutionState*>, boost::_bi::value<klee::ExecutionState*>, boost::_bi::value<int>, boost::_bi::value<klee::ForkTag> > > >(boost::_bi::bind_t<void, boost::_mfi::mf4<void, cloud9::worker::StateEventHandler, klee::ExecutionState*, klee::ExecutionState*, int, klee::ForkTag>, boost::_bi::list5<boost::arg<1>, boost::_bi::value<klee::ExecutionState*>, boost::_bi::value<klee::ExecutionState*>, boost::_bi::value<int>, boost::_bi::value<klee::ForkTag> > >) at /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/worker/SymbolicEngine.h:92
+5.2                         y     0x0000000000882aa4 in cloud9::worker::SymbolicEngine::fireHandler<boost::_bi::bind_t<void, boost::_mfi::mf3<void, cloud9::worker::StateEventHandler, klee::ExecutionState*, unsigned int, long>, boost::_bi::list4<boost::arg<1>, boost::_bi::value<klee::ExecutionState*>, boost::_bi::value<unsigned int>, boost::_bi::value<long> > > >(boost::_bi::bind_t<void, boost::_mfi::mf3<void, cloud9::worker::StateEventHandler, klee::ExecutionState*, unsigned int, long>, boost::_bi::list4<boost::arg<1>, boost::_bi::value<klee::ExecutionState*>, boost::_bi::value<unsigned int>, boost::_bi::value<long> > >) 
+                                                   at /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/worker/SymbolicEngine.h:92
+6       breakpoint     keep n   0x0000000001f5dac0 
+7       breakpoint     keep y   0x0000000000834eaf in cloud9::worker::JobManager::onStateBranched(klee::ExecutionState*, klee::ExecutionState*, int, klee::ForkTag) 
+                                                   at JobManager.cpp:1134
+  breakpoint already hit 2 times
+8       breakpoint     keep y   0x000000000083199a in cloud9::worker::JobManager::selectNextJob(boost::unique_lock<boost::mutex>&, unsigned int) at JobManager.cpp:622
+9       breakpoint     keep n   0x0000000000831c8d in cloud9::worker::JobManager::selectNextJob() at JobManager.cpp:648
+10      breakpoint     keep n   <MULTIPLE>         
+10.1                        y     0x0000000000839484 <cloud9::worker::ExecutionJob::ExecutionJob(cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*, bool)+4>
+10.2                        y     0x0000000000857b34 <cloud9::worker::ExecutionJob::ExecutionJob(cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*, bool)+4>
+11      breakpoint     keep n   0x00000000008316c4 in cloud9::worker::JobManager::processLoop(bool, bool, unsigned int) at JobManager.cpp:598
+12      breakpoint     keep y   0x000000000091d9cf in klee::KleeHandler::processTestCase(klee::ExecutionState const&, char const*, char const*) at KleeHandler.cpp:222
+13      breakpoint     keep y   0x0000000000835977 in cloud9::worker::JobManager::dumpInstructionTrace(cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*) 
+                                                   at JobManager.cpp:1523
+14      breakpoint     keep y   0x000000000088cea4 in cloud9::worker::RandomStrategy::onStateActivated(cloud9::worker::SymbolicState*) at CoreStrategies.cpp:156
+  breakpoint already hit 4 times
+15      breakpoint     keep y   0x000000000088ca38 in cloud9::worker::BasicStrategy::selectJob(cloud9::ExecutionTree<cloud9::worker::WorkerNodeInfo, 5, 2>*, cloud9::worker::SymbolicState*) at CoreStrategies.cpp:78
+  breakpoint already hit 4 times
+16      breakpoint     keep n   0x0000000000857b4b in cloud9::worker::ExecutionJob::ExecutionJob(cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*, bool) 
+                                                   at /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/worker/TreeObjects.h:144
+17      breakpoint     keep n   0x0000000000857ba4 in cloud9::worker::ExecutionJob::ExecutionJob(cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*, bool) 
+                                                   at /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/worker/TreeObjects.h:150
+18      breakpoint     keep y   0x000000000088cb03 in cloud9::worker::BasicStrategy::selectJob(cloud9::ExecutionTree<cloud9::worker::WorkerNodeInfo, 5, 2>*, cloud9::worker::SymbolicState*) at CoreStrategies.cpp:91
+19      breakpoint     keep n   0x00000000008ffe7e in klee::Executor::stepInState(klee::ExecutionState*) at Executor_States.cpp:626
+20      breakpoint     keep y   0x000000000090857f in HaltTimer::run() at Executor_Timers.cpp:53
+21      breakpoint     keep n   0x000000000095eab0 in klee::WriteStatsTimer::run() at StatsTracker.cpp:162
+22      breakpoint     keep n   0x000000000095e7b0 in klee::DetailedLogsTimer::run() at StatsTracker.cpp:174
+23      breakpoint     keep n   0x000000000095e9b0 in klee::UpdateReachableTimer::run() at StatsTracker.cpp:185
+24      breakpoint     keep n   0x000000000095e6b0 in klee::LogSummaryTimer::run() at StatsTracker.cpp:197
+25      breakpoint     keep n   0x000000000095e8b0 in klee::WriteIStatsTimer::run() at StatsTracker.cpp:150
+---Type <return> to continue, or q <return> to quit---
+26      breakpoint     keep n   0x000000000097c5db in klee::Executor::executeInstruction(klee::ExecutionState&, klee::KInstruction*) at Executor_Instructions.cpp:52
+27      breakpoint     keep y   0x000000000098b6fe in klee::Executor::schedule(klee::ExecutionState&, bool) at Executor_Threading.cpp:44
+28      breakpoint     keep y   0x0000000000832474 in cloud9::worker::JobManager::submitJob(cloud9::worker::ExecutionJob*, bool) at JobManager.cpp:657
+  breakpoint already hit 4 times
+29      breakpoint     keep n   0x000000000082dbeb in cloud9::worker::JobManager::serializeInstructionTrace(std::ostream&, cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*) at JobManager.cpp:223
+30      breakpoint     keep y   <MULTIPLE>         
+  breakpoint already hit 1 time
+30.1                        y     0x0000000000814219 in haltExecution() at worker.cpp:129
+30.2                        y     0x0000000000814244 in main(int, char**, char**) at worker.cpp:217
+31      breakpoint     keep y   0x000000000083725b in cloud9::ExecutionTree<cloud9::worker::WorkerNodeInfo, 5, 2>::buildPath(int, cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*, cloud9::TreeNode<cloud9::worker::WorkerNodeInfo, 5, 2>*, std::vector<int, std::allocator<int> >&) 
+                                                   at /home/tao/Cloud9.dev2/src/cloud9/include/cloud9/ExecutionTree.h:746
+32      breakpoint     keep y   0x00000000008fe695 in klee::Executor::terminateState(klee::ExecutionState&, bool) at Executor_States.cpp:449
+  breakpoint already hit 1 time
+
+
+
+1       breakpoint     keep n   0x000000000098dee9 in klee::Executor::schedule(klee::ExecutionState&, bool, klee::schedule_point_type) at Executor_Threading.cpp:173
+2       breakpoint     keep y   0x00000000008360fc in cloud9::worker::JobManager::onStateDestroy(klee::ExecutionState*, bool) at JobManager.cpp:1276
+  breakpoint already hit 2 times
+3       breakpoint     keep y   0x000000000098d461 in klee::Executor::schedule(klee::ExecutionState&, bool, klee::schedule_point_type) at Executor_Threading.cpp:47
+  breakpoint already hit 4 times
+4       breakpoint     keep y   0x000000000098df6b in klee::Executor::schedule(klee::ExecutionState&, bool, klee::schedule_point_type) at Executor_Threading.cpp:189
+  breakpoint already hit 4 times
+5       breakpoint     keep n   0x0000000000945897 in klee::SpecialFunctionHandler::handleThreadSleep(klee::ExecutionState&, klee::KInstruction*, std::vector<klee::ref<klee::Expr>, std::allocator<klee::ref<klee::Expr> > >&) at SpecialFunctionHandler.cpp:868
+6       breakpoint     keep n   0x0000000000909694 in klee::Executor::updateStates(klee::ExecutionState*) at Executor_States.cpp:428
+7       breakpoint     keep n   0x000000000094597f in klee::SpecialFunctionHandler::handleThreadNotify(klee::ExecutionState&, klee::KInstruction*, std::vector<klee::ref<klee::Expr>, std::allocator<klee::ref<klee::Expr> > >&) at SpecialFunctionHandler.cpp:888
+  breakpoint already hit 2 times
+8       breakpoint     keep n   0x000000000098dee9 in klee::Executor::schedule(klee::ExecutionState&, bool, klee::schedule_point_type) at Executor_Threading.cpp:173
+9       breakpoint     keep n   0x000000000098dee9 in klee::Executor::schedule(klee::ExecutionState&, bool, klee::schedule_point_type) at Executor_Threading.cpp:173
+10      breakpoint     keep n   0x000000000098dee9 in klee::Executor::schedule(klee::ExecutionState&, bool, klee::schedule_point_type) at Executor_Threading.cpp:173
+11      breakpoint     keep y   0x0000000000941bfa in klee::SpecialFunctionHandler::handleThreadTerminate(klee::ExecutionState&, klee::KInstruction*, std::vector<klee::ref<klee::Expr>, std::allocator<klee::ref<klee::Expr> > >&) at SpecialFunctionHandler.cpp:927
+
+
+1       breakpoint     keep y   0x000000000098e25a in klee::Executor::schedule(klee::ExecutionState&, bool, klee::schedule_point_type) at Executor_Threading.cpp:173
+2       breakpoint     keep y   0x0000000000983b63 in klee::Executor::executeInstruction(klee::ExecutionState&, klee::KInstruction*) at Executor_Instructions.cpp:576
+  breakpoint already hit 2 times
+3       breakpoint     keep y   0x00000000008c2424 in klee::AddressSpace::getWriteable(klee::MemoryObject const*, klee::ObjectState const*) at AddressSpace.cpp:83
+
+
+1       breakpoint     keep y   0x000000000098e25a in klee::Executor::schedule(klee::ExecutionState&, bool, klee::schedule_point_type) 
+                                                   at Executor_Threading.cpp:173
+2       breakpoint     keep y   0x0000000000983b63 in klee::Executor::executeInstruction(klee::ExecutionState&, klee::KInstruction*) 
+                                                   at Executor_Instructions.cpp:576
+3       breakpoint     keep y   0x00000000008c2424 in klee::AddressSpace::getWriteable(klee::MemoryObject const*, klee::ObjectState const*) 
+                                                   at AddressSpace.cpp:83
+  breakpoint already hit 1 time
+4       breakpoint     keep y   0x000000000093384f in klee::AddressPool::allocate(unsigned long) 
+                                                   at /home/tao/Cloud9.dev2/src/cloud9/include/klee/AddressPool.h:67
+5       breakpoint     keep y   0x00000000008c1d03 in klee::AddressSpace::bindObject(klee::MemoryObject const*, klee::ObjectState*) at AddressSpace.cpp:31
+6       breakpoint     keep y   0x00000000008c23eb in klee::AddressSpace::getWriteable(klee::MemoryObject const*, klee::ObjectState const*) 
+                                                   at AddressSpace.cpp:81
+7       breakpoint     keep y   0x00000000008d0556 in klee::ExecutionState::branch(bool) at ExecutionState.cpp:351
+8       breakpoint     keep y   0x0000000000978000 in klee::Executor::callUnmodelledFunction(klee::ExecutionState&, klee::KInstruction*, llvm::Function*, std::vector<klee::ref<klee::Expr>, std::allocator<klee::ref<klee::Expr> > >&) at Executor_Calls.cpp:277
+9       breakpoint     keep y   0x00000000008ce023 in klee::ExecutionState::setupAddressPool() at ExecutionState.cpp:130
+10      breakpoint     keep y   0x000000000092cdea in klee::ObjectState::ObjectState(klee::MemoryObject const*) at Memory.cpp:97
+11      breakpoint     keep y   0x000000000092d128 in klee::ObjectState::ObjectState(klee::MemoryObject const*, klee::Array const*) at Memory.cpp:110
+12      breakpoint     keep y   0x000000000092d4b8 in klee::ObjectState::ObjectState(klee::ObjectState const&) at Memory.cpp:135
+13      breakpoint     keep y   0x00000000009349fe in klee::MemoryObject::MemoryObject(unsigned long, unsigned int, bool, bool, bool, llvm::Value const*) 
+                                                   at /home/tao/Cloud9.dev2/src/cloud9/lib/Core/Memory.h:93
+14      breakpoint     keep y   0x00000000008cd0a4 in klee::MemoryObject::MemoryObject(unsigned long) at /home/tao/Cloud9.dev2/src/cloud9/lib/Core/Memory.h:82
+15      breakpoint     keep y   0x0000000000933323 in klee::MemoryManager::allocate(klee::ExecutionState*, unsigned long, bool, bool, llvm::Value const*) 
+                                                   at MemoryManager.cpp:35
+16      breakpoint     keep y   0x000000000093353f in klee::MemoryManager::allocateFixed(unsigned long, unsigned long, llvm::Value const*) 
+                                                   at MemoryManager.cpp:53
+
+set args -c9-code-bp=875 -c9-code-bp=956 -c9-code-bp=1036 -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons ~/test/13.llvm.3.1/a.out.bc
+
+b Executor_Memory.cpp:61
+-c9-code-bp=961 -c9-code-bp=962 -c9-code-bp=1177 -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons ~/test/13.llvm.3.1/a.out.bc

@@ -1,0 +1,5 @@
+digraph "CFG for 'flushAll' function" {
+	label="CFG for 'flushAll' function";
+
+	Node0x5e9e900 [shape=record,label="{entry:\l  ret void\l}"];
+}

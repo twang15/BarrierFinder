@@ -1,0 +1,5 @@
+digraph "CFG for 'prn_ds_stats' function" {
+	label="CFG for 'prn_ds_stats' function";
+
+	Node0x5ec0e80 [shape=record,label="{entry:\l  %leafs = alloca i64, align 8\l  %voxels = alloca i64, align 8\l  ret void\l}"];
+}

@@ -1,0 +1,39 @@
+---- probname Matches (3 in 1 files) ----
+Solve.c:char probname[80];
+Solve.c:  M = ReadSparse(argv[i], probname);
+Solve.c:  printf("     Problem: %s\n",probname);
+---- wrong type Matches (0 in 0 files) ----
+---- wrong Matches (1 in 1 files) ----
+Fo.c:    printf("Sent to wrong PE\n", desti, destj);
+---- Wrong type Matches (1 in 1 files) ----
+Util.c:	  fprintf(stderr, "Wrong type: %s\n", type);
+---- ReadSparse Matches (3 in 3 files) ----
+Matrix.h:SMatrix ReadSparse(), NewMatrix();
+Solve.c:  M = ReadSparse(argv[i], probname);
+Util.c:SMatrix ReadSparse(name, probName)
+---- fscanf Matches (13 in 1 files) ----
+Util.c:	fscanf(fp, "%72c", buf);
+Util.c:	fscanf(fp, "%8c", probName);
+Util.c:	  fscanf(fp, "%14c", buf);
+Util.c:	fscanf(fp, "%3c", type);
+Util.c:	fscanf(fp, "%11c", buf); /* pad */
+Util.c:	fscanf(fp, "%14c", buf); sscanf(buf, "%d", &n_rows);
+Util.c://	fscanf(fp, "%14c", buf); sscanf(buf, "%d", &n);
+Util.c://	fscanf(fp, "%14c", buf); sscanf(buf, "%d", &m);
+Util.c:	fscanf(fp, "%14c", buf); sscanf(buf, "%d", &tmp);
+Util.c:	fscanf(fp, "%16c", buf);
+Util.c:  fscanf(fp, "%16c", buf);
+Util.c:  fscanf(fp, "%20c", buf);
+Util.c:	fscanf(fp, "%20c", buf);
+---- sscanf Matches (7 in 1 files) ----
+Util.c:	  sscanf(buf, "%d", &tmp);
+Util.c:	fscanf(fp, "%14c", buf); sscanf(buf, "%d", &n_rows);
+Util.c://	fscanf(fp, "%14c", buf); sscanf(buf, "%d", &n);
+Util.c://	fscanf(fp, "%14c", buf); sscanf(buf, "%d", &m);
+Util.c:	fscanf(fp, "%14c", buf); sscanf(buf, "%d", &tmp);
+Util.c:  sscanf(tmp, "%d", num);
+Util.c:  sscanf(tmp, "%d", size);
+---- ParseIntFormat Matches (3 in 1 files) ----
+Util.c:	//ParseIntFormat(buf, &colnum, &colsize);
+Util.c:	ParseIntFormat(buf, &rownum, &rowsize);
+Util.c:ParseIntFormat(buf, num, size)

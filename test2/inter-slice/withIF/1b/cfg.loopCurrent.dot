@@ -1,0 +1,5 @@
+digraph "CFG for 'loopCurrent' function" {
+	label="CFG for 'loopCurrent' function";
+
+	Node0x43e5660 [shape=record,label="{entry:\l  %loopID.addr = alloca i32, align 4\l  store i32 %loopID, i32* %loopID.addr, align 4\l  ret void\l}"];
+}

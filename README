@@ -1,0 +1,404 @@
+BarrierFinder:
+  ssh fmuelle@152.14.86.176 -vv
+
+[Download and install OS]
+# install ubuntu 15.10
+# Download iso and prepare the USB w/
+# Refer this tutorial: 
+# https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0
+wget http://old-releases.ubuntu.com/releases/15.10/ubuntu-15.10-desktop-amd64.iso
+
+# edit /etc/apt/sources.list and put the following content
+# for old wily repo
+sudo gedit /etc/apt/sources.list
+
+## EOL upgrade sources.list
+# Required
+deb http://old-releases.ubuntu.com/ubuntu/ wily main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ wily-updates main restricted universe multiverse
+deb http://old-releases.ubuntu.com/ubuntu/ wily-security main restricted universe multiverse
+
+# Optional
+#deb http://old-releases.ubuntu.com/ubuntu/ wily-backports main restricted universe multiverse
+
+# install new vim
+sudo apt-get install vim
+
+# install openssh-server
+sudo apt-get install openssh-server
+
+# set up nopasswd connection following the link
+# http://www.linuxproblem.org/art_9.html
+
+# now you can work remotely
+#
+[README before installation]
+For the first time installation, manually copy-paste-execute the following scripts is highly recommended.
+Because, occasionally, the script asks for sudo password or repository access password.
+The comments are beginning with # and indicates the installation progress.
+Instructions are beginning without #
+
+[Install utilities and dependencies]
+sudo apt-get update
+sudo apt-get install git vim openssh-server g++ texinfo flex bison cmake xdot subversion
+
+
+[build gold]
+cd $HOME
+mkdir -p $HOME/tools/binutils.debug
+wget https://ftp.gnu.org/gnu/binutils/binutils-2.25.tar.bz2
+bzip2 -d binutils-2.25.tar.bz2
+tar xvf binutils-2.25.tar
+mkdir build-binutils
+cd build-binutils
+../binutils-2.25/configure CC=gcc CXX=g++ CFLAGS="-O0 -ggdb3" CXXFLAGS="-O0 -ggdb3" --enable-gold --enable-binutils --enable-plugins --prefix=$HOME/tools/binutils.debug/
+
+make all-gold all-binutils -j10
+make install-gold install-binutils
+
+cp $HOME/tools/binutils.debug/bin/ld.gold $HOME/tools/binutils.debug/bin/ld
+
+
+[Build llvm and clang]
+cd $HOME
+wget http://llvm.org/releases/3.7.0/llvm-3.7.0.src.tar.xz
+tar -xvf  llvm-3.7.0.src.tar.xz
+
+wget http://llvm.org/releases/3.7.0/cfe-3.7.0.src.tar.xz
+tar -xvf cfe-3.7.0.src.tar.xz
+
+mv cfe-3.7.0.src llvm-3.7.0.src/tools/clang
+
+mkdir build.llvm-3.7.0
+cd build.llvm-3.7.0
+
+cmake ../llvm-3.7.0.src/ -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$HOME/tools/llvm.debug -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_FLAGS="-v -O0 -ggdb3 -fno-inline-small-functions -fno-inline-functions" -DCMAKE_CXX_FLAGS="-v -O0 -ggdb3 -fno-inline-small-functions -fno-inline-functions" -DLLVM_BINUTILS_INCDIR=$HOME/tools/binutils.debug/include/
+
+make -j10
+
+mkdir -p $HOME/tools/llvm.debug
+make install
+
+Error: clang does not get built.
+Solution:
+# g++ version must be g++-4.8 or older
+# downgrade gcc from 5.2 to 4.8.5
+sudo apt-get remove gcc-5 g++
+sudo apt-get install gcc-4.8 g++-4.8
+sudo ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
+sudo ln -s /usr/bin/g++-4.8 /usr/bin/g++
+
+
+#[update llvm source tree]
+
+cd $HOME
+
+## clone slicer repository
+cd llvm-3.7.0.src/lib/Transforms/
+
+#git clone tao@152.14.86.176:~/llvm-3.7.0.src/lib/Transforms/Slicer/.git
+ln -s $HOME/projects/twang15/BarrierFinder/Slicer .
+
+### Input password 123456
+
+cd Slicer/Slicing
+./distribute.sh
+
+[Rebuild and install]
+cd $HOME/build.llvm-3.7.0
+make install -j10
+
+#add path to environment variable.
+export PATH=$HOME/tools/binutils.debug/bin:$HOME/tools/llvm.debug/bin:$PATH
+
+[Test the frontEnd]
+cd $HOME
+mkdir test
+cd test
+#scp -r tao@152.14.86.176:~/test2/inter-slice/ .
+ln -s $HOME/projects/twang15/BarrierFinder/test2/inter-slice .
+
+#test
+cd $HOME/test/inter-slice/withIF/1b
+make
+
+#inspect the cfg
+opt -dot-cfg a.out.opt.bc
+xdot cfg.SlaveStart.dot
+
+## so far, the  frontend has been successfully installed. ##
+
+#develop: the source code of synCat frondEnd is under $HOME/llvm-3.7.0.src/lib/Transforms/Slicer
+#rebuild: after modify any source code under $HOME/llvm-3.7.0.src/lib/Transforms/Slicer
+cd ~/build.llvm-3.7.0
+make install -j10
+
+[Build Cloud debug version]
+[install dependencies]
+
+#open a new terminal (this is important)
+cd $HOME
+
+## install google depot_tools
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+export PATH=`pwd`/depot_tools:"$PATH"
+
+## install glog
+# googlecode is closed and unavailable any more.
+# This is always a great challenge to reproduce any prior work.
+#wget https://google-glog.googlecode.com/files/glog-0.3.3.tar.gz
+#scp tao@152.14.86.176:~/glog-0.3.3.tar.gz .
+tar -xzvf $HOME/projects/twang15/BarrierFinder/glog-0.3.3.tar.gz && cd $HOME/projects/twang15/BarrierFinder/glog-0.3.3/
+./configure --prefix=/usr
+make -j10
+sudo make install
+# type whatever admin password to authorize sudo
+cd $HOME
+sudo ldconfig
+# type whatever admin password to authorize sudo
+
+sudo apt-get install build-essential libcrypto++-dev  zlib1g-dev dejagnu flex bison protobuf-compiler libprotobuf-dev libboost-thread-dev libboost-system-dev
+
+sudo ln /usr/include/x86_64-linux-gnu/c++/4.8/bits/*.h /usr/include/c++/4.8/bits/
+sudo ln /usr/lib/x86_64-linux-gnu/libboost_thread.a  /usr/lib/x86_64-linux-gnu/libboost_thread-mt.a
+sudo ln /usr/lib/x86_64-linux-gnu/libboost_system.a  /usr/lib/x86_64-linux-gnu/libboost_system-mt.a
+
+mkdir Cloud9 && cd Cloud9
+gclient config --name src git+https://github.com/twang15/cloud9-depot.git
+
+sudo apt-get remove gcc-5 g++
+sudo apt-get install gcc-4.8 g++-4.8
+sudo ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
+sudo ln -s /usr/bin/g++-4.8 /usr/bin/g++
+sudo mv /usr/lib/gcc/x86_64-linux-gnu/5/ /usr/lib/gcc/x86_64-linux-gnu/5.bak
+gclient sync
+
+## error: Error: Command '/usr/bin/python src/build/gyp_cloud9' returned non-zero exit status 1
+#scp -r tao@152.14.86.176:~/Cloud9.dev2/src/third_party/gyp/ src/third_party/
+#scp -r tao@152.14.86.176:~/Cloud9.dev2/src/testing_targets/libcxx src/testing_targets/libcxx
+cp -r $HOME/projects/twang15/BarrierFinder/Cloud9.dev2/src/third_party/gyp/ src/third_party/ 
+cp -r $HOME/projects/twang15/BarrierFinder/Cloud9.dev2/src/testing_targets/libcxx src/testing_targets/libcxx
+
+gclient sync
+
+#so far, llvm3.1 and binutils tool chain have been successfully built.
+
+[install STP]
+cd src/third_party/
+git clone https://github.com/stp/minisat.git
+cd minisat && mkdir build && cd build
+cmake ..
+
+make
+sudo make install
+
+# install cmake 3.9.1
+cd $HOME
+wget https://cmake.org/files/v3.9/cmake-3.9.1.tar.gz
+tar xzf cmake-3.9.1.tar.gz
+cd cmake-3.9.1
+./bootstrap --prefix=$HOME/cmake-3.9.1/install
+make -j10 install
+export PATH=$HOME/cmake-3.9.1/install/bin:$PATH
+export CMAKE_ROOT=$HOME/cmake-3.9.1/cmake-3.9.1
+
+cd $HOME
+wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
+tar zxvf protobuf-2.5.0.tar.gz
+cd protobuf-2.5.0
+./configure
+make
+make check
+make install
+
+#sudo scp tao@152.14.86.176:/usr/lib/libprotoc.so.8 .
+sudo cp $HOME/projects/twang15/BarrierFinder/usr/lib/libprotoc.so.8 .
+sudo cp libprotoc.so.8 /usr/lib/
+sudo ldconfig
+
+cd $HOME/Cloud9/src/third_party
+git clone https://github.com/stp/stp.git
+cd stp && mkdir build && cd build
+cmake .. 
+make -j10
+sudo make install
+sudo ldconfig
+export LIBRARY_PATH=/usr/lib:/usr/local/lib:$LIBRARY_PATH
+
+[build uclibc]
+cd ~/Cloud9/src/klee-uclibc
+
+#replace "Release+" in Rules.mak to "Debug+"
+sed -i "s/Release/Debug/g" Rules.mak
+make -j10
+
+[Build Cloud9]
+cd ..
+#replace "Release+" in Makefile with "Debug+"
+sed -i "s/Release/Debug/g" Makefile
+make -j10
+rm -rf cloud9
+#git clone tao@152.14.86.176:~/Cloud9.dev2/src/cloud9/.git
+ln -s $HOME/projects/twang15/BarrierFinder/Cloud9.dev2/src/cloud9/ .
+#scp -r tao@152.14.86.176:~/Cloud9.dev2/src/cloud9.allAB .
+ln -s $HOME/projects/twang15/BarrierFinder/Cloud9.dev2/src/cloud9.allAB .
+cd cloud9
+CC=gcc CXX=g++ CFLAGS="-O0 -v -g3" CXXFLAGS="-O0 -v -g3" ./configure --with-llvmsrc=../third_party/llvm --with-llvmobj=../third_party/llvm-build --with-uclibc=../klee-uclibc --enable-posix-runtime --with-stp=../third_party/stp --with-runtime=Debug+Asserts
+
+make -C lib/Data -j10
+sudo apt-get remove libprotobuf-dev
+make -j10
+
+[libCxx and cloud9 debug version testing]
+#replace "Release+" in src/testing_targets/build/g++.proxy with "Debug+"
+cd ~/Cloud9/src
+sed -i "s/Release/Debug/g" $HOME/Cloud9/src/testing_targets/build/prepare_build_env.sh
+sed -i "s/Release/Debug/g" testing_targets/build/g++.proxy
+sed -i "s/Release/Debug/g" testing_targets/build/gcc.proxy
+cd testing_targets
+build/gyp_testing_targets
+build/make_all
+
+cd ~/Cloud9/src/cloud9
+rm -rf test-prod-cons
+Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/Cloud9/src/testing_targets/out/Default/prod-cons.bc
+
+## there should be output ####
+## then the installation is successful. ###
+## Terminate it after 10 seconds
+
+#Develop: the source code is under $HOME/Cloud9/src/cloud9
+#Rebuild: after any modification, rebuild the project with following instructions:
+# cd $HOME/Cloud9/src/cloud9
+# make -j10
+
+
+[Build Cloud9 release version]
+export LIBRARY_PATH=/usr/lib:/usr/local/lib:$LIBRARY_PATH
+cd $HOME
+mkdir Cloud9.release
+cd Cloud9.release
+#gclient config --name src git+https://github.com/dslab-epfl/cloud9-depot.git
+gclient config --name src git+https://github.com/twang15/cloud.release.git
+gclient sync
+# Error: caused by gyp
+#copy gyp somewhere else. No need for modifying and git commiting it, which are illusions.
+cp -rf $HOME/Cloud9/src/third_party/gyp/ src/third_party/
+cp -rf $HOME/Cloud9/src/testing_targets/libcxx src/testing_targets/libcxx
+gclient sync
+
+#build uclibc
+cd ~/Cloud9.release/src/klee-uclibc
+make -j10
+
+#build cloud9
+cd ../
+make -j10
+
+cd ~/Cloud9.release/src
+rm -rf cloud9
+#git clone tao@152.14.86.176:/home/tao/temp/ori/src/cloud9/.git
+ln -s $HOME/projects/twang15/BarrierFinder/temp/ori/src/cloud9/ .
+cd cloud9
+CC=gcc CXX=g++ ./configure --with-llvmsrc=../third_party/llvm --with-llvmobj=../third_party/llvm-build --with-uclibc=../klee-uclibc --enable-posix-runtime --with-stp=../third_party/stp --with-runtime=Release+Asserts
+
+make -C lib/Data -j10
+make -j10
+
+[Cloud9: Test release version]
+rm -rf test-prod-cons
+Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/Cloud9/src/testing_targets/out/Default/prod-cons.bc
+
+## there should be output ####
+## then the installation is successful. ###
+
+[Use the SynCat tool chain]
+#open a new terminal for front end
+#modify PATH environment
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export PATH=$HOME/tools/binutils.debug/bin:$HOME/tools/llvm.debug/bin:$PATH
+
+#build the application bc file with frontend
+cd $HOME/test/inter-slice/withIF/1b
+make
+
+#inspect the cfg
+opt -dot-cfg a.out.opt.bc
+xdot cfg.SlaveStart.dot
+
+#disassemble with llvm.3.7
+llvm-dis a.out.opt.bc -o a.out.ll
+
+#open a new terminal
+cd $HOME/test/inter-slice/withIF/1b
+mkdir 3.1
+cd 3.1
+
+source $HOME/Cloud9/src/testing_targets/build/prepare_build_env.sh
+
+#assemble with llvm 3.1
+cd $HOME/test/inter-slice/withIF/1b/3.1
+llvm-as ../a.out.ll -o a.out.bc
+
+#execute it with cloud9
+cd $HOME/Cloud9/src/cloud9
+rm -rf test-prod-cons
+Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/test/inter-slice/withIF/1b/3.1/a.out.bc
+
+Output: look for "Killed because of not a new invariant state"
+
+# inspect the traces
+cat traces.log
+
+[build llvm-3.7 w/ O2]
+cd $HOME && mkdir build.binutils.optO2 && cd build.binutils.optO2
+mkdir -p $HOME/tools/llvm.optO2
+../binutils-2.25/configure CC=gcc CXX=g++ CFLAGS="-O2" CXXFLAGS="-O2" --enable-gold --enable-binutils --enable-plugins --prefix=$HOME/tools/binutils.optO2
+make all-gold all-binutils -j10
+make install-gold install-binutils
+cp $HOME/tools/binutils.optO2/bin/ld.gold $HOME/tools/binutils.optO2/bin/ld
+
+cd $HOME && mkdir build.llvm3.7.optO2 && cd build.llvm3.7.optO2
+mkdir -p $HOME/tools/llvm.optO2
+cmake ../llvm-3.7.0.src/ -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME/tools/llvm.optO2 -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_FLAGS="-O2" -DCMAKE_CXX_FLAGS="-O2" -DLLVM_BINUTILS_INCDIR=$HOME/tools/binutils.optO2/include/
+make install
+export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
+
+# Experiments
+
+cd CodeWalk
+# Table 1
+cd Experiments/Table1
+
+# generate the table content
+bash data.sh
+
+# generate the table pdf
+bash pdf.sh
+#output: Pdf/table.pdf
+#pdflatex not installed, run on some desktop:
+scp Data/table.tex .
+pdflatex table
+xpdf table.pdf
+
+# Fig7
+cd ../Fig7
+bash data.sh
+
+# Follow the instructions in plot.sh
+# The figures are plotted w/ ms pptx,
+# please fill in the data manually
+#powerpnt not installed, run on some desktop:
+scp Plots/*.pptx .
+#import data from Data/
+powerpnt fmm.pptx
+  right-click edit data
+  update data from Data/fmm
+#same for lu, radix
+
+# Table 2
+cd ../Table2
+
+# please read README.txt and following the instruction there
+# It is semi-automated
+#Table is created by hand from results of README.txt

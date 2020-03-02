@@ -1,0 +1,18 @@
+digraph "CFG for 'SphRead' function" {
+	label="CFG for 'SphRead' function";
+
+	Node0x60930e0 [shape=record,label="{entry:\l  %po.addr = alloca %struct.object*, align 8\l  %pf.addr = alloca %struct._IO_FILE*, align 8\l  %i = alloca i64, align 8\l  %instat = alloca i64, align 8\l  %ps = alloca %struct.sphere*, align 8\l  %pe = alloca %struct.element*, align 8\l  store %struct.object* %po, %struct.object** %po.addr, align 8\l  %0 = load %struct.object** %po.addr, align 8\l  %numelements = getelementptr inbounds %struct.object* %0, i32 0, i32 4\l  %1 = load i64* %numelements, align 8\l  %mul = mul i64 48, %1\l  %call = call i8* @GlobalMalloc(i64 %mul, i8* getelementptr inbounds ([6 x\l... i8]* @.str.4.408, i32 0, i32 0))\l  br label %for.cond\l}"];
+	Node0x60930e0 -> Node0x6093130;
+	Node0x6093130 [shape=record,label="{for.cond:                                         \l  br i1 undef, label %for.body, label %for.end\l|{<s0>T|<s1>F}}"];
+	Node0x6093130:s0 -> Node0x6093180;
+	Node0x6093130:s1 -> Node0x60932c0;
+	Node0x6093180 [shape=record,label="{for.body:                                         \l  br i1 undef, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x6093180:s0 -> Node0x60931d0;
+	Node0x6093180:s1 -> Node0x6093220;
+	Node0x60931d0 [shape=record,label="{if.then:                                          \l  unreachable\l}"];
+	Node0x6093220 [shape=record,label="{if.end:                                           \l  br label %for.inc\l}"];
+	Node0x6093220 -> Node0x6093270;
+	Node0x6093270 [shape=record,label="{for.inc:                                          \l  br label %for.cond\l}"];
+	Node0x6093270 -> Node0x6093130;
+	Node0x60932c0 [shape=record,label="{for.end:                                          \l  ret void\l}"];
+}

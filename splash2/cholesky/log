@@ -1,0 +1,952 @@
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm amal.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name amal.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/amal.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o amal.i -x c amal.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name amal.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/amal.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o amal.bc -x cpp-output amal.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+amal.c:77:29: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)'
+  tree_firstchild = (int *) malloc((M.n+1)*sizeof(int));
+                            ^
+amal.c:77:29: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+amal.c:142:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+amal.c:220:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+amal.c:271:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+amal.c:298:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+amal.c:334:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+amal.c:350:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+7 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name amal.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/amal.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o amal.o -x ir amal.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm assign.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name assign.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/assign.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o assign.i -x c assign.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name assign.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/assign.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o assign.bc -x cpp-output assign.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+assign.c:65:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+assign.c:88:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+assign.c:99:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+assign.c:114:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+assign.c:132:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+5 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name assign.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/assign.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o assign.o -x ir assign.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm bfac.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name bfac.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/bfac.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o bfac.i -x c bfac.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name bfac.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/bfac.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o bfac.bc -x cpp-output bfac.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+bfac.c:85:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:102:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:143:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:210:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:252:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:268:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:281:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:390:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:421:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:479:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+bfac.c:504:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+11 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name bfac.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/bfac.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o bfac.o -x ir bfac.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm bksolve.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name bksolve.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/bksolve.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o bksolve.i -x c bksolve.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name bksolve.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/bksolve.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o bksolve.bc -x cpp-output bksolve.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+bksolve.c:46:18: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)'
+  x = (double *) malloc(LB.n*sizeof(double));
+                 ^
+bksolve.c:46:18: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+1 warning generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name bksolve.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/bksolve.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o bksolve.o -x ir bksolve.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm block2.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name block2.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/block2.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o block2.i -x c block2.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name block2.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/block2.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o block2.bc -x cpp-output block2.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+block2.c:77:24: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)'
+  LB.entry = (Entry *) malloc(LB.entries_allocated*sizeof(Entry));;
+                       ^
+block2.c:77:24: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+block2.c:202:19: warning: more '%' conversions than data arguments [-Wformat]
+   printf("Block %d has bad structure\n");
+                 ~^
+block2.c:203:4: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))'
+   exit(-1);
+   ^
+block2.c:203:4: note: include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+block2.c:226:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+block2.c:276:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:315:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:335:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:353:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+block2.c:384:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+block2.c:393:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:445:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+block2.c:506:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:543:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:560:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:614:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:628:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:667:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:700:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:715:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+block2.c:731:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+20 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name block2.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/block2.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o block2.o -x ir block2.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm fo.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name fo.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/fo.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o fo.i -x c fo.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name fo.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/fo.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o fo.bc -x cpp-output fo.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+fo.c:53:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:70:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:132:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:153:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:178:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:238:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:270:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:313:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:325:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:412:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+fo.c:432:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:450:34: warning: data argument not used by format string [-Wformat-extra-args]
+    printf("Sent to wrong PE\n", desti, destj);
+           ~~~~~~~~~~~~~~~~~~~~  ^
+fo.c:480:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:503:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:527:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:556:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:574:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:591:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:637:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:652:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:694:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:705:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:733:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+fo.c:760:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+24 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name fo.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/fo.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o fo.o -x ir fo.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm mf.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name mf.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/mf.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o mf.i -x c mf.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name mf.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/mf.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o mf.bc -x cpp-output mf.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+mf.c:70:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+mf.c:143:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+mf.c:195:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+3 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name mf.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/mf.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o mf.o -x ir mf.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm numLL.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name numLL.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/numLL.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o numLL.i -x c numLL.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name numLL.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/numLL.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o numLL.bc -x cpp-output numLL.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+numLL.c:188:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:241:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:255:5: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))'
+    exit(0);
+    ^
+numLL.c:255:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+numLL.c:263:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:282:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:310:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:336:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:350:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:363:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:403:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:544:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+numLL.c:652:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+12 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name numLL.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/numLL.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o numLL.o -x ir numLL.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm parts.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name parts.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/parts.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o parts.i -x c parts.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name parts.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/parts.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o parts.bc -x cpp-output parts.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+parts.c:117:19: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)'
+  depth = (int *) malloc(proc_domains[parts]*sizeof(int));
+                  ^
+parts.c:117:19: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+parts.c:148:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+parts.c:171:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+parts.c:193:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+parts.c:287:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+5 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name parts.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/parts.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o parts.o -x ir parts.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm seg.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name seg.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/seg.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o seg.i -x c seg.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name seg.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/seg.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o seg.bc -x cpp-output seg.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+seg.c:63:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+seg.c:77:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+seg.c:88:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+seg.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+4 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name seg.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/seg.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o seg.o -x ir seg.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm solve.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name solve.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/solve.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o solve.i -x c solve.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name solve.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/solve.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o solve.bc -x cpp-output solve.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+solve.c:138:15: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))'
+              exit(0);
+              ^
+solve.c:138:15: note: include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+solve.c:149:24: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)'
+  gp = (struct gpid *) malloc(sizeof(struct gpid));;
+                       ^
+solve.c:149:24: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+solve.c:280:32: warning: incompatible pointer types passing 'void ()' to parameter of type 'void *(*)(void *)' [-Wincompatible-pointer-types]
+pthread_create(&t, ((void*)0), (Go), ((void*)0));
+                               ^~~~
+/usr/include/pthread.h:237:15: note: passing argument to parameter '__start_routine' here
+      void *(*__start_routine) (void *),
+              ^
+solve.c:567:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+solve.c:587:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+5 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name solve.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/solve.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o solve.o -x ir solve.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm tree.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name tree.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/tree.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o tree.i -x c tree.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name tree.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/tree.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o tree.bc -x cpp-output tree.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+tree.c:47:21: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)'
+  subtree = (int *) malloc((A.n+1)*sizeof(int));
+                    ^
+tree.c:47:21: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+tree.c:78:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree.c:112:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree.c:142:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree.c:187:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+tree.c:209:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+6 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name tree.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/tree.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o tree.o -x ir tree.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm util.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name util.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/util.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o util.i -x c util.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name util.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/util.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o util.bc -x cpp-output util.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+util.c:62:5: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))'
+    exit(0);
+    ^
+util.c:62:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+util.c:76:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util.c:225:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util.c:242:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util.c:262:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+util.c:272:18: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)'
+  link = (int *) malloc(L.n*sizeof(int));
+                 ^
+util.c:272:18: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+util.c:346:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+7 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name util.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/util.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o util.o -x ir util.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm malloc.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name malloc.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/malloc.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o malloc.i -x c malloc.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name malloc.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/malloc.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o malloc.bc -x cpp-output malloc.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+malloc.c:66:5: warning: implicitly declaring library function 'malloc' with type 'void *(unsigned long)'
+    malloc((mallocP+1)*sizeof(struct MemPool));;
+    ^
+malloc.c:66:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'malloc'
+malloc.c:72:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+malloc.c:94:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+malloc.c:109:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+malloc.c:283:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+malloc.c:295:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+malloc.c:309:5: warning: implicitly declaring library function 'exit' with type 'void (int) __attribute__((noreturn))'
+    exit(-1);
+    ^
+malloc.c:309:5: note: include the header <stdlib.h> or explicitly provide a declaration for 'exit'
+malloc.c:332:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+8 warnings generated.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name malloc.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/malloc.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o malloc.o -x ir malloc.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang -c -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm print2.c
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+clang-3.7: warning: -Xlinker -plugin-opt=save-temps: 'linker' input unused
+clang-3.7: warning: -lpthread: 'linker' input unused
+clang-3.7: warning: -lm: 'linker' input unused
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -E -disable-free -disable-llvm-verifier -main-file-name print2.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/print2.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include -I/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include -internal-isystem /usr/local/include -internal-isystem /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o print2.i -x c print2.c
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+ignoring nonexistent directory "/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/include
+ /home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/include
+ /usr/local/include
+ /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0/include
+ /usr/include/x86_64-linux-gnu
+ /usr/include
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -emit-llvm-bc -emit-llvm-uselists -disable-free -disable-llvm-verifier -main-file-name print2.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/print2.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -disable-llvm-optzns -o print2.bc -x cpp-output print2.i
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+#include "..." search starts here:
+End of search list.
+ "/home/tao/tools/llvm.optO2/bin/clang-3.7" -cc1 -triple x86_64-unknown-linux-gnu -flto -emit-llvm-bc -disable-free -disable-llvm-verifier -main-file-name print2.c -mrelocation-model static -mthread-model posix -mdisable-fp-elim -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -fuse-init-array -target-cpu x86-64 -v -dwarf-column-info -coverage-file /home/tao/CodeWalk/splash2/cholesky/print2.c -resource-dir /home/tao/tools/llvm.optO2/bin/../lib/clang/3.7.0 -O0 -std=c90 -fdebug-compilation-dir /home/tao/CodeWalk/splash2/cholesky -ferror-limit 19 -fmessage-length 0 -mstackrealign -fobjc-runtime=gcc -fdiagnostics-show-option -o print2.o -x ir print2.bc
+clang -cc1 version 3.7.0 based upon LLVM 3.7.0 default target x86_64-unknown-linux-gnu
+clang amal.o assign.o bfac.o bksolve.o block2.o fo.o mf.o numLL.o parts.o seg.o solve.o tree.o util.o malloc.o print2.o -O0 -std=c90 -save-temps -flto -v -Xlinker -plugin-opt=save-temps -lpthread -lm -o CHOLESKY -lpthread -lm
+clang version 3.7.0 (tags/RELEASE_370/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+Found candidate GCC installation: /usr/lib/gcc/i686-linux-gnu/5.2.1
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8.5
+Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/5.2.1
+Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/4.8
+Candidate multilib: .;@m64
+Candidate multilib: 32;@m32
+Candidate multilib: x32;@mx32
+Selected multilib: .;@m64
+ "/home/tao/tools/binutils.optO2/bin/ld" -z relro --hash-style=gnu --build-id --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o CHOLESKY /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/usr/lib/x86_64-linux-gnu/../../lib64 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. -L/home/tao/tools/llvm.optO2/bin/../lib -L/lib -L/usr/lib -plugin /home/tao/tools/llvm.optO2/bin/../lib/LLVMgold.so -plugin-opt=mcpu=x86-64 amal.o assign.o bfac.o bksolve.o block2.o fo.o mf.o numLL.o parts.o seg.o solve.o tree.o util.o malloc.o print2.o -plugin-opt=save-temps -lpthread -lm -lpthread -lm -L/home/tao/intel/compilers_and_libraries_2017.4.196/linux/ipp/lib/intel64 -L/home/tao/intel/compilers_and_libraries_2017.4.196/linux/compiler/lib/intel64_lin -L/home/tao/intel/compilers_and_libraries_2017.4.196/linux/mkl/lib/intel64_lin -L/home/tao/intel/compilers_and_libraries_2017.4.196/linux/tbb/lib/intel64/gcc4.7 -L/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/lib/intel64_lin -L/home/tao/intel/compilers_and_libraries_2017.4.196/linux/daal/../tbb/lib/intel64_lin/gcc4.4 -L/usr/lib -L/usr/local/lib -L/home/tao/tools/protobuf/lib -L/home/tao/hdf5-1.8.16/hdf5 -L. -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+collectCallRuleCodes: skipped some vararg arguments in 'AllocateNZ(0, 1)'
+collectCallRuleCodes: skipped some vararg arguments in 'PreAllocate1FO(0, 1)'
+collectCallRuleCodes: skipped some vararg arguments in 'CheckRemaining(0, 1)'
+Skip it
+Skip it
+Skip it
+Skip it
+The DRC is not continuous !
+pthread_create
+
+; Function Attrs: nounwind
+declare i32 @pthread_create(i64*, %union.pthread_attr_t*, i8* (i8*)*, i8*)
+
+Elapse time: 9.639155e+01

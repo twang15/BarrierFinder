@@ -1,0 +1,5 @@
+digraph "CFG for 'printerr' function" {
+	label="CFG for 'printerr' function";
+
+	Node0x48d5410 [shape=record,label="{entry:\l  %s.addr = alloca i8*, align 8\l  store i8* %s, i8** %s.addr, align 8\l  %0 = load %struct._IO_FILE** @stderr, align 8\l  %1 = load i8** %s.addr, align 8\l  %call = call i32 (%struct._IO_FILE*, i8*, ...) *@fprintf(%struct._IO_FILE*\l... %0, i8* getelementptr inbounds ([11 x i8]* @.str.49, i32 0, i32 0), i8* %1)\l  ret void\l}"];
+}

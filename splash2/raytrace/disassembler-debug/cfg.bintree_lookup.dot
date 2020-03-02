@@ -1,0 +1,41 @@
+digraph "CFG for 'bintree_lookup' function" {
+	label="CFG for 'bintree_lookup' function";
+
+	Node0x5e9f160 [shape=record,label="{entry:\l  %retval = alloca %struct.element**, align 8\l  %root.addr = alloca %struct.btnode*, align 8\l  %i.addr = alloca i64, align 8\l  %j.addr = alloca i64, align 8\l  %k.addr = alloca i64, align 8\l  %g.addr = alloca %struct.grid*, align 8\l  %n.addr = alloca i64*, align 8\l  %l = alloca i64, align 8\l  %x = alloca i64, align 8\l  %ijk = alloca [3 x i64], align 16\l  %child = alloca i64, align 8\l  %idiv = alloca i64, align 8\l  %pepa = alloca %struct.element**, align 8\l  %btn = alloca %struct.btnode*, align 8\l  store %struct.btnode* %root, %struct.btnode** %root.addr, align 8\l  store i64 %i, i64* %i.addr, align 8\l  store i64* %n, i64** %n.addr, align 8\l  %0 = load i64* %i.addr, align 8\l  %arrayidx = getelementptr inbounds [3 x i64]* %ijk, i32 0, i64 0\l  store i64 %0, i64* %arrayidx, align 8\l  %1 = load %struct.btnode** %root.addr, align 8\l  store %struct.btnode* %1, %struct.btnode** %btn, align 8\l  %2 = load %struct.btnode** %btn, align 8\l  %cmp = icmp eq %struct.btnode* %2, null\l  br i1 %cmp, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x5e9f160:s0 -> Node0x5e9f1b0;
+	Node0x5e9f160:s1 -> Node0x5e9f200;
+	Node0x5e9f1b0 [shape=record,label="{if.then:                                          \l  %3 = load i64** %n.addr, align 8\l  store i64 0, i64* %3, align 8\l  store %struct.element** null, %struct.element*** %retval\l  br label %return\l}"];
+	Node0x5e9f1b0 -> Node0x5e9f610;
+	Node0x5e9f200 [shape=record,label="{if.end:                                           \l  br label %while.cond\l}"];
+	Node0x5e9f200 -> Node0x5e9f250;
+	Node0x5e9f250 [shape=record,label="{while.cond:                                       \l  %4 = load %struct.btnode** %btn, align 8\l  %n3 = getelementptr inbounds %struct.btnode* %4, i32 0, i32 3\l  %arrayidx4 = getelementptr inbounds [3 x i64]* %n3, i32 0, i64 0\l  %5 = load i64* %arrayidx4, align 8\l  %cmp5 = icmp ne i64 %5, 1\l  br i1 %cmp5, label %lor.end, label %lor.lhs.false\l|{<s0>T|<s1>F}}"];
+	Node0x5e9f250:s0 -> Node0x5e9f340;
+	Node0x5e9f250:s1 -> Node0x5e9f2a0;
+	Node0x5e9f2a0 [shape=record,label="{lor.lhs.false:                                    \l  %6 = load %struct.btnode** %btn, align 8\l  %n6 = getelementptr inbounds %struct.btnode* %6, i32 0, i32 3\l  %arrayidx7 = getelementptr inbounds [3 x i64]* %n6, i32 0, i64 1\l  %7 = load i64* %arrayidx7, align 8\l  %cmp8 = icmp ne i64 %7, 1\l  br i1 %cmp8, label %lor.end, label %lor.rhs\l|{<s0>T|<s1>F}}"];
+	Node0x5e9f2a0:s0 -> Node0x5e9f340;
+	Node0x5e9f2a0:s1 -> Node0x5e9f2f0;
+	Node0x5e9f2f0 [shape=record,label="{lor.rhs:                                          \l  %8 = load %struct.btnode** %btn, align 8\l  %n9 = getelementptr inbounds %struct.btnode* %8, i32 0, i32 3\l  %arrayidx10 = getelementptr inbounds [3 x i64]* %n9, i32 0, i64 2\l  %9 = load i64* %arrayidx10, align 8\l  %cmp11 = icmp ne i64 %9, 1\l  br label %lor.end\l}"];
+	Node0x5e9f2f0 -> Node0x5e9f340;
+	Node0x5e9f340 [shape=record,label="{lor.end:                                          \l  %10 = phi i1 [ true, %lor.lhs.false ], [ true, %while.cond ], [ %cmp11,\l... %lor.rhs ]\l  br i1 %10, label %while.body, label %while.end\l|{<s0>T|<s1>F}}"];
+	Node0x5e9f340:s0 -> Node0x5e9f390;
+	Node0x5e9f340:s1 -> Node0x5e9f5c0;
+	Node0x5e9f390 [shape=record,label="{while.body:                                       \l  %11 = load %struct.btnode** %btn, align 8\l  %axis = getelementptr inbounds %struct.btnode* %11, i32 0, i32 5\l  %12 = load i64* %axis, align 8\l  %cmp12 = icmp eq i64 %12, -1\l  br i1 %cmp12, label %if.then.13, label %if.end.21\l|{<s0>T|<s1>F}}"];
+	Node0x5e9f390:s0 -> Node0x5e9f3e0;
+	Node0x5e9f390:s1 -> Node0x5e9f430;
+	Node0x5e9f3e0 [shape=record,label="{if.then.13:                                       \l  unreachable\l}"];
+	Node0x5e9f430 [shape=record,label="{if.end.21:                                        \l  store i64 0, i64* %child, align 8\l  %13 = load %struct.btnode** %btn, align 8\l  %axis22 = getelementptr inbounds %struct.btnode* %13, i32 0, i32 5\l  %14 = load i64* %axis22, align 8\l  %15 = load %struct.btnode** %btn, align 8\l  %n23 = getelementptr inbounds %struct.btnode* %15, i32 0, i32 3\l  %arrayidx24 = getelementptr inbounds [3 x i64]* %n23, i32 0, i64 %14\l  %16 = load i64* %arrayidx24, align 8\l  %div = sdiv i64 %16, 2\l  store i64 %div, i64* %idiv, align 8\l  %17 = load %struct.btnode** %btn, align 8\l  %axis25 = getelementptr inbounds %struct.btnode* %17, i32 0, i32 5\l  %18 = load i64* %axis25, align 8\l  %arrayidx26 = getelementptr inbounds [3 x i64]* %ijk, i32 0, i64 %18\l  %19 = load i64* %arrayidx26, align 8\l  %add = add nsw i64 %19, 1\l  %20 = load i64* %idiv, align 8\l  %cmp27 = icmp sgt i64 %add, %20\l  br i1 %cmp27, label %if.then.28, label %if.end.31\l|{<s0>T|<s1>F}}"];
+	Node0x5e9f430:s0 -> Node0x5e9f480;
+	Node0x5e9f430:s1 -> Node0x5e9f4d0;
+	Node0x5e9f480 [shape=record,label="{if.then.28:                                       \l  store i64 1, i64* %child, align 8\l  %21 = load i64* %idiv, align 8\l  %22 = load %struct.btnode** %btn, align 8\l  %axis29 = getelementptr inbounds %struct.btnode* %22, i32 0, i32 5\l  %23 = load i64* %axis29, align 8\l  %arrayidx30 = getelementptr inbounds [3 x i64]* %ijk, i32 0, i64 %23\l  %24 = load i64* %arrayidx30, align 8\l  %sub = sub nsw i64 %24, %21\l  store i64 %sub, i64* %arrayidx30, align 8\l  br label %if.end.31\l}"];
+	Node0x5e9f480 -> Node0x5e9f4d0;
+	Node0x5e9f4d0 [shape=record,label="{if.end.31:                                        \l  %25 = load i64* %child, align 8\l  %26 = load %struct.btnode** %btn, align 8\l  %btn32 = getelementptr inbounds %struct.btnode* %26, i32 0, i32 7\l  %arrayidx33 = getelementptr inbounds [2 x %struct.btnode*]* %btn32, i32 0,\l... i64 %25\l  %27 = load %struct.btnode** %arrayidx33, align 8\l  store %struct.btnode* %27, %struct.btnode** %btn, align 8\l  %28 = load %struct.btnode** %btn, align 8\l  %cmp34 = icmp eq %struct.btnode* %28, null\l  br i1 %cmp34, label %if.then.35, label %if.end.36\l|{<s0>T|<s1>F}}"];
+	Node0x5e9f4d0:s0 -> Node0x5e9f520;
+	Node0x5e9f4d0:s1 -> Node0x5e9f570;
+	Node0x5e9f520 [shape=record,label="{if.then.35:                                       \l  %29 = load i64** %n.addr, align 8\l  store i64 0, i64* %29, align 8\l  store %struct.element** null, %struct.element*** %retval\l  br label %return\l}"];
+	Node0x5e9f520 -> Node0x5e9f610;
+	Node0x5e9f570 [shape=record,label="{if.end.36:                                        \l  br label %while.cond\l}"];
+	Node0x5e9f570 -> Node0x5e9f250;
+	Node0x5e9f5c0 [shape=record,label="{while.end:                                        \l  %30 = load %struct.btnode** %btn, align 8\l  %nprims37 = getelementptr inbounds %struct.btnode* %30, i32 0, i32 2\l  %31 = load i64* %nprims37, align 8\l  %32 = load i64** %n.addr, align 8\l  store i64 %31, i64* %32, align 8\l  %33 = load %struct.btnode** %btn, align 8\l  %pe = getelementptr inbounds %struct.btnode* %33, i32 0, i32 0\l  %34 = load %struct.element*** %pe, align 8\l  store %struct.element** %34, %struct.element*** %pepa, align 8\l  %35 = load %struct.element*** %pepa, align 8\l  store %struct.element** %35, %struct.element*** %retval\l  br label %return\l}"];
+	Node0x5e9f5c0 -> Node0x5e9f610;
+	Node0x5e9f610 [shape=record,label="{return:                                           \l  %36 = load %struct.element*** %retval\l  ret %struct.element** %36\l}"];
+}

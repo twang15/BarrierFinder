@@ -1,0 +1,13 @@
+digraph "CFG for 'CopyColumn' function" {
+	label="CFG for 'CopyColumn' function";
+
+	Node0x58cf850 [shape=record,label="{entry:\l  %retval = alloca i32, align 4\l  %n1.addr = alloca i32, align 4\l  %src.addr = alloca double*, align 8\l  %dest.addr = alloca double*, align 8\l  %i = alloca i32, align 4\l  br label %for.cond\l}"];
+	Node0x58cf850 -> Node0x58cf8a0;
+	Node0x58cf8a0 [shape=record,label="{for.cond:                                         \l  br label %for.end\l}"];
+	Node0x58cf8a0 -> Node0x58f0390;
+	Node0x58cf8f0 [shape=record,label="{for.body:                                         \l  br label %for.inc\l}"];
+	Node0x58cf8f0 -> Node0x58f0340;
+	Node0x58f0340 [shape=record,label="{for.inc:                                          \l  br label %for.cond\l}"];
+	Node0x58f0340 -> Node0x58cf8a0;
+	Node0x58f0390 [shape=record,label="{for.end:                                          \l  ret i32 undef\l}"];
+}

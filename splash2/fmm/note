@@ -1,0 +1,7 @@
+loop trip count is controlled by 
+
+line 617    Time_Steps = 5;
+in fmm.c
+
+Values for Time_Steps:
+1 2 4 5(default) 10 100 500 1000

@@ -1,0 +1,13 @@
+digraph "CFG for 'daxpy' function" {
+	label="CFG for 'daxpy' function";
+
+	Node0x2bc9520 [shape=record,label="{%0:\l  %1 = alloca double*, align 8\l  %2 = alloca double*, align 8\l  %3 = alloca i32, align 4\l  %4 = alloca double, align 8\l  %i = alloca i32, align 4\l  br label %5\l}"];
+	Node0x2bc9520 -> Node0x2bc9580;
+	Node0x2bc9580 [shape=record,label="{%5:\l\l  br label %8\l}"];
+	Node0x2bc9580 -> Node0x2bc96a0;
+	Node0x2bc95e0 [shape=record,label="{%6:                                                  \l  br label %7\l}"];
+	Node0x2bc95e0 -> Node0x2bc9640;
+	Node0x2bc9640 [shape=record,label="{%7:\l\l  br label %5\l}"];
+	Node0x2bc9640 -> Node0x2bc9580;
+	Node0x2bc96a0 [shape=record,label="{%8:\l\l  ret void\l}"];
+}

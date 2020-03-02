@@ -1,0 +1,29 @@
+digraph "CFG for 'FFT1DOnce' function" {
+	label="CFG for 'FFT1DOnce' function";
+
+	Node0x42aa980 [shape=record,label="{entry:\l  %retval = alloca i32, align 4\l  %direction.addr = alloca i32, align 4\l  %M.addr = alloca i32, align 4\l  %N.addr = alloca i32, align 4\l  %u.addr = alloca double*, align 8\l  %x.addr = alloca double*, align 8\l  %j = alloca i32, align 4\l  %k = alloca i32, align 4\l  %q = alloca i32, align 4\l  %L = alloca i32, align 4\l  %r = alloca i32, align 4\l  %Lstar = alloca i32, align 4\l  %u1 = alloca double*, align 8\l  %x1 = alloca double*, align 8\l  %x2 = alloca double*, align 8\l  %omega_r = alloca double, align 8\l  %omega_c = alloca double, align 8\l  %tau_r = alloca double, align 8\l  %tau_c = alloca double, align 8\l  %x_r = alloca double, align 8\l  %x_c = alloca double, align 8\l  br label %for.cond\l}"];
+	Node0x42aa980 -> Node0x42aa9d0;
+	Node0x42aa9d0 [shape=record,label="{for.cond:                                         \l  br label %for.end.67\l}"];
+	Node0x42aa9d0 -> Node0x42aad40;
+	Node0x42aaa20 [shape=record,label="{for.body:                                         \l  br label %for.cond.2\l}"];
+	Node0x42aaa20 -> Node0x42aaa70;
+	Node0x42aaa70 [shape=record,label="{for.cond.2:                                       \l  br label %for.end.64\l}"];
+	Node0x42aaa70 -> Node0x42aaca0;
+	Node0x42aaac0 [shape=record,label="{for.body.4:                                       \l  br label %for.cond.13\l}"];
+	Node0x42aaac0 -> Node0x42aab10;
+	Node0x42aab10 [shape=record,label="{for.cond.13:                                      \l  br label %for.end\l}"];
+	Node0x42aab10 -> Node0x42aac00;
+	Node0x42aab60 [shape=record,label="{for.body.15:                                      \l  br label %for.inc\l}"];
+	Node0x42aab60 -> Node0x42aabb0;
+	Node0x42aabb0 [shape=record,label="{for.inc:                                          \l  br label %for.cond.13\l}"];
+	Node0x42aabb0 -> Node0x42aab10;
+	Node0x42aac00 [shape=record,label="{for.end:                                          \l  br label %for.inc.62\l}"];
+	Node0x42aac00 -> Node0x42aac50;
+	Node0x42aac50 [shape=record,label="{for.inc.62:                                       \l  br label %for.cond.2\l}"];
+	Node0x42aac50 -> Node0x42aaa70;
+	Node0x42aaca0 [shape=record,label="{for.end.64:                                       \l  br label %for.inc.65\l}"];
+	Node0x42aaca0 -> Node0x42aacf0;
+	Node0x42aacf0 [shape=record,label="{for.inc.65:                                       \l  br label %for.cond\l}"];
+	Node0x42aacf0 -> Node0x42aa9d0;
+	Node0x42aad40 [shape=record,label="{for.end.67:                                       \l  ret i32 undef\l}"];
+}

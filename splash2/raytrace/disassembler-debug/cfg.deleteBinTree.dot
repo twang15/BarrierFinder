@@ -1,0 +1,9 @@
+digraph "CFG for 'deleteBinTree' function" {
+	label="CFG for 'deleteBinTree' function";
+
+	Node0x5efe500 [shape=record,label="{entry:\l  %binTree.addr = alloca %struct.btnode*, align 8\l  %left = alloca %struct.btnode*, align 8\l  %right = alloca %struct.btnode*, align 8\l  br label %if.end\l}"];
+	Node0x5efe500 -> Node0x5efede0;
+	Node0x5efe550 [shape=record,label="{if.then:                                          \l  br label %if.end\l}"];
+	Node0x5efe550 -> Node0x5efede0;
+	Node0x5efede0 [shape=record,label="{if.end:                                           \l  ret void\l}"];
+}

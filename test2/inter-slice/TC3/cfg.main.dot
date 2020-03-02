@@ -1,0 +1,21 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x5e96c80 [shape=record,label="{entry:\l  %retval = alloca i32, align 4\l  %a = alloca i32, align 4\l  %b = alloca i32, align 4\l  %thread_id = alloca i64, align 8\l  %call = call i8* @malloc(i64 16)\l  %0 = bitcast i8* %call to %struct.GlobalMemory*\l  store %struct.GlobalMemory* %0, %struct.GlobalMemory** @Global, align 8\l  %1 = load %struct.GlobalMemory** @Global, align 8\l  %start = getelementptr inbounds %struct.GlobalMemory* %1, i32 0, i32 0\l  %gsense = getelementptr inbounds %struct.barrier_t* %start, i32 0, i32 0\l  store volatile i32 1, i32* %gsense, align 4\l  %2 = load %struct.GlobalMemory** @Global, align 8\l  %start1 = getelementptr inbounds %struct.GlobalMemory* %2, i32 0, i32 0\l  %count = getelementptr inbounds %struct.barrier_t* %start1, i32 0, i32 1\l  store volatile i64 0, i64* %count, align 8\l  store i32 2, i32* @P, align 4\l  %call2 = call i32 @pthread_create(i64* %thread_id, %union.pthread_attr_t*\l... null, i8* (i8*)* bitcast (void ()* @f1 to i8* (i8*)*), i8* null)\l  %3 = load i32* %a, align 4\l  %4 = load i32* %b, align 4\l  %add = add nsw i32 %3, %4\l  %tobool = icmp ne i32 %add, 0\l  br i1 %tobool, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x5e96c80:s0 -> Node0x5e96cd0;
+	Node0x5e96c80:s1 -> Node0x5e96d20;
+	Node0x5e96cd0 [shape=record,label="{if.then:                                          \l  unreachable\l}"];
+	Node0x5e96d20 [shape=record,label="{if.end:                                           \l  br label %while.cond\l}"];
+	Node0x5e96d20 -> Node0x5e96d70;
+	Node0x5e96d70 [shape=record,label="{while.cond:                                       \l  br label %while.end\l}"];
+	Node0x5e96d70 -> Node0x5e96e10;
+	Node0x5e96dc0 [shape=record,label="{while.body:                                       \l  br label %while.cond\l}"];
+	Node0x5e96dc0 -> Node0x5e96d70;
+	Node0x5e96e10 [shape=record,label="{while.end:                                        \l  call void @f2()\l  br label %if.end.8\l}"];
+	Node0x5e96e10 -> Node0x5e96f00;
+	Node0x5e96e60 [shape=record,label="{if.then.5:                                        \l  br label %if.end.8\l}"];
+	Node0x5e96e60 -> Node0x5e96f00;
+	Node0x5e96eb0 [shape=record,label="{if.else:                                          \l  br label %if.end.8\l}"];
+	Node0x5e96eb0 -> Node0x5e96f00;
+	Node0x5e96f00 [shape=record,label="{if.end.8:                                         \l  ret i32 0\l}"];
+}

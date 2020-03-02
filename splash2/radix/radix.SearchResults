@@ -1,0 +1,14 @@
+---- pthread_create Matches (1 in 1 files) ----
+Radix.c:pthread_create(&t, NULL, (slave_sort), NULL);
+---- pthread_mutex_lock Matches (1 in 1 files) ----
+Radix.c:   {pthread_mutex_lock(&(global->lock_Index));}
+---- pthread_cond_wait Matches (0 in 0 files) ----
+---- pthread_barrier Matches (0 in 0 files) ----
+---- while (1) Matches (7 in 1 files) ----
+Radix.c:    while (1) {
+Radix.c:    while (1) {
+Radix.c:    while (1) {
+Radix.c:    while (1) {
+Radix.c:    while (1) {
+Radix.c:    while (1) {
+Radix.c:    while (1) {

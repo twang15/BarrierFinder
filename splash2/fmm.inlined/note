@@ -1,0 +1,7 @@
+#ET relies on insertLoopCurrent, insertLoopExit, insertRecordSyncVariables
+#in slicer to work properly.
+
+#FP does not depends on this.
+
+#ET (iteration >=2) also rely on loopExit in print2.c has its body, i.e, #if 1; otherwise (iteration =1), #if 0
+sed -i 's/@LockedPrint/*@LockedPrint/' a.out.ll; sed -i 's/void \*@LockedPrint/void @LockedPrint/' a.out.ll; llvm-as a.out.ll -o a.out.bc

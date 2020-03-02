@@ -1,0 +1,24 @@
+11/22/2019
+The unmodified cholesky bitcode leads cloud9 to complain "memory out of bound",
+and cannot be intrepreted correctly.
+
+Such a problem was fixed before and noted as below "note before 11/22/2019".
+But the note was not detailed enough.
+Now, I figure out that 
+
+1. when linked with print.c/print2.c, the call to ReadSparse (line 19061 in a.out.ll) should
+be commented out.
+
+2. print.c implements a file I/O-based tracing.
+
+3. print2.c implements the intrusive-tracing. 
+
+
+note before 11/22/2019
+
+#llvm3.7
+llvm-dis CHOLESKY.opt.bc -o a.out.ll
+Then, we also need to comment out ReadSparse in a.out.ll
+
+#llvm3.1
+llvm-as a.out.ll -o a.out.bc

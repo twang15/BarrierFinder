@@ -1,0 +1,698 @@
+  %lsense = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %lsense = alloca i32, align 4
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %oldcount = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %oldcount = alloca i32, align 4
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %newcount = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %newcount = alloca i32, align 4
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %updatedcount = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %updatedcount = alloca i32, align 4
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %retVal = alloca i32, align 4
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+      OFF=-1   %retVal = alloca i32, align 4
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %0 = load %struct.GlobalMemory** @Global, align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %0 = load %struct.GlobalMemory** @Global, align 8
+-------------------
+    REF:
+      OFF=-1 @Global = internal global %struct.GlobalMemory* null, align 8
+      OFF=0 @Global = internal global %struct.GlobalMemory* null, align 8
+-------------------
+    RC:
+-------------------
+  %start = getelementptr inbounds %struct.GlobalMemory* %0, i32 0, i32 0
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %start = getelementptr inbounds %struct.GlobalMemory* %0, i32 0, i32 0
+-------------------
+    REF:
+      OFF=-1   %0 = load %struct.GlobalMemory** @Global, align 8
+-------------------
+    RC:
+-------------------
+  %gsense = getelementptr inbounds %struct.barrier_t* %start, i32 0, i32 0
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %gsense = getelementptr inbounds %struct.barrier_t* %start, i32 0, i32 0
+-------------------
+    REF:
+      OFF=-1   %start = getelementptr inbounds %struct.GlobalMemory* %0, i32 0, i32 0
+-------------------
+    RC:
+-------------------
+  %1 = load volatile i32* %gsense, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %1 = load volatile i32* %gsense, align 4
+-------------------
+    REF:
+      OFF=-1   %gsense = getelementptr inbounds %struct.barrier_t* %start, i32 0, i32 0
+      OFF=0   %call = call i8* @malloc(i64 16)
+-------------------
+    RC:
+-------------------
+  store i32 %1, i32* %lsense, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %lsense = alloca i32, align 4
+-------------------
+    REF:
+      OFF=-1   %lsense = alloca i32, align 4
+      OFF=-1   %1 = load volatile i32* %gsense, align 4
+-------------------
+    RC:
+-------------------
+  br label %while.body
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %2 = load %struct.GlobalMemory** @Global, align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %2 = load %struct.GlobalMemory** @Global, align 8
+-------------------
+    REF:
+      OFF=-1 @Global = internal global %struct.GlobalMemory* null, align 8
+      OFF=0 @Global = internal global %struct.GlobalMemory* null, align 8
+-------------------
+    RC:
+-------------------
+  %start1 = getelementptr inbounds %struct.GlobalMemory* %2, i32 0, i32 0
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %start1 = getelementptr inbounds %struct.GlobalMemory* %2, i32 0, i32 0
+-------------------
+    REF:
+      OFF=-1   %2 = load %struct.GlobalMemory** @Global, align 8
+-------------------
+    RC:
+-------------------
+  %count = getelementptr inbounds %struct.barrier_t* %start1, i32 0, i32 1
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %count = getelementptr inbounds %struct.barrier_t* %start1, i32 0, i32 1
+-------------------
+    REF:
+      OFF=-1   %start1 = getelementptr inbounds %struct.GlobalMemory* %2, i32 0, i32 0
+-------------------
+    RC:
+-------------------
+  %3 = load volatile i64* %count, align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %3 = load volatile i64* %count, align 8
+-------------------
+    REF:
+      OFF=-1   %count = getelementptr inbounds %struct.barrier_t* %start1, i32 0, i32 1
+      OFF=8   %call = call i8* @malloc(i64 16)
+-------------------
+    RC:
+-------------------
+  %conv = trunc i64 %3 to i32
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %conv = trunc i64 %3 to i32
+-------------------
+    REF:
+      OFF=-1   %3 = load volatile i64* %count, align 8
+-------------------
+    RC:
+-------------------
+  store i32 %conv, i32* %oldcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %oldcount = alloca i32, align 4
+-------------------
+    REF:
+      OFF=-1   %oldcount = alloca i32, align 4
+      OFF=-1   %conv = trunc i64 %3 to i32
+-------------------
+    RC:
+-------------------
+  %4 = load i32* %oldcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %4 = load i32* %oldcount, align 4
+-------------------
+    REF:
+      OFF=-1   %oldcount = alloca i32, align 4
+      OFF=0   %oldcount = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %5 = load i32* %lsense, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %5 = load i32* %lsense, align 4
+-------------------
+    REF:
+      OFF=-1   %lsense = alloca i32, align 4
+      OFF=0   %lsense = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %add = add nsw i32 %4, %5
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %add = add nsw i32 %4, %5
+-------------------
+    REF:
+      OFF=-1   %4 = load i32* %oldcount, align 4
+      OFF=-1   %5 = load i32* %lsense, align 4
+-------------------
+    RC:
+-------------------
+  store i32 %add, i32* %newcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %newcount = alloca i32, align 4
+-------------------
+    REF:
+      OFF=-1   %newcount = alloca i32, align 4
+      OFF=-1   %add = add nsw i32 %4, %5
+-------------------
+    RC:
+-------------------
+  %6 = load i32* %oldcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %6 = load i32* %oldcount, align 4
+-------------------
+    REF:
+      OFF=-1   %oldcount = alloca i32, align 4
+      OFF=0   %oldcount = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %7 = load i32* %newcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %7 = load i32* %newcount, align 4
+-------------------
+    REF:
+      OFF=-1   %newcount = alloca i32, align 4
+      OFF=0   %newcount = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %call = call i32 @atomic_cmpxchg(i32 %6, i32 %7)
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=8   %call = call i8* @malloc(i64 16)
+      OFF=-1   %call = call i32 @atomic_cmpxchg(i32 %6, i32 %7)
+-------------------
+    REF:
+      OFF=-1   %6 = load i32* %oldcount, align 4
+      OFF=-1   %7 = load i32* %newcount, align 4
+-------------------
+    RC:
+-------------------
+  store i32 %call, i32* %updatedcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=0   %updatedcount = alloca i32, align 4
+-------------------
+    REF:
+      OFF=-1   %updatedcount = alloca i32, align 4
+      OFF=-1   %call = call i32 @atomic_cmpxchg(i32 %6, i32 %7)
+-------------------
+    RC:
+-------------------
+  %8 = load i32* %updatedcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %8 = load i32* %updatedcount, align 4
+-------------------
+    REF:
+      OFF=-1   %updatedcount = alloca i32, align 4
+      OFF=0   %updatedcount = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %9 = load i32* %oldcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %9 = load i32* %oldcount, align 4
+-------------------
+    REF:
+      OFF=-1   %oldcount = alloca i32, align 4
+      OFF=0   %oldcount = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %cmp = icmp eq i32 %8, %9
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp = icmp eq i32 %8, %9
+-------------------
+    REF:
+      OFF=-1   %8 = load i32* %updatedcount, align 4
+      OFF=-1   %9 = load i32* %oldcount, align 4
+-------------------
+    RC:
+-------------------
+  br i1 %cmp, label %if.then, label %if.end.15
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+      OFF=-1   %cmp = icmp eq i32 %8, %9
+-------------------
+    RC:
+-------------------
+  %10 = load i32* %newcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %10 = load i32* %newcount, align 4
+-------------------
+    REF:
+      OFF=-1   %newcount = alloca i32, align 4
+      OFF=0   %newcount = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %11 = load i32* @P, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %11 = load i32* @P, align 4
+-------------------
+    REF:
+      OFF=-1 @P = internal global i32 0, align 4
+      OFF=0 @P = internal global i32 0, align 4
+-------------------
+    RC:
+-------------------
+  %cmp3 = icmp eq i32 %10, %11
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp3 = icmp eq i32 %10, %11
+-------------------
+    REF:
+      OFF=-1   %10 = load i32* %newcount, align 4
+      OFF=-1   %11 = load i32* @P, align 4
+-------------------
+    RC:
+-------------------
+  br i1 %cmp3, label %land.lhs.true, label %lor.lhs.false
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+      OFF=-1   %cmp3 = icmp eq i32 %10, %11
+-------------------
+    RC:
+-------------------
+  %12 = load i32* %lsense, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %12 = load i32* %lsense, align 4
+-------------------
+    REF:
+      OFF=-1   %lsense = alloca i32, align 4
+      OFF=0   %lsense = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %cmp5 = icmp eq i32 %12, 1
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp5 = icmp eq i32 %12, 1
+-------------------
+    REF:
+      OFF=-1   %12 = load i32* %lsense, align 4
+-------------------
+    RC:
+-------------------
+  br i1 %cmp5, label %if.then.12, label %lor.lhs.false
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+      OFF=-1   %cmp5 = icmp eq i32 %12, 1
+-------------------
+    RC:
+-------------------
+  %13 = load i32* %newcount, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %13 = load i32* %newcount, align 4
+-------------------
+    REF:
+      OFF=-1   %newcount = alloca i32, align 4
+      OFF=0   %newcount = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %cmp7 = icmp eq i32 %13, 0
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp7 = icmp eq i32 %13, 0
+-------------------
+    REF:
+      OFF=-1   %13 = load i32* %newcount, align 4
+-------------------
+    RC:
+-------------------
+  br i1 %cmp7, label %land.lhs.true.9, label %if.end
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+      OFF=-1   %cmp7 = icmp eq i32 %13, 0
+-------------------
+    RC:
+-------------------
+  %14 = load i32* %lsense, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %14 = load i32* %lsense, align 4
+-------------------
+    REF:
+      OFF=-1   %lsense = alloca i32, align 4
+      OFF=0   %lsense = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %cmp10 = icmp eq i32 %14, -1
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp10 = icmp eq i32 %14, -1
+-------------------
+    REF:
+      OFF=-1   %14 = load i32* %lsense, align 4
+-------------------
+    RC:
+-------------------
+  br i1 %cmp10, label %if.then.12, label %if.end
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+      OFF=-1   %cmp10 = icmp eq i32 %14, -1
+-------------------
+    RC:
+-------------------
+  %15 = load i32* %lsense, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %15 = load i32* %lsense, align 4
+-------------------
+    REF:
+      OFF=-1   %lsense = alloca i32, align 4
+      OFF=0   %lsense = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %sub = sub nsw i32 0, %15
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %sub = sub nsw i32 0, %15
+-------------------
+    REF:
+      OFF=-1   %15 = load i32* %lsense, align 4
+-------------------
+    RC:
+-------------------
+  %16 = load %struct.GlobalMemory** @Global, align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %16 = load %struct.GlobalMemory** @Global, align 8
+-------------------
+    REF:
+      OFF=-1 @Global = internal global %struct.GlobalMemory* null, align 8
+      OFF=0 @Global = internal global %struct.GlobalMemory* null, align 8
+-------------------
+    RC:
+-------------------
+  %start13 = getelementptr inbounds %struct.GlobalMemory* %16, i32 0, i32 0
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %start13 = getelementptr inbounds %struct.GlobalMemory* %16, i32 0, i32 0
+-------------------
+    REF:
+      OFF=-1   %16 = load %struct.GlobalMemory** @Global, align 8
+-------------------
+    RC:
+-------------------
+  %gsense14 = getelementptr inbounds %struct.barrier_t* %start13, i32 0, i32 0
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %gsense14 = getelementptr inbounds %struct.barrier_t* %start13, i32 0, i32 0
+-------------------
+    REF:
+      OFF=-1   %start13 = getelementptr inbounds %struct.GlobalMemory* %16, i32 0, i32 0
+-------------------
+    RC:
+-------------------
+  store volatile i32 %sub, i32* %gsense14, align 4
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+      OFF=0   %call = call i8* @malloc(i64 16)
+-------------------
+    REF:
+      OFF=-1   %gsense14 = getelementptr inbounds %struct.barrier_t* %start13, i32 0, i32 0
+      OFF=-1   %sub = sub nsw i32 0, %15
+-------------------
+    RC:
+      OFF=-1   %gsense14 = getelementptr inbounds %struct.barrier_t* %start13, i32 0, i32 0
+      OFF=-1   %sub = sub nsw i32 0, %15
+-------------------
+  call void @Criteria(i32 1)
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  br label %if.end
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  br label %while.end
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  br label %while.body
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  br label %while.cond
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  %17 = load %struct.GlobalMemory** @Global, align 8
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %17 = load %struct.GlobalMemory** @Global, align 8
+-------------------
+    REF:
+      OFF=-1 @Global = internal global %struct.GlobalMemory* null, align 8
+      OFF=0 @Global = internal global %struct.GlobalMemory* null, align 8
+-------------------
+    RC:
+-------------------
+  %start16 = getelementptr inbounds %struct.GlobalMemory* %17, i32 0, i32 0
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %start16 = getelementptr inbounds %struct.GlobalMemory* %17, i32 0, i32 0
+-------------------
+    REF:
+      OFF=-1   %17 = load %struct.GlobalMemory** @Global, align 8
+-------------------
+    RC:
+-------------------
+  %gsense17 = getelementptr inbounds %struct.barrier_t* %start16, i32 0, i32 0
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %gsense17 = getelementptr inbounds %struct.barrier_t* %start16, i32 0, i32 0
+-------------------
+    REF:
+      OFF=-1   %start16 = getelementptr inbounds %struct.GlobalMemory* %17, i32 0, i32 0
+-------------------
+    RC:
+-------------------
+  %18 = load volatile i32* %gsense17, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %18 = load volatile i32* %gsense17, align 4
+-------------------
+    REF:
+      OFF=-1   %gsense17 = getelementptr inbounds %struct.barrier_t* %start16, i32 0, i32 0
+      OFF=0   %call = call i8* @malloc(i64 16)
+-------------------
+    RC:
+-------------------
+  %19 = load i32* %lsense, align 4
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %19 = load i32* %lsense, align 4
+-------------------
+    REF:
+      OFF=-1   %lsense = alloca i32, align 4
+      OFF=0   %lsense = alloca i32, align 4
+-------------------
+    RC:
+-------------------
+  %cmp18 = icmp eq i32 %18, %19
+    -------------------
+Sliced, Can be sliced
+    DEF:
+      OFF=-1   %cmp18 = icmp eq i32 %18, %19
+-------------------
+    REF:
+      OFF=-1   %18 = load volatile i32* %gsense17, align 4
+      OFF=-1   %19 = load i32* %lsense, align 4
+-------------------
+    RC:
+-------------------
+  br i1 %cmp18, label %while.body.20, label %while.end.21
+    -------------------
+UNSliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+      OFF=-1   %cmp18 = icmp eq i32 %18, %19
+-------------------
+    RC:
+      OFF=-1   %cmp18 = icmp eq i32 %18, %19
+-------------------
+  br label %while.cond
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  call void @Criteria(i32 1)
+    -------------------
+UNSliced, Can be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------
+  ret void
+    -------------------
+Sliced, Cannot be sliced
+    DEF:
+-------------------
+    REF:
+-------------------
+    RC:
+-------------------

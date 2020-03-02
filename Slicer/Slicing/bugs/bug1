@@ -1,0 +1,89 @@
+#llvm 3.1, use llvm 3.1 to generate .bc and disassemble it to .ll; then compare it
+# with llvm 3.7 .ll; then manually eliminate the difference; then implement the feature
+# in llvm 3.7 dissembler.
+CFLAGS = -O0 -emit-llvm -save-temps -flto -v -Xlinker -plugin-opt=also-emit-llvm
+
+#llvm 3.7
+CFLAGS = -O0 -save-temps -flto -v -Xlinker -plugin-opt=save-temps
+
+======Error be fixed======
+
+llvm-as: /home/tao/splash2/codes/kernels/cholesky/a.out.ll:19289:8: error: Invalid result type for LLVM function
+  call void (%struct.SMatrix*, ...) bitcast (void (%struct.SMatrix*, i8*, i8*)* @ReadSparse to void (%struct.SMatrix*, ...)*)(%struct.SMatrix* sret %tmp, i8* %20, i8* getelementptr inbounds ([80 x i8]* @probname, i32 0, i32 0))
+
+--> 
+# 3.1 
+   call void (%struct.SMatrix*, ...)* bitcast (void (%struct.SMatrix*, i8*, i8*)* @ReadSparse to void (%struct.SMatrix*, ...)*)(%struct.SMatrix* sret %tmp, i8* %26, i8* getelementptr inbounds ([80 x i8]* @probname, i32 0, i32 0))
+
+# 3.7
+  call void (%struct.SMatrix*, ...)* bitcast (void (%struct.SMatrix*, i8*, i8*)* @ReadSparse to void (%struct.SMatrix*, ...)*)(%struct.SMatrix* sret %tmp, i8* %20, i8* getelementptr inbounds ([80 x i8]* @probname, i32 0, i32 0))
+
+-------
+
+llvm-as: /home/tao/splash2/codes/kernels/cholesky/a.out.ll:19650:60: error: invalid use of function-only attribute
+declare void @llvm.memcpy.p0i8.p0i8.i64(i8* nocapture, i8* nocapture readonly, i64, i32, i1)
+
+--->
+
+# 3.1
+declare void @llvm.memcpy.p0i8.p0i8.i64(i8* nocapture, i8* nocapture, i64, i32, i1) nounwind
+
+# 3.7
+declare void @llvm.memcpy.p0i8.p0i8.i64(i8* nocapture, i8* nocapture, i64, i32, i1)
+
+-------------------------------------
+
+llvm-as: /home/tao/splash2/codes/kernels/cholesky/a.out.ll:22724:16: error: Invalid result type for LLVM function
+  %call = call i32 (...) @pthread_self()
+
+llvm-as: /home/tao/splash2/codes/kernels/cholesky/a.out.ll:22865:16: error: Invalid result type for LLVM function
+  %call = call i32 (...) @pthread_self()
+
+llvm-as: /home/tao/splash2/codes/kernels/cholesky/a.out.ll:22945:16: error: Invalid result type for LLVM function
+  %call = call i32 (...) @pthread_self()
+
+---->
+# 3.1
+  %call = call i32 (...)* @pthread_self()
+
+# 3.7
+  %call = call i32 (...)* @pthread_self()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

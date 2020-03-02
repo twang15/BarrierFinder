@@ -1,0 +1,631 @@
+; ModuleID = 'exe.opt.bc'
+target datalayout = "e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+%struct.ThreadNdb = type { i32 }
+%union.pthread_attr_t = type { i64, [48 x i8] }
+
+@P = internal global i32 2, align 4
+@gsense = internal global i32 1, align 4
+@counter = internal global i32 0, align 4
+@pThreads = internal global [10 x %struct.ThreadNdb] zeroinitializer, align 16
+@index_out = internal global i32 0, align 4
+@gSyncVar_0 = internal global i32 0, align 4
+@gSyncVar_1 = internal global i32 0, align 4
+@gSyncVar_2 = internal global i32 0, align 4
+@gSyncVarsTotalNum = internal global i32 0, align 4
+@counter0 = internal global i32 0, align 4
+@counter1 = internal global i32 0, align 4
+@firstSync = internal global i8 1, align 1
+@mystring = internal global [200 x i8] zeroinitializer, align 16
+@switches = internal global [10 x i8] zeroinitializer, align 1
+@syncID = internal global [10 x i32] zeroinitializer, align 16
+
+; Function Attrs: nounwind uwtable
+define internal i32 @atomic_cmpxchg(i32 %oldcount, i32 %newcount) {
+entry:
+  %oldcount.addr = alloca i32, align 4
+  %newcount.addr = alloca i32, align 4
+  %temp = alloca i32, align 4
+  %updatedcount = alloca i32, align 4
+  store i32 %oldcount, i32* %oldcount.addr, align 4
+  store i32 %newcount, i32* %newcount.addr, align 4
+  %0 = load i32* @counter, align 4
+  store i32 %0, i32* %temp, align 4
+  %1 = load i32* %oldcount.addr, align 4
+  %2 = load i32* %temp, align 4
+  %cmp = icmp eq i32 %1, %2
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %3 = load i32* %newcount.addr, align 4
+  store i32 %3, i32* @counter, align 4
+  %4 = load i32* %oldcount.addr, align 4
+  store i32 %4, i32* %updatedcount, align 4
+  br label %if.end
+
+if.else:                                          ; preds = %entry
+  %5 = load i32* @counter, align 4
+  store i32 %5, i32* %updatedcount, align 4
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
+  %6 = load i32* %updatedcount, align 4
+  ret i32 %6
+}
+
+; Function Attrs: nounwind uwtable
+define internal i8* @flexHammerThread(i8* %pArg) {
+entry:
+  %retval = alloca i8*, align 8
+  %pArg.addr = alloca i8*, align 8
+  %pThreadData = alloca %struct.ThreadNdb*, align 8
+  %lsense = alloca i32, align 4
+  %oldcount = alloca i32, align 4
+  %newcount = alloca i32, align 4
+  %updatedcount = alloca i32, align 4
+  %retVal = alloca i32, align 4
+  %lsense11 = alloca i32, align 4
+  %oldcount14 = alloca i32, align 4
+  %newcount15 = alloca i32, align 4
+  %updatedcount17 = alloca i32, align 4
+  %retVal18 = alloca i32, align 4
+  store i8* %pArg, i8** %pArg.addr, align 8
+  %0 = load i8** %pArg.addr, align 8
+  %1 = bitcast i8* %0 to %struct.ThreadNdb*
+  store %struct.ThreadNdb* %1, %struct.ThreadNdb** %pThreadData, align 8
+  call void @InitializeSwitchesAndCounter(i32 1)
+  call void @IncrementCounter()
+  %calla = call i32 @sleep(i32 1)
+  %2 = load i32* @gsense, align 4
+  store i32 %2, i32* %lsense, align 4
+  br label %while.body
+
+while.body:                                       ; preds = %if.end.7, %entry
+  %3 = load i32* @counter, align 4
+  store i32 %3, i32* %oldcount, align 4
+  %4 = load i32* %oldcount, align 4
+  %5 = load i32* %lsense, align 4
+  %add = add nsw i32 %4, %5
+  store i32 %add, i32* %newcount, align 4
+  %6 = load i32* %oldcount, align 4
+  %7 = load i32* %newcount, align 4
+  %call = call i32 @atomic_cmpxchg(i32 %6, i32 %7)
+  %callb = call i32 @sleep(i32 1)
+  store i32 %call, i32* %updatedcount, align 4
+  %8 = load i32* %updatedcount, align 4
+  %9 = load i32* %oldcount, align 4
+  %cmp = icmp eq i32 %8, %9
+  br i1 %cmp, label %if.then, label %if.end.7
+
+if.then:                                          ; preds = %while.body
+  %10 = load i32* %newcount, align 4
+  %11 = load i32* @P, align 4
+  %callc = call i32 @sleep(i32 1)
+  %cmp1 = icmp eq i32 %10, %11
+  br i1 %cmp1, label %land.lhs.true, label %lor.lhs.false
+
+land.lhs.true:                                    ; preds = %if.then
+  %12 = load i32* %lsense, align 4
+  %cmp2 = icmp eq i32 %12, 1
+  br i1 %cmp2, label %if.then.6, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %land.lhs.true, %if.then
+  %13 = load i32* %newcount, align 4
+  %cmp3 = icmp eq i32 %13, 0
+  br i1 %cmp3, label %land.lhs.true.4, label %if.end
+
+land.lhs.true.4:                                  ; preds = %lor.lhs.false
+  %14 = load i32* %lsense, align 4
+  %cmp5 = icmp eq i32 %14, -1
+  br i1 %cmp5, label %if.then.6, label %if.end
+
+if.then.6:                                        ; preds = %land.lhs.true.4, %land.lhs.true
+  %15 = load i32* %lsense, align 4
+  %sub = sub nsw i32 0, %15
+  call void @printX()
+  store i32 %sub, i32* @gsense, align 4
+  %call2 = call i32 @sleep(i32 3)
+  br label %if.end
+
+if.end:                                           ; preds = %if.then.6, %land.lhs.true.4, %lor.lhs.false
+  br label %while.end
+
+if.end.7:                                         ; preds = %while.body
+  br label %while.body
+
+while.end:                                        ; preds = %if.end
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.body.9, %while.end
+  %16 = load i32* @gsense, align 4
+  %17 = load i32* %lsense, align 4
+  %cmp8 = icmp eq i32 %16, %17
+  br i1 %cmp8, label %while.body.9, label %while.end.10
+
+while.body.9:                                     ; preds = %while.cond
+  %call1 = call i32 @sleep(i32 2)
+  br label %while.cond
+
+while.end.10:                                     ; preds = %while.cond
+  call void @printY()
+  %calld = call i32 @sleep(i32 4)
+  %18 = load i32* @gsense, align 4
+  store i32 %18, i32* %lsense11, align 4
+  br label %while.body.13
+
+while.body.13:                                    ; preds = %if.end.32, %while.end.10
+  %19 = load i32* @counter, align 4
+  store i32 %19, i32* %oldcount14, align 4
+  %20 = load i32* %oldcount14, align 4
+  %21 = load i32* %lsense11, align 4
+  %add16 = add nsw i32 %20, %21
+  store i32 %add16, i32* %newcount15, align 4
+  %22 = load i32* %oldcount14, align 4
+  %23 = load i32* %newcount15, align 4
+  %call19 = call i32 @atomic_cmpxchg(i32 %22, i32 %23)
+  store i32 %call19, i32* %updatedcount17, align 4
+  %24 = load i32* %updatedcount17, align 4
+  %25 = load i32* %oldcount14, align 4
+  %cmp20 = icmp eq i32 %24, %25
+  br i1 %cmp20, label %if.then.21, label %if.end.32
+
+if.then.21:                                       ; preds = %while.body.13
+  %26 = load i32* %newcount15, align 4
+  %27 = load i32* @P, align 4
+  %cmp22 = icmp eq i32 %26, %27
+  br i1 %cmp22, label %land.lhs.true.23, label %lor.lhs.false.25
+
+land.lhs.true.23:                                 ; preds = %if.then.21
+  %28 = load i32* %lsense11, align 4
+  %cmp24 = icmp eq i32 %28, 1
+  br i1 %cmp24, label %if.then.29, label %lor.lhs.false.25
+
+lor.lhs.false.25:                                 ; preds = %land.lhs.true.23, %if.then.21
+  %29 = load i32* %newcount15, align 4
+  %cmp26 = icmp eq i32 %29, 0
+  br i1 %cmp26, label %land.lhs.true.27, label %if.end.31
+
+land.lhs.true.27:                                 ; preds = %lor.lhs.false.25
+  %30 = load i32* %lsense11, align 4
+  %cmp28 = icmp eq i32 %30, -1
+  br i1 %cmp28, label %if.then.29, label %if.end.31
+
+if.then.29:                                       ; preds = %land.lhs.true.27, %land.lhs.true.23
+  %31 = load i32* %lsense11, align 4
+  %sub30 = sub nsw i32 0, %31
+  call void @printX()
+  store i32 %sub30, i32* @gsense, align 4
+  %call4 = call i32 @sleep(i32 3)
+  br label %if.end.31
+
+if.end.31:                                        ; preds = %if.then.29, %land.lhs.true.27, %lor.lhs.false.25
+  br label %while.end.33
+
+if.end.32:                                        ; preds = %while.body.13
+  br label %while.body.13
+
+while.end.33:                                     ; preds = %if.end.31
+  br label %while.cond.34
+
+while.cond.34:                                    ; preds = %while.body.36, %while.end.33
+  %32 = load i32* @gsense, align 4
+  %33 = load i32* %lsense11, align 4
+  %cmp35 = icmp eq i32 %32, %33
+  br i1 %cmp35, label %while.body.36, label %while.end.37
+
+while.body.36:                                    ; preds = %while.cond.34
+  %call3 = call i32 @sleep(i32 2)
+  br label %while.cond.34
+
+while.end.37:                                     ; preds = %while.cond.34
+  call void @printY()
+  %34 = load i8** %retval
+  ret i8* %34
+}
+
+declare void @Criteria(i32)
+
+; Function Attrs: nounwind uwtable
+define i32 @main(i32 %argc, i8** %argv) {
+entry:
+  %retval = alloca i32, align 4
+  %argc.addr = alloca i32, align 4
+  %argv.addr = alloca i8**, align 8
+  %i = alloca i32, align 4
+  %t = alloca i64, align 8
+  store i32 0, i32* %retval
+  store i32 %argc, i32* %argc.addr, align 4
+  store i8** %argv, i8*** %argv.addr, align 8
+  store i32 1, i32* %i, align 4
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %entry
+  %0 = load i32* %i, align 4
+  %1 = load i32* @P, align 4
+  %cmp = icmp slt i32 %0, %1
+  br i1 %cmp, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %2 = load i32* %i, align 4
+  %idxprom = sext i32 %2 to i64
+  %arrayidx = getelementptr inbounds [10 x %struct.ThreadNdb]* @pThreads, i32 0, i64 %idxprom
+  %3 = bitcast %struct.ThreadNdb* %arrayidx to i8**
+  %4 = bitcast i8** %3 to i8*
+  %call = call i32 @pthread_create(i64* %t, %union.pthread_attr_t* null, i8* (i8*)* @flexHammerThread, i8* %4)
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.body
+  %5 = load i32* %i, align 4
+  %inc = add nsw i32 %5, 1
+  store i32 %inc, i32* %i, align 4
+  br label %for.cond
+
+for.end:                                          ; preds = %for.cond
+  %call1 = call i8* @flexHammerThread(i8* null)
+  call void @waitForAll()
+  ret i32 0
+}
+
+; Function Attrs: nounwind
+declare i32 @pthread_create(i64*, %union.pthread_attr_t*, i8* (i8*)*, i8*)
+
+; Function Attrs: nounwind uwtable
+define internal void @DeriveInvariant() {
+entry:
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @CheckInvariant() {
+entry:
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @RecordSyncVariable() {
+entry:
+  ret void
+}
+
+define internal void @printX() {
+entry:
+  %0 = load i32* @index_out, align 4
+  %idxprom = sext i32 %0 to i64
+  %arrayidx = getelementptr inbounds [200 x i8]* @mystring, i32 0, i64 %idxprom
+  store i8 88, i8* %arrayidx, align 1
+  %1 = load i32* @index_out, align 4
+  %inc = add nsw i32 %1, 1
+  store i32 %inc, i32* @index_out, align 4
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @appendY() {
+entry:
+  %0 = load i32* @index_out, align 4
+  %idxprom = sext i32 %0 to i64
+  %arrayidx = getelementptr inbounds [200 x i8]* @mystring, i32 0, i64 %idxprom
+  store i8 89, i8* %arrayidx, align 1
+  %1 = load i32* @index_out, align 4
+  %inc = add nsw i32 %1, 1
+  store i32 %inc, i32* @index_out, align 4
+  ret void
+}
+
+define internal void @printY() {
+entry:
+  call void @appendY()
+  call void @DecrementCounter()
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @DecrementCounter() {
+entry:
+  %idx = alloca i32, align 4
+  %i = alloca i32, align 4
+  %i13 = alloca i32, align 4
+  %call = call i32 (...) *@pthread_self()
+  store i32 %call, i32* %idx, align 4
+  %0 = load i32* %idx, align 4
+  %idxprom = zext i32 %0 to i64
+  %arrayidx = getelementptr inbounds [10 x i8]* @switches, i32 0, i64 %idxprom
+  store i8 0, i8* %arrayidx, align 1
+  %1 = load i32* %idx, align 4
+  %idxprom1 = zext i32 %1 to i64
+  %arrayidx2 = getelementptr inbounds [10 x i32]* @syncID, i32 0, i64 %idxprom1
+  %2 = load i32* %arrayidx2, align 4
+  %cmp = icmp eq i32 %2, 0
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %3 = load i32* @counter0, align 4
+  %dec = add nsw i32 %3, -1
+  store i32 %dec, i32* @counter0, align 4
+  %4 = load i32* @counter0, align 4
+  %cmp3 = icmp eq i32 %4, 0
+  br i1 %cmp3, label %if.then.4, label %if.end
+
+if.then.4:                                        ; preds = %if.then
+  call void @DeriveInvariant()
+  store i32 0, i32* %i, align 4
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %if.then.4
+  %5 = load i32* %i, align 4
+  %cmp5 = icmp slt i32 %5, 10
+  br i1 %cmp5, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %6 = load i32* %i, align 4
+  %idxprom6 = sext i32 %6 to i64
+  %arrayidx7 = getelementptr inbounds [10 x i8]* @switches, i32 0, i64 %idxprom6
+  store i8 1, i8* %arrayidx7, align 1
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.body
+  %7 = load i32* %i, align 4
+  %inc = add nsw i32 %7, 1
+  store i32 %inc, i32* %i, align 4
+  br label %for.cond
+
+for.end:                                          ; preds = %for.cond
+  br label %if.end
+
+if.end:                                           ; preds = %for.end, %if.then
+  %8 = load i32* %idx, align 4
+  %idxprom8 = zext i32 %8 to i64
+  %arrayidx9 = getelementptr inbounds [10 x i32]* @syncID, i32 0, i64 %idxprom8
+  store i32 1, i32* %arrayidx9, align 4
+  br label %if.end.25
+
+if.else:                                          ; preds = %entry
+  %9 = load i32* @counter1, align 4
+  %dec10 = add nsw i32 %9, -1
+  store i32 %dec10, i32* @counter1, align 4
+  %10 = load i32* @counter1, align 4
+  %cmp11 = icmp eq i32 %10, 0
+  br i1 %cmp11, label %if.then.12, label %if.end.22
+
+if.then.12:                                       ; preds = %if.else
+  call void @DeriveInvariant()
+  store i32 0, i32* %i13, align 4
+  br label %for.cond.14
+
+for.cond.14:                                      ; preds = %for.inc.19, %if.then.12
+  %11 = load i32* %i13, align 4
+  %cmp15 = icmp slt i32 %11, 10
+  br i1 %cmp15, label %for.body.16, label %for.end.21
+
+for.body.16:                                      ; preds = %for.cond.14
+  %12 = load i32* %i13, align 4
+  %idxprom17 = sext i32 %12 to i64
+  %arrayidx18 = getelementptr inbounds [10 x i8]* @switches, i32 0, i64 %idxprom17
+  store i8 1, i8* %arrayidx18, align 1
+  br label %for.inc.19
+
+for.inc.19:                                       ; preds = %for.body.16
+  %13 = load i32* %i13, align 4
+  %inc20 = add nsw i32 %13, 1
+  store i32 %inc20, i32* %i13, align 4
+  br label %for.cond.14
+
+for.end.21:                                       ; preds = %for.cond.14
+  br label %if.end.22
+
+if.end.22:                                        ; preds = %for.end.21, %if.else
+  %14 = load i32* %idx, align 4
+  %idxprom23 = zext i32 %14 to i64
+  %arrayidx24 = getelementptr inbounds [10 x i32]* @syncID, i32 0, i64 %idxprom23
+  store i32 0, i32* %arrayidx24, align 4
+  br label %if.end.25
+
+if.end.25:                                        ; preds = %if.end.22, %if.end
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @flushAll() {
+entry:
+  %0 = load i32* @index_out, align 4
+  %idxprom = sext i32 %0 to i64
+  %arrayidx = getelementptr inbounds [200 x i8]* @mystring, i32 0, i64 %idxprom
+  store i8 0, i8* %arrayidx, align 1
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @printChar(i8 signext %ch) {
+entry:
+  %ch.addr = alloca i8, align 1
+  store i8 %ch, i8* %ch.addr, align 1
+  %0 = load i8* %ch.addr, align 1
+  %1 = load i32* @index_out, align 4
+  %idxprom = sext i32 %1 to i64
+  %arrayidx = getelementptr inbounds [200 x i8]* @mystring, i32 0, i64 %idxprom
+  store i8 %0, i8* %arrayidx, align 1
+  %2 = load i32* @index_out, align 4
+  %inc = add nsw i32 %2, 1
+  store i32 %inc, i32* @index_out, align 4
+  ret void
+}
+
+define internal void @waitForAll() {
+entry:
+  %call = call i32 (i32, i32, ...) *bitcast (i32 (...)* @pthread_join to i32 (i32, i32, ...)*)(i32 0, i32 0)
+  call void @flushAll()
+  ret void
+}
+
+declare i32 @pthread_join(...)
+
+; Function Attrs: nounwind uwtable
+define internal void @snapshot(i32 %gvar, i32 %index) {
+entry:
+  %gvar.addr = alloca i32, align 4
+  %index.addr = alloca i32, align 4
+  %idx = alloca i32, align 4
+  store i32 %gvar, i32* %gvar.addr, align 4
+  store i32 %index, i32* %index.addr, align 4
+  %call = call i32 (...) *@pthread_self()
+  store i32 %call, i32* %idx, align 4
+  %0 = load i32* %idx, align 4
+  %idxprom = zext i32 %0 to i64
+  %arrayidx = getelementptr inbounds [10 x i8]* @switches, i32 0, i64 %idxprom
+  %1 = load i8* %arrayidx, align 1
+  %tobool = trunc i8 %1 to i1
+  br i1 %tobool, label %if.then, label %if.end.5
+
+if.then:                                          ; preds = %entry
+  %2 = load i32* %index.addr, align 4
+  switch i32 %2, label %sw.default [
+    i32 0, label %sw.bb
+    i32 1, label %sw.bb.1
+    i32 2, label %sw.bb.2
+  ]
+
+sw.bb:                                            ; preds = %if.then
+  %3 = load i32* %gvar.addr, align 4
+  store i32 %3, i32* @gSyncVar_0, align 4
+  br label %sw.epilog
+
+sw.bb.1:                                          ; preds = %if.then
+  %4 = load i32* %gvar.addr, align 4
+  store i32 %4, i32* @gSyncVar_1, align 4
+  br label %sw.epilog
+
+sw.bb.2:                                          ; preds = %if.then
+  %5 = load i32* %gvar.addr, align 4
+  store i32 %5, i32* @gSyncVar_2, align 4
+  br label %sw.default
+
+sw.default:                                       ; preds = %sw.bb.2, %if.then
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %sw.default, %sw.bb.1, %sw.bb
+  %6 = load i32* %index.addr, align 4
+  %add = add nsw i32 %6, 1
+  %7 = load i32* @gSyncVarsTotalNum, align 4
+  %cmp = icmp sgt i32 %add, %7
+  br i1 %cmp, label %if.then.3, label %if.end
+
+if.then.3:                                        ; preds = %sw.epilog
+  %8 = load i32* %index.addr, align 4
+  %add4 = add nsw i32 %8, 1
+  store i32 %add4, i32* @gSyncVarsTotalNum, align 4
+  br label %if.end
+
+if.end:                                           ; preds = %if.then.3, %sw.epilog
+  br label %if.end.5
+
+if.end.5:                                         ; preds = %if.end, %entry
+  ret void
+}
+
+declare i32 @pthread_self(...)
+
+; Function Attrs: nounwind uwtable
+define internal void @snapshot64(i64 %gvar, i32 %index) {
+entry:
+  %gvar.addr = alloca i64, align 8
+  %index.addr = alloca i32, align 4
+  store i64 %gvar, i64* %gvar.addr, align 8
+  store i32 %index, i32* %index.addr, align 4
+  %0 = load i64* %gvar.addr, align 8
+  %conv = trunc i64 %0 to i32
+  %1 = load i32* %index.addr, align 4
+  call void @snapshot(i32 %conv, i32 %1)
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @InitializeSwitchesAndCounter(i32 %id) {
+entry:
+  %id.addr = alloca i32, align 4
+  store i32 %id, i32* %id.addr, align 4
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define internal void @IncrementCounter() {
+entry:
+  %idx = alloca i32, align 4
+  %i = alloca i32, align 4
+  %call = call i32 (...) *@pthread_self()
+  store i32 %call, i32* %idx, align 4
+  %0 = load i32* %idx, align 4
+  %idxprom = zext i32 %0 to i64
+  %arrayidx = getelementptr inbounds [10 x i32]* @syncID, i32 0, i64 %idxprom
+  %1 = load i32* %arrayidx, align 4
+  %cmp = icmp eq i32 %1, 0
+  br i1 %cmp, label %if.then, label %if.else
+
+if.then:                                          ; preds = %entry
+  %2 = load i32* @counter0, align 4
+  %inc = add nsw i32 %2, 1
+  store i32 %inc, i32* @counter0, align 4
+  %3 = load i32* @counter0, align 4
+  %cmp1 = icmp eq i32 %3, 1
+  br i1 %cmp1, label %if.then.2, label %if.end
+
+if.then.2:                                        ; preds = %if.then
+  call void @CheckInvariant()
+  br label %if.end
+
+if.end:                                           ; preds = %if.then.2, %if.then
+  %4 = load i8* @firstSync, align 1
+  %tobool = trunc i8 %4 to i1
+  br i1 %tobool, label %if.then.3, label %if.end.8
+
+if.then.3:                                        ; preds = %if.end
+  store i32 0, i32* %i, align 4
+  br label %for.cond
+
+for.cond:                                         ; preds = %for.inc, %if.then.3
+  %5 = load i32* %i, align 4
+  %cmp4 = icmp slt i32 %5, 10
+  br i1 %cmp4, label %for.body, label %for.end
+
+for.body:                                         ; preds = %for.cond
+  %6 = load i32* %i, align 4
+  %idxprom5 = sext i32 %6 to i64
+  %arrayidx6 = getelementptr inbounds [10 x i8]* @switches, i32 0, i64 %idxprom5
+  store i8 1, i8* %arrayidx6, align 1
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.body
+  %7 = load i32* %i, align 4
+  %inc7 = add nsw i32 %7, 1
+  store i32 %inc7, i32* %i, align 4
+  br label %for.cond
+
+for.end:                                          ; preds = %for.cond
+  store i8 0, i8* @firstSync, align 1
+  br label %if.end.8
+
+if.end.8:                                         ; preds = %for.end, %if.end
+  br label %if.end.13
+
+if.else:                                          ; preds = %entry
+  %8 = load i32* @counter1, align 4
+  %inc9 = add nsw i32 %8, 1
+  store i32 %inc9, i32* @counter1, align 4
+  %9 = load i32* @counter1, align 4
+  %cmp10 = icmp eq i32 %9, 1
+  br i1 %cmp10, label %if.then.11, label %if.end.12
+
+if.then.11:                                       ; preds = %if.else
+  call void @CheckInvariant()
+  br label %if.end.12
+
+if.end.12:                                        ; preds = %if.then.11, %if.else
+  br label %if.end.13
+
+if.end.13:                                        ; preds = %if.end.12, %if.end.8
+  ret void
+}
+
+declare i32 @sleep(i32)
+
+

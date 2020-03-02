@@ -1,0 +1,30 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x42a9d00 [shape=record,label="{entry:\l  %retval = alloca i32, align 4\l  %a = alloca i32, align 4\l  %b = alloca i32, align 4\l  %i = alloca i32, align 4\l  %thread_id = alloca i64, align 8\l  %call = call i8* @malloc(i64 16)\l  %0 = bitcast i8* %call to %struct.GlobalMemory*\l  store %struct.GlobalMemory* %0, %struct.GlobalMemory** @Global, align 8\l  %1 = load %struct.GlobalMemory** @Global, align 8\l  %start = getelementptr inbounds %struct.GlobalMemory* %1, i32 0, i32 0\l  %gsense = getelementptr inbounds %struct.barrier_t* %start, i32 0, i32 0\l  store volatile i32 1, i32* %gsense, align 4\l  %2 = load %struct.GlobalMemory** @Global, align 8\l  %start1 = getelementptr inbounds %struct.GlobalMemory* %2, i32 0, i32 0\l  %count = getelementptr inbounds %struct.barrier_t* %start1, i32 0, i32 1\l  store volatile i64 0, i64* %count, align 8\l  store i32 2, i32* @P, align 4\l  store i32 1, i32* %i, align 4\l  br label %for.cond\l}"];
+	Node0x42a9d00 -> Node0x42a9d50;
+	Node0x42a9d50 [shape=record,label="{for.cond:                                         \l  %3 = load i32* %i, align 4\l  %4 = load i32* @P, align 4\l  %cmp = icmp slt i32 %3, %4\l  br i1 %cmp, label %for.body, label %for.end\l|{<s0>T|<s1>F}}"];
+	Node0x42a9d50:s0 -> Node0x42a9da0;
+	Node0x42a9d50:s1 -> Node0x42a9e40;
+	Node0x42a9da0 [shape=record,label="{for.body:                                         \l  %call2 = call i32 @pthread_create(i64* %thread_id, %union.pthread_attr_t*\l... null, i8* (i8*)* bitcast (void ()* @f1 to i8* (i8*)*), i8* null)\l  br label %for.inc\l}"];
+	Node0x42a9da0 -> Node0x42a9df0;
+	Node0x42a9df0 [shape=record,label="{for.inc:                                          \l  %5 = load i32* %i, align 4\l  %inc = add nsw i32 %5, 1\l  store i32 %inc, i32* %i, align 4\l  br label %for.cond\l}"];
+	Node0x42a9df0 -> Node0x42a9d50;
+	Node0x42a9e40 [shape=record,label="{for.end:                                          \l  %6 = load i32* %a, align 4\l  %7 = load i32* %b, align 4\l  %add = add nsw i32 %6, %7\l  %tobool = icmp ne i32 %add, 0\l  br i1 %tobool, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x42a9e40:s0 -> Node0x42a9e90;
+	Node0x42a9e40:s1 -> Node0x42a9ee0;
+	Node0x42a9e90 [shape=record,label="{if.then:                                          \l  unreachable\l}"];
+	Node0x42a9ee0 [shape=record,label="{if.end:                                           \l  br label %while.cond\l}"];
+	Node0x42a9ee0 -> Node0x42a9f30;
+	Node0x42a9f30 [shape=record,label="{while.cond:                                       \l  br label %while.end\l}"];
+	Node0x42a9f30 -> Node0x42a9fd0;
+	Node0x42a9f80 [shape=record,label="{while.body:                                       \l  br label %while.cond\l}"];
+	Node0x42a9f80 -> Node0x42a9f30;
+	Node0x42a9fd0 [shape=record,label="{while.end:                                        \l  call void @f2()\l  br label %if.end.10\l}"];
+	Node0x42a9fd0 -> Node0x42aa0c0;
+	Node0x42aa020 [shape=record,label="{if.then.7:                                        \l  br label %if.end.10\l}"];
+	Node0x42aa020 -> Node0x42aa0c0;
+	Node0x42aa070 [shape=record,label="{if.else:                                          \l  br label %if.end.10\l}"];
+	Node0x42aa070 -> Node0x42aa0c0;
+	Node0x42aa0c0 [shape=record,label="{if.end.10:                                        \l  ret i32 0\l}"];
+}

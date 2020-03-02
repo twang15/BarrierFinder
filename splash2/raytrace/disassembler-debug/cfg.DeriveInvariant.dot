@@ -1,0 +1,5 @@
+digraph "CFG for 'DeriveInvariant' function" {
+	label="CFG for 'DeriveInvariant' function";
+
+	Node0x60f0d90 [shape=record,label="{entry:\l  ret void\l}"];
+}

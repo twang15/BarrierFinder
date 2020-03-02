@@ -1,0 +1,5 @@
+digraph "CFG for 'InquireBoundBoxValues' function" {
+	label="CFG for 'InquireBoundBoxValues' function";
+
+	Node0x5eb4970 [shape=record,label="{entry:\l  %pbb.addr = alloca %struct.bbox*, align 8\l  %minx.addr = alloca double*, align 8\l  %miny.addr = alloca double*, align 8\l  %minz.addr = alloca double*, align 8\l  %maxx.addr = alloca double*, align 8\l  %maxy.addr = alloca double*, align 8\l  %maxz.addr = alloca double*, align 8\l  ret void\l}"];
+}

@@ -1,0 +1,5 @@
+digraph "CFG for 'BitReverse' function" {
+	label="CFG for 'BitReverse' function";
+
+	Node0x5424200 [shape=record,label="{entry:\l  ret i32 undef\l}"];
+}

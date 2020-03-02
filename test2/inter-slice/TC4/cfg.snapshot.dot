@@ -1,0 +1,23 @@
+digraph "CFG for 'snapshot' function" {
+	label="CFG for 'snapshot' function";
+
+	Node0x42ae370 [shape=record,label="{entry:\l  %gvar.addr = alloca i32, align 4\l  %index.addr = alloca i32, align 4\l  %idx = alloca i32, align 4\l  br label %if.end.5\l}"];
+	Node0x42ae370 -> Node0x42ae640;
+	Node0x42ae3c0 [shape=record,label="{if.then:                                          \l  br label %sw.epilog\l}"];
+	Node0x42ae3c0 -> Node0x42ae550;
+	Node0x42ae410 [shape=record,label="{sw.bb:                                            \l  br label %sw.epilog\l}"];
+	Node0x42ae410 -> Node0x42ae550;
+	Node0x42ae460 [shape=record,label="{sw.bb.1:                                          \l  br label %sw.epilog\l}"];
+	Node0x42ae460 -> Node0x42ae550;
+	Node0x42ae4b0 [shape=record,label="{sw.bb.2:                                          \l  br label %sw.default\l}"];
+	Node0x42ae4b0 -> Node0x42ae500;
+	Node0x42ae500 [shape=record,label="{sw.default:                                       \l  br label %sw.epilog\l}"];
+	Node0x42ae500 -> Node0x42ae550;
+	Node0x42ae550 [shape=record,label="{sw.epilog:                                        \l  br label %if.end\l}"];
+	Node0x42ae550 -> Node0x42ae5f0;
+	Node0x42ae5a0 [shape=record,label="{if.then.3:                                        \l  br label %if.end\l}"];
+	Node0x42ae5a0 -> Node0x42ae5f0;
+	Node0x42ae5f0 [shape=record,label="{if.end:                                           \l  br label %if.end.5\l}"];
+	Node0x42ae5f0 -> Node0x42ae640;
+	Node0x42ae640 [shape=record,label="{if.end.5:                                         \l  ret void\l}"];
+}

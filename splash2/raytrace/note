@@ -1,0 +1,4 @@
+call to ReadGeoFile needs to be commented out in assembly.
+
+#raytrace, also need input
+rm -f traces.log; rm -rf test-prod-cons/; time Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons /home/tao/splash2/codes/apps/raytrace/a.out.bc /home/tao/test/13.llvm.3.1/balls4.env

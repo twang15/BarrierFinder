@@ -1,0 +1,9 @@
+file Debug+Asserts/bin/c9-worker 
+r -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons ~/test/13.llvm.3.1/a.out.bc ~/test/13.llvm.3.1/balls4.env
+
+define clean
+shell rm -f traces.log
+shell rm -rf test-prod-cons
+r
+end
+

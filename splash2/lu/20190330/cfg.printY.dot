@@ -1,0 +1,5 @@
+digraph "CFG for 'printY' function" {
+	label="CFG for 'printY' function";
+
+	Node0x2bd16f0 [shape=record,label="{%0:\l  call void @appendY()\l  call void @DecrementCounter()\l  ret void\l}"];
+}

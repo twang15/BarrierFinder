@@ -1,0 +1,3800 @@
+commit 98d5f1bdc55667a1e6a0f34d01adfa40eed9498c
+Author: tao <twang15@ncsu.edu>
+Date:   Thu Apr 13 19:35:57 2017 -0400
+
+    Coding: finish early termination fixed-point algorithm; Test on fmm, lu, bt is done; depth-first scheduler and random scheduler also have different performance. Next: iteratively experiment and write up fixed point algorithm, early-terminiation fixed-point algorithm and depth-first scheduler.
+
+commit 256623ee62ec25ef83b7c1ed493d9d5ae2672ffd
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Mar 29 01:30:27 2017 -0400
+
+    Coding: disable trace dump for fixed-point states.
+
+commit 9a1d3c122d2cc210f57f4aa045f78c57a74bd556
+Author: tao <twang15@ncsu.edu>
+Date:   Tue Mar 28 20:27:06 2017 -0400
+
+    Repository Management: forget commit code for early termination for a fixed-point state. Next: disable trace dumping for fixed-point state.
+
+commit bd26da49a8dfabfa71e81719dd2263d6ecf7c0c2
+Author: tao <twang15@ncsu.edu>
+Date:   Tue Mar 28 20:25:41 2017 -0400
+
+    Bug Fixing: # of interleavings increases as #barriers and loop trip count increase. The fix has two folds: early termination for a fixed-point state; comment out bOutSide (unknown reason for introducing it!!!). Next: disable trace dumping for fixed-point state.
+
+commit e764b552291f7ce2084c18dd18e1fe606bd377ce
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Mar 22 12:23:25 2017 -0400
+
+    Bug Fixing: bad logic in isAFixedPoint, the outer loop should continue after the inner value comparison loop fails.
+
+commit f5c90ad0f0521fcbf189aeefd71ea4d0e61d5991
+Author: tao <twang15@ncsu.edu>
+Date:   Fri Mar 17 00:25:38 2017 -0400
+
+    Bug Fixing: enable interleaving enumeration for states whose parent bEnumerating is true; otherwise, disable it.
+
+commit 2ba6eab66c967beb28ef62e60a85d0e10ac12286
+Author: tao <twang15@ncsu.edu>
+Date:   Thu Mar 16 19:40:43 2017 -0400
+
+    Bug fixing: disable state interleaving enumeration for a forked state; when the state is forked, its father state is a state (bInvariantState is false) is hitting sleep(4) (outside of a sync region.)
+
+commit e292a0dbb0bdd80082f3717e5e3570bdcf04e8c9
+Author: tao <twang15@ncsu.edu>
+Date:   Thu Mar 16 16:14:52 2017 -0400
+
+    Repository management: untrack temporary file.
+
+commit 0eb3ca009f8272f04fd6e1ed469d8314aed8fdad
+Author: tao <twang15@ncsu.edu>
+Date:   Thu Mar 16 16:13:49 2017 -0400
+
+    Bug Fixing: the equivalence test for call stack is changed to only compare the top frame; add other debugging facilities.
+
+commit c334cd9dd9872dacd86d4cdaa4ef49ab7f6613a0
+Author: tao <twang15@ncsu.edu>
+Date:   Thu Mar 16 08:33:09 2017 -0400
+
+    Bug Fixing: finalize a sync record before its state is set to invalid.
+
+commit 199567778d35b8f2006b24e239cf0d63516c9f0d
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Mar 15 20:54:31 2017 -0400
+
+    Bug fixing: add dumping function for sync records.
+
+commit 304bb12a013e3602212d59d91c7799f8a0a02faf
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Mar 15 16:03:46 2017 -0400
+
+    Bug Fixing: add debugging facilities to dump all states and sync addresses.
+
+commit f0767c9dd9091a750a6d36260958a05a73516229
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Mar 15 14:36:41 2017 -0400
+
+    Bug Fixing: identifying the root state, because its cloning should be different than other non-root state. A state is considered as a root state until it hits CheckInvariant and sets its bRoot to false by its own.
+
+commit a58c7447e6e6fb758b786ae67cb618d7ecd3338c
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Mar 15 00:02:23 2017 -0400
+
+    Bug Fixing: a state is terminated in invariant derivation. Reference to its field is invalid. Next: bug fixing by white-box runtime testing.
+
+commit deb9547cb2e6031ed1fdf3112c4260babb0ab137
+Author: tao <twang15@ncsu.edu>
+Date:   Thu Mar 9 13:32:35 2017 -0500
+
+    Testing: fix a bug in isRegionFirstTimeExplored. In later iterations, states can be new while the region has been explored before. The previous implementation fails to provide such a checking. The solution is to add bDone to SyncRecord to indicate whether the region has been explored completely. Other modification include: code in Executor.h are moved to cpp file. Next: runtime test; regression test on all currently supported benchmarks; allAB.
+
+commit 6b76bddc41c0347440ce10c4bfb98fa9b613f5d6
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Mar 8 10:44:48 2017 -0500
+
+    Coding: extend scheduler to handle schedule points outside a sync region differently (sleep(4)). Next: extensive runtime testing/debugging.
+
+commit 99469e25ab48e188af68ca79a36225b6b21e9ec2
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Mar 8 09:55:23 2017 -0500
+
+    Coding: finish preliminary implementation of fixed point algorithm (an intermediate working revision). 1st iteration and later iterations are handled differently. No runtime testing/debugging has been done. Next: extensive runtime testing/debugging; extend scheduler to handle schedule points outside a sync region differently (sleep(4)).
+
+commit dce19397c10fe030b4818eb5964b825a1fd2a2df
+Author: tao <twang15@ncsu.edu>
+Date:   Tue Feb 28 01:00:55 2017 -0500
+
+    Designing and Coding(Temporary commit, fixed point algorithm). Data structure and algorithms design. Next: continue designing and coding: Beginning, Exploring, Ending, Scheduling time behavior.
+
+commit c203bb28dd651913ade9ec2c763680eab683458f
+Author: tao <twang15@ncsu.edu>
+Date:   Sat Feb 25 00:08:31 2017 -0500
+
+    Design: fixed point algorithm v1. Data structures and algorithms are clear designed. Next: instrument recordSyncVar API in Front end; implement its semantics in Cloud9(algorithm 2); implement algorithm 1.
+
+commit 197d0e35584535e462a31b36ec1ff900e595f3b4
+Author: tao <twang15@ncsu.edu>
+Date:   Fri Oct 14 20:30:01 2016 -0400
+
+    Temporary commit: develop debugging facilities for memory(register, stack variable, argument, constant, global,heap) inspection. Next: concreteStore inspection, if necessary.
+
+commit 4d7dc7e5468303425ce233b5564600983afc753f
+Author: tao <twang15@ncsu.edu>
+Date:   Thu Sep 29 23:59:28 2016 -0400
+
+    Support LU: use __thread_preempt for stack frame detection.
+
+commit 1289987ef6d969fd3d0ac5fb781756ae7d166e3a
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Jul 6 17:19:20 2016 -0400
+
+    Fix bugs: both the invariant-derivation algorithm and depth-first scheduler works properly. Next: test them on more barrier and FFT data.
+
+commit 25afb4a2a18728df8e102fa5bce16c5993cacf03
+Author: tao <twang15@ncsu.edu>
+Date:   Wed Jun 29 12:18:43 2016 -0400
+
+    Finish invariant-based algorithm and depth-first scheduler. But, they are not working properly. Next: bug fix and performance evaluation of the scheduler.
+
+commit a0f955067fec83d3ea377666ff1dc6d2643b902c
+Author: tao <twang15@ncsu.edu>
+Date:   Thu Jun 2 12:33:38 2016 -0400
+
+    Finish 2+6(FFT 2nd barrier) scheduling.
+
+commit e45ec71553b4e51773aa801e2b3ac1585007a74c
+Author: tao <twang15@ncsu.edu>
+Date:   Fri Apr 29 14:10:26 2016 -0400
+
+    1. Fix an issue: make main thread wait for all the children thread 2. Optimize for higher performance with native execution of printf by inspecting interpretee's address space.
+
+commit 031aa0ef45abd0e2eeb71c4a49a897b7f5b0d66f
+Author: tao <twang15@ncsu.edu>
+Date:   Sun Apr 24 11:44:39 2016 -0400
+
+    Fix a bug: ki may be NULL. The root cause is unknown, however, this fix is a handy work-around.
+
+commit e5c98f8568e160e80779d0d1db93a643f264587b
+Author: tao <twang15@ncsu.edu>
+Date:   Sun Apr 24 11:43:23 2016 -0400
+
+    Fix a bug: main thread exits earlier than children thread. The fix multiplexes pthread_join's implementation and exploits the fact main thread in Cloud9 always has thread id 0. With the frontend inserting pthread_join(0,0), the multiplexed pthread_join iterates all threads and puts main in their waiting list, just as normal pthread_join inside a loop to wait all the created threads. Next: optimize the performance of Cloud9 to support more threads.
+
+commit 10cdfca4ac14ebd674cf7b6372e0213a4204cf5f
+Author: tao <twang15@ncsu.edu>
+Date:   Tue Apr 19 11:01:33 2016 -0400
+
+    This commit include several features. 1. modify Makefile.common for a cloud9 debugging environment. 2. Modify the scheduler to enumerate all the interleavings. 3. enhance the instruction trace dumping process for output traces collection. The runtime trace is mixed. This enhancement separates them by re-examining the instruction traces. 4. Implement different scheduling points for sync write, sync read, and ordinary scheduling points. 5. Implement sync_region_end to separate two adjacent barriers or other ad hoc syncs(may need extensions). 6. Modify the symbolic uclibc as necessary. Next: instrumentatioin for sleep(1), sleep(2), and sleep(3) in LLVMSlicer.
+
+commit a15558d1fa3e397b157b1191aa1ef9b225eef2dd
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Sep 11 15:03:57 2013 +0200
+
+    Fixing silly build error.
+
+commit 36f79cd39acf17e3ecc4870e5aae942ae542e162
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Thu Apr 25 14:19:28 2013 +0200
+
+    Revamped and fixed the expression serialization/deserialization code.
+
+commit 68aed2f8b0324c6263099ac4ab88f705f3011b1a
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Thu Aug 30 23:46:46 2012 +0200
+
+    Improvements to the memory dump routines.
+
+commit 984f15ba55119c6b7b9efa79469acf2b2f38c5c6
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Thu Aug 30 23:28:36 2012 +0200
+
+    Removed deprecated Boost API call (patch by b42b42b42).
+
+commit 396e8789b976f5220e7d4359f5a8594d086c5951
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Aug 28 13:53:09 2012 +0200
+
+    Added a model to rawmemchr.
+
+commit 34cd88d4f04fd77fbb16087d5b76e0ef46f8db5d
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Fri Aug 24 16:10:30 2012 +0200
+
+    Exernal call warnings only for calls that don't go through the POSIX model.
+
+commit 4df42dd28ea2889e8d6de84e6497f98b407c17e5
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Fri Jul 13 18:13:18 2012 +0200
+
+    Switched to shared library version of Boolector.
+
+commit 5dc132ed7189fb3af2f025e3a00658e6bd796dad
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Jul 2 17:15:54 2012 +0200
+
+    Cosmetic changes to STPBuilder.
+
+commit 7c030f63189c74b37a93b1a32f0cc5aa41382800
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Jul 2 17:15:36 2012 +0200
+
+    Disabling upstream patch from KLEE.
+
+commit 374daad1ba89ce3047495ef89d083fb71ec94409
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Jul 2 17:15:01 2012 +0200
+
+    Added support for executor state dump upon crash.
+
+commit 841b7762afb5e7ee922e6477261077acfad909ca
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Jul 2 17:13:17 2012 +0200
+
+    Removed unused stuff from the JobManager.
+
+commit 4c046660eae0da4872732a261ca5cb2240c46ed2
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Jun 27 17:22:43 2012 +0200
+
+    Published the latest Cloud9 contributions.
+
+commit 2cfdfe43bfc35bc0192cac7822e87afe579923cd
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 13 19:12:58 2011 +0000
+
+    Forgot to add files.
+
+commit 0cfe3ee563a28b1ea412eb41f6f93cfa043e5678
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 13 17:08:03 2011 +0200
+
+    Added summary in the mail subject.
+
+commit 98e4217bc5f43169755023b4a4a62f2c10f53c1e
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 13 16:49:00 2011 +0200
+
+    Added instant costs to the report.
+
+commit 32f2e81a9f9fdcfd3da78796bfc7e7991a155922
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 13 02:38:39 2011 +0200
+
+    Tweaks.
+
+commit e1e8774b4505aaaca047840f30b52640a79d9bc6
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 13 00:27:50 2011 +0200
+
+    Small fix in the e-mail sender.
+
+commit e86c2087fd634cdd0a14f33461527cdbe3cba7d2
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 13 00:25:24 2011 +0200
+
+    Added e-mail support.
+
+commit 25848968a99deacc599d09fe5bd2e9e7e83a50fa
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Sep 12 23:40:58 2011 +0200
+
+    More readable report.
+
+commit 1510be021f5c78695a24bc86264392bced33ff3f
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Sep 12 23:32:12 2011 +0200
+
+    Initial version of the EC2 reporting script.
+
+commit 04a1612c0230ceb6fdd44095e4739737ee2f043a
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 6 23:06:08 2011 +0200
+
+    Fixed more sources of memory corruption.
+
+commit eedab33f95796998299b9c8da0dac9558e9636c1
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 6 21:47:15 2011 +0200
+
+    Fixed improper use of dyn_cast<> which caused virtual table corruption.
+
+commit f4b99d4c8493f80c0e413cba5242464bc82dd571
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Sep 6 17:47:36 2011 +0200
+
+    Initial script for querying EC2.
+
+commit 795b967136416ff2312e4008a66b87138bfff0b2
+Author: istvan <istvan@istvan.(none)>
+Date:   Mon Aug 22 17:57:49 2011 +0200
+
+    Reordered uclibc/POSIX linking.
+    Now everything works even if libc is not specified.
+    Helps with some of the test cases and with beginners who may forget the option.
+
+commit 0026112d93b28a975f110c3a48cab4c048b38d66
+Author: istvan <istvan@istvan.(none)>
+Date:   Mon Aug 22 17:28:23 2011 +0200
+
+    Bug fixes for POSIX file handling
+    Openning concrete files now possible.
+    Stat and FStat also work without generating infinite loop.
+
+commit f2f5eb52670eb8cbdf9695c82d16c601cc63aaa1
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 15 17:17:19 2011 +0200
+
+    Added the gitignore file.
+
+commit 412fa9aabd28cdb9c4d20da59dcf2086f1df283e
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed May 11 22:05:47 2011 +0200
+
+    Checkpoint.
+
+commit 803684f8c3fe525ef9da0c8860d6af592b137e23
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed May 11 17:34:23 2011 +0200
+
+    Moved the netlink handler in a separate source file.
+
+commit 4c212df82269d48dac0283a23aaf7e4cbfb5c288
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed May 11 16:36:04 2011 +0200
+
+    More fixes. Now our test suite passes again.
+
+commit 7914a62eec7e1143e8dba43ed760de4eebcd90e5
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed May 11 00:15:47 2011 +0200
+
+    Adapted the UDP code to make use of the iov operations.
+
+commit ff2ef0a15c9864799ac08278e36b3378143b945d
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed May 11 00:15:25 2011 +0200
+
+    Introduced iov operations at buffer level.
+
+commit 38e3c4ae12b17efe9e50d93800201f9be1304e14
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue May 10 00:07:58 2011 +0200
+
+    Refactored a bit the UDP code. Basic support for Netlink sockets.
+
+commit 461dd00406046970683fe37853950fffa8a3b465
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Aug 24 18:53:26 2011 +0200
+
+    All tests now pass.
+
+commit 760b0986d4b70f9dd66fffb01d35b5702e6a9035
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Aug 24 18:52:56 2011 +0200
+
+    Added the new '--overlapped' Klee runtime option.
+
+commit dcf8808e54e26e429c5afb79eb74aa2045c7d55d
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Aug 24 18:51:25 2011 +0200
+
+    Adding in some code that will be later expanded.
+
+commit 06d85d2af4c49517b4229ff21149a1101f4e2cdb
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Fri Aug 19 19:01:16 2011 +0200
+
+    Updated original Klee test cases. Reduced the number of failures from 12 to 5.
+
+commit 622f41c12a6ceb081af30eeab47f92c095b2b1bb
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Fri Aug 19 19:00:43 2011 +0200
+
+    Fixed bug in the fcntl() model.
+
+commit 2291a0e18cf071730528c9c56821280b34377e0c
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Fri Aug 19 19:00:22 2011 +0200
+
+    Removed some obsolete test cases.
+
+commit abb33e45532d4f57497b5c7a1eaece966a62284e
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Wed Aug 17 17:29:51 2011 +0200
+
+    hmm. again fix +test: ExprBuilder->True
+
+commit 774262f2300261542f945c15940cb614cace1d06
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Sat Aug 13 13:00:09 2011 +0200
+
+    fix: kleaver2smt: case of llvm2.9, no support of llvm2.6
+
+commit 6968ef878372a0ba682f583cd0fc97cb7b21f4ff
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Thu Aug 11 21:49:35 2011 +0200
+
+    mock kleaver2smt converter in case of internal STP.
+
+commit 3fed10c87a8ea1ac3dc0c6bc7a83877dfca536a4
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Thu Aug 11 21:35:31 2011 +0200
+
+    +kleaver2smt converter
+
+commit fd2b625bcf5512c2e3b9ad80698094e6b4c41d1c
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Aug 1 17:36:30 2011 +0200
+
+    Silenced some debug info.
+
+commit 7145f8e322bae0c32128fb77a052f0ea270aec06
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Aug 2 19:59:27 2011 +0200
+
+    Finalized the memcached tutorial.
+
+commit da24a04a80e8ffb2529dfc441f997a97c574b419
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Aug 2 18:27:33 2011 +0200
+
+    Almost done with the memcached tutorial.
+
+commit 6fc030de94bc42deb4564dbae27042dd84a01f33
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Aug 2 15:58:57 2011 +0200
+
+    Now a timed-out select() updates the state time.
+
+commit b5bc385598a9c28e1b211c3a29836f7305bdac26
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Aug 2 15:53:20 2011 +0200
+
+    Disabled signals for now.
+
+commit fe971b60a3bf79f8fcb5db7fcc6e89b4bea40218
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Aug 2 14:10:51 2011 +0200
+
+    Checkpoint.
+
+commit 24a518335212cb5e3030ac196ace81a06ce46bd6
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Aug 2 12:49:50 2011 +0200
+
+    Checkpoint.
+
+commit 184d7cab48f88b3f4690969df40f6a2391b4d662
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Aug 1 18:28:48 2011 +0200
+
+    Checkpoint. Progress with the memcached tutorial.
+
+commit cc056a9712c7a6c7c90842e6f1f648fc47d0e07d
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Wed Jul 20 12:28:20 2011 +0200
+
+    ExprPPrinter: fixed bug with Concat: kleaver cannot infer width of constants in concat expressions
+
+commit 643650b92b2949e95d62791d114ee8fb9f0abbf5
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Wed Jul 20 12:02:51 2011 +0200
+
+    reformated
+
+commit 34bde8663d458fdc2617855cfcb34cae5add7f7d
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Mon Jul 18 15:31:32 2011 +0200
+
+    fix: Ubuntu 11.04 compilation: __NR_lseek is deprecated
+
+commit e5e2fab782a566c8aa37aa8471528f22b77480d5
+Author: istvan <istvan@istvan.(none)>
+Date:   Mon Jul 18 12:35:57 2011 +0200
+
+    Added missing stdc++ archive and exception in gitignore
+
+commit 91da04ed82d1faea7b5b1759cacf2008302151b4
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Jul 18 04:23:18 2011 +0200
+
+    Checkpoint. Writing the Memcached configuration tutorial.
+
+commit cdec310094745ecddf177468f5c1cde2a6927310
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Sun Jul 17 21:07:50 2011 +0200
+
+    removed cpp0x flag. no real need. the latest version of stp also 'compilable' without cpp0x flags.
+    
+    With cpp0x enabled and gcc 4.5 (Ubuntu 11.04) boost 1.42 (installed by default) cannot compile (bug, fixed in 1.46).
+
+commit 71b6901984fad7feeb22b4f931cbad89daf99847
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Wed May 11 12:00:14 2011 +0200
+
+    klee-stats: case of no coverage data
+
+commit c255624dae681f30733ea74849b8c633070b8188
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun Jul 17 22:12:47 2011 +0200
+
+    Removed the old (pre-LLVM 2.9) compilation scripts, and left a README message instead.  They were becoming confusing...
+
+commit 982cf5e5208b7f22889b3ef2cc2a0628ed97c11a
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun Jul 17 21:43:31 2011 +0200
+
+    Made more explicit the step of adding the resulting LLVM binaries to the $PATH variable.
+
+commit f688c32be4925e0e1460ebc7233dca65604f2fca
+Merge: e158a00 02c03de
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun Jul 17 18:44:39 2011 +0200
+
+    Merge branch 'master' of dslabgit.epfl.ch:cloud9/cloud9
+
+commit e158a00649ce8750fd2bc91bb797b6bd5156540b
+Author: istvan <istvan@istvan.(none)>
+Date:   Thu Jul 14 16:54:20 2011 +0200
+
+    Added "pavg" test into SSEConcrete since it was added on top of KleeFP
+
+commit 18006d5d36f6378633eab37f04d2f9acd56d4825
+Author: istvan <istvan@istvan.(none)>
+Date:   Thu Jul 14 16:43:10 2011 +0200
+
+    Added support for float->int conversion and pavg in SSE. (Missed it when applying the old patches)
+
+commit 434e6f6a9687c1526b00638ede54ed855923a116
+Author: istvan <istvan@istvan.(none)>
+Date:   Thu Jul 14 14:23:27 2011 +0200
+
+    Added concrete SSE test based on example from the KleeFP paper.
+    Symbolic floating point ot supported yet in Cloud9
+
+commit ccda5718c9b7feb505b428ee5ccad38ea3bb5fe2
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 18:37:59 2011 +0200
+
+    Added test for constant data structure handling.
+
+commit f940bc0392b03c7030aa0d71a8d8510a36af964d
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 18:37:01 2011 +0200
+
+    Added vector manipulation instructions (InsertElement,ExtractElement,ShuffleVector) from KleeFP project
+    Works with existing ConstantVector implementation.
+
+commit abd0386a3a987540d93d97f2003f1e528420d877
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 18:36:19 2011 +0200
+
+    Added missing configuraton file for Intrinsics test folder
+
+commit a910ddebc737fc60e2e0459313d3cb02631785fc
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 17:12:35 2011 +0200
+
+    Unit test for llvm arithmetic intrinsics that were implemented.
+    Also provides template for llvm assembly based tests.
+    Removed .ll restriction from gitignore.
+
+commit a42a124c8eecb3528df782ca9ed415a31ca74b8f
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 17:12:02 2011 +0200
+
+    Bugfix for powi intrinsic based on new unit-tests
+
+commit 399129661f0e857a94d07adadbe409e5eecac82d
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 15:07:54 2011 +0200
+
+    Redid mutex attribute implementation in a clean fashion
+
+commit ae4ef076facd51c6d7aa3e958e4226a4bee94c05
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 13:59:56 2011 +0200
+
+    Synchronization tests: mutex, reentrant mutex and posix semaphores
+
+commit 53bd698ec95f4004cdfc45b9453fb0ebf0017659
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 13:40:52 2011 +0200
+
+    Bugfix uncovered by the synchronization unit-tests
+
+commit 43698b19b55edb3ac9cd8e3a28800d4a3ebc16be
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jul 13 12:17:17 2011 +0200
+
+    Added tests for the stdc++ library with compilation using gold plugin
+    Can also be used for more complex test cases
+
+commit d1afad979c9664a6f004bd74cc1734127ce0947d
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 22:25:58 2011 +0200
+
+    Changes to tests committed by Airat (also modified LargeReturnTypes to match)
+
+commit da1a3d3976604d73e4a12676272264d7e4c24c14
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 18:54:08 2011 +0200
+
+    Missed some PACKAGE definitions last time
+
+commit 4814a399d03d9407785cb21dcbd2cd5f9d50d61d
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 18:50:37 2011 +0200
+
+    Added support for argumentless main function and associated test
+    Bugfixes also applied compared to older version
+
+commit 4f2383b1f08e40971353a06ac0d234d878448e74
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 16:54:06 2011 +0200
+
+    Support for arbitrary sized types in ConstantExpr::fromMemor (Klee repository May18)
+
+commit 9a32364dbc37179620f9c3fc6de95b49149c4cfa
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 16:47:58 2011 +0200
+
+    Cleaned up old LLVM stuff and also remaining package warnings
+
+commit d8757b8f20126684a18668cf1bcceb10e1ebf1c0
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 15:46:23 2011 +0200
+
+    Updated POSIX runtime to handle some stuff required by Chromium
+    Increased maximum mmap size to 32
+    Added support for reentrant mutexes
+    Added POSIX Semaphores
+
+commit 6af2cef216ddcf44b56e8b55e2d2d8b83039f4f1
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 15:39:35 2011 +0200
+
+    Added option in ExternalDispatcher.cpp to load GTK shared libraries (currently disabled).
+    Controlled by USE_GTK flag in the beginning of the code
+
+commit 62a860278748fbbf383a61fb34a802594e242011
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 15:33:30 2011 +0200
+
+    Enabled cloud9 to continue when read-only memory object is rewritten by external.
+    Issues warning to user and continues with next memory object.
+    Only read-only objects are the cout structures which may be rewritten by GTK.
+    This issue can be revisited once GTK is modelled or other read-only structures are added.
+
+commit 80e9b675b7a0d4acf341ee3da89bf06f3f244def
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 15:18:58 2011 +0200
+
+    Added ConstantVector handling analogous with ConstantStruct (SSE lowering uses the same accessors)
+
+commit 7f46785b5e3a8fc3432e87af4334f2e9403c7404
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jul 12 15:17:27 2011 +0200
+
+    Replaced implicit sentinel with explicit NULL sentinel. Please modify main branch as well.
+
+commit 02c03de193eb59325dd2c43d08952615b65354cf
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Tue Jul 12 15:10:11 2011 +0200
+
+    removed libc=klee and coresponding test
+
+commit 8ff6ace82b1f2a4b08392f12c227a7542e3330b1
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Tue Jul 12 15:09:03 2011 +0200
+
+    fixed test: AliasFunctionExit
+
+commit 734b00aeda036122e7fa11abc1ee91528985d50b
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Tue Jul 12 10:25:17 2011 +0200
+
+    fixed test WriteCov
+
+commit 9e9c145e7386008f0979ffa33d97cc7619e7a865
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Mon Jul 11 20:07:20 2011 +0200
+
+    integrated udp tests into existing test structure
+
+commit bb3719bc8e3ac02a5b5817512d128cf92aab4887
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun Jul 10 22:23:26 2011 +0200
+
+    Implemented proper lowering for mem(set|cpy|move) functions
+
+commit 6561f916e79308e392e012bdf4d4eb223db54e08
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sat Jul 9 18:55:57 2011 +0200
+
+    Forgot to update hosts file.
+
+commit 5ee31a5a05fff64773f854eb70e2eea81313377a
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sat Jul 9 18:52:55 2011 +0200
+
+    Updated the Coreutils command line paths.
+
+commit 20ff2274d7c4848d4fb757cdc6e78f9aad5ca2c9
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sat Jul 9 18:52:08 2011 +0200
+
+    Added a simple memcpy/memset test.
+
+commit bccf5840d71fd1c91c669c3117f23437acbcbbf4
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sat Jul 9 18:44:55 2011 +0200
+
+    Fixed paths in infrastructure scripts.
+
+commit 2e8368016d9f78fcc50c60562321a48274565861
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Fri Jul 8 10:42:42 2011 +0200
+
+    test/Dogfood/ImmutableSet: libc option: klee->uclibc
+
+commit b68d57ac447ca46ce60c90613c5dd0f7683ce77e
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Fri Jul 8 10:23:57 2011 +0200
+
+    -useless kleaver test: kelaver doesn't support -evaluate feature
+
+commit 8bf2bc835bac31027963ad6ba1ce166876b6d5da
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Fri Jul 8 10:13:50 2011 +0200
+
+    fixed test: Feature/AsmAddresses.c, patch is taken from klee repo: r130067
+
+commit a04963024f15877317596f9c40ce45cd6c875930
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Fri Jul 8 09:57:47 2011 +0200
+
+    kleaver: adapted for LLVM2.9
+
+commit 0347d695dda0363857acba4f035ba542cfd7db09
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Fri Jun 24 09:03:57 2011 +0200
+
+    tests: changed libc declaration: klee -> uclibc
+
+commit 5aa28d9876b95090cf460a71666b922d61448a26
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Wed Jul 6 11:15:25 2011 +0200
+
+    enable assertions back: fixed configurations for 'runtime'
+
+commit e9e2351cb9be18d6751deba12958fa5dc17b0c82
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Jul 6 17:38:34 2011 +0200
+
+    Added RTTI support when building Cloud9.
+
+commit 647af512b7b7010dfcec1e30fc3b4b4418a8ec2e
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Tue Jul 5 21:04:26 2011 +0200
+
+    fix: enable back assertions
+
+commit 85fd41bd422666e439f660efc5e071195be7fc3a
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Mon Jul 4 17:16:42 2011 +0200
+
+    kleaver: restored: --optimize-divides=true
+
+commit df88811b87dbe941527a671ace107efcad6fa03a
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Mon Jul 4 17:13:21 2011 +0200
+
+    restored kleaver from Istvan csolving commit
+
+commit a84502db1be2058cadb7b1b942561bf57060ad5b
+Author: Ayrat Khalimov <airat.halimov@gmail.com>
+Date:   Mon Jul 4 16:46:52 2011 +0200
+
+    restored unit tests
+
+commit 12338f529af36f40a7d817fcb9688593d100bcf0
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Jul 4 18:45:56 2011 +0200
+
+    Added NULL sentinels, as per LLVM API requirements.
+
+commit fd30144e832d70b6c126b365971251e52e6c1e3d
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon Jul 4 18:14:42 2011 +0200
+
+    Updated the documentation.
+
+commit 6bd2410987b4e7ed87bfab08201a4425f62c6a94
+Author: istvan <istvan@istvan.(none)>
+Date:   Mon Jul 4 18:02:48 2011 +0200
+
+    Corrected uadd intrinsic cleaning to have proper typing.
+
+commit ba2a7498de69295151744119114b62fa22b18616
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sat Jul 2 00:15:26 2011 +0200
+
+    Added an underlying fn. table to store the alias targets replaced by model code.
+
+commit 56bbaf602d8919708267c13f7b85050efefa7876
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Thu Jun 30 21:39:41 2011 +0200
+
+    Fixed bug in the Klee & Uclibc path detection mechanisms. Removed older code, no LLVM backward compatibility in Cloud9.
+
+commit 8240296485685690e0ad1230ff03adf99b090bca
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Thu Jun 30 17:20:00 2011 +0200
+
+    Fixed typo in docs.
+
+commit 4afddef14b405df0acaa8b257b83e24fe18899ff
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Thu Jun 30 00:48:02 2011 +0200
+
+    Minor layout fix.
+
+commit 027589cd931606e4fe52210545b7ff900323d3c2
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Thu Jun 30 00:47:26 2011 +0200
+
+    Minor layout fix.
+
+commit 2e6e38ec190f7037d2eb5895b38aa70a2b5145ca
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Thu Jun 30 00:43:13 2011 +0200
+
+    Documented the new Gold-based target compilation procedure.
+
+commit 66d679b00a3407b8687b89936c12d693fb8fc42f
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Jun 29 18:04:58 2011 +0200
+
+    Adapted the documentation for LLVM 2.9
+
+commit c2d94acd39c59b0ac4f0b0a7873e1233317e42f8
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Jun 29 17:37:45 2011 +0200
+
+    Fixed the documentation structure.
+
+commit 5dca6466a1c5de97ea805f385cd960082a240ac8
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed Jun 29 16:53:12 2011 +0200
+
+    Enabled back assertions in Cloud9.
+
+commit ec76d8f98ee9052e2db3d288c18612ac0160e5a6
+Author: istvan <istvan@istvan.(none)>
+Date:   Wed Jun 22 20:50:21 2011 +0200
+
+    Missing implementation of intrinsics from last commit
+
+commit dbdc36f72de93e435d1fcf56b886f64720dd6059
+Author: istvan <istvan@istvan.(none)>
+Date:   Tue Jun 21 19:09:39 2011 +0200
+
+    Added support for several intrinsics (including SSE).
+    New intrinsics: trap, uadd_with_overflow, powi.
+    SSE intrinsics from the Klee-FP project.
+
+commit e677721c491a5c82f45e83fca7cea83e6829f9a6
+Author: istvan <istvan@istvan.(none)>
+Date:   Sat Jun 18 23:26:08 2011 +0200
+
+    Added extra option handling and other tuning for klee-gcc.
+    Should work now with configure for many applications.
+    Also links external libraries in the right order now.
+
+commit 0cb9c4550680328f03465ee8c16895237ca62094
+Author: Volodymyr Kuznetsov <vova.kuznetsov@epfl.ch>
+Date:   Mon Jun 6 17:57:42 2011 +0200
+
+    Final (and essential) bit of Ubuntu 11.04 support
+
+commit 2805d77e8c3ec28432ef709fdadfe2d48e90181d
+Author: Volodymyr Kuznetsov <vova.kuznetsov@epfl.ch>
+Date:   Mon Jun 6 17:16:23 2011 +0200
+
+    Fixed model linking on LLVM-2.9
+
+commit 1b785c2c3af7b2df17a4e772508e877b10943f6e
+Author: Volodymyr Kuznetsov <vova.kuznetsov@epfl.ch>
+Date:   Mon Jun 6 17:29:20 2011 +0200
+
+    Fixed compilation and runtime errors on Ubuntu 11.04
+    
+    Conflicts:
+    
+    	include/cloud9/lb/Worker.h
+    	include/klee/SolverImpl.h
+    	lib/Cloud9/Worker/LBConnection.cpp
+    	lib/Cloud9/Worker/PartitioningStrategy.cpp
+    	lib/Solver/PCLoggingSolver.cpp
+
+commit ccb8dedb765d28cdaf4e8a58e39a50ffc797abd8
+Author: istvan <istvan@istvan.(none)>
+Date:   Mon Jun 6 15:12:50 2011 +0200
+
+    Solved deallocation problem, no need to patch LLVM anymore.
+    However RTTI needs to be enabled for LLVM, otherwise difficult to compile everything!!!
+
+commit 587ded7232ff28bc21c46ddf4d69f32fa02435cb
+Author: haller <haller@graygirl.site>
+Date:   Sat May 14 01:33:14 2011 +0200
+
+    C++ port of Cloud9
+    Inherited C++ modifications from klee-cpp
+      Atomic Instruction Lowering
+      Empty instruction elimination
+      ConstantStruct handling
+    Also corrected bug with Instruction::Invoke
+      Argument list built the right way now starting from index 1
+
+commit 60476ccd45e24c40fcdd674fbdd7ad93450f6972
+Author: haller <haller@graygirl.site>
+Date:   Thu May 12 07:38:54 2011 +0200
+
+    Minor Klee modifications:
+        Include directives modified to match the current directory structure of LLVM.
+        Tried to maintain compatibility with all versions as much as possible by using #ifdef.
+        Set RUNTIME_DISABLE_ASSERTIONS to 1 in Makefile.config.in, otherwise folder name for runtimes included "+Asserts" but configuration was still only Release and could not find files during execution.
+        Eliminated warnings related to constructor initialization ordering.
+        Modified klee::main.cpp::parseArguments to eliminate const downcasting. New code copies const char* into regular buffer to get rid of qualifier.
+    Serious Klee modifications:
+        Modified MemoryBuffer usage to the new LLVM 2.9 model.
+            Some issues triggered with OwningPtr, handled lower down in the LLVM section.
+        Modified llvm::Path usage to eliminate all calls to deprecated functions.
+            New code is not as nice but works well and uses only the recommended methods.
+        Modified inline assembly handling to use built-in TargetLowering from LLVM.
+        Extended KFunction constructor in KModule.cpp for special care on Call instructions.
+            Old version resulted in argument mismatch and weird errors.
+        Replaced dynamic_cast with LLVM dyn_cast and appropriate support code
+    Dynamic casting rules (should be looked over)
+        Without type verification:
+            KInstruction->KCallInstruction
+            SymbolicEngine->Executor (!!! code already mentions that not nice, but now even worse since Executor needed to be modified)
+            Interpreter->SymbolicEngine (!!! weird dynamic casting since it isn't even a sub-class)
+        With type verification:
+            ExecutionTraceEntry->all sub-variants (performed similarly as Expr class and its subclasses)
+    Makefile modifications:
+        Updated Makefile.common with realtime library (-lrt)
+        Updated Makefile.common for protobuf without rtti (-DGOOGLE_PROTOBUF_NO_RTTI)
+    Makefile recommendations:
+        Use the PROJ_SRC_ROOT variable to set complete path for protobuf files.
+        This would allow compilation to be initiated from different object folder, similar with Klee.
+    System modifications:
+        Modified boost header (sp_typeinfo.hpp) -- Reason: Sun style declaration not recognized by llvm-gcc for boost 1.44
+            template<class T> sp_typeinfo sp_typeid_< T >::ti_(sp_typeid_< T >::name());
+    LLVM modifications:
+        Hack in OwningPointer, delete commented from destructor.
+            Reason: reset already performs deallocations and current code always calls reset before terminating.
+            Klee does not have this issue since it only uses it in the scope of the main function and does not trigger destructor.
+    Run-time modifications:
+        Temporarly removed usage of PTHREAD_ONCE_INIT from function pthread_once (threads.c) since it generated problems with the llvm-gcc compiler (llvm.trap+unreachable)
+    Observations:
+        Some executables for example in corelibs are compiled with and some without __USE_MISC defined. This results in a mismatch between the different definitions of the stat structure. Patching functions with such arguments (like fstat) may fail in some cases.
+
+commit 8b01cdca3f38281bc2b55d588aa772d2e18ce818
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Tue Jun 28 18:47:49 2011 +0200
+
+    Small bugfix.
+
+commit db38b0f2bfa10b56c5b69970d76a19d57b965f18
+Author: Cristian Zamfir <cristian.zamfir@epfl.ch>
+Date:   Thu Jun 9 15:31:13 2011 +0200
+
+    added Makefile for the producer-consumer example
+
+commit 8a33693d4dbfe8e6fb514213f5efd6b959eb623d
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed May 25 18:26:37 2011 +0200
+
+    Fixed critical bug reported by Raimondas Sasnauskas, introduced when some new code was backported into the release branch.
+
+commit 8da7e3aeb4c19809adfba6e96569141f42050781
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed May 25 18:14:17 2011 +0200
+
+    Fixed the regexp example, in order to work with Cloud9.
+
+commit 6877fb4a7fea166316ac40b3507114327bf1056d
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon May 16 15:24:43 2011 +0200
+
+    Added the missing ASTKind.* files.
+
+commit 6e58c3a0a576fb73a328d2347a3e146139f824b2
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon May 16 01:51:08 2011 +0200
+
+    Added the .gitignore file.
+
+commit 3d9e7948a6135594f6d5432f85b0495bb53c4951
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Mon May 16 01:45:40 2011 +0200
+
+    Updated the infrastructure scripts to allow running Cloud9 locally (closes #877)
+
+commit d086e20c9be29e54296f2e22ade2bf0ecf8e96a2
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Wed May 11 22:09:59 2011 +0200
+
+    Patch from Tom Bergen: Added support for InvokeInst in KModule.
+
+commit e45c3dab98e2de87a070da24a3aea9d222c6b22e
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:16:34 2011 +0200
+
+    Added the script to produce the release archive.
+
+commit 85733f3f349b7f21ecc3f1f8ea6f8668173a1784
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:16:12 2011 +0200
+
+    Other stuff grabbed from Klee in the mean time.
+
+commit 6dacba3461259dfd4d2c83232cb2285d80d66814
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:15:04 2011 +0200
+
+    Updated the test suite (still incomplete).
+
+commit a658c65af440c62071d6b5519218cca9b847f930
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:14:00 2011 +0200
+
+    Updated the Makefile system.
+
+commit cafa53b4f84da87af598d6c3f1b07709746ab99e
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:12:45 2011 +0200
+
+    Removed the Klee website mirror.
+
+commit b5b20137bc6598d0453622f426e6075d8488e38c
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:12:23 2011 +0200
+
+    Introduced the Cloud9 documentation.
+
+commit b53cfff9f4fb96ebc12e01a8388b7e2110b167bb
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:11:40 2011 +0200
+
+    Introduced the executables.
+
+commit 9f4379bfd0f0694415d3d12108f60887817ccced
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:06:34 2011 +0200
+
+    Added license information.
+
+commit af2fe06361683b47a1ceefe22b310c83cdf3a700
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:05:39 2011 +0200
+
+    Added more examples.
+
+commit a687800f7069a6c40745c0aa4cf5ede10ee29f73
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:05:03 2011 +0200
+
+    Introduced the new scripts.
+
+commit 672385372b6ab776616839fce4c262d189dd1afd
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:04:40 2011 +0200
+
+    Removed old script files.
+
+commit c92186d1dd64bf0554e78166cdb9111eca63e5a4
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:04:12 2011 +0200
+
+    Introduced the POSIX model.
+
+commit ca588696ae64bc19c379c407234c5611896eabe2
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:03:42 2011 +0200
+
+    Introduced the Cloud9 source code.
+
+commit 70dceb71c056ccf5bb2341dd8d66189e651d1cf8
+Author: Stefan Bucur <stefan.bucur@epfl.ch>
+Date:   Sun May 8 21:02:34 2011 +0200
+
+    Introduced the latest STP.
+
+commit efe0036597a26367fc264cd068ba8eb0706ab3b1
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Oct 25 23:19:55 2009 +0000
+
+    Update instructions to suggest using llvm-gcc 2.6.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@85080 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bf24ce351ba3ac31423ca78d4973da9c224e78e2
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Oct 25 00:31:01 2009 +0000
+
+    Update instructions to suggest using LLVM 2.6.
+    
+    Also, link TestingCoreutils document from tutorials page.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@85025 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c02202f8a736216f78dbe83d98eb3329e9a3c6f3
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Oct 25 00:08:19 2009 +0000
+
+    Update source to build against LLVM 2.6
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@85024 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 938300c46d58da401bbfb22e9bb420299c7559de
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Oct 24 23:58:44 2009 +0000
+
+    Regenerate configure.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@85023 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit ba36484e47ff3708c005380bbf409433aea45976
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Oct 24 23:58:27 2009 +0000
+
+    Update configure logic to detect LLVM version (for use in config.h).
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@85022 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 7ae61392cdef335b436390da0acac8fa7a8f730f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Sep 21 00:28:57 2009 +0000
+
+    Don't force llvm-gcc to -m32, just hope that it was configured correctly for the
+    current target arch. This should work in the usual Linux environment, but it
+    won't work on Darwin if using the non-default arch; for that we need the LLVM
+    makefiles to figure out the right llvm-gcc arguments.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@82422 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 2c87425c36058a3ecc5c0136cc6feec6fdc1cadf
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Sep 21 00:27:27 2009 +0000
+
+    Improve skipping of debug intrinsics, we can't evaluate MDNode operands.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@82421 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8c24afc1773b06e3e8f6a9876ec8212e209ee493
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Sep 21 00:25:14 2009 +0000
+
+    Don't try to evaluate MDNode operands.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@82420 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 145431367de164f4c41c87a48c06b0c2da5396e9
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Sep 5 00:10:27 2009 +0000
+
+    Applied patch submitted by Pongsin Poosankam that fixes a bug in the
+    parser.
+    
+    Fixed bug in the parses.  Patch reported by
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@81056 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0f5c5f37dcc58fd31b660777e205955aebee95b5
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Sep 1 06:53:41 2009 +0000
+
+    Update for LLVM ostream changes.
+     - Includes patch by Michael Stone!
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@80665 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 099528adc121fc14b4a0ce56bf7f373771eaa659
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Aug 24 21:42:34 2009 +0000
+
+    Applied the patch submitted by Robby Cochran that fixes an arithmetic overflow in Solver::getRange().
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@79945 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3fd76a8258cab7071fba7d7524604c96e1b1fe5c
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Aug 17 00:54:57 2009 +0000
+
+    Update for LLVM API change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@79217 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 6bcf1fa726383fd8a7326808e008424b0e11f729
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Aug 5 05:40:51 2009 +0000
+
+    Write "Step 6: Replaying KLEE generated test cases", using klee-replay.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@78168 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit abac13a81a9649dfccff20b2d337ea04a4b24269
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Aug 5 05:38:38 2009 +0000
+
+    klee-replay: Support running multiple tests in one invocation, and tweak output
+    slightly.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@78166 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3c2d95e5fc4433e30ba88fa29488d94992fbd0ab
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Aug 5 03:45:08 2009 +0000
+
+    Build klee-replay when the POSIX runtime is enabled.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@78149 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 71e3fb0d58392380aea48e47ebb349ec0fbe3ca4
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Aug 5 03:22:27 2009 +0000
+
+    Add klee-replay tool.
+     - Not yet enabled as part of the build, and not recently tested.
+    
+     - This has also been trimmed down significantly from the version which is able
+       to fail system calls, that functionality was too experimental to be generally
+       useful.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@78148 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 88c53ef042bbbebd2fc8f92eb368c5c67a9cc869
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Aug 3 00:32:34 2009 +0000
+
+    Fix computation of GetElementPtr offset for 64-bit targets.
+     - Precomputed constants were being truncated to 32-bits!
+    
+     - This was actually the problem with new[]/delete[], I failed to look at the
+       generated code for new[] to realize that the compiler is generating the
+       offset pointer, not the runtime library.
+    
+     - All tests now pass on x86-64!
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77930 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 5d03fcafd3f1289db443ee98f4d47d2f7e3988c8
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Aug 2 23:12:39 2009 +0000
+
+    Add instructions on how to build with POSIX/uClibc support to GetStarted page.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77924 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit cde5b4092f753efa726ee1d33a480a60d6cafe47
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Aug 2 23:09:50 2009 +0000
+
+    Don't abort on --exit-on-error failures, this is just confusing.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77923 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4efd6e46bc5af9af3ea89c4b0fb7579e547b049d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Aug 2 23:09:31 2009 +0000
+
+    Print allocation info for adjacent objects in out-of-bounds message.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77922 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e5943a55a57ae3ba9763029866c90a133b42d89f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Aug 2 23:05:33 2009 +0000
+
+    Disable this test, KLEE's new[] implementation is broken; surprisingly this
+    failure only manifests itself on x86_64, however.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77921 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 6e7c31eaf4f6947980c7a1e81b2be419949e2536
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Aug 2 03:13:07 2009 +0000
+
+    Stop building the STP parser, we don't need it and it unnecessarily adds a
+    dependency on flex and bison.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77853 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b6fc0b612dc639b2df3259572f193327afe7bb7c
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 22:59:38 2009 +0000
+
+    Fixes for building runtime on linux x86-64.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77825 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b77fe5cf7041f7327c361537dcbeb6cfba3e6017
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 22:52:06 2009 +0000
+
+    A few type fixes for libc functions, for 64-bit.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77822 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e2b4cd5c9cf304baa0c9f5236985831986540c5e
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 22:31:44 2009 +0000
+
+    Implement va_arg handling for x86_64.
+     - Based on a patch by Vladimir Kuznetsov!
+    
+     - x86_64 has a complicated calling convention for va_args; instead of dealing
+       with this, this patch uses a clever workaround by initializing the va_list
+       structure so that the callee believes all arguments were passed in the stack
+       save area.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77819 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c1aff16594c244f94a5b87903db79a49eadb6eee
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 21:56:44 2009 +0000
+
+    KLEE64: Fix initialization of ctype_ externals.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77816 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 70eb2fc138d8c2b2d18f72ece9b1ad2de391867d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 21:40:15 2009 +0000
+
+    Rewrite constant initialization to be more portable and readable.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77809 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d1e326b79e11c55adedae4153fa8b365c3c8098e
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 21:02:43 2009 +0000
+
+    Add Expr::dump
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77802 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 1929498795d05a3d1625efc8789aa044140138bc
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 20:54:04 2009 +0000
+
+    When generating external function stubs, access the arguments in terms of the
+    function type, not the argument types. This accomodates for a conversion which
+    is done in Executor.cpp.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77801 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e7826385b4cae98a04d8d23e23702d442fb3d300
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 20:26:15 2009 +0000
+
+    Use size_t where appropriate for ImmutableTree and friends.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77799 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4bcb4d519ff87098ccab123df28394acabe4b02d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 20:15:38 2009 +0000
+
+    Don't force -m32 in tests; this should be handled by the build system.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77798 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit eb6f3854ccb5d8b1e81d2eb66bd8dc4bb10892e8
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 19:51:59 2009 +0000
+
+    Rename intrinsic library to libkleeRuntimeInstrinsic, for consistency.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77797 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 65fcf11f6ee1eadb23c240c024fb41821338c729
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 04:04:39 2009 +0000
+
+    Update for LLVM API change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77771 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 09cb5752d8514669bf24365bf99e6ecd7a062e97
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Aug 1 04:03:05 2009 +0000
+
+    Avoid failing if waitpid fails with EINTR, patch by Vladimir Kuznetsov.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77770 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9cf35a9be80183e767ffb0585f89c7bf12e631f8
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jul 30 03:39:17 2009 +0000
+
+    pcregrep.c isn't going to work on x86_64.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77574 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a6d2ce991bbb0aff9ce362fffa5f654377c7e93f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jul 29 04:13:37 2009 +0000
+
+    Multiply for alloca & malloca instructions may need to coerce index expression
+    to target pointer width.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77428 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit efabe19f62d9fad9dbb0b5aba240cbe67370a167
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jul 28 08:58:29 2009 +0000
+
+    Add missing va_end and null check.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77312 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit f8f48639d5fb1afcdff8af8cf6aa7e035b8c0017
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jul 28 08:43:42 2009 +0000
+
+    KLEE64: Fix a type conversion problem with calls to klee_make_symbolic; there
+    are probably lots more of this -- we really need coercion and argument
+    validation to be checked outside of the individual intrinsic handlers.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77311 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0cb4b5785522f1456a7221bbfd0443564f856d69
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jul 28 08:39:29 2009 +0000
+
+    KLEE64: When binding GetElementPtr constants, do evaluation in pointer width of
+    target.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77310 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit da7e7d8e8fb7b056cbfed02735b6cb4871000897
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jul 28 08:32:39 2009 +0000
+
+    KLEE64: Regardless of the target, offsets in the memory subsystem are 32-bits. I
+    don't think anyone is going to be doing symbolic execution with > 4GB buffers
+    any time soon, and this is slightly simpler.
+     - We know pass about half of KLEE's test suite on Darwin x86_64.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77309 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bd1048f68527b805d4cada6b3f1c302cca89474d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jul 28 08:30:24 2009 +0000
+
+    KLEE64: GetElementPtr constants should be evaluated in the target pointer width.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77308 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 77b9d9b465f574058812eb5bb94ca1f24149dcdf
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jul 28 08:15:39 2009 +0000
+
+    KLEE64: Fix some totally bogus printing code, which was reusing a va_list
+    without va_copy()ing it.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77307 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e78565a16fc3239f3b4c45f881baa3dd143bb4d8
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jul 28 07:59:09 2009 +0000
+
+    Move Machine constants into Context object, initialized based on the target
+    data.
+     - This is the first step towards having KLEE be fully target independent, its not
+       particularly beautiful but its expedient.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77306 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3ce02a4810b245c108abe4170bc108338644677a
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jul 26 20:29:04 2009 +0000
+
+    Tweak objdump script, kcachegrind has gotten stricter about its parsing.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77168 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 824c4054d5c35502bf19a3474c26f9075ea59716
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jul 26 11:35:07 2009 +0000
+
+    A quick editing pass.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77157 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 1aec005b359fa4bda65be569b3865ae6c8236bc0
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jul 26 11:22:17 2009 +0000
+
+    Start writing a user focused coreutils case study.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77156 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a34d1ffa9b6dda5890e05a1219230c0eceb46735
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jul 26 11:21:23 2009 +0000
+
+    Make sure final KLEE output gets on a new line.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77155 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4e82d6750feea4a159385d0779b93dac799e21ff
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jul 26 11:14:19 2009 +0000
+
+    Tweak
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77154 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 874dddb5b0ea6437e8c769bfc6a1282c0cff039d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jul 26 06:35:21 2009 +0000
+
+    Ok, I caved. klee-gcc is useful, at least for now.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77136 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bae71b12a9be0f6848377d39382734bb2095bb3f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jul 25 05:17:51 2009 +0000
+
+    (llvm up) Update for llvm::Value getName() change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77049 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit f64ca408bd5152142555e96602014cc1d7980bb9
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jul 25 01:08:15 2009 +0000
+
+    (llvm up) Update for API changes.
+     - This dance is getting old.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@77029 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a6503135946a4cc96001c6c2832699ac4648e43e
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 17 15:41:43 2009 +0000
+
+    Make sure to initialize the native target, so we can make a JIT.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@76178 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9c858cb66628bf5560fd02a61ce95012033b312d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 17 04:48:38 2009 +0000
+
+    Simplify some code, and add more comments.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@76152 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 68feb6971cc7ec05abdf08693cd5c7a796436da9
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 17 04:47:24 2009 +0000
+
+    Update for LLVM's wishy washy developers.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@76151 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 59fc074684c1d45773b92c2a75372551f9b8a9a7
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 17 04:03:49 2009 +0000
+
+    Add some comments for CexCachingSolver::searchForAssignment.
+     - No functionality change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@76148 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4359ca89fc80a5cba4b00a745986f4d93c35d06d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jul 15 20:37:05 2009 +0000
+
+    [llvm up] Update for LLVM TOT changes.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75826 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 174aac43d27cf65fb888b4e7aec01542bb4d6ceb
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jul 15 05:55:33 2009 +0000
+
+    Fixed two test cases.
+    The failing test case is actually (query [false] false), which
+    should return VALID, but currently returns INVALID.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75747 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 2647aad121940413493cd2e1f651c591fa0d1bbb
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jul 15 03:05:06 2009 +0000
+
+    Code to answer satisfiability queries.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75735 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c684c98e278afa8541413738e4cc51577865ee11
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jul 14 07:55:11 2009 +0000
+
+    Update for LLVM API changes.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75626 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 28d70f854ea5b24e73a86a21a528d20084c985e1
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jul 12 20:42:31 2009 +0000
+
+    Update for LLVM API changes.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75427 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8a319662e371d43ca5204277dda1a589c2d64d89
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jul 12 20:29:01 2009 +0000
+
+    Simplify.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75425 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c19bcede89a387a26602aa7db26f771307cf78f5
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jul 11 19:29:04 2009 +0000
+
+    Removed the Nz macro.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75377 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 39499dc44fab575fb05d84fc87d4137002f57b52
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jul 11 19:24:18 2009 +0000
+
+    Update documentation for Not, and normalize some formatting.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75373 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 39710fc75df356372abf6b40f25ee93bfc51c53a
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jul 11 00:39:27 2009 +0000
+
+    Use a builder in the SMT parser instead of constructing expressions
+    directly.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75323 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 84e1bc880c04127e5ac58c97e7b7a06de9e3a926
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jul 11 00:08:29 2009 +0000
+
+    Report an error in the SMT parser when encountering the few operators
+    not supported yet: bvneg, bvsmod, bvxnor, rotate_left, rotate_right,
+    repeat.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75319 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 65f1803e5eca6f1d946ee84bf6cac806143fdebb
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 23:30:46 2009 +0000
+
+    Removed debug info.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75313 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 80d1048211910e0f35e84e421cda557c7c55ce9d
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 23:20:50 2009 +0000
+
+    Fixed order of offsets in Extract.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75311 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3696a9833680b6e6d2eb82c2228eeb04ce034b19
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 23:18:26 2009 +0000
+
+    Added xfail test: (query [false] true) should return INVALID.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75310 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d0a0932092204523ec97dfbfb3b4750d1c296dae
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 22:10:54 2009 +0000
+
+    Added support for not, zero_extend, and sign_extend to the SMTLIB parser.
+    Added support for n-ary and, or and xor.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75299 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 94b152e73e23640a425d167baa4b80c470c1d07c
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 21:13:15 2009 +0000
+
+    Updated the Not operation for constants.  Added extra test case for this.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75282 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3fa827185a0488b9ee58389d4aae50154ee3273c
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 07:35:41 2009 +0000
+
+    Simple propagation rules for boolean not in the fast cex solver.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75242 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 99e134ba97d5ac0b0b52f5d75a50ea51f7c0c49f
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 07:34:54 2009 +0000
+
+    Small test for non-boolean Not.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75241 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 580e6e49dc72d3f7df5b65dd0ca6b28b405dc40e
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 07:34:04 2009 +0000
+
+    Added support for bitwise not.  Replacing "false == " with Not in
+    the canonical form.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75239 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d51cb892c7ddee9b470d83799df222594412fc71
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jul 10 04:15:25 2009 +0000
+
+    Replaced createNot() by createIsZero() and "Not" macro by "Nz".
+    Not will become bitwise not.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@75224 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 2cc3cc7f9850af5907e15f0db6048b87bea59f62
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jul 8 02:35:55 2009 +0000
+
+    Added support for bitvector variables to the SMTLIB parser (currently
+    widths have to be multiples of 8).
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74990 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8f0e2cbeef3117dc047efeb14a83aae81420786b
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jul 2 04:16:47 2009 +0000
+
+    Added support for bitvector constants to the SMTLIB parser.  Only
+    variable and array support left.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74690 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 618e5f735d4ad3657677327c3046d28a897c1c20
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 27 01:11:38 2009 +0000
+
+    emacs .pc mode: Numbers should be recognized before identifiers
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74365 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 5db96e565b5e1aec37e60918c6bd9e62a9536112
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 27 00:55:57 2009 +0000
+
+    Start move to using APFloat (support long double).
+     - Incomplete, still have to move some conversion operations.
+    
+     - Also, there isn't support yet for copying long double values to native
+       memory.
+    
+     - Still, should be a monotonic improvement and we are no longer faking long
+       double support.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74363 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 842cce864b0052a69fbd671e6cf5e6ae8727c9fd
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 26 15:54:07 2009 +0000
+
+    Simplify read/write code.
+     - Get rid of unnecessary special cases.
+     - Support read/write of large integers.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74286 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8b25b6afb5cfa02d5533bdfed7645420509bbe7d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 26 06:17:51 2009 +0000
+
+    More large integer support.
+     - Allow constructing a ConstantExpr from an APInt, too painful otherwise.
+    
+     - Parser support for large integers.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74278 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3a7963997194cda97db72a039e5550dc077e94ef
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 25 07:13:24 2009 +0000
+
+    Recognizing more SMTLIB expressions (bitwise, etc.). Some of them
+    still need to actually be constructed.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74169 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a20a71862fef9b38b14a518dd6bfb1041977232d
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 25 05:42:37 2009 +0000
+
+    Added support for flets.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74167 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 7bad73db09b6914757e588b542907400fb6fc247
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 25 05:24:43 2009 +0000
+
+    Simplified grammar by properly factoring out the rule for optional annotations.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74165 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit eb67daddeb77a12152aa5d15f1f868d7331dcbe2
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 25 01:01:27 2009 +0000
+
+    Kill off last getConstantValue uses.
+     - ConstantExpr should now fully support arbitrary width operations.
+    
+     - Still numerous holes in parsing, solver, etc. to plug.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74151 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 420e479e42a8a78b0f6d820ae223152b08ebbd9b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 25 00:42:11 2009 +0000
+
+    Remove some more uses of getConstantValue.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74149 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0ff4c0b429e7f5c09ab8daf743e9d5b6910067e5
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 25 00:34:31 2009 +0000
+
+    Switch to using APInt math operations.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74148 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0d28dd4b570b5398558bafab8ccf0a8f3a48cc6b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 25 00:05:45 2009 +0000
+
+    Didn't mean to check this in.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74144 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0756fc2ee1e630f3a6d7436180317a0b30956fe5
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 25 00:02:11 2009 +0000
+
+    Flesh out support for arbitrary bit widths in some key places (STP & constant
+    creation).
+     - Not used yet.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74142 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 81b948628f3fd4debed7e93334c20a1c0f2cfbc2
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 24 14:51:24 2009 +0000
+
+    Update for LLVM API change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74075 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit ee83a158ad854b2988cd37c0929821c435ce276d
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 24 02:31:34 2009 +0000
+
+    Added support for LET expressions.  Added simple environment support
+    to SMTParser.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@74055 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e61df3924b27aae03ca53bcc0845959d3e406700
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 22 03:41:57 2009 +0000
+
+    Remove unnecessary width field, the width is part of the APInt.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73872 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 77438d66ed37456fac8d2c10e83fc6b6af7fe468
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 22 03:38:14 2009 +0000
+
+    Store ConstantExpr's value as an APInt.
+     - In anticipation of supporting large constant values.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73871 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 28c84ee1289668da0894a6359a06b44c7505d215
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 22 03:21:02 2009 +0000
+
+    Add ConstantExpr::toString (instead of using getConstantValue()).
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73870 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 63746ee2f92852d1fae727891d504d4459c2df3e
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 22 03:08:48 2009 +0000
+
+    Update for changes in how JIT is linked in.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73868 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit ed24357328645d708549b19506c4f40cf9f5563c
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 20 01:02:51 2009 +0000
+
+    KQuery documentation: division and shift operations.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73814 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 702408132d0d84d92f7d0f2083c04f3183bc714f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 16:10:26 2009 +0000
+
+    Improve FastCexSolver:
+     - Bug fix, unbreak Concat propogation (recent regression).
+    
+     - Also, add some simple propogation for Add.
+    
+     - These two knock off another 50% of the queries hitting STP from the first 30s
+       of 'dd'.
+    
+     - Also, add some debugging code.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73488 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 61a13e06bda7b730b650f34de5cae8215237ab6e
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 15:44:55 2009 +0000
+
+    kleaver: Add some command line options for choosing the Solver.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73485 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 7f7691d22b61c2ff85c4dca2f574f21ff125a79b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 04:11:20 2009 +0000
+
+    Add basic constant folding / simplification for Eq.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73467 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 282e5be64c8257be027b85b0e2df355481723113
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 03:33:57 2009 +0000
+
+    Add (very) basic constant folding for And,Or,Xor.
+     - Lots more important goodness can be done here.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73461 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 1b39e3ba67daa452d6d0dae276ebedf869db96dc
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 02:54:09 2009 +0000
+
+    Add (very) basic constant folding for Mul.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73460 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9b326b39ed069e18d006a17b2e1c48131aa3fb39
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 02:27:48 2009 +0000
+
+    Added support for comparison and arithmetic expressions.
+    We need to add support for smod to Kleaver.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73459 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit afd02546e3e61f5343a6e4fd48be76eb06af0173
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 02:26:40 2009 +0000
+
+    Start SimplifyingExprBuilder
+     - Normalize Ne, Ugt, Uge, Slt, Sge
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73458 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b99aa1ffc14e5ede1966bcb46178fba75b56d5b5
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 01:16:01 2009 +0000
+
+    Added bitvector function/predicate names to the lexer.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73455 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 07ed95036600a1766b2e4315b3845cd23f589fbd
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 16 00:52:01 2009 +0000
+
+    Added support for logical formulas in the SMTLIB parser.
+    Started to work on parsing bitvector terms.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73453 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 1435b923e91a40a073109b9a05bc4499875fac2b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 15 05:08:04 2009 +0000
+
+    Support partial folding for Sub in new constant folding builder.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73377 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 1a102f37ec6812dc275c0d6b932f6d4ebdd653ec
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 15 00:52:24 2009 +0000
+
+    Support partial folding for Add in new constant folding builder.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73363 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9dbb2c9e56a002986106ca2f3a9297ef9c5adb12
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 22:02:23 2009 +0000
+
+    Add NonConstantExpr, so it is possible to statically type an expression that is
+    known to be not-constant.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73352 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a0827cc11c265d448673babfb213190d9b6227ec
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 21:53:32 2009 +0000
+
+    Start test case for ConstantFoldingExprBuilder
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73351 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 88c257f51f3ede84b5259f307c2436cfd93f4103
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 21:52:09 2009 +0000
+
+    Rename FoldingExprBuilder -> SimplifyingExprBuilder
+    
+    Also, start printing query # with -print-ast (for testing purposes).
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73350 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0fcf508b514844147006564078cf03702061f2a7
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 21:20:11 2009 +0000
+
+    Kill off ExtractExpr::createByteOff.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73348 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0d4d207bac8f14c9e4521d806a7dac46e232fcfd
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 21:11:53 2009 +0000
+
+    The expansion for Read{MSB,LSB} needs to continue to use the folding methods,
+    otherwise we build expressions that won't be matched later when we print them.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73347 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 50c2a96d605dcfc0d94925d31a63f9b42d8ec7cb
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 19:52:43 2009 +0000
+
+    Use ExprBuilder for constructing expressions in the Parser.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73345 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8bd984876d0b826d62ee11f5267d72375cf78026
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 19:40:25 2009 +0000
+
+    Fixup syntax coloring for emacs .pc mode.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73344 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8b9e1f3662ddf6941c628cffd17fce9538194d18
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 09:12:23 2009 +0000
+
+    Remove the (A < constant) => (A == 0 || A == 1 ... || A == constant - 1)
+    optimization, its not the kind of thing we should always be performing.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73340 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 965eba41982b260493e49c447556455d02d226ab
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 08:57:19 2009 +0000
+
+    Add ExprBuilder base class, and start of implementations.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73339 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c1f05b92b08019ac2ffb36fc27b9fda26eb61c03
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 08:16:07 2009 +0000
+
+    More ConstantExpr cleanup.
+     - Change Executor::evalConstant to return ConstantExpr.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73337 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 14baf24cdfd4004b495991a336b9e73c4996a05b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 07:18:00 2009 +0000
+
+    Fail with an exec error on large (> 64-bit) floating point ops.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73330 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 94c9011067a517d900c1c20ea324a2fb2cb69efd
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 07:10:59 2009 +0000
+
+    Remove some unused functionality.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73329 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 734814f2686b486b7d8d439bf1ff258fd8534712
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 06:52:04 2009 +0000
+
+    More ConstantExpr tweaks.
+     - We can safely assume for now that array indices are within 32-bits (we will
+       enforce this even on 64-bit targets).
+    
+     - We can also safely assume that address fit in 64-bits.
+    
+     - Always look up function pointers using 64-bits.
+    
+     - Protect a few other places by explicit checks that the type is <= 64-bits,
+       when we can fallback to a safe path.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73328 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c68492d1a0b09249a41ff0da67eeefd61e7afd41
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 06:16:49 2009 +0000
+
+    Change AddressSpace::resolveOne to take a ConstantExpr directly (and to allow
+    64-bit addresses).
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73327 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 6949be5a254f3483780a022bb543ddaddb17cc61
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 06:07:30 2009 +0000
+
+    Add ConstantExpr::{getLimitedValue,getZExtValue}.
+     - For use in situations where the range of the constant is known to fit in a
+       uint64 (or smaller), or the extra bits don't matter.
+    
+     - No (intended) functionality change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73326 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e1a04cfb85cc4fc5a7e3ab28d512e0f6ea1f8599
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 04:52:10 2009 +0000
+
+    Rewrite ImpliedValue to use ConstantExpr operations.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73325 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bfc960840f02b20f0e9cabcf670e1e2e4ba95a03
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 04:23:54 2009 +0000
+
+    Add several ConstantExpr utility functions and move clients over.
+     - Reducing uses of getConstantValue() so we can move to arbitrary precision
+       constants.
+    
+     - No (intended) functionality change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73324 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit dd3dec9873035192478d86fddbd3677ae6f3ae95
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 14 03:33:15 2009 +0000
+
+    Add constant folding operations to ConstantExpr.
+     - No (intended) functionality change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73322 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 125a90b09a497a15d18a52623f8730754c800747
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 23:58:27 2009 +0000
+
+    Switch to using constant arrays for non-symbolic objects.
+     - Currently uses a dumb implementation which keeps the old flushing
+       architecture, but converts to a constant array when the first ReadExpr is
+       created.
+    
+     - Temporary --use-constant-arrays switch can be used to disable for testing.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73313 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 18d3aa7008b9e436060da66ae8dd5a7940f55ffe
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 23:49:36 2009 +0000
+
+    pcregrep should run with klee-libc.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73312 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c5afa5e8d084eafea34fcb95db2a980941f34b05
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 22:09:19 2009 +0000
+
+    Reverted last change that added createIff.  Since we only handle
+    bitvectors, we can just use Eq.  The parser can distinguish between
+    boolean formulas and bitvector terms.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73309 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 24c9d7642c912b76ab5e036f764559e2ed687f0b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 21:58:36 2009 +0000
+
+    Create new ObjectState constructor for explicitly creating symbolic objects.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73308 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 737bae0b2711157a7e0405fc066fd78dcf54ecbe
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 21:53:05 2009 +0000
+
+    Fix for the issue reported and diagnosed by Seungbeom, where KLEE was
+    skipping forks without reporting it.  Added a warning the first time a
+    fork is skipped for each of four different reasons.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73307 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d6317976f56215854e80cd217d47aea6aebfe8b9
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 20:30:55 2009 +0000
+
+    Add CBE'ified version of pcregrep.
+     - Cleaned up enough to build on Darwin & Linux.
+    
+     - I don't really care to have too many programs in the test suite, but this
+       works until we have some better place for them.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73303 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 53cf61247e0e1a4f18e85f5d07ac837e06cbb973
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 02:56:57 2009 +0000
+
+    Added a helper function to construct IFF expressions.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73283 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 2b5db28c1fdce02f13370b54a68bdd469489ec36
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 01:53:35 2009 +0000
+
+    Removed bits of grammar dealing with quantifiers.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73280 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit db54a0fbf123a08db1c34deb4dc9795a973950dc
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 01:24:40 2009 +0000
+
+    Support for parsing SMTLIB headers.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73278 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit fe3ebd8d997e0a8c600ebde20bd0a213ff8707ed
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 13 01:13:08 2009 +0000
+
+    Changed SMTParser to return the parsed QueryCommand.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73277 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 424624c9d28d57ed1bdeca1ff67f7cf8f506587b
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 12 02:38:27 2009 +0000
+
+    Removed parser_temp.h.  Adapted the code to use SMTParser directly.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73215 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bbc7668dd2ba637ee493c764e5f89fe96e2669aa
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 12 02:15:06 2009 +0000
+
+    Removed unused file.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73214 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 90c6dbfb3a1c9897ecc76cdfe189d50c4f26536f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 21:12:25 2009 +0000
+
+    Move declaration of vc_DeleteExpr outside of function.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73173 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8ad23ec6174c2d73b06ce8bf8ec796920b29c94c
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 09:15:33 2009 +0000
+
+    Updated the SMT test driver.  Other small changes to parser_temp.h and
+    smtlib.y.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73167 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 944c99aac8a7b7ed489a0f48e377379f05cdd5b9
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 09:13:20 2009 +0000
+
+    Removed CVC3's Parser class.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73166 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4cadb7a16a9e23c26f9d4192943fd74d99e88042
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 09:11:06 2009 +0000
+
+    Wrote a new SMTParser that inherits from klee::expr::Parser.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73165 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 41734d8edeca297de3bf7bf61c454fae00b71d44
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 06:26:39 2009 +0000
+
+    (Missed save) Move Array construction out of MemoryObject into ObjectState.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73163 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 12ad8816382990642b3d67d362e60f16357ede1b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 06:23:00 2009 +0000
+
+    Move Array construction out of MemoryObject into ObjectState.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73162 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 17f4f42e8e63ab1d14aef5607d121cba1afb68e1
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 06:18:37 2009 +0000
+
+    Change ExecutionState::symbolics to include both the MemoryObject and the
+    symbolic Array.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73161 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 87996d34463b39f397a6c9835329329d6cf0312a
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 06:03:26 2009 +0000
+
+    Use Arrays instead of MemoryObject where possible.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73160 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4beea51b1d0019bf2399361df22bf09285bfd946
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 05:10:00 2009 +0000
+
+    Fix a bug in the logging solver which was printing the expression in a
+    getInitialValues query in the wrong place.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73159 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit cf24d40b3c5b8767263582b59f4015eafc7a4931
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 02:46:41 2009 +0000
+
+    Added a temporary driver to test the parser.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73155 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 1751c2bcd41d1564e88f847f1279c04496d8e427
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 10 02:44:13 2009 +0000
+
+    Changed expression nodes to be ExprHandle (instead of ExprHandle*), and
+    added a quick hack to change Bison unions to structs.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73154 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 89bcf52eda450c4d92393c35e2df62bebb025190
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 19:44:34 2009 +0000
+
+    Use env instead of hard coding python path.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73142 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 23ead4979b25f38ac53670eebb28eb61d30efe83
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 08:42:08 2009 +0000
+
+    More constant Array support.
+     - The are parsed, printed, and solved now.
+    
+     - Remove some members of ArrayDecl which are only duplicates of Array members.
+    
+     - KLEE still doesn't create these, but you can write them by hand.
+    
+    The EXE style constant array optimization for STP (turning the initial writes
+    into asserts) is now only a stones throw away, but I need to leave something fun
+    to do tomorrow. :)
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73133 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit fe74e8725f8d44982a1bd19ebfe88be09f90ee6d
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 08:15:35 2009 +0000
+
+    Do not compile SMT parser by default.  Removed automatically generated
+    parser files: We really don't want SVN to keep track of changes in
+    these files while working on the parser.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73132 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit f680e9d9b9751f234bf4e7eef9a40f5b390c3445
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 07:57:12 2009 +0000
+
+    Made expression nodes int the SMT parser be pointers to ExprHandle.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73131 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3fe354ec2e0e9c817e384e32d43d0bf17c3d9861
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 07:42:33 2009 +0000
+
+    Add initial support for constant Arrays.
+     - This doesn't actually start using them, it just attempts to update all
+       clients to do the right thing in the presence of them.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73130 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 50a79c78e6ab89b951fe35dffe957dc369cc7664
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 06:47:06 2009 +0000
+
+    Remove Array::object.
+     - The sole remaining client was IVC, which is currently disabled for other
+       correctness issues. I patched it to compile and left a FIXME that we will
+       have to resolve this before we can reenable IVC.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73129 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d26d1aee09ed6c9b3a7a6e242301acf558c29bc7
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 06:39:17 2009 +0000
+
+    Remove Array::id.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73128 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 5eb1575316f30f1095c4e187b263a29b71317435
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 06:22:35 2009 +0000
+
+    Switch Array* print-outs to use name instead of ID, and update a few
+    constructors I missed.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73127 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d53cd2ad2ddad216d40b42b5629bf282a5b133fe
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 06:20:23 2009 +0000
+
+    Use Array* to map objects instead of id.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73126 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 27c7e990d61be98740c94c2458001385b8073381
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 05:56:15 2009 +0000
+
+    Add Array::name field, initialized but not used for anything yet.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73125 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8bae809bec117273013982fc7d91bbc738fc622b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 05:40:06 2009 +0000
+
+    Kill off UpdateList::isRooted flag.
+     - The right way to handle this is by using constant arrays, where the semantics
+       are easier to define and implement.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73124 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a7290c6ff91fee50935ca9d913aa60819b7de803
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 03:57:34 2009 +0000
+
+    Remove unnecessary include.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73123 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8326b34f308152f3e32dc3aa2dafb0cd94d3ce77
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 03:56:44 2009 +0000
+
+    Set svn:ignore on lib/SMT/{Debug,Release}
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73122 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 19faacf55fec9dca45ea369f3f2ca79e755a4611
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 03:42:41 2009 +0000
+
+    Quick hack to build SMT LLVM style.
+     - I don't want to make proper bison/flex rules, and eventually I think we
+       should just check in the generated files since we don't expect them to
+       change, so for now just build the files in the src directory. Eventually we
+       will want to disable these rules so that it works for people who don't have
+       bison/flex.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73121 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 7744388c2928d0a1b486a46e15dbf4dae4066bad
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 01:11:32 2009 +0000
+
+    Remove exception.h and parser_exception.h
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73111 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 8e377bb96370b376e9d61e45d7e6ee4274e2570b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 01:07:25 2009 +0000
+
+    Kill off uses of C++ exceptions.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73110 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 5a0db4128891ba923cff1e8e791f9bfb70777c49
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 01:02:41 2009 +0000
+
+    Remove lang.h again.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73109 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit db4e8887f9c2049c441bf00ec06ff535ed9fb680
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 00:58:29 2009 +0000
+
+    Get rid of Parser language member, we only use SMTLIB.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73108 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3b62b128fa3181b78b523c9963650db8d089878f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 00:51:38 2009 +0000
+
+    Revert r73105, I think I was too hasty in killing this.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73107 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d21cbb7593a19f56e24b95c588c6f968ff0b8d32
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 00:49:49 2009 +0000
+
+    Fix a compiler warning
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73106 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bfea8eaec1732fe30cda8ac4dbd424f8d6efbead
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 9 00:40:01 2009 +0000
+
+    Remove lang.h, it is unused.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73105 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3f18b80e816fbb2abd1f2e6f726396e4f632b82b
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 08:54:17 2009 +0000
+
+    Made the SMTLIB parser compile.  Commented out most of the grammar in
+    smtlib.y.  Made a temporary functional Makefile that compiles the
+    lex/bison generated files.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73064 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9a166f71d6ebe09dbddf26da6b4268d3728c6dc5
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 08:30:59 2009 +0000
+
+    More changes needed to make the SMTLIB parser compile.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73063 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 796c1a7931b25e74377c63d98898d2c51d0af11f
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 08:22:23 2009 +0000
+
+    Removed ValidityChecker field from ParserTemp.  Temporarily replaced
+    Expr with void* to quickly get some compilable parser.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73062 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0b5e1bac069f594915e03c31f33071c61df1c762
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 08:10:42 2009 +0000
+
+    Removed support for the PL and Lisp languages.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73060 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4816be87438c0dd2afdbb582c15b572b363f4ed0
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 07:53:36 2009 +0000
+
+    Added CVC3's parser for the SMT-LIB grammar.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73059 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit ea78c1495b341046228c7f4335a6da2eaf2aa076
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 07:41:41 2009 +0000
+
+    FastCexSolver: Start implementing exact value propogation.
+     - So far this just propogates obvious equalities and reads. For example,
+       FastCexSolver can now prove that:
+    --
+    array arr219[3] : w32 -> w8 = symbolic
+    (query [(Eq 235 N0:(Read w8 0 arr219))]
+           (Eq 235 N0))
+    --
+       is valid.
+    
+    Even though this is very basic, it is good enough to solve ~50% of the valid
+    queries on pcresymtest-[34].pc (total reduction in # of queries is ~25%).
+    Unfortunately, this only gives a 1-2% speedup, which is disappointing, but there
+    is a lot more we can do.
+    
+    I'm a little surprised the speedup is so low, this may be an indicator that
+    there are some other things going on, for example perhaps the STP expr
+    construction cost for arrays is very high, and we inevitably will end up paying
+    this unless we solve so many queries that some arrays never ever make it to STP.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73058 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a46f2aa13dae7f142c353af0d0e17648160aadfa
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 07:29:07 2009 +0000
+
+    Add some query logs in utils/data/Queries (for 3 and 4 byte pcregrep)
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73057 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 6b71380e5db8f77d59e96f9e116dcbc9ad7ef210
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 06:49:10 2009 +0000
+
+    FastCexSolver: Stub out infrastructure for propogating exact values & proving
+    validity.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73055 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 2238c554c585d8e4acd87b2627b89b8175a8e6a9
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 06:34:38 2009 +0000
+
+    FastCexSolver: Add exact value contents to CexObjectData.
+     - The exact contents are a conservative approximation for the values of each
+       array location, to be used for proving valid queries.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73054 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit de2fdafac770f0ecc3d627d7668a55367c500c9b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 06:27:59 2009 +0000
+
+    FastCexSolver: Rename forceExprTo* to propogatePossible*
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73053 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 46569878a3bf02998afb8f3548f93e6a825a9b7d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 06:14:01 2009 +0000
+
+    FastCexSolver: Lazily initialize object values and kill off ObjectFinder class.
+    
+    Also, explicitly manage the object data to avoid copy overhead.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73051 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c9b9ec88cd0331696df7b005fa0cf922b4ad3c20
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 05:53:15 2009 +0000
+
+    Kill off Concat::is[248]ByteConcat, and fix FastCexSolver for this case.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73049 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b52431952d636b30d336b56070d4b7f7bdeb6d1e
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 05:39:52 2009 +0000
+
+    Add klee::createDummySolver, the dummy solver always fails.
+     - Useful as an alternative backend to STP for testing.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73048 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b565b123cad7990d325314a2ddb0aaab2614e78a
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 05:21:08 2009 +0000
+
+    Cleanup FastCexSolver:
+     - Make CexObjectData members private.
+     - Use std::vector instead of allocating memory by hand.
+     - Factor out method which does the propogation from the various Solver
+       routines.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73047 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4ff086f29dc819cf9a5eba4196e8aed3805c9dda
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 05:19:15 2009 +0000
+
+    Fix a mistake in previous commit to turn asserts -> parse errors.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73046 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9b38b4f3d7e041b2908ef7468bfa4e01a67b9bf9
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 8 05:18:49 2009 +0000
+
+    kleaver: Use raw_ostream, and print some stats.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73045 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit ba854af515baa96622cfc693ed24517ccacc505c
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 17:48:17 2009 +0000
+
+    Make sure that ExprEvaluator will fold constant expressions (klee never creates
+    these, but the parser can).
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73033 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0695a0773a34964537cc433af0a76c70a4e7374a
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 17:23:52 2009 +0000
+
+    Diagnose some more syntax errors instead of crashing.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73032 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit acfcd5faa31e155b28eafd3daf6f5ce67093b356
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 17:19:38 2009 +0000
+
+    Fix typo.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73031 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a576973d6e6f31abeba6642919853fa2a604f49c
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 16:17:02 2009 +0000
+
+    Make sure to include arrays to be evaluated in the set of used arrays.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73030 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b451bb32b3c833523ad9279fd69a27be7d928bf8
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 09:57:01 2009 +0000
+
+    Implement array declarations.
+     - Printing current prints all declarations, and we allow redefinition, since
+       the printer doesn't know what has already been printed.
+    
+     - Names don't print right yet, since the Array* object doesn't have the name.
+    
+     - Various things are unsupported.
+       o Array domain/range must be w32/w8.
+       o Concrete initializers for arrays are unsupported.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73026 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 065550e4c60b1fddf9fd10e62d435634039b3710
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 09:33:57 2009 +0000
+
+    Don't delete decls before parsing is complete.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73023 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 22e266a19994a817a9c2999680b0b4edc8aae8ac
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 07:59:29 2009 +0000
+
+    Update test case.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73020 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit eadaeb41189b3301350d72349dd3348eee1063cd
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 07:59:12 2009 +0000
+
+    Make sure to make up a valid VersionResult on failures.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73019 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 2d91242ab161a885e373ece8e8af86327fe498ad
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Jun 7 07:36:26 2009 +0000
+
+    Eliminate anonymous versions.
+      - For now, this means the isRooted flag for arrays isn't propogated to the
+        kquery language. We should figure out how to do this, but allow anonymous
+        versions isn't the right way.
+    
+    Also, improved the error on invalid writes a bit.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@73018 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4ddbbd7abb93192248c38059c83ea509eeb34e00
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat Jun 6 09:15:18 2009 +0000
+
+    Document the KQuery language.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72997 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b2d350e819c62de1c668e24332e23008b3fdd839
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 22:53:07 2009 +0000
+
+    Fixed a division by zero triggered by straight-line code in klee-stats.
+    Added an error message when no directories are given.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72966 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e8f5d9a54f15d2b18d9e88461c6c14ca71660942
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 22:38:53 2009 +0000
+
+    Moved PrintStats.py to tool/klee-stats/
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72964 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit cb35b70b604ae13cab7e0eb83db387c4709bf19f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 10:21:21 2009 +0000
+
+    Support counter example queries (at least, the restricted set that we
+    use).
+     - Arrays don't have sizes yet, so we don't get initial values correctly.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72939 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 160745c3a1c05532fedd528e452204ac0637dbd7
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 10:09:13 2009 +0000
+
+    Support the extended query command syntax.
+     - There are two optional lists following the constraints and the
+       query expression. The first is a list of expressions to give values
+       for and the second is a list of arrays to provide values for.
+    
+     - Update ExprPPrinter to accept extra arguments to print these
+       arguments.
+    
+     - Add Parser support.
+    
+     - Add more ArrayDecl support.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72938 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 7c0d15cdda60701a8e66acc4e535e9461b1410e2
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 08:59:38 2009 +0000
+
+    Add Expr::is{Zero,True,False} methods.
+     - These are too convenient to live without.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72937 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a3b1d5fb3d34efce07065ef894e8597ae2d6d6a4
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 08:18:48 2009 +0000
+
+    Turn an assert into a parse failure.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72935 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 360e129fbc558a638016c884876d92d2ed6e1872
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 08:11:30 2009 +0000
+
+    Don't evaluate queries if there were parse failures.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72934 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9a9a9ffaeb17772106a74209c1e9d03e48b97b20
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 08:03:19 2009 +0000
+
+    Add evaluation support to kleaver (now the default).
+     - Currently only handles validity queries.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72933 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 155eadf957cbed4c6c760627800fe4b438a98d97
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 07:33:39 2009 +0000
+
+    llvm::Casting support for Kleaver AST nodes.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72931 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 341afa03221fa7511925fa5bb1bd3ca64eb193a0
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 06:25:14 2009 +0000
+
+    Set svn:ignore properties.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72925 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bde738df3e5d1e3da64ff494e021a460aae117f0
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 06:15:06 2009 +0000
+
+    Clean up a number of unused variable warnings when building w/o
+    asserts.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72924 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 24c25cc844f8a0eeb262183317915dbc94953a93
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 05:46:00 2009 +0000
+
+    Remove some unnecessary uses of C++ exceptions.
+     - PR4264.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72922 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 7b2e6a7dfcf4e5109ebbf5f99b6b588a14ece58a
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 05:39:57 2009 +0000
+
+    Expr::print shouldn't introduce line breaks or extra formatting.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72921 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 48ba95a308355f799606e2cd010f17ad100c8aa8
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 05:37:59 2009 +0000
+
+    Add test case.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72920 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a9591a3b98b43dbf4f59e66709b9325e7e1a8589
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri Jun 5 05:32:15 2009 +0000
+
+    (llvm up) Update klee for introduction of f{add,sub,mul} instructions.
+     - Please update & rebuild LLVM.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72919 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 6b541c25d620f45c48fec2e1b1a686b4fcf94dbc
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 09:06:35 2009 +0000
+
+    Make ConstantExpr's value and constructor private.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72863 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e64541febec2d65fba21f8436423d9dc05fa7a20
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 08:59:53 2009 +0000
+
+    Sink getConstantValue into ConstantExpr.
+     - Propogate ConstantExpr to various places, or cast as appropriate.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72862 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 5e6513d5b1123c3428cdcd7ddb28123e06a46ccd
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 08:42:34 2009 +0000
+
+    Change Solver::getValue to make explicit that result is a ConstantExpr.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72860 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 7210097489a24fc914cfec4de057b13abd1ea1c9
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 08:31:20 2009 +0000
+
+    Finish removing uses of Expr::isConstant.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72859 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e838dc639dfe4a52dd5bdc161ed055693e0f7d4a
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 08:08:21 2009 +0000
+
+    Start removing uses of Expr::isConstant.
+     - These should use cast<>, isa<>, or dyn_cast<> as appropriate (or better yet,
+       changed to use ref<ConstantExpr> when the type is known).
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72857 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4b1a3b910ed765b7d5e065480d6efedadd254bc2
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 07:09:13 2009 +0000
+
+    Change ConstantExpr::{alloc,create} to return a ref<ConstantExpr>
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72853 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit f91960eb9012bb659eeb13e2e6bef239ec6f4565
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 06:53:05 2009 +0000
+
+    Moved MultiByteReads.pc in test/Expr/Parser
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72851 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 22f9607fc7af61a1c77319dacccc971c0d5d7845
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 06:51:12 2009 +0000
+
+    Fixed a bug in Kleaver's parser: APInt does not allow "truncation" to
+    the same width.  Added a test case that was previously triggering an
+    assert violation.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72850 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c87cd1ac6f84bb2ba11207a5ddca066d449661e7
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 05:36:36 2009 +0000
+
+    Use dyn_cast<> instead of dyn_ref_cast.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72847 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9422136d56a7c596adace9df11beec0688c82ff8
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 05:18:31 2009 +0000
+
+    Use cast<> instead of static_ref_cast.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72845 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bcc4ddebd9c6fb0f7eb98cf7f5ceed7bbbb4d597
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 03:32:43 2009 +0000
+
+    Small changes to the web page (changed some links on the main page,
+    added a documentation page).
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72843 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 6b38318ef2469d65b6c9c9ca8d83c36feda82862
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 02:59:28 2009 +0000
+
+    Added a couple of tests for ReadLSB/MSB.  Changed kleaver to write to stdout.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72841 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0fab0b6dcb00cdc6fea3577cb025c7d666e86cab
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 02:56:01 2009 +0000
+
+    Fixed the code dealing with ReadLSB/ReadMSB, which was currently
+    broken (it was written for n-ary Concats, but now we have binary
+    Concats.)
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72840 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 1f432af36906bf5b6d4d003b591d623c48b549ef
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 02:53:24 2009 +0000
+
+    Implement simplify_type for ref<>
+     - This allows dyn_cast<> and friends to be applied to a ref. For example,
+         if (ConstantExpr *CE = dyn_cast<ConstantExpr>(foo)) {
+           ... do something with CE ...
+         }
+    
+     - This makes working with ref<Expr>s much more convenient, with the downside
+       that it hides a potentially dangerous operation. Since the result is not
+       itself a ref<>; clients are resposible for making sure the returned value is
+       only used inside the lifetime of some other ref<>.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72839 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit f62bddccc86e28c9e46cb9147d5d94749a5a5508
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 02:09:03 2009 +0000
+
+    TimingSolver shouldn't need a vtable.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72833 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 50cff245dca91aebdabf575f4498611a72d1cbb5
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 02:01:34 2009 +0000
+
+    Expr: Add LLVM style casting support instead of requiring RTTI.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72829 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b0a18d50567c933255c2c540162837f7e844b47b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu Jun 4 00:49:34 2009 +0000
+
+    Move isConstant from ref<> to Expr::
+     - Ref.h is now freestanding.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72824 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d14f3432d7d8accd48a102f3d2e2981bbb405626
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 3 15:40:42 2009 +0000
+
+    Kill off specialized ref<> forwarding methods, in the interest of making it a
+    more standard reference counting wrapper.
+     - The only interesting changes here are in Ref.h, everything else is just
+       updating foo.method to use foo->method instead.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72777 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 89c1a6cb354226247b959f9fa4b67cfda6698e75
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 3 03:18:43 2009 +0000
+
+    Remove ref<>'s constant Expr optimization.
+     - This simplifies what users of the Expr language need to deal with, and paves
+       the way for arbitrary bit-width constant support.
+    
+     - The downside is that concrete interpretation just got *way* slower
+       (2-3x). However, I have a plan for fixing this that should give us the best
+       of both worlds in terms of performance & simplicity.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72753 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit ea26109f66176e8d9e6434b765c2aa89ffce79eb
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 3 03:15:59 2009 +0000
+
+    Fix bug I just introduced, ConstantExpr::computeHash needs to update the
+    hashValue.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72752 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit f4bc56d98eb74c23aee3eb9fde9888f5ab13ff63
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 3 03:07:32 2009 +0000
+
+    Update ConstantExpr::fromMemory to return a ref<Expr>.
+     - This function should go away...
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72751 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bc64eb469e775ef5f11230faa8770fae93a3774f
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 3 03:05:04 2009 +0000
+
+    Remove a usage of the direct ref<Expr> constructor that I missed.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72750 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 148c3d742f3f26db2e96e9afafe954ff71150f22
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 3 03:04:21 2009 +0000
+
+    Inline Expr::hashConstant into callers.
+     (Extraneous uses are going away shortly)
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72749 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a2d8c73cdb52bb816d9d2010fe345ef691884bc8
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed Jun 3 02:55:55 2009 +0000
+
+    Update a few things that got forgotten in the great "bout" to "ktest"
+    renaming of '08.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72748 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit fd869db724f1fd29cd7b273d97e9cbcbadd08820
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue Jun 2 17:01:00 2009 +0000
+
+    Use ConstantExpr::alloc instead of ref<Expr> directly
+     - The "constant optimization" embedded inside ref<Expr> is going away.
+    
+     - No functionality change.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72730 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 3ad6cad689b91c97cc94733f7fb6853292099fee
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 1 16:34:44 2009 +0000
+
+    Kill off klee_malloc_n, we don't want to support this.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72693 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4bbff65ece6c1264d44fa56e3aace618bcf515bf
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon Jun 1 15:47:52 2009 +0000
+
+    Modify eval() to return a cell reference instead of its contents.
+    
+    Add get{Dest,Argument}Cell for computing the cell to store instructions results
+    and arguments into, respectuvely.
+    
+    Prep for moving fast path constant evaluation out of the Expr libraary itself.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72692 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0a653c63064c2ff00d17c7b28a67e87d9e5e19d3
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri May 29 21:25:51 2009 +0000
+
+    Changed .ktest header from BOUT\n to KTEST.  Old .bout files can still be read.
+    Increased KTEST version.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72592 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 6654823919a6900454372303d431fb891b8161d5
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu May 28 05:29:24 2009 +0000
+
+    Small changes to silence some gcc warnings.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72518 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit d032c183d48f16e6686336a9d5759f70a34cbd73
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu May 28 04:44:50 2009 +0000
+
+    Changes to webpage to make both tutorials use the same template.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72515 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 70aaa074a59705c8e89e4062b7ebf316ffc397cf
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed May 27 16:07:39 2009 +0000
+
+    Unbreak istats
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72473 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit dd28c97e3f2df418d5d09da35fc97084d85e46a7
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed May 27 16:03:03 2009 +0000
+
+    Move the regular expression example to "Tutorial Two".
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72472 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 63a13d20aa55a15e2a3468e70c3e478abd9a89f1
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed May 27 16:01:09 2009 +0000
+
+    Some more updates for bout -> ktest renaming.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72471 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit de0659882374c1e4a6ee3b28af72c54652be2165
+Author: baldrick <baldrick@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon May 25 09:50:55 2009 +0000
+
+    Add includes to get sprintf (STPBuilder) and
+    fprintf, stderr etc (Solver) when compiling
+    with gcc-4.4.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72381 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9e7e2f58917b7a33293e1da9788ae5d8993ff8d1
+Author: baldrick <baldrick@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Mon May 25 09:43:40 2009 +0000
+
+    Add include for uint64_t, needed when building with
+    gcc-4.4.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72380 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 056ca59bba5021060a6bba667946e47ad3177392
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat May 23 21:46:01 2009 +0000
+
+    Fix for platforms which #define putchar
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72346 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 69d6cce8deeb0f4f7e40cefb805c679305f8487d
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat May 23 20:07:01 2009 +0000
+
+    Make klee_init_env print some usage instructions with --help.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72338 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 9f9092a5b9d760edca806920d8d4b259bad86015
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat May 23 02:42:09 2009 +0000
+
+    Changed bout to ktest.  Kept "BOUT\n" as the header of test files, for backward compatibility.  Also changed KLEE_RUNTEST to KTEST_FILE.  Updated tutorial-1.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72312 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 564142a9ba0f3a3629f2f7a4f28090bc613c0c92
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat May 23 01:13:11 2009 +0000
+
+    Renamed klee-bout-tool to ktest-tool.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72306 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 63926ee4df33af891c3114309fe2d9fc24682c7b
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sat May 23 00:44:00 2009 +0000
+
+    Updates to install guide and first tutorial.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72305 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit ca7a1fe2070b81c2ed8b1ef6142fe2d6fff9f386
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri May 22 19:00:30 2009 +0000
+
+    Improve lex support, apparently FreeBSD lex expects -o to take a joined
+    argument.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72271 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 898917c9c5e843996c37282f3510f2b6b59a647b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri May 22 18:45:48 2009 +0000
+
+    Add missing include (for FreeBSD build)
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72270 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 7c29961e5297541305cb965a13843cc496694e00
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri May 22 16:27:06 2009 +0000
+
+    Add "name" argument to klee_make_symbolic, and kill off klee_make_symbolic_name.
+     - For compatibility we still accept 2 argument form of klee_make_symbolic, but
+       this will go away eventually.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72265 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 095a1017fd57e7e5a9a165878fb9b0e55655bc72
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri May 22 06:07:50 2009 +0000
+
+    Some minor web page tweaks.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72247 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit bef068876a0390faaa31f414f49f1db7d4da5206
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri May 22 05:48:43 2009 +0000
+
+    Look for Makefile.rules in the right directory.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72246 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit ff76e8565369f0df390312d90738176b4272c949
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu May 21 16:28:43 2009 +0000
+
+    Start basic Regexp.c example for klee.
+     - A few other web page tweaks.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72215 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit f919851873b796fada524467cdac2c1db1fcddfa
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu May 21 06:59:38 2009 +0000
+
+    Started web pages describing the main KLEE tools, and the main files
+    generated by KLEE.  Small updates to the CSS file and tutorials.html
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72208 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4f972b23dfbbe6a36465c14fa27b311cedcf3912
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu May 21 06:55:54 2009 +0000
+
+    Added a first KLEE tutorial.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72207 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 800c180aa5b4dff8895cfecfcb962dcf23cef58e
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu May 21 04:48:03 2009 +0000
+
+    Missed a couple tests
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72206 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 0f33d1da0944f41e849a9f5d9f044cd239ae9c6c
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Thu May 21 04:36:41 2009 +0000
+
+    Initial KLEE checkin.
+     - Lots more tweaks, documentation, and web page content is needed,
+       but this should compile & work on OS X & Linux.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72205 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit c5cfe4aed01b6628496d670e6827d01697a90d39
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Wed May 20 06:29:36 2009 +0000
+
+    Web page changes. Added a nice way to format code (div.code) in our CSS file.
+    Added download and install instructions, and a bug report page.
+    
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72163 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit aaa09737f426b5a3c49e172cf166a16f6348e359
+Author: cristic <cristic@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue May 19 19:29:16 2009 +0000
+
+    Added empty www/tutorials.html page (test commit to klee repository).
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@72123 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit 4373e5b6a2d5056ed6be112602982e02d4f7671b
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Tue May 12 07:48:09 2009 +0000
+
+    Add a few useful links
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@71546 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit b1302401cdb8061dbe801e226935e5cf596790f2
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri May 8 18:02:24 2009 +0000
+
+    More or less a test commit.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@71231 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit a5ab9cd34d0747479ab87b6bab1ef0ee9555a4f0
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Fri May 8 17:38:02 2009 +0000
+
+    Make menu work w/o being at the top level.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@71228 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit f804565af6d5134c9ee0569097cdcf07b50a17e1
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Mar 15 05:29:43 2009 +0000
+
+    Also point at the stanford checking group webpage.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@67020 91177308-0d34-0410-b5e6-96231b3b80d8
+
+commit e87c0d2804322c660b4f353688b38349bd77a650
+Author: ddunbar <ddunbar@91177308-0d34-0410-b5e6-96231b3b80d8>
+Date:   Sun Mar 15 05:28:32 2009 +0000
+
+    Stub out klee project.
+    
+    
+    git-svn-id: https://llvm.org/svn/llvm-project/klee/trunk@67019 91177308-0d34-0410-b5e6-96231b3b80d8

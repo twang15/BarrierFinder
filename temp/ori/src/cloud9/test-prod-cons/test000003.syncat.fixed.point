@@ -1,0 +1,4 @@
+Error: killed due to being a fixed point.
+Stack: 
+	#0 00009584 in IncrementCounter ()
+	#1 00008494 in ParallelExecute ()

@@ -1,0 +1,13 @@
+digraph "CFG for 'BitReverse' function" {
+	label="CFG for 'BitReverse' function";
+
+	Node0x425d3c0 [shape=record,label="{entry:\l  %M.addr = alloca i32, align 4\l  %k.addr = alloca i32, align 4\l  %i = alloca i32, align 4\l  %j = alloca i32, align 4\l  %tmp = alloca i32, align 4\l  br label %for.cond\l}"];
+	Node0x425d3c0 -> Node0x42a2250;
+	Node0x42a2250 [shape=record,label="{for.cond:                                         \l  br label %for.end\l}"];
+	Node0x42a2250 -> Node0x42a2340;
+	Node0x42a22a0 [shape=record,label="{for.body:                                         \l  br label %for.inc\l}"];
+	Node0x42a22a0 -> Node0x42a22f0;
+	Node0x42a22f0 [shape=record,label="{for.inc:                                          \l  br label %for.cond\l}"];
+	Node0x42a22f0 -> Node0x42a2250;
+	Node0x42a2340 [shape=record,label="{for.end:                                          \l  ret i32 undef\l}"];
+}
