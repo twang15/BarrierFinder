@@ -1,26 +1,3 @@
-BarrierFinder:
-  ssh fmuelle@152.14.86.176 -vv
-
-[Download and install OS]
-# install ubuntu 15.10
-# Download iso and prepare the USB w/
-# Refer this tutorial: 
-# https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0
-wget http://old-releases.ubuntu.com/releases/15.10/ubuntu-15.10-desktop-amd64.iso
-
-# edit /etc/apt/sources.list and put the following content
-# for old wily repo
-sudo gedit /etc/apt/sources.list
-
-## EOL upgrade sources.list
-# Required
-deb http://old-releases.ubuntu.com/ubuntu/ wily main restricted universe multiverse
-deb http://old-releases.ubuntu.com/ubuntu/ wily-updates main restricted universe multiverse
-deb http://old-releases.ubuntu.com/ubuntu/ wily-security main restricted universe multiverse
-
-# Optional
-#deb http://old-releases.ubuntu.com/ubuntu/ wily-backports main restricted universe multiverse
-
 # install new vim
 sudo apt-get install vim
 
@@ -29,9 +6,9 @@ sudo apt-get install openssh-server
 
 # set up nopasswd connection following the link
 # http://www.linuxproblem.org/art_9.html
-
 # now you can work remotely
-#
+
+
 [README before installation]
 For the first time installation, manually copy-paste-execute the following scripts is highly recommended.
 Because, occasionally, the script asks for sudo password or repository access password.
