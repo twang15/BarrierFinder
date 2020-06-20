@@ -99,15 +99,17 @@ make
 opt -dot-cfg a.out.opt.bc
 xdot cfg.SlaveStart.dot
 
-#develop: the source code of synCat frondEnd is under $HOME/llvm-3.7.0.src/lib/Transforms/Slicer
+# instructions for development:
+#develop: the source code of BarrierFinder frondEnd is under $HOME/llvm-3.7.0.src/lib/Transforms/Slicer
 #rebuild: after modify any source code under $HOME/llvm-3.7.0.src/lib/Transforms/Slicer
 cd ~/build.llvm-3.7.0
 make install -j10
 
-[Build Cloud debug version]
-[install dependencies]
 
-#open a new terminal (this is important)
+
+# Now let's build Cloud debug version
+# First, install dependencies
+# open a new terminal (this is important)
 cd $HOME
 
 ## install google depot_tools
@@ -117,23 +119,24 @@ export PATH=`pwd`/depot_tools:"$PATH"
 ## install glog
 # googlecode is closed and unavailable any more.
 # This is always a great challenge to reproduce any prior work.
-#wget https://google-glog.googlecode.com/files/glog-0.3.3.tar.gz
-#scp tao@152.14.86.176:~/glog-0.3.3.tar.gz .
-tar -xzvf $HOME/projects/twang15/BarrierFinder/glog-0.3.3.tar.gz && cd $HOME/projects/twang15/BarrierFinder/glog-0.3.3/
+# The tar ball is provided here.
+cd $HOME && mkdir glog
+cp $HOME/BarrierFinder/glog-0.3.3.tar.gz $HOME/glog/
+cd $HOME/glog
+tar xzvf glog-0.3.3.tar.gz && cd glog-0.3.3
 ./configure --prefix=/usr
 make -j10
+
+# type admin password to authorize sudo
 sudo make install
-# type whatever admin password to authorize sudo
 cd $HOME
 sudo ldconfig
-# type whatever admin password to authorize sudo
-
 sudo apt-get install build-essential libcrypto++-dev  zlib1g-dev dejagnu flex bison protobuf-compiler libprotobuf-dev libboost-thread-dev libboost-system-dev
-
 sudo ln /usr/include/x86_64-linux-gnu/c++/4.8/bits/*.h /usr/include/c++/4.8/bits/
 sudo ln /usr/lib/x86_64-linux-gnu/libboost_thread.a  /usr/lib/x86_64-linux-gnu/libboost_thread-mt.a
 sudo ln /usr/lib/x86_64-linux-gnu/libboost_system.a  /usr/lib/x86_64-linux-gnu/libboost_system-mt.a
 
+# get Cloud9 source code
 mkdir Cloud9 && cd Cloud9
 gclient config --name src git+https://github.com/twang15/cloud9-depot.git
 
@@ -144,26 +147,23 @@ sudo ln -s /usr/bin/g++-4.8 /usr/bin/g++
 sudo mv /usr/lib/gcc/x86_64-linux-gnu/5/ /usr/lib/gcc/x86_64-linux-gnu/5.bak
 gclient sync
 
+# If you see following error message, please follow the instructions below to solve it.
 ## error: Error: Command '/usr/bin/python src/build/gyp_cloud9' returned non-zero exit status 1
-#scp -r tao@152.14.86.176:~/Cloud9.dev2/src/third_party/gyp/ src/third_party/
-#scp -r tao@152.14.86.176:~/Cloud9.dev2/src/testing_targets/libcxx src/testing_targets/libcxx
-cp -r $HOME/projects/twang15/BarrierFinder/Cloud9.dev2/src/third_party/gyp/ src/third_party/ 
-cp -r $HOME/projects/twang15/BarrierFinder/Cloud9.dev2/src/testing_targets/libcxx src/testing_targets/libcxx
-
+cp -r $HOME/BarrierFinder/Cloud9.dev2/src/third_party/gyp/ src/third_party/ 
+cp -r $HOME/BarrierFinder/Cloud9.dev2/src/testing_targets/libcxx src/testing_targets/libcxx
 gclient sync
 
-#so far, llvm3.1 and binutils tool chain have been successfully built.
+# so far, llvm3.1 and binutils tool chain have been successfully built.
 
-[install STP]
+# install SAT
 cd src/third_party/
 git clone https://github.com/stp/minisat.git
 cd minisat && mkdir build && cd build
 cmake ..
-
 make
 sudo make install
 
-# install cmake 3.9.1
+# install cmake 3.9.1 if you have not done this.
 cd $HOME
 wget https://cmake.org/files/v3.9/cmake-3.9.1.tar.gz
 tar xzf cmake-3.9.1.tar.gz
@@ -173,6 +173,7 @@ make -j10 install
 export PATH=$HOME/cmake-3.9.1/install/bin:$PATH
 export CMAKE_ROOT=$HOME/cmake-3.9.1/cmake-3.9.1
 
+# install protobuf 
 cd $HOME
 wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
 tar zxvf protobuf-2.5.0.tar.gz
@@ -181,12 +182,11 @@ cd protobuf-2.5.0
 make
 make check
 make install
-
-#sudo scp tao@152.14.86.176:/usr/lib/libprotoc.so.8 .
-sudo cp $HOME/projects/twang15/BarrierFinder/usr/lib/libprotoc.so.8 .
+sudo cp $HOME/BarrierFinder/usr/lib/libprotoc.so.8 .
 sudo cp libprotoc.so.8 /usr/lib/
 sudo ldconfig
 
+# install stp
 cd $HOME/Cloud9/src/third_party
 git clone https://github.com/stp/stp.git
 cd stp && mkdir build && cd build
@@ -196,23 +196,21 @@ sudo make install
 sudo ldconfig
 export LIBRARY_PATH=/usr/lib:/usr/local/lib:$LIBRARY_PATH
 
-[build uclibc]
-cd ~/Cloud9/src/klee-uclibc
+# build uclibc
+cd $HOME/Cloud9/src/klee-uclibc
 
-#replace "Release+" in Rules.mak to "Debug+"
+# replace "Release+" in Rules.mak to "Debug+"
 sed -i "s/Release/Debug/g" Rules.mak
 make -j10
 
-[Build Cloud9]
+# Build Cloud9
 cd ..
-#replace "Release+" in Makefile with "Debug+"
+# replace "Release+" in Makefile with "Debug+"
 sed -i "s/Release/Debug/g" Makefile
 make -j10
 rm -rf cloud9
-#git clone tao@152.14.86.176:~/Cloud9.dev2/src/cloud9/.git
-ln -s $HOME/projects/twang15/BarrierFinder/Cloud9.dev2/src/cloud9/ .
-#scp -r tao@152.14.86.176:~/Cloud9.dev2/src/cloud9.allAB .
-ln -s $HOME/projects/twang15/BarrierFinder/Cloud9.dev2/src/cloud9.allAB .
+cp -rf $HOME/BarrierFinder/Cloud9.dev2/src/cloud9/ .
+cp -rf $HOME/BarrierFinder/Cloud9.dev2/src/cloud9.allAB/ .
 cd cloud9
 CC=gcc CXX=g++ CFLAGS="-O0 -v -g3" CXXFLAGS="-O0 -v -g3" ./configure --with-llvmsrc=../third_party/llvm --with-llvmobj=../third_party/llvm-build --with-uclibc=../klee-uclibc --enable-posix-runtime --with-stp=../third_party/stp --with-runtime=Debug+Asserts
 
@@ -220,9 +218,9 @@ make -C lib/Data -j10
 sudo apt-get remove libprotobuf-dev
 make -j10
 
-[libCxx and cloud9 debug version testing]
-#replace "Release+" in src/testing_targets/build/g++.proxy with "Debug+"
-cd ~/Cloud9/src
+# libCxx and cloud9 debug version testing
+# replace "Release+" in src/testing_targets/build/g++.proxy with "Debug+"
+cd $HOME/Cloud9/src
 sed -i "s/Release/Debug/g" $HOME/Cloud9/src/testing_targets/build/prepare_build_env.sh
 sed -i "s/Release/Debug/g" testing_targets/build/g++.proxy
 sed -i "s/Release/Debug/g" testing_targets/build/gcc.proxy
@@ -230,13 +228,14 @@ cd testing_targets
 build/gyp_testing_targets
 build/make_all
 
-cd ~/Cloud9/src/cloud9
+cd $HOME/Cloud9/src/cloud9
 rm -rf test-prod-cons
 Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/Cloud9/src/testing_targets/out/Default/prod-cons.bc
 
 ## there should be output ####
 ## then the installation is successful. ###
 ## Terminate it after 10 seconds
+
 
 #Develop: the source code is under $HOME/Cloud9/src/cloud9
 #Rebuild: after any modification, rebuild the project with following instructions:
