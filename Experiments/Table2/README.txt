@@ -11,11 +11,11 @@
 
 # The following provides an example for carrying out the experiments.
 
-8 barrier code: $HOME/CodeWalk/splash2/Code.Table2 
-1 allAB code: $HOME/CodeWalk/splash2/Code.Table2/AllAB
+8 barrier code: $HOME/BarrierFinder/splash2/Code.Table2 
+1 allAB code: $HOME/BarrierFinder/splash2/Code.Table2/AllAB
 
 #For allAB, row 9 of table 2
-cd $HOME/CodeWalk/splash2/Code.Table2/AllAB
+cd $HOME/BarrierFinder/splash2/Code.Table2/AllAB
 bash cmd.sh
 
 cd $HOME/Cloud9/src/cloud9
@@ -27,21 +27,21 @@ cd $HOME/Cloud9/src/cloud9
 
 # For barrier code
 # v0, row 1
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v0
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v0
 bash cmd.sh
 
 # v1, row 2
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v1
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v1
 bash cmd.sh
 
 # v2, row 3
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v2
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v2
 bash cmd.sh
 
 # use gdb to inspect the stack
 #cd $HOME/Cloud9/src/cloud9
 #cp gdbfile gdbfile.old
-#cp $HOME/CodeWalk/splash2/Code.Table2/Barriers/v2/gdbfile .
+#cp $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v2/gdbfile .
 #cp gdbfile.old gdbfile
 
 # now launch gdb with the gdbfile
@@ -89,19 +89,19 @@ entry:
 
 
 # v3, row 4
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v3
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v3
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYYXY
 
 # v4 row 5
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v4
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v4
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYYXY
 
 # v5 row 6
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v5
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v5
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYXYX
@@ -109,7 +109,7 @@ bash cmd.sh
 # use gdb to inspect the interpretee's stack, similarly as in v2
 
 # v6
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v6
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v6
 rm -fr test-prod-cons/
 bash cmd.sh
 
@@ -157,19 +157,19 @@ entry:
 
 
 # v3, row 4
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v3
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v3
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYYXY
 
 # v4 row 5
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v4
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v4
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYYXY
 
 # v5 row 6
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v5
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v5
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYXYX
@@ -177,7 +177,7 @@ bash cmd.sh
 # use gdb to inspect the interpretee's stack, similarly as in v2
 
 # v6
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v6
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v6
 rm -fr test-prod-cons/
 bash cmd.sh
 
@@ -225,19 +225,19 @@ entry:
 
 
 # v3, row 4
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v3
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v3
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYYXY
 
 # v4 row 5
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v4
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v4
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYYXY
 
 # v5 row 6
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v5
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v5
 rm -fr test-prod-cons/
 bash cmd.sh
 #output should indicate a violation string: XYYXYX
@@ -245,7 +245,7 @@ bash cmd.sh
 # use gdb to inspect the interpretee's stack, similarly as in v2
 
 # v6 row 7
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v6
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v6
 rm -fr test-prod-cons/
 bash cmd.sh
 
@@ -257,7 +257,7 @@ gdb
 #2  threads disabled, deadlock
 
 # v7 row 8
-cd $HOME/CodeWalk/splash2/Code.Table2/Barriers/v7
+cd $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v7
 rm -fr test-prod-cons/
 bash cmd.sh
 
