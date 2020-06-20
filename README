@@ -351,7 +351,7 @@ export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 ##############
 # Experiments
 ##############
-cd CodeWalk
+cd $HOME/BarrierFinder
 # Table 1
 cd Experiments/Table1
 
@@ -373,9 +373,10 @@ bash data.sh
 # Follow the instructions in plot.sh
 # The figures are plotted w/ ms pptx,
 # please fill in the data manually
-#powerpnt not installed, run on some desktop:
-scp Plots/*.pptx .
-#import data from Data/
+# powerpnt not installed, run on some desktop:
+cp Plots/*.pptx .
+
+# To import data from Data/
 powerpnt fmm.pptx
   right-click edit data
   update data from Data/fmm
