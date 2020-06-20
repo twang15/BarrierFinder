@@ -1,3 +1,12 @@
+## Note
+# instructions in Environment section is to prepare the experimental environment
+# instructions in Experiment section is to reproduce experimental results in our paper.
+# Note that performance results is very unlikely to be reproduced due to different hardwards.
+
+##############
+# Environment
+##############
+
 # README before continuing
 # For the first time installation, manually copy-paste-execute the following scripts is highly recommended.
 # Because, occasionally, the script asks for sudo password or repository access password.
@@ -236,91 +245,93 @@ Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -for
 ## then the installation is successful. ###
 ## Terminate it after 10 seconds
 
+# Instructions for development
+# Develop: the source code is under $HOME/Cloud9/src/cloud9
+# Rebuild: after any modification, rebuild the project with following instructions:
+cd $HOME/Cloud9/src/cloud9
+make -j10
 
-#Develop: the source code is under $HOME/Cloud9/src/cloud9
-#Rebuild: after any modification, rebuild the project with following instructions:
-# cd $HOME/Cloud9/src/cloud9
-# make -j10
 
-
-[Build Cloud9 release version]
+# Build Cloud9 release version
 export LIBRARY_PATH=/usr/lib:/usr/local/lib:$LIBRARY_PATH
 cd $HOME
 mkdir Cloud9.release
 cd Cloud9.release
-#gclient config --name src git+https://github.com/dslab-epfl/cloud9-depot.git
 gclient config --name src git+https://github.com/twang15/cloud.release.git
 gclient sync
+
+# If you see the following error, please take the solution below.
 # Error: caused by gyp
-#copy gyp somewhere else. No need for modifying and git commiting it, which are illusions.
+# copy gyp from somewhere else. 
 cp -rf $HOME/Cloud9/src/third_party/gyp/ src/third_party/
 cp -rf $HOME/Cloud9/src/testing_targets/libcxx src/testing_targets/libcxx
 gclient sync
 
-#build uclibc
+# build uclibc
 cd ~/Cloud9.release/src/klee-uclibc
 make -j10
 
-#build cloud9
+# build cloud9
 cd ../
 make -j10
 
-cd ~/Cloud9.release/src
+cd $HOME/Cloud9.release/src
 rm -rf cloud9
-#git clone tao@152.14.86.176:/home/tao/temp/ori/src/cloud9/.git
-ln -s $HOME/projects/twang15/BarrierFinder/temp/ori/src/cloud9/ .
+ln -s $HOME/BarrierFinder/temp/ori/src/cloud9/ .
 cd cloud9
 CC=gcc CXX=g++ ./configure --with-llvmsrc=../third_party/llvm --with-llvmobj=../third_party/llvm-build --with-uclibc=../klee-uclibc --enable-posix-runtime --with-stp=../third_party/stp --with-runtime=Release+Asserts
 
 make -C lib/Data -j10
 make -j10
 
-[Cloud9: Test release version]
+# Cloud9: Test release version
 rm -rf test-prod-cons
 Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/Cloud9/src/testing_targets/out/Default/prod-cons.bc
 
 ## there should be output ####
 ## then the installation is successful. ###
 
-[Use the SynCat tool chain]
-#open a new terminal for front end
-#modify PATH environment
+# Use the BarrierFinder tool chain
+# open a new terminal for front end
+# modify PATH environment
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 export PATH=$HOME/tools/binutils.debug/bin:$HOME/tools/llvm.debug/bin:$PATH
 
-#build the application bc file with frontend
-cd $HOME/test/inter-slice/withIF/1b
+# build the application bc file with frontend
+cd $HOME/BarrierFinder/test2/inter-slice/withIF/1b
 make
 
-#inspect the cfg
+# inspect the cfg
 opt -dot-cfg a.out.opt.bc
 xdot cfg.SlaveStart.dot
 
-#disassemble with llvm.3.7
+# disassemble with llvm.3.7
 llvm-dis a.out.opt.bc -o a.out.ll
 
-#open a new terminal
+# open a new terminal
 cd $HOME/test/inter-slice/withIF/1b
 mkdir 3.1
 cd 3.1
 
 source $HOME/Cloud9/src/testing_targets/build/prepare_build_env.sh
 
-#assemble with llvm 3.1
+# assemble with llvm 3.1
 cd $HOME/test/inter-slice/withIF/1b/3.1
 llvm-as ../a.out.ll -o a.out.bc
 
-#execute it with cloud9
+# execute it with cloud9
 cd $HOME/Cloud9/src/cloud9
 rm -rf test-prod-cons
 Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/test/inter-slice/withIF/1b/3.1/a.out.bc
 
-Output: look for "Killed because of not a new invariant state"
+# If you see the following output, BarrierFinder back-end is built successfully.
+# Expected output: look for "Killed because of not a new invariant state"
+
 
 # inspect the traces
 cat traces.log
 
-[build llvm-3.7 w/ O2]
+# Instructions to build llvm-3.7 w/ O2, if you want
 cd $HOME && mkdir build.binutils.optO2 && cd build.binutils.optO2
 mkdir -p $HOME/tools/llvm.optO2
 ../binutils-2.25/configure CC=gcc CXX=g++ CFLAGS="-O2" CXXFLAGS="-O2" --enable-gold --enable-binutils --enable-plugins --prefix=$HOME/tools/binutils.optO2
@@ -334,8 +345,12 @@ cmake ../llvm-3.7.0.src/ -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME
 make install
 export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 
-# Experiments
 
+
+
+##############
+# Experiments
+##############
 cd CodeWalk
 # Table 1
 cd Experiments/Table1
