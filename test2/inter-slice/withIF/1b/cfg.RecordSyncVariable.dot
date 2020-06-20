@@ -1,5 +1,0 @@
-digraph "CFG for 'RecordSyncVariable' function" {
-	label="CFG for 'RecordSyncVariable' function";
-
-	Node0x43e6720 [shape=record,label="{entry:\l  ret void\l}"];
-}

@@ -1,26 +1,35 @@
+# README before continuing
+# For the first time installation, manually copy-paste-execute the following scripts is highly recommended.
+# Because, occasionally, the script asks for sudo password or repository access password.
+# The comments are beginning with # and indicates the installation progress.
+# Instructions are beginning without #
+
+# start off a brand-new ubuntu 15.10 installation
+# download ubuntu 15.10 iso
+wget http://old-releases.ubuntu.com/releases/15.10/ubuntu-15.10-desktop-amd64.iso
+
+# Refer this tutorial (link in the next line) to prepare the installation USB 
+# https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu#0
+
+# after successful installation, boot ubuntu 15.10
+# then edit /etc/apt/sources.list for old wily repo
+sudo echo "deb http://old-releases.ubuntu.com/ubuntu/ wily main restricted universe multiverse" >> /etc/apt/sources.list
+sudo echo "deb http://old-releases.ubuntu.com/ubuntu/ wily-updates main restricted universe multiverse" >> /etc/apt/sources.list
+sudo echo "deb http://old-releases.ubuntu.com/ubuntu/ wily-security main restricted universe multiverse" >> /etc/apt/sources.list
+sudo echo "deb http://old-releases.ubuntu.com/ubuntu/ wily-backports main restricted universe multiverse" >> /etc/apt/sources.list
+
 # install new vim
 sudo apt-get install vim
 
 # install openssh-server
 sudo apt-get install openssh-server
 
-# set up nopasswd connection following the link
-# http://www.linuxproblem.org/art_9.html
-# now you can work remotely
-
-
-[README before installation]
-For the first time installation, manually copy-paste-execute the following scripts is highly recommended.
-Because, occasionally, the script asks for sudo password or repository access password.
-The comments are beginning with # and indicates the installation progress.
-Instructions are beginning without #
-
 [Install utilities and dependencies]
 sudo apt-get update
 sudo apt-get install git vim openssh-server g++ texinfo flex bison cmake xdot subversion
 
 
-[build gold]
+# build gold
 cd $HOME
 mkdir -p $HOME/tools/binutils.debug
 wget https://ftp.gnu.org/gnu/binutils/binutils-2.25.tar.bz2
@@ -36,7 +45,7 @@ make install-gold install-binutils
 cp $HOME/tools/binutils.debug/bin/ld.gold $HOME/tools/binutils.debug/bin/ld
 
 
-[Build llvm and clang]
+# Build llvm and clang
 cd $HOME
 wget http://llvm.org/releases/3.7.0/llvm-3.7.0.src.tar.xz
 tar -xvf  llvm-3.7.0.src.tar.xz
@@ -56,54 +65,39 @@ make -j10
 mkdir -p $HOME/tools/llvm.debug
 make install
 
-Error: clang does not get built.
-Solution:
-# g++ version must be g++-4.8 or older
+# If you see the following error message when building clang
+# Error: clang does not get built.
+# Solution: g++ version must be g++-4.8 or older, so we have to
 # downgrade gcc from 5.2 to 4.8.5
 sudo apt-get remove gcc-5 g++
 sudo apt-get install gcc-4.8 g++-4.8
 sudo ln -s /usr/bin/gcc-4.8 /usr/bin/gcc
 sudo ln -s /usr/bin/g++-4.8 /usr/bin/g++
 
-
-#[update llvm source tree]
-
+# update llvm source tree
 cd $HOME
-
-## clone slicer repository
+git clone https://github.com/twang15/BarrierFinder.git
 cd llvm-3.7.0.src/lib/Transforms/
-
-#git clone tao@152.14.86.176:~/llvm-3.7.0.src/lib/Transforms/Slicer/.git
-ln -s $HOME/projects/twang15/BarrierFinder/Slicer .
-
-### Input password 123456
-
+cp -rf $HOME/BarrierFinder/Slicer .
 cd Slicer/Slicing
 ./distribute.sh
 
-[Rebuild and install]
+# Rebuild llvm and install
 cd $HOME/build.llvm-3.7.0
 make install -j10
 
 #add path to environment variable.
 export PATH=$HOME/tools/binutils.debug/bin:$HOME/tools/llvm.debug/bin:$PATH
 
-[Test the frontEnd]
-cd $HOME
-mkdir test
-cd test
-#scp -r tao@152.14.86.176:~/test2/inter-slice/ .
-ln -s $HOME/projects/twang15/BarrierFinder/test2/inter-slice .
-
-#test
-cd $HOME/test/inter-slice/withIF/1b
+# Test the front end
+cd $HOME/BarrierFinder/test2/inter-slice/withIF/1b
 make
 
-#inspect the cfg
+# inspect the cfg with commands below
+# if you can inspect the cfg without error,
+# it means that the frontend has been successfully installed. 
 opt -dot-cfg a.out.opt.bc
 xdot cfg.SlaveStart.dot
-
-## so far, the  frontend has been successfully installed. ##
 
 #develop: the source code of synCat frondEnd is under $HOME/llvm-3.7.0.src/lib/Transforms/Slicer
 #rebuild: after modify any source code under $HOME/llvm-3.7.0.src/lib/Transforms/Slicer

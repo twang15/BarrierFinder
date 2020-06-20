@@ -1,5 +1,0 @@
-digraph "CFG for 'CheckInvariant' function" {
-	label="CFG for 'CheckInvariant' function";
-
-	Node0x43e6580 [shape=record,label="{entry:\l  ret void\l}"];
-}
