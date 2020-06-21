@@ -351,6 +351,15 @@ export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 ##############
 # Experiments
 ##############
+
+## Sync pair annotations
+# sync pairs are detected by syncFinder (Xiong et.al, OSDI 2010).
+# Given a program source code, sync pairs are annotated with Criteria(n),
+# where n is the same integer for sync writes/reads belonging to
+# the same sync pair. For example, for splash2/fft/fft.c, line 511
+# and 518 are both Criteria(1), which indicates the sync write and
+# sync read belonging to the same sync pair, respectively.
+
 cd $HOME/BarrierFinder
 # Table 1
 cd Experiments/Table1
