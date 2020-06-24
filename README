@@ -1,10 +1,22 @@
-## Note
-# instructions in Environment section is to prepare the experimental environment
-# instructions in Experiment section is to reproduce experimental results in our paper.
-# instructions in How-to is to prepare a new program to use our tool 
+##############
+# Contents
+##############
+# Directories: descriptions on what each directory contains 
+# Environment: to prepare the experimental environment
+# Experiment: to reproduce experimental results in our paper.
+# How-to: to prepare a new program to use our tool. 
 
+##############
 # Directories
-
+##############
+# Cloud9.dev2:  BarrierFinder source code and development directory
+# Experiments:  codes to reproduce experiments in our paper
+# glog-0.3.3.tar.gz: google log package for Cloud9 installation
+# Slicer: source code for BarrierFinder slicer
+# splash2: splash2 and other benchmarks in our paper
+# temp: BarrierFinder source code and configuration for an O2 optimized build
+# test2: more unit test bechmarks
+# usr:  protobuf dynamic library, to be put in the same path
 
 ##############
 # Environment
@@ -400,3 +412,15 @@ cd ../Table2
 # please read README.txt and following the instruction there
 # It is semi-automated
 # Table is created by hand from results of README.txt
+
+
+##############
+# How-to
+##############
+To run a BarrierFinder for a new program:
+1) enumerate interleaving space to detect barriers.
+2) verify whether a counter-based barrier implementation is correct.
+
+Please refer to the previous "Experiments" section for detailed
+instructions. After you can reproduce our work, it is straight-forward
+to craft a new run.
