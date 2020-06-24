@@ -1,5 +1,0 @@
-digraph "CFG for 'frand' function" {
-	label="CFG for 'frand' function";
-
-	Node0x6094050 [shape=record,label="{entry:\l  %r = alloca double, align 8\l  %0 = load i64* @frand.lLastRand, align 8\l  %mul = mul nsw i64 %0, 214013\l  %add = add nsw i64 %mul, 2531011\l  store i64 %add, i64* @frand.lLastRand, align 8\l  %1 = load i64* @frand.lLastRand, align 8\l  %shr = ashr i64 %1, 16\l  %and = and i64 %shr, 32767\l  %conv = sitofp i64 %and to double\l  %div = fdiv double %conv, 3.276800e+04\l  store double %div, double* %r, align 8\l  %2 = load double* %r, align 8\l  ret double %2\l}"];
-}

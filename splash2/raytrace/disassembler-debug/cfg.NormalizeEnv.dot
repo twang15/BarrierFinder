@@ -1,5 +1,0 @@
-digraph "CFG for 'NormalizeEnv' function" {
-	label="CFG for 'NormalizeEnv' function";
-
-	Node0x5ea2e40 [shape=record,label="{entry:\l  %normMat.addr = alloca [4 x double]*, align 8\l  %tmp = alloca [4 x double], align 16\l  store [4 x double]* %normMat, [4 x double]** %normMat.addr, align 8\l  store double 1.000000e+00, double* getelementptr inbounds (%struct.view*\l... @View, i32 0, i32 0, i64 3), align 8\l  %0 = load [4 x double]** %normMat.addr, align 8\l  call void @VecMatMult(double* getelementptr inbounds (%struct.view* @View,\l... i32 0, i32 0, i32 0), [4 x double]* %0, double* getelementptr inbounds\l... (%struct.view* @View, i32 0, i32 0, i32 0))\l  store double 1.000000e+00, double* getelementptr inbounds (%struct.view*\l... @View, i32 0, i32 1, i64 3), align 8\l  %1 = load [4 x double]** %normMat.addr, align 8\l  call void @VecMatMult(double* getelementptr inbounds (%struct.view* @View,\l... i32 0, i32 1, i32 0), [4 x double]* %1, double* getelementptr inbounds\l... (%struct.view* @View, i32 0, i32 1, i32 0))\l  %2 = load [4 x double]** %normMat.addr, align 8\l  call void @TransformLights([4 x double]* %2)\l  ret void\l}"];
-}

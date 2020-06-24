@@ -1,8 +1,0 @@
-Error:  ******** Killed because of not a new invariant state.
-Stack: 
-	#0 00009382 in DecrementCounter ()
-	#1 00009353 in printY ()
-	#2 00008428 in ParallelExecute ()
-	#3 00008318 in __user_main (argc=1, argv=140448061829120)
-	#4 00010131 in __uClibc_main (main=21349968, argc=1, argv=140448061829120, app_init=0, app_fini=0, rtld_fini=0, stack_end=0) at /home/tao/temp/ori/src/klee-uclibc/libc/misc/internals/__uClibc_main.c:402
-	#5 00019982 in main (=1, =140448061829120)

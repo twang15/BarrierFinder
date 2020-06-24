@@ -1,5 +1,0 @@
-digraph "CFG for 'PrintArray' function" {
-	label="CFG for 'PrintArray' function";
-
-	Node0x4a59690 [shape=record,label="{entry:\l  ret i32 undef\l}"];
-}

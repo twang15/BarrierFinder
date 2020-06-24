@@ -1,5 +1,0 @@
-digraph "CFG for 'LocalFree' function" {
-	label="CFG for 'LocalFree' function";
-
-	Node0x5ff2b10 [shape=record,label="{entry:\l  %p.addr = alloca i8*, align 8\l  ret void\l}"];
-}

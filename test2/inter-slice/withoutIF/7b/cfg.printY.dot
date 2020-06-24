@@ -1,5 +1,0 @@
-digraph "CFG for 'printY' function" {
-	label="CFG for 'printY' function";
-
-	Node0x42adc60 [shape=record,label="{entry:\l  %0 = load i32* @index_out, align 4\l  %idxprom = sext i32 %0 to i64\l  %arrayidx = getelementptr inbounds [200 x i8]* @mystring, i32 0, i64 %idxprom\l  store i8 89, i8* %arrayidx, align 1\l  %1 = load i32* @index_out, align 4\l  %inc = add nsw i32 %1, 1\l  store i32 %inc, i32* @index_out, align 4\l  call void @DecrementCounter()\l  ret void\l}"];
-}

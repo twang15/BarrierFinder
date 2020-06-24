@@ -1,5 +1,0 @@
-digraph "CFG for 'TransformViewRay' function" {
-	label="CFG for 'TransformViewRay' function";
-
-	Node0x5f226d0 [shape=record,label="{entry:\l  %tray.addr = alloca double*, align 8\l  store double* %tray, double** %tray.addr, align 8\l  %0 = load double** %tray.addr, align 8\l  %1 = load double** %tray.addr, align 8\l  call void @VecMatMult(double* %0, [4 x double]* getelementptr inbounds\l... (%struct.view* @View, i32 0, i32 3, i32 0), double* %1)\l  ret void\l}"];
-}

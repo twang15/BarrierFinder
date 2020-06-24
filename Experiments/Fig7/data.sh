@@ -74,7 +74,7 @@ From37To31_radix() {
   numDigits=$1
 
   # step 5. compile each benchmark  
-  cd $HOME/CodeWalk/splash2/radix
+  cd $HOME/BarrierFinder/splash2/radix
 
   # from llvm 3.7 bitcode to llvm 3.7 assembly
   setEnv37
@@ -99,7 +99,7 @@ From37To31_lu() {
   defaultN=$1
 
   # step 5. compile each benchmark  
-  cd $HOME/CodeWalk/splash2/lu
+  cd $HOME/BarrierFinder/splash2/lu
 
   # from llvm 3.7 bitcode to llvm 3.7 assembly
   setEnv37
@@ -133,7 +133,7 @@ From37To31_fmm() {
   
   # enable IR
   if [ $2 -eq 1 ]; then
-    cd $HOME/CodeWalk/splash2/fmm
+    cd $HOME/BarrierFinder/splash2/fmm
     sed -i "38s/.*/#if 0/" print2.c
     sed -i "89s/.*/#if 1/" print2.c
     sed -i "98s/.*/#if 0/" print2.c
@@ -141,7 +141,7 @@ From37To31_fmm() {
     sed -i "241s/.*/#if 0/" print2.c
     sed -i "617s/.*/Time_Steps = $timeSteps;/" fmm.c
   else
-    cd $HOME/CodeWalk/splash2/fmm.inlined
+    cd $HOME/BarrierFinder/splash2/fmm.inlined
     if [ $timeSteps -eq 1 ];
     then
       sed -i "38s/.*/#if 0/" print2.c
@@ -215,7 +215,7 @@ PrepareCloud9_ET() {
 
 radix_IR() {
   PrepareCloud9_IR
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/radix.IR
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/radix.IR
 
   ns=(1 2 4 8 16 32)
   for n in ${ns[@]}
@@ -225,7 +225,7 @@ radix_IR() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -235,22 +235,22 @@ radix_IR() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
       done
 
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/radix.IR
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/radix.IR
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/radix.IR
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/radix.IR
     fi
   done
 }
 
 radix_IA() {
   PrepareCloud9_IA
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/radix.IA
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/radix.IA
   
   ns=(1 2 4 8 16 32 64 128 256 512 1024)
   for n in ${ns[@]}
@@ -260,7 +260,7 @@ radix_IA() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -270,22 +270,22 @@ radix_IA() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
       done
 
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/radix.IA
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/radix.IA
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/radix.IA
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/radix.IA
     fi
   done
 }
 
 radix_ET() {
   PrepareCloud9_ET
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/radix.ET
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/radix.ET
   
   ns=(1 2 4 8 16 32 64 128 256 512 1024)
   for n in ${ns[@]}
@@ -295,7 +295,7 @@ radix_ET() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -305,22 +305,22 @@ radix_ET() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
       done
 
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/radix.ET
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/radix.ET
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/radix.ET
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/radix.ET
     fi
   done
 }
 
 lu_IR() {
   PrepareCloud9_IR
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/lu.IR
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/lu.IR
 
   ns=(16 32 64 128)
   for n in ${ns[@]}
@@ -330,7 +330,7 @@ lu_IR() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -340,22 +340,22 @@ lu_IR() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
       done
 
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/lu.IR
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/lu.IR
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/lu.IR
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/lu.IR
     fi
   done
 }
 
 lu_IA() {
   PrepareCloud9_IA
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/lu.IA
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/lu.IA
   
   ns=(16 32 64 128 256 512)
   for n in ${ns[@]}
@@ -365,7 +365,7 @@ lu_IA() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -375,22 +375,22 @@ lu_IA() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
       done
 
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/lu.IA
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/lu.IA
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/lu.IA
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/lu.IA
     fi
   done
 }
 
 lu_ET() {
   PrepareCloud9_ET
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/lu.ET
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/lu.ET
   
   ns=(16 32 64 128 256 512)
   for n in ${ns[@]}
@@ -400,7 +400,7 @@ lu_ET() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -410,22 +410,22 @@ lu_ET() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
       done
 
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/lu.ET
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/lu.ET
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/lu.ET
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/lu.ET
     fi
   done
 }
 
 fmm_IR() {
   PrepareCloud9_IR
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/fmm.IR
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.IR
   
   ns=(1 2 4 5 10)
   for n in ${ns[@]}
@@ -435,7 +435,7 @@ fmm_IR() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -445,23 +445,23 @@ fmm_IR() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
 
       done
       
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/fmm.IR
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.IR
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/fmm.IR
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.IR
     fi
   done
 }
 
 fmm_IA() {
   PrepareCloud9_IA
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/fmm.IA
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.IA
   
   ns=(1 2 4 5 10 100 500 1000)
   for n in ${ns[@]}
@@ -471,7 +471,7 @@ fmm_IA() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm.inlined/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm.inlined/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -481,22 +481,22 @@ fmm_IA() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm.inlined/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm.inlined/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
       done
 
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/fmm.IA
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.IA
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/fmm.IA
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.IA
     fi
   done
 }
 
 fmm_ET() {
   PrepareCloud9_ET
-  rm -f $HOME/CodeWalk/Experiments/Fig7/Data/fmm.ET
+  rm -f $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.ET
   
   ns=(1 2 4 5 10 100 500 1000)
   ns=(3)
@@ -507,7 +507,7 @@ fmm_ET() {
     
     cd $HOME/temp/ori/src/cloud9
     rm -rf test-prod-cons/ traces.log
-    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm.inlined/a.out.bc
+    timeout 5m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm.inlined/a.out.bc
 
     # report
     if [ $? -eq 0 ];then
@@ -517,15 +517,15 @@ fmm_ET() {
       for i in {1..9}
       do
         rm -rf test-prod-cons/ traces.log
-        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm.inlined/a.out.bc
+        Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm.inlined/a.out.bc
         runTime="$runTime `tail -1 traces.log`"
       done
 
       # calculate mean and stdev
       awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/Experiments/Fig7/Data/fmm.ET
+      printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.ET
     else
-      echo "OOR" >> $HOME/CodeWalk/Experiments/Fig7/Data/fmm.ET
+      echo "OOR" >> $HOME/BarrierFinder/Experiments/Fig7/Data/fmm.ET
     fi
   done
 }
@@ -552,7 +552,7 @@ fmm() {
 }
 
 FormatData() {
-  cd $HOME/CodeWalk/Experiments/Fig7/Data
+  cd $HOME/BarrierFinder/Experiments/Fig7/Data
 
   for app in ${apps[@]}
   do

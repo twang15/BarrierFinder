@@ -1,5 +1,0 @@
-digraph "CFG for 'waitForAll' function" {
-	label="CFG for 'waitForAll' function";
-
-	Node0x4a4a3b0 [shape=record,label="{entry:\l  %call = call i32 (i32, i32, ...) *bitcast (i32 (...)* @pthread_join to i32\l... (i32, i32, ...)*)(i32 0, i32 0)\l  call void @flushAll()\l  ret void\l}"];
-}

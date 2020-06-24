@@ -1,5 +1,0 @@
-digraph "CFG for 'reset_rayinfo' function" {
-	label="CFG for 'reset_rayinfo' function";
-
-	Node0x6018340 [shape=record,label="{entry:\l  %r.addr = alloca %struct.ray*, align 8\l  store %struct.ray* %r, %struct.ray** %r.addr, align 8\l  %0 = load %struct.ray** %r.addr, align 8\l  %ri_indx = getelementptr inbounds %struct.ray* %0, i32 0, i32 9\l  store i64 0, i64* %ri_indx, align 8\l  ret void\l}"];
-}

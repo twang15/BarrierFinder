@@ -64,12 +64,12 @@ entry:
   ret void, !dbg !3269
 
 , disabled
-  #0 00006961 in __thread_preempt (yield=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
-  #1 00006955 in mySleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
-  #2 00007029 in sleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
+  #0 00006961 in __thread_preempt (yield=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
+  #1 00006955 in mySleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
+  #2 00007029 in sleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
   #3 00000625 in flexHammerThread (pArg=0) asm:625
   #4 00000664 in __user_main (argc=1, argv=140733018341376) asm:664
-  #5 00001453 in __uClibc_main (main=28491392, argc=1, argv=140733018341376, app_init=0, app_fini=0, rtld_fini=0, stack_end=0) at /home/tao/Cloud9/src/klee-uclibc/libc/misc/internals/__uClibc_main.c:402 asm:1453
+  #5 00001453 in __uClibc_main (main=28491392, argc=1, argv=140733018341376, app_init=0, app_fini=0, rtld_fini=0, stack_end=0) at $HOME/Cloud9/src/klee-uclibc/libc/misc/internals/__uClibc_main.c:402 asm:1453
   #6 00004452 in main (=1, =140733018341376) asm:4452
 
 -->> Current Thread
@@ -82,9 +82,9 @@ entry:
   ret void, !dbg !3269
 
 , disabled
-  #0 00006961 in __thread_preempt (yield=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
-  #1 00006955 in mySleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
-  #2 00007029 in sleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
+  #0 00006961 in __thread_preempt (yield=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
+  #1 00006955 in mySleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
+  #2 00007029 in sleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
   #3 00000625 in flexHammerThread (pArg=140733018354884) asm:625
 
 
@@ -132,12 +132,12 @@ entry:
   ret void, !dbg !3269
 
 , disabled
-  #0 00006961 in __thread_preempt (yield=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
-  #1 00006955 in mySleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
-  #2 00007029 in sleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
+  #0 00006961 in __thread_preempt (yield=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
+  #1 00006955 in mySleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
+  #2 00007029 in sleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
   #3 00000625 in flexHammerThread (pArg=0) asm:625
   #4 00000664 in __user_main (argc=1, argv=140733018341376) asm:664
-  #5 00001453 in __uClibc_main (main=28491392, argc=1, argv=140733018341376, app_init=0, app_fini=0, rtld_fini=0, stack_end=0) at /home/tao/Cloud9/src/klee-uclibc/libc/misc/internals/__uClibc_main.c:402 asm:1453
+  #5 00001453 in __uClibc_main (main=28491392, argc=1, argv=140733018341376, app_init=0, app_fini=0, rtld_fini=0, stack_end=0) at $HOME/Cloud9/src/klee-uclibc/libc/misc/internals/__uClibc_main.c:402 asm:1453
   #6 00004452 in main (=1, =140733018341376) asm:4452
 
 -->> Current Thread
@@ -150,9 +150,9 @@ entry:
   ret void, !dbg !3269
 
 , disabled
-  #0 00006961 in __thread_preempt (yield=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
-  #1 00006955 in mySleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
-  #2 00007029 in sleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
+  #0 00006961 in __thread_preempt (yield=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
+  #1 00006955 in mySleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
+  #2 00007029 in sleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
   #3 00000625 in flexHammerThread (pArg=140733018354884) asm:625
 
 
@@ -200,12 +200,12 @@ entry:
   ret void, !dbg !3269
 
 , disabled
-  #0 00006961 in __thread_preempt (yield=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
-  #1 00006955 in mySleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
-  #2 00007029 in sleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
+  #0 00006961 in __thread_preempt (yield=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
+  #1 00006955 in mySleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
+  #2 00007029 in sleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
   #3 00000625 in flexHammerThread (pArg=0) asm:625
   #4 00000664 in __user_main (argc=1, argv=140733018341376) asm:664
-  #5 00001453 in __uClibc_main (main=28491392, argc=1, argv=140733018341376, app_init=0, app_fini=0, rtld_fini=0, stack_end=0) at /home/tao/Cloud9/src/klee-uclibc/libc/misc/internals/__uClibc_main.c:402 asm:1453
+  #5 00001453 in __uClibc_main (main=28491392, argc=1, argv=140733018341376, app_init=0, app_fini=0, rtld_fini=0, stack_end=0) at $HOME/Cloud9/src/klee-uclibc/libc/misc/internals/__uClibc_main.c:402 asm:1453
   #6 00004452 in main (=1, =140733018341376) asm:4452
 
 -->> Current Thread
@@ -218,9 +218,9 @@ entry:
   ret void, !dbg !3269
 
 , disabled
-  #0 00006961 in __thread_preempt (yield=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
-  #1 00006955 in mySleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
-  #2 00007029 in sleep (seconds=2) at /home/tao/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
+  #0 00006961 in __thread_preempt (yield=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/multiprocess.h:180 asm:6961
+  #1 00006955 in mySleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:56 asm:6955
+  #2 00007029 in sleep (seconds=2) at $HOME/Cloud9/src/cloud9/runtime/POSIX/misc.c:92 asm:7029
   #3 00000625 in flexHammerThread (pArg=140733018354884) asm:625
 
 

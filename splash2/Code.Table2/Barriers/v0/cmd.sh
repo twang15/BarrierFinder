@@ -67,5 +67,5 @@ llvm-as a.out.ll -o a.out.bc
 #exe=`realpath a.out.bc`
 cd $HOME/Cloud9/src/cloud9
 rm -rf test-prod-cons/ traces.log
-Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/Code.Table2/Barriers/v0/a.out.bc
+Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/Code.Table2/Barriers/v0/a.out.bc
 tail -2 traces.log | head -1

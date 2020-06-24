@@ -1,5 +1,0 @@
-digraph "CFG for 'prn_ray' function" {
-	label="CFG for 'prn_ray' function";
-
-	Node0x5f61bd0 [shape=record,label="{entry:\l  %r.addr = alloca %struct.ray*, align 8\l  %ri = alloca %struct.rayinfo*, align 8\l  %g = alloca %struct.grid*, align 8\l  ret void\l}"];
-}

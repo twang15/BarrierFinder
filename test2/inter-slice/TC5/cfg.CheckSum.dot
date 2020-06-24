@@ -1,5 +1,0 @@
-digraph "CFG for 'CheckSum' function" {
-	label="CFG for 'CheckSum' function";
-
-	Node0x4a496f0 [shape=record,label="{entry:\l  ret double undef\l}"];
-}

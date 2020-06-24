@@ -53,7 +53,7 @@ cd $HOME/build.llvm3.7.optO2/
 make install
 
 #compile and disassemble w/ LLVM3.7
-cd $HOME/CodeWalk/splash2/Code.Table2/AllAB
+cd $HOME/BarrierFinder/splash2/Code.Table2/AllAB
 make clean
 make
 llvm-dis exe.opt.bc -o a.out.ll;
@@ -75,14 +75,14 @@ make
 
 #switch to another terminal
 #import enviroment variables for LLVM3.1
-cd $HOME/CodeWalk/splash2/Code.Table2/AllAB
+cd $HOME/BarrierFinder/splash2/Code.Table2/AllAB
 setEnv31
 llvm-as a.out.ll -o a.out.bc 
 
 # interpretation
 cd $HOME/Cloud9/src/cloud9
 rm -rf test-prod-cons/ traces.log
-Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/Code.Table2/AllAB/a.out.bc
+Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/Code.Table2/AllAB/a.out.bc
 
 tail -2 traces.log
 

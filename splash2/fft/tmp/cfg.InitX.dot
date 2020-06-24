@@ -1,5 +1,0 @@
-digraph "CFG for 'InitX' function" {
-	label="CFG for 'InitX' function";
-
-	Node0x5423a50 [shape=record,label="{entry:\l  ret i32 undef\l}"];
-}

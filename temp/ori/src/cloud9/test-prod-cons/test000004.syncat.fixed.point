@@ -1,4 +1,0 @@
-Error: killed due to being a fixed point.
-Stack: 
-	#0 00009548 in IncrementCounter ()
-	#1 00008590 in ParallelExecute ()

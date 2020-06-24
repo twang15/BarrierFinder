@@ -1,5 +1,0 @@
-digraph "CFG for 'TwiddleOneCol' function" {
-	label="CFG for 'TwiddleOneCol' function";
-
-	Node0x4a4acc0 [shape=record,label="{entry:\l  ret i32 undef\l}"];
-}

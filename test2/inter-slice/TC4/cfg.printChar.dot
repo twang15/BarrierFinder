@@ -1,5 +1,0 @@
-digraph "CFG for 'printChar' function" {
-	label="CFG for 'printChar' function";
-
-	Node0x42ac1f0 [shape=record,label="{entry:\l  %ch.addr = alloca i8, align 1\l  ret void\l}"];
-}

@@ -1,6 +1,0 @@
-Error:  ******** hang (possible deadlock?)
-File: /home/tao/Cloud9.dev2/src/cloud9/runtime/POSIX/threads.c
-Line: 101
-Stack: 
-	#0 00006343 in pthread_exit (value_ptr=12370169555311111083) at /home/tao/Cloud9.dev2/src/cloud9/runtime/POSIX/threads.c:101
-	#1 00000486 in flexHammerThread (pArg=139723274025252)

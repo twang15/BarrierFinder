@@ -50,7 +50,7 @@ setEnv31() {
 }
 
 # step 1. front-end slicing and instrumentation
-cd /home/tao/splash2/codes/kernels/fft
+cd $HOME/BarrierFinder/splash2/codes/kernels/fft
 setEnv37
 
 make clean
@@ -75,9 +75,9 @@ setEnv31
 llvm-as a.out.ll -o a.out.bc
 
 # step 3. middle-end experiments
-cd /home/tao/Cloud9.dev2/src/cloud9
+cd $HOME/Cloud9.dev2/src/cloud9
 rm -rf test-prod-cons/ traces.log
-Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons /home/tao/splash2/codes/kernels/fft/a.out.bc
+Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/codes/kernels/fft/a.out.bc
 
 # step 4. report
 python analyze.py

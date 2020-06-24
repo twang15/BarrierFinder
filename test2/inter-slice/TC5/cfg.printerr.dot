@@ -1,5 +1,0 @@
-digraph "CFG for 'printerr' function" {
-	label="CFG for 'printerr' function";
-
-	Node0x4a3bc30 [shape=record,label="{entry:\l  ret void\l}"];
-}

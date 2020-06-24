@@ -1,5 +1,0 @@
-digraph "CFG for 'printX' function" {
-	label="CFG for 'printX' function";
-
-	Node0x5de1200 [shape=record,label="{entry:\l  ret void\l}"];
-}

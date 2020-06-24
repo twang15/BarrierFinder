@@ -1,5 +1,0 @@
-digraph "CFG for 'appendY' function" {
-	label="CFG for 'appendY' function";
-
-	Node0x2bd1200 [shape=record,label="{%0:\l  %1 = load i32* @index_out, align 4\l  %2 = sext i32 %1 to i64\l  %3 = getelementptr inbounds [1024 x i8]* @mystring, i32 0, i64 %2\l  store i8 89, i8* %3, align 1\l  %4 = load i32* @index_out, align 4\l  %5 = add nsw i32 %4, 1\l  store i32 %5, i32* @index_out, align 4\l  ret void\l}"];
-}

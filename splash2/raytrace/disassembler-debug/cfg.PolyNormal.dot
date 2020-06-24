@@ -1,5 +1,0 @@
-digraph "CFG for 'PolyNormal' function" {
-	label="CFG for 'PolyNormal' function";
-
-	Node0x5ef1bb0 [shape=record,label="{entry:\l  %hit.addr = alloca %struct.irecord*, align 8\l  %Pi.addr = alloca double*, align 8\l  %Ni.addr = alloca double*, align 8\l  %pe = alloca %struct.element*, align 8\l  %pp = alloca %struct.poly*, align 8\l  ret void\l}"];
-}

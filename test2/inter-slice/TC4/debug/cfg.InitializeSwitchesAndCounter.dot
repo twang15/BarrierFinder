@@ -1,5 +1,0 @@
-digraph "CFG for 'InitializeSwitchesAndCounter' function" {
-	label="CFG for 'InitializeSwitchesAndCounter' function";
-
-	Node0x5ca5b50 [shape=record,label="{entry:\l  ret void\l}"];
-}

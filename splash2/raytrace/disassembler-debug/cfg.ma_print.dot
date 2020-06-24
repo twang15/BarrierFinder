@@ -1,5 +1,0 @@
-digraph "CFG for 'ma_print' function" {
-	label="CFG for 'ma_print' function";
-
-	Node0x60187b0 [shape=record,label="{entry:\l  %i = alloca i64, align 8\l  %mem_total = alloca i64, align 8\l  %maxmem_total = alloca i64, align 8\l  ret void\l}"];
-}

@@ -1,5 +1,0 @@
-digraph "CFG for 'BlockOwner' function" {
-	label="CFG for 'BlockOwner' function";
-
-	Node0x489f6e0 [shape=record,label="{entry:\l  %I.addr = alloca i32, align 4\l  %J.addr = alloca i32, align 4\l  store i32 %I, i32* %I.addr, align 4\l  store i32 %J, i32* %J.addr, align 4\l  %0 = load i32* %J.addr, align 4\l  %1 = load i32* @num_cols, align 4\l  %rem = srem i32 %0, %1\l  %2 = load i32* %I.addr, align 4\l  %3 = load i32* @num_rows, align 4\l  %rem1 = srem i32 %2, %3\l  %4 = load i32* @num_cols, align 4\l  %mul = mul nsw i32 %rem1, %4\l  %add = add nsw i32 %rem, %mul\l  ret i32 %add\l}"];
-}

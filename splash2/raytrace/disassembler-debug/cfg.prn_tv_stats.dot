@@ -1,5 +1,0 @@
-digraph "CFG for 'prn_tv_stats' function" {
-	label="CFG for 'prn_tv_stats' function";
-
-	Node0x5f71b50 [shape=record,label="{entry:\l  ret void\l}"];
-}

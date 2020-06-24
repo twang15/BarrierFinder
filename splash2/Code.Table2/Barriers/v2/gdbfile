@@ -1,5 +1,5 @@
 file ~/Cloud9/src/cloud9/Debug+Asserts/bin/c9-worker
-set args -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons ~/CodeWalk/splash2/Code.Table2/Barriers/v2/a.out.bc
+set args -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons ~/BarrierFinder/splash2/Code.Table2/Barriers/v2/a.out.bc
 
 b Executor_Threading.cpp:126
 r

@@ -1,5 +1,0 @@
-digraph "CFG for 'InitU2' function" {
-	label="CFG for 'InitU2' function";
-
-	Node0x5423f70 [shape=record,label="{entry:\l  ret i32 undef\l}"];
-}

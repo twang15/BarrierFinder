@@ -914,7 +914,7 @@ static ld_plugin_status allSymbolsReadHook(raw_fd_ostream *ApiFile) {
       return LDPS_OK;
   }
   //std::string Error;
-  //bool load = llvm::sys::DynamicLibrary::LoadLibraryPermanently("/home/tao/tools/llvm.debug3.7/bin/../lib/LLVMHello.so", &Error);
+  //bool load = llvm::sys::DynamicLibrary::LoadLibraryPermanently("$HOME/tools/llvm.debug3.7/bin/../lib/LLVMHello.so", &Error);
   //assert(!load && "Fail to load library");
   codegen(*L.getModule());
 

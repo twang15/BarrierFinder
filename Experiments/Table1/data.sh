@@ -57,7 +57,7 @@ setEnv31_debug() {
 
 ## Benchmarks
 benchmark() {
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
   rm -f column.benchmark
   for name in ${app_names[@]}
   do
@@ -67,7 +67,7 @@ benchmark() {
 
 # LOC.
 LOC() {
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
   rm -f column.loc
   wc -l fft/origin/fft.c | awk '{print $1}' >> column.loc
 
@@ -89,7 +89,7 @@ LOC() {
 # LOB.
 # disable slicing
 LOB() {
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
   sed -i "674s/.*/#if 0/" $HOME/llvm-3.7.0.src/lib/Transforms/Slicer/Slicing/StaticSlicer.cpp
   sed -i "622s/.*/#if 0/" $HOME/llvm-3.7.0.src/lib/Transforms/Slicer/Slicing/StaticSlicer.cpp
   cd $HOME/build.llvm3.7.optO2/
@@ -99,7 +99,7 @@ LOB() {
   export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 
   rm -f column.LOB
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
   for app in ${apps[@]}
   do
     cd $app
@@ -122,7 +122,7 @@ slicing() {
   # set up environment
   setEnv37
 
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
   for app in ${apps[@]}
   do
     cd $app
@@ -146,7 +146,7 @@ slicing() {
 # Slicing time
 slicingTimes() {
   rm -f slicingTime
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
   for app in ${apps[@]}
   do
     cat $app/slicingTime >> slicingTime
@@ -167,7 +167,7 @@ From37To31_T() {
   export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 
   # step 5. compile each benchmark  
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
 
   # FFT
   cd fft/
@@ -252,47 +252,47 @@ T() {
   
   # fft
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
     #python analyze.py | head -1 | awk '{print $3}'
-    tail traces.log >$HOME/CodeWalk/splash2/column.T
+    tail traces.log >$HOME/BarrierFinder/splash2/column.T
   else
-    echo "OOR" >$HOME/CodeWalk/splash2/column.T
+    echo "OOR" >$HOME/BarrierFinder/splash2/column.T
   fi
 
   # cholesky
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.T
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.T
 
   # raytrace
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.T
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.T
   
   # radix
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
     #python analyze.py | head -1 | awk '{print $3}'
-    tail traces.log >>$HOME/CodeWalk/splash2/column.T
+    tail traces.log >>$HOME/BarrierFinder/splash2/column.T
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.T
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.T
   fi
   
   # lu
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.T
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.T
   
   # fmm
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
     #python analyze.py | head -1 | awk '{print $3}'
-    tail traces.log >>$HOME/CodeWalk/splash2/column.T
+    tail traces.log >>$HOME/BarrierFinder/splash2/column.T
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.T
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.T
   fi
 }
 
@@ -309,7 +309,7 @@ From37To31_Ts() {
   export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 
   # step 5. compile each benchmark  
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
 
   # FFT
   cd fft/
@@ -394,47 +394,47 @@ Ts() {
   
   # fft
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
     #python analyze.py | head -1 | awk '{print $3}'
-    tail traces.log >$HOME/CodeWalk/splash2/column.Ts
+    tail traces.log >$HOME/BarrierFinder/splash2/column.Ts
   else
-    echo "OOR" >$HOME/CodeWalk/splash2/column.Ts
+    echo "OOR" >$HOME/BarrierFinder/splash2/column.Ts
   fi
 
   # cholesky
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.Ts
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.Ts
 
   # raytrace
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.Ts
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.Ts
   
   # radix
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
     #python analyze.py | head -1 | awk '{print $3}'
-    tail traces.log >>$HOME/CodeWalk/splash2/column.Ts
+    tail traces.log >>$HOME/BarrierFinder/splash2/column.Ts
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Ts
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Ts
   fi
   
   # lu
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.Ts
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.Ts
   
   # fmm
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
     #python analyze.py | head -1 | awk '{print $3}'
-    tail traces.log >>$HOME/CodeWalk/splash2/column.Ts
+    tail traces.log >>$HOME/BarrierFinder/splash2/column.Ts
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Ts
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Ts
   fi
 }
 
@@ -452,7 +452,7 @@ From37To31_Tr() {
   export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 
   # step 5. compile each benchmark  
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
 
   # FFT
   cd fft/
@@ -548,7 +548,7 @@ Tr() {
   
   # fft
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -558,30 +558,30 @@ Tr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc &>> traces.log
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" > $HOME/CodeWalk/splash2/column.Tr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" > $HOME/BarrierFinder/splash2/column.Tr
 
     #grep "7Z7Z" traces.log | tail -1 >data.log
     #mv data.log traces.log
     #python analyze.py | head -1 | awk '{print $3}'
   else
-    echo "OOR" >$HOME/CodeWalk/splash2/column.Tr
+    echo "OOR" >$HOME/BarrierFinder/splash2/column.Tr
   fi
 
   # cholesky
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.Tr
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.Tr
 
   # raytrace
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.Tr
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.Tr
   
   # radix
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -591,23 +591,23 @@ Tr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc &>> traces.log
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tr
   fi
   
   # lu
-  echo "N/A" >>$HOME/CodeWalk/splash2/column.Tr
+  echo "N/A" >>$HOME/BarrierFinder/splash2/column.Tr
   
   # fmm
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -617,15 +617,15 @@ Tr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc &>> traces.log
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tr
   fi
 
 }
@@ -643,7 +643,7 @@ From37To31_Tst() {
   export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 
   # step 5. compile each benchmark  
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
 
   # FFT
   cd fft/
@@ -708,18 +708,18 @@ Tst() {
   
   # fft
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc
 
   # report
   if [ $? -eq 0 ];then
     #python analyze.py | head -1 | awk '{print $3}'
-    tail traces.log >$HOME/CodeWalk/splash2/column.Tst
+    tail traces.log >$HOME/BarrierFinder/splash2/column.Tst
   else
-    echo "OOR" >$HOME/CodeWalk/splash2/column.Tst
+    echo "OOR" >$HOME/BarrierFinder/splash2/column.Tst
   fi
 
   # cholesky
-  echo "OOR" >>$HOME/CodeWalk/splash2/column.Tst
+  echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tst
 
   # raytrace
   rm -rf test-prod-cons/ traces.log
@@ -735,7 +735,7 @@ Tst() {
   make
   
   
-  timeout 7m Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/raytrace/a.out.bc /home/tao/CodeWalk/splash2/raytrace/balls4.env
+  timeout 7m Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/raytrace/a.out.bc $HOME/BarrierFinder/splash2/raytrace/balls4.env
 
   # report
   if [ $? -eq 0 ];then
@@ -745,25 +745,25 @@ Tst() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/raytrace/a.out.bc /home/tao/CodeWalk/splash2/raytrace/balls4.env
+      Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/raytrace/a.out.bc $HOME/BarrierFinder/splash2/raytrace/balls4.env
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tst
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tst
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tst
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tst
   fi
   
   # radix
-  echo "OOR" >>$HOME/CodeWalk/splash2/column.Tst
+  echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tst
   
   # lu
-  echo "OOR" >>$HOME/CodeWalk/splash2/column.Tst
+  echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tst
   
   # fmm
-  echo "OOR" >>$HOME/CodeWalk/splash2/column.Tst
+  echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tst
 }
 
 From37To31_Tsr() {
@@ -780,7 +780,7 @@ From37To31_Tsr() {
   export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 
   # step 5. compile each benchmark  
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
 
   # FFT
   cd fft/
@@ -928,7 +928,7 @@ Tsr() {
   
   # fft
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -938,20 +938,20 @@ Tsr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc &>> traces.log
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" > $HOME/CodeWalk/splash2/column.Tsr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" > $HOME/BarrierFinder/splash2/column.Tsr
   else
-    echo "OOR" >$HOME/CodeWalk/splash2/column.Tsr
+    echo "OOR" >$HOME/BarrierFinder/splash2/column.Tsr
   fi
 
   # cholesky
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/cholesky/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/cholesky/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -961,15 +961,15 @@ Tsr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/cholesky/a.out.bc &>> traces.log
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/cholesky/a.out.bc &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tsr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tsr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tsr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tsr
   fi
 
   # raytrace
@@ -985,7 +985,7 @@ Tsr() {
   # rebuild
   make
   
-  timeout 7m Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/raytrace/a.out.bc /home/tao/CodeWalk/splash2/raytrace/balls4.env &>> traces.log
+  timeout 7m Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/raytrace/a.out.bc $HOME/BarrierFinder/splash2/raytrace/balls4.env &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -995,20 +995,20 @@ Tsr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/raytrace/a.out.bc /home/tao/CodeWalk/splash2/raytrace/balls4.env &>> traces.log
+      Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/raytrace/a.out.bc $HOME/BarrierFinder/splash2/raytrace/balls4.env &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tsr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tsr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tsr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tsr
   fi
   
   # radix
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -1018,20 +1018,20 @@ Tsr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc &>> traces.log
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tsr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tsr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tsr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tsr
   fi
   
   # lu
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -1041,20 +1041,20 @@ Tsr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc &>> traces.log
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tsr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tsr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tsr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tsr
   fi
   
   # fmm
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc &>> traces.log
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc &>> traces.log
 
   # report
   if [ $? -eq 0 ];then
@@ -1064,15 +1064,15 @@ Tsr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc &>> traces.log
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc &>> traces.log
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tsr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tsr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tsr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tsr
   fi
 }
 
@@ -1090,7 +1090,7 @@ From37To31_Tstr() {
   export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 
   # step 5. compile each benchmark  
-  cd $HOME/CodeWalk/splash2
+  cd $HOME/BarrierFinder/splash2
 
   # FFT
   cd fft/
@@ -1238,7 +1238,7 @@ Tstr() {
   
   # fft
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc
 
   # report
   if [ $? -eq 0 ];then
@@ -1249,20 +1249,20 @@ Tstr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fft/a.out.bc
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fft/a.out.bc
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" > $HOME/CodeWalk/splash2/column.Tstr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" > $HOME/BarrierFinder/splash2/column.Tstr
   else
-    echo "OOR" >$HOME/CodeWalk/splash2/column.Tstr
+    echo "OOR" >$HOME/BarrierFinder/splash2/column.Tstr
   fi
 
   # cholesky
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/cholesky/a.out.bc
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/cholesky/a.out.bc
 
   # report
   if [ $? -eq 0 ];then
@@ -1273,15 +1273,15 @@ Tstr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/cholesky/a.out.bc
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/cholesky/a.out.bc
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tstr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tstr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tstr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tstr
   fi
 
   # raytrace
@@ -1297,7 +1297,7 @@ Tstr() {
   # rebuild
   make
   
-  timeout 7m Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/raytrace/a.out.bc /home/tao/CodeWalk/splash2/raytrace/balls4.env
+  timeout 7m Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/raytrace/a.out.bc $HOME/BarrierFinder/splash2/raytrace/balls4.env
 
   # report
   if [ $? -eq 0 ];then
@@ -1308,20 +1308,20 @@ Tstr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/raytrace/a.out.bc /home/tao/CodeWalk/splash2/raytrace/balls4.env
+      Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/raytrace/a.out.bc $HOME/BarrierFinder/splash2/raytrace/balls4.env
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tstr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tstr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tst
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tst
   fi
   
   # radix
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc
 
   # report
   if [ $? -eq 0 ];then
@@ -1332,20 +1332,20 @@ Tstr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/radix/a.out.bc
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/radix/a.out.bc
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tstr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tstr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tstr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tstr
   fi
   
   # lu
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc
 
   # report
   if [ $? -eq 0 ];then
@@ -1356,20 +1356,20 @@ Tstr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/lu/a.out.bc
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/lu/a.out.bc
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tstr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tstr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tstr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tstr
   fi
   
   # fmm
   rm -rf test-prod-cons/ traces.log
-  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc
+  timeout 7m Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc
 
   # report
   if [ $? -eq 0 ];then
@@ -1380,35 +1380,35 @@ Tstr() {
     for i in {1..9}
     do
       rm -rf test-prod-cons/ traces.log
-      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/CodeWalk/splash2/fmm/a.out.bc
+      Release+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder/splash2/fmm/a.out.bc
       runTime="$runTime `tail -1 traces.log`"
     done
 
     # calculate mean and stdev
     awk '{sum=0; square=0; for(i=1; i<=10; i++) { sum += $i; square += $i*$i }; 
-    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/CodeWalk/splash2/column.Tstr
+    printf "%.4f(%.4f)\n", sum/10, sqrt((square-sum*sum/10)/10)}' <<< "$runTime" >> $HOME/BarrierFinder/splash2/column.Tstr
   else
-    echo "OOR" >>$HOME/CodeWalk/splash2/column.Tstr
+    echo "OOR" >>$HOME/BarrierFinder/splash2/column.Tstr
   fi
 }
 
 # patterns
 patterns() {
   cd $HOME/temp/ori/src/cloud9/
-  rm -f $HOME/CodeWalk/splash2/column.patterns
+  rm -f $HOME/BarrierFinder/splash2/column.patterns
   for app in ${apps[@]}
   do
     cp traces.log.$app traces.log
-    python analyze.py | head -1 | awk '{printf "barriers(%d)\n", $3}' >> $HOME/CodeWalk/splash2/column.patterns
+    python analyze.py | head -1 | awk '{printf "barriers(%d)\n", $3}' >> $HOME/BarrierFinder/splash2/column.patterns
   done
 }
 
 # Tsr/Tstr
 TsrOverTstr() {
-  cd  $HOME/CodeWalk/splash2/
+  cd  $HOME/BarrierFinder/splash2/
 
-  awk -F'(' '{print $1}' $HOME/CodeWalk/splash2/column.Tsr > sr
-  awk -F'(' '{print $1}' $HOME/CodeWalk/splash2/column.Tstr > str
+  awk -F'(' '{print $1}' $HOME/BarrierFinder/splash2/column.Tsr > sr
+  awk -F'(' '{print $1}' $HOME/BarrierFinder/splash2/column.Tstr > str
 
   paste -d" " sr str >t
   awk '{printf "%.2f\n", $1/$2}' t > column.TsrOverTstr
@@ -1456,8 +1456,8 @@ table() {
   done
   
   paste -d" " table.data table.newline >content
-  cp content $HOME/CodeWalk/Experiments/Table1/Data
-  cd $HOME/CodeWalk/Experiments/Table1/Data
+  cp content $HOME/BarrierFinder/Experiments/Table1/Data
+  cd $HOME/BarrierFinder/Experiments/Table1/Data
   
   cp header table.tex
   cat content >> table.tex

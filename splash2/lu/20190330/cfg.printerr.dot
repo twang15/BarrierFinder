@@ -1,5 +1,0 @@
-digraph "CFG for 'printerr' function" {
-	label="CFG for 'printerr' function";
-
-	Node0x2ba1580 [shape=record,label="{%0:\l  %1 = alloca i8*, align 8\l  ret void\l}"];
-}

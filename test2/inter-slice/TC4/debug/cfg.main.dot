@@ -1,5 +1,0 @@
-digraph "CFG for 'main' function" {
-	label="CFG for 'main' function";
-
-	Node0x5ca1e80 [shape=record,label="{entry:\l  %retval = alloca i32, align 4\l  %a = alloca i32, align 4\l  %b = alloca i32, align 4\l  %call = call i8* @malloc(i64 16)\l  %0 = bitcast i8* %call to %struct.GlobalMemory*\l  store %struct.GlobalMemory* %0, %struct.GlobalMemory** @Global, align 8\l  %1 = load %struct.GlobalMemory** @Global, align 8\l  %start = getelementptr inbounds %struct.GlobalMemory* %1, i32 0, i32 0\l  %gsense = getelementptr inbounds %struct.barrier_t* %start, i32 0, i32 0\l  store volatile i32 1, i32* %gsense, align 4\l  %2 = load %struct.GlobalMemory** @Global, align 8\l  %start1 = getelementptr inbounds %struct.GlobalMemory* %2, i32 0, i32 0\l  %count = getelementptr inbounds %struct.barrier_t* %start1, i32 0, i32 1\l  store volatile i64 0, i64* %count, align 8\l  store i32 2, i32* @P, align 4\l  %3 = load %struct.GlobalMemory** @Global, align 8\l  call void @f1(%struct.GlobalMemory* %3)\l  ret i32 0\l}"];
-}

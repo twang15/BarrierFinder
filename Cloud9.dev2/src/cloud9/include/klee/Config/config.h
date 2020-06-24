@@ -44,7 +44,7 @@
 #define HAVE_UNISTD_H 1
 
 /* Path to KLEE's uClibc */
-#define KLEE_UCLIBC "/home/tao/Cloud9.dev2/src/klee-uclibc"
+#define KLEE_UCLIBC "$HOME/Cloud9.dev2/src/klee-uclibc"
 
 /* LLVM version is release (instead of development) */
 #define LLVM_IS_RELEASE 1

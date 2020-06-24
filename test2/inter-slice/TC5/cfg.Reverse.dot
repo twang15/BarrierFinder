@@ -1,5 +1,0 @@
-digraph "CFG for 'Reverse' function" {
-	label="CFG for 'Reverse' function";
-
-	Node0x4a59060 [shape=record,label="{entry:\l  ret i32 undef\l}"];
-}

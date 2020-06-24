@@ -1,7 +1,10 @@
 ## Note
 # instructions in Environment section is to prepare the experimental environment
 # instructions in Experiment section is to reproduce experimental results in our paper.
-# Note that performance results is very unlikely to be reproduced due to different hardwards.
+# instructions in How-to is to prepare a new program to use our tool 
+
+# Directories
+
 
 ##############
 # Environment

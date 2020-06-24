@@ -1,5 +1,0 @@
-digraph "CFG for 'SphElementBoundBox' function" {
-	label="CFG for 'SphElementBoundBox' function";
-
-	Node0x60813e0 [shape=record,label="{entry:\l  %pe.addr = alloca %struct.element*, align 8\l  %ps.addr = alloca %struct.sphere*, align 8\l  %pbb = alloca %struct.bbox*, align 8\l  ret void\l}"];
-}

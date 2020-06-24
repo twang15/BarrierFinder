@@ -36,7 +36,7 @@ recoverEnvs() {
 # set up environment variables for clang 3.7
 setEnv37() {
   PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-  export PATH=$HOME/tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
+  export PATH=$HOME/BarrierFinder//tools/binutils.optO2/bin:$HOME/tools/llvm.optO2/bin:$PATH
 }
 
 # set up environment variables for clang 3.1
@@ -44,14 +44,14 @@ setEnv31() {
 
   backupEnvs
   PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-  source $HOME/Cloud9.dev2/src/testing_targets/build/prepare_build_env.sh >& /dev/null
+  source $HOME/BarrierFinder//Cloud9.dev2/src/testing_targets/build/prepare_build_env.sh >& /dev/null
 
 }
 
 # step 1. front-end slicing and instrumentation
-cd /home/tao/splash2/codes/kernels/fft
-sed -i "622s/.*/#if 1/" $HOME/llvm-3.7.0.src/lib/Transforms/Slicer/Slicing/StaticSlicer.cpp
-cd $HOME/build.llvm3.7.optO2/
+cd $HOME/BarrierFinder//splash2/codes/kernels/fft
+sed -i "622s/.*/#if 1/" $HOME/BarrierFinder//llvm-3.7.0.src/lib/Transforms/Slicer/Slicing/StaticSlicer.cpp
+cd $HOME/BarrierFinder//build.llvm3.7.optO2/
 make install
 setEnv37
 
@@ -68,9 +68,9 @@ setEnv31
 llvm-as a.out.ll -o a.out.bc
 
 # step 3. middle-end experiments
-cd /home/tao/Cloud9.dev2/src/cloud9
+cd $HOME/BarrierFinder//Cloud9.dev2/src/cloud9
 rm -rf test-prod-cons/ traces.log
-Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons /home/tao/CodeWalk/splash2/fft/a.out.bc
+Debug+Asserts/bin/c9-worker -disable-opt --stand-alone -debug-sched-history -fork-on-schedule --posix-runtime --output-dir=test-prod-cons $HOME/BarrierFinder//BarrierFinder/splash2/fft/a.out.bc
 
 # step 4. report
 python analyze.py

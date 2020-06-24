@@ -1,5 +1,0 @@
-digraph "CFG for 'waitForAll' function" {
-	label="CFG for 'waitForAll' function";
-
-	Node0x5de29b0 [shape=record,label="{entry:\l  ret void\l}"];
-}

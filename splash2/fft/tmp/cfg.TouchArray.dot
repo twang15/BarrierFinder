@@ -1,5 +1,0 @@
-digraph "CFG for 'TouchArray' function" {
-	label="CFG for 'TouchArray' function";
-
-	Node0x54037b0 [shape=record,label="{entry:\l  ret double undef\l}"];
-}
