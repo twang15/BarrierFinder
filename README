@@ -4,7 +4,7 @@
 # Directories: descriptions on what each directory contains 
 # Environment: to prepare the experimental environment
 # Experiment: to reproduce experimental results in our paper.
-# How-to: to prepare a new program to use our tool. 
+# New programs: to prepare a new program to use our tool. 
 
 ##############
 # Directories
@@ -415,12 +415,28 @@ cd ../Table2
 
 
 ##############
-# How-to
+# New programs
 ##############
-To run a BarrierFinder for a new program:
-1) enumerate interleaving space to detect barriers.
-2) verify whether a counter-based barrier implementation is correct.
+Below, we provide some high-level guidelines how one may run
+BarrierFinder on new programs.
 
-Please refer to the previous "Experiments" section for detailed
-instructions. After you can reproduce our work, it is straight-forward
-to craft a new run.
+Please first reproduce our paper results following instructions in the
+previous "Experiments" section.
+
+After you can reproduce our work, you will first need to annotate your
+programs with the Criteria(i) for a matching pair of sync write and
+sync loop, which indicates the ith sync pair. Since the SyncFinder
+tool is not publicly available, this needs to be done manually.
+
+After annotating the programs, you can put your program in a directory
+you prefer, but it will be the easiest if the new program is put under
+the splash2 directory. You will need to modify the data.sh script,
+which is used while reproducing our paper results, to include your new
+program into the directories that the script will run on. You can also
+repurpose the data.sh to run a single program only.
+
+Since our reproduction package focuses on reproducing the results we
+present in our paper, we are not providing a script that can be
+directly used to run BarrierFinder on a new program. Thus, some manual
+effort will be needed to run our current prototype implementation of
+BarrierFinder on new programs.
